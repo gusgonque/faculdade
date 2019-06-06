@@ -46,7 +46,7 @@ int main () {
   int dia, mes, ano;
   scanf ("%d %d %d", &dia, &mes, &ano);
   for (dia, mes, ano; data_valida(dia, mes, ano) == 1; scanf ("%d %d %d", &dia, &mes, &ano)) {
-    printf ("%d\n", dias_desde_01_01 (dia, mes, ano));
+    printf ("%d\n",(dias_no_ano(ano) - dias_desde_01_01 (dia, mes, ano)));
   }
   return 0;
 }

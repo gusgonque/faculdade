@@ -54,7 +54,7 @@ void soma_data_dia (int d, int m, int a, int x, int *dia_final, int *mes_final, 
   else {
     for (aux_dia, aux_mes, mes_2, aux_ano, contador_fim; contador_fim < 0; contador_fim++) {
       aux_dia --;
-      if (aux_dia = 0){
+      if (aux_dia <= 0){
         aux_mes --;
         if (aux_mes = 0) {
           aux_mes = 12;

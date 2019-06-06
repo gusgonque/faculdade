@@ -43,7 +43,7 @@ int dias_desde_01_01_1600 (int d, int m, int a) {
   for (aux_ano, dia_final; aux_ano > 1600; dia_final += dias_no_ano(aux_ano)) {
     aux_ano--;
   }
-  dia_final += (d + ((ceil ((m - 1) / 2.0) *  31) + (m > 2) * ((floor ((m - 1) / 2.0) - 1) * 30) + (m > 2) * dias_no_mes (2, a)));
+  dia_final += (d + ((ceil ((m - 1) / 2.0) *  31) + (m > 2) * ((floor ((m - 1) / 2.0) - 1) * 30) + (m > 2) * dias_no_mes (2, a)) + (m == 11));
   return dia_final;
 }
 

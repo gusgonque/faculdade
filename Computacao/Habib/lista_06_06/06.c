@@ -25,7 +25,7 @@ int dias_no_mes (int m, int a) {
   }
 }
 
-void data_a_partir (int d, int a, int *dia_final, int *mes_final) {
+void data_a_partir_mesmo_ano (int d, int a, int *dia_final, int *mes_final) {
   int aux_dia = d, aux_mes = 1, mes_2 = dias_no_mes(2, a);
   if ((aux_dia > (31 + mes_2))) {
     aux_dia -= 29;
@@ -57,7 +57,7 @@ int main () {
   int dia, ano, dia_final, mes_final;
   scanf("%d %d", &dia, &ano);
   for (dia, ano; dia <= dias_no_ano(ano); scanf("%d %d", &dia, &ano)) {
-    data_a_partir(dia, ano, &dia_final, &mes_final);
+    data_a_partir_mesmo_ano(dia, ano, &dia_final, &mes_final);
     printf("%d %d %d\n", dia_final, mes_final, ano);
   }
 }

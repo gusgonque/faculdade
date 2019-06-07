@@ -30,9 +30,9 @@ int data_valida (int d, int m, int a) {
 }
 
 void soma_data_dia (int d, int m, int a, int x, int *dia_final, int *mes_final, int *ano_final) {
-  int aux_dia = d, aux_mes = m, mes_2 = dias_no_mes(2, a), aux_ano = a, contador_fim = x;
+  int aux_dia = d, aux_mes = m, aux_ano = a, contador_fim = x;
   if (contador_fim >= 0) {
-    for (aux_dia, aux_mes, mes_2, aux_ano, contador_fim; contador_fim > 0; contador_fim--) {
+    for (aux_dia, aux_mes, aux_ano, contador_fim; contador_fim > 0; contador_fim--) {
       aux_dia ++;
       if (aux_dia > dias_no_mes(aux_mes, aux_ano)){
         aux_dia -= dias_no_mes(aux_mes, aux_ano);
@@ -52,19 +52,12 @@ void soma_data_dia (int d, int m, int a, int x, int *dia_final, int *mes_final, 
     *ano_final = aux_ano;
   }
   else {
-    for (aux_dia, aux_mes, mes_2, aux_ano, contador_fim; contador_fim < 0; contador_fim++) {
+    for (aux_dia, aux_mes, aux_ano, contador_fim; contador_fim < 0; contador_fim++) {
       aux_dia --;
-      if (aux_dia <= 0){
+      for (aux_dia, aux_mes, aux_ano; aux_dia <= 0; aux_dia += dias_no_mes(aux_mes, aux_ano)) {
         aux_mes --;
-        if (aux_mes = 0) {
-          aux_mes = 12;
-          aux_ano --;
-        }
-        else {
-        }
-        aux_dia = dias_no_mes(aux_mes, aux_ano);
-      }
-      else {
+        aux_ano -= (aux_mes == 0);
+        aux_mes += ((aux_mes == 0) * 12);
       }
     }
     *dia_final = aux_dia;

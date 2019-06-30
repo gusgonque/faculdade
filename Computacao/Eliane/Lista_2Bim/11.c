@@ -1,10 +1,20 @@
 #include <stdio.h>
+#include <math.h>
+
+int numero_numeros (int x) {
+  int num_numeros;
+  for ( num_numeros=0 ; x>0 ; x/=10 ) {
+    num_numeros++;
+  }
+  return (num_numeros-1);
+}
 
 void encriptografia_numero_letra (int x) {
-  int aux_divisao, aux_resto;
-  for (aux_divisao = x, aux_resto; aux_divisao > 0; aux_divisao /= 10) {
-    aux_resto = aux_divisao % 10;
-    printf("%c", (aux_resto  + 65));
+  int letra, num_numeros, aux_expoente, aux_x;
+  for ( num_numeros=numero_numeros(x), aux_x=x ; num_numeros>=0 ; num_numeros--) {
+    aux_expoente=pow(10,num_numeros);
+    printf("%c", 'A'+(aux_x/aux_expoente));
+    aux_x-= ((aux_x / aux_expoente) * aux_expoente);
   }
   printf("\n");
 }

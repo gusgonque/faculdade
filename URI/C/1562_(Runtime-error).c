@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+void pares ( int x ) {
+  if ( x % 2 != 0) {
+    printf("IMPOSSIBLE\n");
+  } else {
+    int alunos_sem_par[x], alunos_com_par[x], aux, aux_2;
+    for ( aux = 1 ; aux <= x ; aux++) {
+      scanf("%d", &alunos_sem_par[aux]);
+      alunos_com_par[aux] = 0;
+    }
+    for ( aux = 1 ; aux <= x ; aux++) {
+      if (alunos_com_par[alunos_sem_par[aux]] == 0) {
+        alunos_com_par[aux] = alunos_sem_par[aux];
+        alunos_com_par[alunos_sem_par[aux]] = aux;
+      }
+      else {
+        for ( aux_2 = aux + 1 ; aux_2 <= x ; aux_2++) {
+          if (alunos_com_par[aux_2] == 0) {
+            alunos_com_par[aux_2] = aux;
+            alunos_com_par[aux] = aux_2;
+          }
+        }
+      }
+    }
+    for ( aux = 1 ; aux <= x ; aux++) {
+      printf("%d ", alunos_com_par[aux]);
+    }
+    printf("\n");
+  }
+}
+
+int main () {
+  int num_alunos_em_sala;
+  scanf("%d", &num_alunos_em_sala);
+  for (  ; num_alunos_em_sala >= 2 && num_alunos_em_sala <= 10000 ; scanf("%d", &num_alunos_em_sala) ) {
+    pares (num_alunos_em_sala);
+  }
+  return 0;
+}

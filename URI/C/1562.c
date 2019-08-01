@@ -29,7 +29,7 @@ void pares ( int x ) {
 int main () {
   int num_alunos_em_sala;
   scanf("%d", &num_alunos_em_sala);
-  for (  ;  ; scanf("%d", &num_alunos_em_sala) ) {
+  for (  ; num_alunos_em_sala >= 2 && num_alunos_em_sala <= 10000 ; scanf("%d", &num_alunos_em_sala) ) {
     pares (num_alunos_em_sala);
   }
   return 0;

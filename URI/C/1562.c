@@ -4,8 +4,8 @@ void pares ( int x ) {
   if ( x % 2 != 0) {
     printf("IMPOSSIBLE\n");
   } else {
-    int alunos_sem_par[2*x], alunos_com_par[2*x], aux;
-    for ( aux = 1 ; aux <= x ; aux++) {
+    int alunos_sem_par[x], alunos_com_par[x], aux;
+    for ( aux = 0 ; aux < x ; aux++) {
       scanf("%d", &alunos_sem_par[aux]);
       alunos_com_par[aux] = 0;
     }

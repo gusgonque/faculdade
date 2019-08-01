@@ -5,7 +5,7 @@ void pares ( int x ) {
     printf("IMPOSSIBLE\n");
   } else {
     int alunos_sem_par[x], alunos_com_par[x], aux;
-    for ( aux = 0 ; aux <= x ; aux++) {
+    for ( aux = 0 ; aux < x ; aux++) {
       scanf("%d", &alunos_sem_par[aux]);
       alunos_com_par[aux] = 0;
     }

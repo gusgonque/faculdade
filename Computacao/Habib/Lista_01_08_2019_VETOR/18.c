@@ -36,7 +36,7 @@ void Juntar_2_Vetores_Intercalando (int v1[], int n1, int v2[], int n2) {
     aux_2++;
   }
   for ( aux = 0 ; aux < (n1+n2)-(n1*2) ; aux++ ) {
-    Vetor_Resposta[(n1*2)+aux] = v2[(n1+n2)-(n1*2)+aux];
+    Vetor_Resposta[(n1*2)+aux] = v2[(n1+n2)-(n1*2)+aux+1];
   }
   Mostrar_Vetor (Vetor_Resposta,n1+n2);
 }

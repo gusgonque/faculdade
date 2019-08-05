@@ -25,10 +25,11 @@ void Vetor_Excluir_Elemento (int v[], int *n, int Indice) {
 void Vetor_Excluir_Elementos_Repitidos (int v[], int *n) {
   int aux, aux_2;
   for ( aux = 0 ; aux < *n ; aux++ ) {
-    for ( aux_2 = 0 ; aux_2 < *n ; aux_2++ ) {
+    for ( aux_2 = aux+1 ; aux_2 < *n ; aux_2++ ) {
       if ( v[aux] == v[aux_2] ) {
         Vetor_Excluir_Elemento (v,n,aux_2);
-        aux = aux_2 = 0;
+        aux = 0;
+        aux_2 = aux+1;
       }
     }
   }

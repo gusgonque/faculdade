@@ -14,4 +14,5 @@ int main () {
   scanf("%d", &n);
   int v[n-1];
   soma_vetores (v, n );
+  return 0;
 }

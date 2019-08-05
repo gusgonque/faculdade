@@ -15,4 +15,5 @@ int main () {
   scanf("%d", &n);
   int v[n-1];
   Mostrar_Vetor_Invertido (v, n);
+  return 0;
 }

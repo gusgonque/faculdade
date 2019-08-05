@@ -16,4 +16,5 @@ int main () {
   scanf("%d", &n);
   int v[n-1];
   Quant_Prox_Ant_Par (v, n);
+  return 0;
 }

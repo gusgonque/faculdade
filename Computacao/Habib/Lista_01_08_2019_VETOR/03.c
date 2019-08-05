@@ -20,4 +20,5 @@ int main () {
   scanf("%d", &n);
   int v[n-1];
   Inverter_Vetor (v, n);
+  return 0;
 }

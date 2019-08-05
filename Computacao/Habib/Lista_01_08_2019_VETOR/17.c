@@ -28,9 +28,10 @@ void Juntar_2_Vetores (int v1[], int n1, int v2[], int n2) {
 int main () {
   int n,n_2;
   scanf("%d", &n);
-  int v[n-1],v_2[n-1];
+  int v[n-1];
   Identificar_Vetor (v,n);
   scanf("%d", &n_2);
+  int v_2[n_2-1];
   Identificar_Vetor (v_2,n_2);
   Juntar_2_Vetores (v, n, v_2, n_2);
   return 0;

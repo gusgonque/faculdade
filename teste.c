@@ -14,29 +14,23 @@ void Mostrar_Vetor (int v[], int n) {
   }
 }
 
-int Menor_Indice (int v[], int n) {
-  int aux, Maior_Indice;
-  for (aux = 1, Maior_Indice = 0; aux < n ; aux++) {
-    if (v[aux] < v[Maior_Indice]){
-      Maior_Indice = aux;
-    }
+void Juntar_2_Vetores_Intercalando (int v1[], int n1, int v2[], int n2) {
+  int aux, Vetor_Resposta[1000], aux_2;
+  for ( aux = 0, aux_2 = 0 ; aux < n1+n2 ; aux+=2 ) {
+    Vetor_Resposta[aux] = v1[aux_2];
+    Vetor_Resposta[aux+1] = v2[aux_2];
+    aux_2++;
   }
-  return Maior_Indice;
-}
-
-void Vetor_Odrem_Decrescente (int v[], int n) {
-  int aux, Indice_Auxiliar;
-  for (aux = n; aux > 0; aux --) {
-    Indice_Auxiliar = Menor_Indice (v, aux);
-    printf("%d\n", Indice_Auxiliar);
-  }
+  Mostrar_Vetor (Vetor_Resposta, n1+n2);
 }
 
 int main () {
-  int n;
+  int n,n_2;
   scanf("%d", &n);
-  int v[n-1];
+  int v[n-1],v_2[n-1];
   Identificar_Vetor (v,n);
-  Vetor_Odrem_Decrescente (v, n);
+  scanf("%d", &n_2);
+  Identificar_Vetor (v_2,n_2);
+  Juntar_2_Vetores_Intercalando (v, n, v_2, n_2);
   return 0;
 }

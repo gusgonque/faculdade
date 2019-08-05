@@ -36,9 +36,7 @@ void Vetor_Excluir_Maior_Elemento (int v[], int *n) {
   for ( aux = Indice_Maior_Elemento (v,*n) ; aux < *n-1 ; aux++ ) {
     v[aux] = v[aux+1];
   }
-  printf("Tamanho do vetor era %d\n", *n);
-  *n--;
-  printf("Agora eh %d\n", *n);
+  *n-=1;
 }
 
 int main () {

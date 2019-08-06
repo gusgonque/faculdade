@@ -5,7 +5,6 @@ void Identificar_Vetor (int v[], int n) {
   int aux;
   for (aux = 0; aux < n; aux ++) {
     scanf("%d", &v[aux]);
-    printf("v[%d]=%d\n", aux, v[aux]);
   }
 }
 
@@ -21,16 +20,14 @@ int Vetor_Soma_Subindo (int v[], int n, int Indice) {
   for ( aux = Indice, soma = 0 ; aux > 0 ; aux-- ) {
     soma += v[aux-1];
   }
-  printf("Soma Subindo na posicao %d = %d\n", aux, soma);
   return soma;
 }
 
 int Vetor_Soma_Descendo (int v[], int n, int Indice) {
   int aux, soma;
-  for ( aux = Indice+1, soma = 0 ; aux < n-Indice ; aux++ ) {
+  for ( aux = Indice+1, soma = 0 ; aux < n ; aux++ ) {
     soma += v[aux];
   }
-  printf("Soma Descendo na posicao %d = %d\n", aux, soma);
   return soma;
 }
 
@@ -50,10 +47,9 @@ void Vetor_Ponto_de_Equilibrio (int v[], int n) {
     aux_ponto_equilibrio = ((Vetor_Soma_Subindo (v,n,aux) - Vetor_Soma_Descendo (v,n,aux))<0)?
     ((Vetor_Soma_Subindo (v,n,aux) - Vetor_Soma_Descendo (v,n,aux))*(-1)):
     (Vetor_Soma_Subindo (v,n,aux) - Vetor_Soma_Descendo (v,n,aux));
-    printf("Diferenca na posicao %d = %d\n", aux, aux_ponto_equilibrio);
     v_aux[aux] = aux_ponto_equilibrio;
   }
-  printf("%d\n", Indice_Menor_Elemento(v_aux,n));
+  printf("%d\n", Indice_Menor_Elemento(v_aux,n-1));
 }
 
 int main () {

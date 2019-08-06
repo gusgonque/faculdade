@@ -29,9 +29,8 @@ int main () {
   scanf("%d", &n);
   int v[n-1];
   Identificar_Vetor (v,n);
-  scanf("%d", &n_2);
-  int v_2[n_2-1];
+  int v_2[n-1];
   Identificar_Vetor (v_2,n);
-  Juntar_2_Vetores_Mesmo_Comprimento_Intercalando (v_1, v_2, n);
+  Juntar_2_Vetores_Mesmo_Comprimento_Intercalando (v, v_2, n);
   return 0;
 }

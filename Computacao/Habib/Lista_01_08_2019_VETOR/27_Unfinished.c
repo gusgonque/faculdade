@@ -22,16 +22,28 @@ int Qual_Menor (int x1, int x2) {
   return (x1 < x2) ? x1 : x2;
 }
 
-void Vetor_Reduzir_Maior_Menor (int v[], int n) {
-  int aux, aux_2, aux_3, n_final;
-  for ( n_final = n, aux = aux_3 = 0 ; n_final > 1 ; (n_final/=2)+(n_final%2)-((n_final/2)==1) ) {
-    for ( aux_2 = 1 ; aux < n_final ; aux+=2 ) {
-      v[aux_3] = (aux_2 == 1) ? Qual_Maior (v[aux],v[aux+1]) : Qual_Menor (v[aux],v[aux+1]);
-      aux_3++;
-      aux_2*=(-1);
+void Vetor_Reduzir_Maior_Menor (int v[], int t) {
+  int aux_t, aux_alt, aux_v, t_final, aux_aux;
+  for ( t_final = t, aux_aux = -1 ; t_final > 1 ;  ) {
+    printf("Rodada %d\n", t-t_final+1);
+    if ( t_final % 2 ) {
+      aux_aux = v[t_final];
+      t_final--;
+    }
+    for ( aux_t = 0, aux_v = 0, aux_alt = 1 ; aux_t < t_final ; aux_t+=2 ) {
+      v[aux_v] = aux_alt == 1 ? Qual_Maior (v[aux_t],v[aux_t+1]) : Qual_Menor (v[aux_t],v[aux_t+1]);
+      printf("Entre os numeros %d e %d do vetor, %d vence nessa rodada.\n", v[aux_t], v[aux_t+1], v[aux_v]);
+      aux_v ++;
+      aux_alt *= -1;
+      t_final--;
+    }
+    if (aux_aux != -1) {
+      t_final++;
+      v[t_final] = aux_aux;
+      aux_aux = -1;
     }
   }
-  Mostrar_Vetor (v,n_final);
+  Mostrar_Vetor (v,t_final);
 }
 
 int main () {

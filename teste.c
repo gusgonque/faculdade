@@ -1,27 +1,26 @@
 #include <stdio.h>
 
-void Identificar_Vetor (int v[], int n) {
-  int aux;
-  for (aux = 0; aux < n; aux ++) {
-    scanf("%d", &v[aux]);
+void Crescimento_Populacional (int pop_a,int  pop_b, float cres_a, float cres_b) {
+  int aux_tempo_anos, aux_pop_a, aux_pop_b;
+  for ( aux_tempo_anos = 0, aux_pop_a = pop_a, aux_pop_b = pop_b ; (aux_pop_a <= aux_pop_b)||(aux_tempo_anos<=100) ; aux_tempo_anos++ ) {
+    aux_pop_a *= ((100.0 + cres_a) / 100.0);
+    aux_pop_b *= ((100.0 + cres_b) / 100.0);
   }
+  if (aux_tempo_anos <= 100)
+    printf("%d anos.\n", aux_tempo_anos);
+  else
+    printf("Mais de 1 seculo.\n");
 }
 
-int Indice_Menor_Elemento (int v[], int n) {
-  int aux, Menor_Indice;
-  for (aux = 1, Menor_Indice = 0; aux < n ; aux++) {
-    if (v[aux] < v[Menor_Indice]){
-      Menor_Indice = aux;
-    }
-  }
-  return Menor_Indice;
-}
 
 int main () {
-  int n;
-  scanf("%d", &n);
-  int v[n-1];
-  Identificar_Vetor (v,n);
-  printf("%d\n", Indice_Menor_Elemento(v,n));
+
+  int pop_a, pop_b, num_casos, i;
+  float cres_a, cres_b;
+  scanf("%d", &num_casos);
+  for ( i = 1 ; i < num_casos ; i++ ) {
+    scanf("%d %d %f %f", &pop_a, &pop_b, &cres_a, &cres_b);
+    Crescimento_Populacional (pop_a,pop_b,cres_a,cres_b);
+  }
   return 0;
 }

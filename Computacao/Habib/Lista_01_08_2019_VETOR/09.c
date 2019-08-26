@@ -23,12 +23,7 @@ void Vetor_Trocar_Valores (int v[], int n, int Indice_1, int Indice_2) {
 
 void Vetor_Troca_2a2 (int v[], int n) {
   int aux;
-  if (!(n%2))
-    for (aux = 0; aux < n ; aux +=2) {
-      Vetor_Trocar_Valores (v, n, aux, aux+1);
-    }
-  else
-    for (aux = 0; aux < n-1 ; aux +=2) {
+    for (aux = 0; aux < ((n%2)? n-1 : n) ; aux +=2) {
       Vetor_Trocar_Valores (v, n, aux, aux+1);
     }
 }

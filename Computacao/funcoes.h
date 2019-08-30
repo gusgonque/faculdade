@@ -4,3 +4,10 @@ int Soma_Divisores (int x) {
     aux_soma += ( x % i == 0 ) ? i : 0;
   return aux_soma;
 }
+
+int Fatorial (int x) {
+  int fat, i;
+  for(fat = x, i = 1; i < x; i--)
+    fat *= i;
+  return fat;
+}

@@ -1,11 +1,20 @@
-void Set_Vetor  (int v[], int t) {
-    for (int aux_cont = 0; aux_cont < t ; aux_cont++) {
-        scanf ("%d", &v[aux_cont]);
-    }
+void Identificar_Vetor (int v[], int n) {
+  int aux;
+  for (aux = 0; aux < n; aux ++) {
+    scanf("%d", &v[aux]);
+  }
 }
 
-void Show_Vetor (int v[], int t) {
-    for (int aux_cont = 0; aux_cont < t ; aux_cont++) {
-        printf ("%d\n", v[aux_cont]);
-    }
+void Mostrar_Vetor (int v[], int n) {
+  int aux;
+  for (aux = 0; aux < n; aux ++) {
+    printf("%d\n", v[aux]);
+  }
+}
+
+void Preencher_Vetor (int v[], int t, int x) {
+  int i;
+  for ( i = 0 ; i < t ; i++) {
+    v[i] = x;
+  }
 }

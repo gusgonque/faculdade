@@ -1,11 +1,13 @@
 #include <stdio.h>
+#include "funcoes.h"
+
 
 int main () {
-  long int raio_1, raio_2, num_casos;
-  scanf("%li", num_casos);
-  for (  ; num_casos >= 0 ; num_casos-- ) {
-    scanf("%li %li", raio_1, raio_2);
-    printf("%d\n", raio_1+raio_2);
+  long int x,y,r;
+  while (1) {
+    scanf("%d %d", &x,&y);
+    r = Combinacao(x,y);
+    printf("%d\n", r);
   }
   return 0;
 }

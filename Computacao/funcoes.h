@@ -5,9 +5,24 @@ int Soma_Divisores (int x) {
   return aux_soma;
 }
 
-int Fatorial (int x) {
-  int fat, i;
-  for(fat = x, i = 1; i < x; i--)
-    fat *= i;
-  return fat;
+int Fatorial(int n){
+   if (n>0)
+      return n*Fatorial(n-1);
+   else
+      return 1;
+}
+
+int Permutacao(int n){
+  return Fatorial(n);
+}
+
+int Arranjo(int n, int p){
+  if (p>1)
+      return n*Arranjo(n-1,p-1);
+   else
+      return n;
+}
+
+int Combinacao(int n, int p){
+   return Arranjo(n,p)/Fatorial(p);
 }

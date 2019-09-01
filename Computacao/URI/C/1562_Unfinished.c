@@ -42,29 +42,32 @@ void Fazendo_Duplas_Decrescente (int des[], int real[], int c, int f) {
   }
 }
 
-void Escolhendo_Duplas (int des[], int real[], int num_alunos) {
-  Preencher_Vetor(real,num_alunos,0);
+void Fazendo_Duplas (int des[], int real[], int num_alunos, int fl) {
   int i, j, k;
   for ( i = j = k = 0; (i < num_alunos)&&(k<(num_alunos*num_alunos)) ; i++, k++ ) {
     if (real[i] == 0){
       Preencher_Vetor (real,num_alunos,0);
-      Fazendo_Duplas_Crescente (des, real, j, j+1);
-      Fazendo_Duplas_Crescente (des, real, 0, j);
-      Fazendo_Duplas_Crescente (des, real, j+1, num_alunos);
+      if (fl == 1) {
+        Fazendo_Duplas_Crescente (des, real, j, j+1);
+        Fazendo_Duplas_Crescente (des, real, 0, j);
+        Fazendo_Duplas_Crescente (des, real, j+1, num_alunos);
+      }
+      else {
+        Fazendo_Duplas_Decrescente (des, real, j, j-1);
+        Fazendo_Duplas_Decrescente (des, real, num_alunos, j);
+        Fazendo_Duplas_Decrescente (des, real, j-1, 0);
+      }
       j++;
       i = -1;
     }
   }
-  for ( i = j = k = 0; (i < num_alunos)&&(k<(num_alunos*num_alunos)) ; i++, k++ ) {
-    if (real[i] == 0){
-      Preencher_Vetor (real,num_alunos,0);
-      Fazendo_Duplas_Decrescente (des, real, j, j-1);
-      Fazendo_Duplas_Decrescente (des, real, num_alunos, j);
-      Fazendo_Duplas_Decrescente (des, real, j-1, 0);
-      j++;
-      i = -1;
-    }
-  }
+}
+
+void Escolhendo_Duplas (int des[], int real[], int num_alunos) {
+  Preencher_Vetor(real,num_alunos,0);
+  int i;
+  Fazendo_Duplas (des,real,num_alunos,1);
+  Fazendo_Duplas (des,real,num_alunos,-1);
   for ( i = 0 ; i < num_alunos ; i++ ) {
     if (real[i] == 0){
       printf("IMPOSSIBLE\n");

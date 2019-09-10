@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include "funcoes.h"
 
+void Ordem_Crescente (int a,)
 
 int main () {
-  long int x,y,r;
+  int x, y, z;
   while (1) {
-    scanf("%d %d", &x,&y);
-    r = Combinacao(x,y);
-    printf("%d\n", r);
+    scanf("%d %d %d", &x, &y, &z);
+    Ordem_Crescente (x,y,z);
+    Ordem_Decrescente (x,y,z);
   }
   return 0;
 }

@@ -1,40 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-void Preencher_Matriz (int mat[][100],int *l,int *c) {
-  int i, j;
-  //*l = 3 + rand()%10;
-  //*c = 2 + rand()%5;
-  scanf("%d %d", l, c);
-  for ( i = 0 ; i < *l ; i++ )
-    for ( j = 0 ; j < *c ; j++ )
-      //mat[i][j] = 10+ rand()%41;
-      scanf("%d", &mat[i][j]);
-}
-
-void Mostrar_Matriz (int mat[][100],int l,int c) {
-  int i, j;
-  for ( i = 0 ; i < l ; i++ ) {
-    for ( j = 0 ; j < c ; j++ )
-      printf("%d ", mat[i][j]);
-    printf("\n");
-  }
-}
-
-int Soma_Matriz (int mat[][100],int l,int c) {
-  int soma, i, j;
-  for ( i = 0, soma = 0 ; i < l ; i++ )
-    for ( j = 0 ; j < c ; j++ )
-      soma += mat[i][j];
-  return soma;
-}
+#include "matriz.h"
 
 int main () {
-  int mat[100][100],l,c;
-  //srand(time(NULL));
-  Preencher_Matriz (mat,&l,&c);
+  int mat[100][100],l,c,maior_l,maior_c,maior_elem;
+  srand(time(NULL));
+  Preencher_Matriz_Random_Quadrada (mat,&l,&c);
   Mostrar_Matriz (mat,l,c);
   printf("Soma = %d\n", Soma_Matriz(mat,l,c));
+  Maior_Elemento_Matriz(mat,l,c);
+  if (l == c) {
+  Preencher_Matriz_Identidade (mat,l,c);
+  Mostrar_Matriz (mat,l,c);
+  Preencher_Matriz_Identidade_Inversa (mat,l,c);
+  Mostrar_Matriz (mat,l,c);
+  Preencher_Matriz_Sequencia (mat,l,c);
+  Mostrar_Matriz (mat,l,c);
+  Preencher_Matriz_Triangulo_Superior (mat,l,c);
+  Mostrar_Matriz (mat,l,c);
+  Preencher_Matriz_Triangulo_Inferior (mat,l,c);
+  Mostrar_Matriz (mat,l,c);
+  }
+  else
+    printf("Matriz nao quadrada\n");
   return 0;
 }

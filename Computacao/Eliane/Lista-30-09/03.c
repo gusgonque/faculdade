@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 void Alternar_Letra_Maiuscula_Minuscula (char s[]) {
     int i, flag;
@@ -14,8 +15,8 @@ void Alternar_Letra_Maiuscula_Minuscula (char s[]) {
 }
 
 int main () {
-    int num_casos, tam, i;
-    char str[100], ch;
+    int num_casos, i;
+    char str[100];
     scanf("%d ", &num_casos);
     for ( i = 0 ; i < num_casos ; i++ ) {
         gets(str);

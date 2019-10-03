@@ -14,7 +14,7 @@ void Preencher_Matriz (float mat[][maxb],int *l,int *c) {
       scanf("%f%*c", &mat[i][j]);
 }
 
-void Ler_Nomes_Notas (char m_c[][maxl], float m_n[][maxb], int *nl, int nc) {
+void Ler_Nomes_Notas (char m_c[][maxc], float m_n[][maxb], int *nl, int nc) {
   int i, j;
   char s[maxc];
   scanf("%[^;]%*c", s);
@@ -52,17 +52,17 @@ void Calc_Media_Bim (float notas[][maxb],int ln,int cp,float med_bim[]) {
   }
 }
 
-void Leitura (float m_pes[][maxb],int *lp,int *cp,float m_nom[][maxc],float m_not[][maxb],int *ln,int *cn) {
-  Preencher_Matriz (m_pes,lp,lc);
-  Ler_Nomes_Notas (m_nom,m_not,ln,*lc);
+void Leitura (float m_pes[][maxb],int *lp,int *cp,char m_nom[][maxc],float m_not[][maxb],int *ln,int *cn) {
+  Preencher_Matriz (m_pes,lp,cp);
+  Ler_Nomes_Notas (m_nom,m_not,ln,*cn);
 }
 
-void Calculo (float m_pes[][maxb],int lp,int cp,float m_nom[][maxc],float m_not[][maxb],int ln, float m_med[][maxb],float v_medbim[]) {
-  Calc_Medias_Pesos (m_pes,lp,cp,m_not,ln,m_med);
+void Calculo (float m_pes[][maxb],int lp,int cp,char m_nom[][maxc],float m_not[][maxb],int ln, float m_med[][maxb],float v_medbim[]) {
+  Media_Pesos (m_pes,lp,cp,m_not,ln,m_med);
   Calc_Media_Bim (m_not,ln,cp,v_medbim);
 }
 
-void Relatorio (char nomes[][maxl],int ln,float notas[][maxb],int cn,float medias[][maxb],int cm,float med_bim[]) {
+void Relatorio (char nomes[][maxc],int ln,float notas[][maxb],int cn,float medias[][maxb],int cm,float med_bim[]) {
   int i,j;
   printf("%-20s","   NOME");
   for ( i=1 ; i<=cn ; i++)

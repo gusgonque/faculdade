@@ -58,17 +58,6 @@ void Calc_Media_Bim (float notas[][maxb],int ln,int cp,float med_bim[]) {
   }
 }
 
-<<<<<<< HEAD
-void Leitura (float m_pes[][maxb],int *lp,int *cp,char m_nom[][maxc],float m_not[][maxb],int *ln) {
-  printf("Preencher a matriz dos pesos\n");
-  Preencher_Matriz (m_pes,lp,cp);
-  printf("Preencher a matriz dos nomes\n");
-  Ler_Nomes_Notas (m_nom,m_not,ln,*cp);
-}
-
-void Calculo (float m_pes[][maxb],int lp,int cp,char m_nom[][maxc],float m_not[][maxb],int ln, float m_med[][maxb],float v_medbim[]) {
-  Calc_Medias_Pesos (m_pes,lp,cp,m_not,ln,m_med);
-=======
 void Leitura (float m_pes[][maxb],int *lp,int *cp,char m_nom[][maxc],float m_not[][maxb],int *ln,int *cn) {
   Preencher_Matriz (m_pes,lp,cp);
   Ler_Nomes_Notas (m_nom,m_not,ln,*cn);
@@ -76,7 +65,6 @@ void Leitura (float m_pes[][maxb],int *lp,int *cp,char m_nom[][maxc],float m_not
 
 void Calculo (float m_pes[][maxb],int lp,int cp,char m_nom[][maxc],float m_not[][maxb],int ln, float m_med[][maxb],float v_medbim[]) {
   Media_Pesos (m_pes,lp,cp,m_not,ln,m_med);
->>>>>>> 3933f86c098fdf36d8e886ad8e988bc33e8c9ae4
   Calc_Media_Bim (m_not,ln,cp,v_medbim);
 }
 

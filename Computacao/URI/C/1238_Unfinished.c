@@ -3,11 +3,15 @@
 
 void Combinador (char s1[],char s2[],char s[]) {
   int i,j;
-  for ( i=j=0 ; (i<strlen(s1))||(i<strlen(s2)) ; i++ ) {
+  for ( i=j=0 ; i < strlen(s1) ; i++,j++ ) {
     s[j] = s1[i];
-    j++;
+    if (i+1<strlen(s2))
+      j++;
+  }
+  for ( i=0,j=1 ; i < strlen(s2) ; i++,j++ ) {
     s[j] = s2[i];
-    j++;
+    if (i+1<strlen(s1))
+      j++;
   }
 }
 

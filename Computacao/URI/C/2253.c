@@ -11,9 +11,9 @@ void Preencher_Vetor (int v[], int t, int x)
 
 int Validador_Senha (char s[])
 {
-  int i, condicoes[4];
+  int i, condicoes[10];
   Preencher_Vetor (condicoes,4,0);
-  if ((strlen(s) > 6) && (strlen(s) < 32))
+  if ((strlen(s) >= 6) && (strlen(s) <= 32))
     for ( i=0 ; s[i] ; i++ )
     {
       if (isupper(s[i]))
@@ -22,18 +22,18 @@ int Validador_Senha (char s[])
         condicoes[1]++;
       if (isdigit(s[i]))
         condicoes[2]++;
-      if (!(isalpha(s[i])))
+      if (!(isalnum(s[i])))
         condicoes[3]++;
     }
     for ( i=0 ; i<3 ; i++ )
     {
-      if (condicoes[i] != 0)
+      if (condicoes[i] == 0)
       {
         printf("Senha invalida.\n");
         return 0;
       }
     }
-    if (condicoes[3]!=0)
+    if (condicoes[i] != 0)
       printf("Senha invalida.\n");
     else
       printf("Senha valida.\n");
@@ -41,7 +41,7 @@ int Validador_Senha (char s[])
 
 int main ()
 {
-  char s[35];
+  char s[50];
   for (  ; gets(s) ;  )
   {
     Validador_Senha (s);

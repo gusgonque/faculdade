@@ -1,0 +1,16 @@
+--01--
+-Entrada-
+Joao da Silva
+82.5 1.8
+Maria de S
+60.5 1.62
+Luiza Santos
+58.4 1.72
+
+EOF
+-Saida-
+            Nome      Peso  Altura      IMC
+
+   Joao da Silva     82.50    1.80    25.46
+      Maria de S     60.50    1.62    23.05
+    Luiza Santos     58.40    1.72    19.74

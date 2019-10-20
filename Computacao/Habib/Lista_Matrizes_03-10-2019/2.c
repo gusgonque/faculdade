@@ -3,12 +3,9 @@
 
 int Somadiag (int m[][MAXM], int n)
 {
-  int i,j,soma;
+  int i,soma;
   for ( i=soma=0 ; i<n ; i++ )
-    for ( j=0 ; j<n ; j++ )
-    {
-      soma += m[i][j];
-    }
+    soma += m[i][i];
   return soma;
 }
 
@@ -19,7 +16,7 @@ void Scanear_Matriz_Quadrada (int m[][MAXM], int *n)
   scanf("%d", n);
   for ( i=0 ; i<*n ; i++ )
     for ( j=0 ; j<*n ; j++ )
-      scanf("%d", m[i][j]);
+      scanf("%d", &m[i][j]);
 }
 
 int main ()

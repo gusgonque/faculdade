@@ -1,0 +1,7 @@
+x1 e x2
+x1 = x1 + x2;
+x2 = x1 - x2;
+x1 = x1 - x2;
+
+for (i=0;x)
+  printf("%d", *(x+i));

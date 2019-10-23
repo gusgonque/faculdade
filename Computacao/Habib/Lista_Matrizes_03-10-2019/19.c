@@ -87,12 +87,12 @@ void Relatorio (float p[][MAXC], int np, int nmp, float f[][MAXC], int nf, float
   int i, j;
   printf("  ");
   for ( i=0 ; i<nmp ; i++ )
-    printf("%8c%d",'M', i);
+    printf("%8c%d",'M', i+1);
   for ( i=0 ; i<nf ; i++ )
-    printf("%6c%-3d",'F', i);
+    printf("%6c%-3d",'F', i+1);
   printf("\n");
   for ( i=0 ; i<np ; i++ ) {
-    printf("P%d", i);
+    printf("P%d", i+1);
     Mostrar_Vetor (p[i],nmp,9,1);
     Mostrar_Vetor (of[i],nf,9,2);
     printf("\n");

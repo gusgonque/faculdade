@@ -8,14 +8,16 @@ typedef struct
 {
   double v[MAXM];
   int nn;
-}nota;
+}
+nota;
 
 typedef struct
 {
   double media;
   char nome[MAXC];
   nota notas;
-}aluno;
+}
+aluno;
 
 void Leitura (aluno alu[], int *na)
 {

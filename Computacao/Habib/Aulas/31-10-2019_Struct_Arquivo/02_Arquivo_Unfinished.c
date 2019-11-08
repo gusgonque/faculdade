@@ -1,11 +1,15 @@
 #include <stdio.h>
 #define MAX 100
 
-void Leitura (FILE *arq, int *n, float elem[])
+void Leitura (char *fn, int *n, float elem[])
 {
   int i;
-  for ( i=0 ; fscanf (arq,"%f",&elem[i]) ; i++ );
+  FILE *arq;
+  arq = fopen (fn,"r");
+  for ( i=0 ; fscanf (arq,"%f",&elem[i]) ; i++ )
+  {}
   *n = i;
+  fclose(arq);
 }
 
 void Processo (float elem[], int n, float *soma)
@@ -25,13 +29,10 @@ void Relatorio (float elem [], int n, float soma)
 
 int main ()
 {
-  FILE *arq;
   int n;
   float soma, elem[MAX];
-  arq = fopen ("DADOS.txt", "r");
-  Leitura (arq, &n, elem);
-  fclose(arq);
+  Leitura ("Dados_02.txt",&n, elem);
   Processo (elem,n,&soma);
-  Relatorio (elem,n,soma);
+  Relatorio ("Saida_02.txt",elem,n,soma);
   return 0;
 }

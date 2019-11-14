@@ -1,13 +1,16 @@
 #include <stdio.h>
-
-void Ordem_Crescente (int a,)
+#include <string.h>
 
 int main () {
-  int x, y, z;
-  while (1) {
-    scanf("%d %d %d", &x, &y, &z);
-    Ordem_Crescente (x,y,z);
-    Ordem_Decrescente (x,y,z);
+  int i;
+  char s[100], aux;
+  gets(s);
+  for (i=0;i<strlen(s)/2;i++)
+  {
+    aux = s[i];
+    s[i] = s[strlen(s)-i-1];
+    s[strlen(s)-i-1] = aux;
   }
+  puts(s);
   return 0;
 }

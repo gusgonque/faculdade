@@ -5,7 +5,7 @@
 
 typedef struct
 {
-  double xmed,ymed,xdp,ydp,coefA,coefB,coefR;
+  double medX,medY,dpX,dpY,coefA,coefB,coefR;
 }
 Estatistica
 

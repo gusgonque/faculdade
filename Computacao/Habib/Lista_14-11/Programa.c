@@ -113,16 +113,16 @@ void Relatorio ( Pessoa *p, int np, char *fn )
   FILE *arq;
   arq = fopen (fn,"w");
   mnp = Maior_Num_Pesos ( p , np );
-  fprintf (arq,"%-5s %-15s ","NUM","NOME");
+  fprintf (arq,"%5s %-20s ","NUM","NOME");
   for ( i=0 ; i<mnp ; i++ )
     fprintf (arq,"#%-4d ",i+1);
   fprintf (arq,"%5s %5s %5s %5s\n","MED","DP","MAX","MIN");
   for ( i=0 ; i<np ; i++,p++)
   {
-    fprintf(arq, "%5d %-15s ", i+1, p->nome);
+    fprintf(arq, "%5d %-20s ", i+1, p->nome);
     for ( j=0 ; j<mnp ; j++ )
       fprintf (arq, "%-5.1lf ", p->dados.peso[j]);
-    fprintf(arq, "%5lf %5lf %5lf %5lf\n", p->dados.media, p->dados.dp, p->dados.max, p->dados.min);
+    fprintf(arq, "%5.1lf %5.1lf %5.1lf %5.1lf\n", p->dados.media, p->dados.dp, p->dados.max, p->dados.min);
   }
   fclose (arq);
 }

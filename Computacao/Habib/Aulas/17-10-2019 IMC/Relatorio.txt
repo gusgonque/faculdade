@@ -1,0 +1,8 @@
+            Nome      Peso  Altura      IMC
+
+  Joao da Silva
+     82.50    1.80    25.46
+     Maria de S
+     60.50    1.62    23.05
+   Luiza Santos
+     58.40    1.72    19.74

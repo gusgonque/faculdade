@@ -14,4 +14,3 @@ int main () {
   puts(s);
   return 0;
 }
-//oi

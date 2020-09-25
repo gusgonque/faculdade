@@ -1,0 +1,11 @@
+[q1]abaaabab saıda:@ııııııııııiíì
+[q1]baaabab saida:a
+[q2]aaabab saıda:c
+[q1]aabab saıda:@
+[q1]abab saıda:a
+[q1]bab saida:a
+[q2]ab saida:c
+[q1]b saıda:@
+[q2] sa´ıda:c
+ACEITA
+palavra de sa´ıda: acaacc

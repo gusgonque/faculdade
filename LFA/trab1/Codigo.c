@@ -98,7 +98,7 @@ void Leitura ( DADOS *x , TRANSICOES y[] )
 
 int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
 {
-  int i, j, k, l, fl;
+  int i, j, k, fl;
   char caminho[21], palavra_saida[50]= "\0";
 
   strcpy ( x->estado_atual , x->estado_inicial );
@@ -107,7 +107,7 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
 
   printf("[%s]", x->estado_atual);
   scanf("%s", &caminho);
-  for ( i =  l = fl = 0 ; caminho[i] ; i++)
+  for ( i = fl = 0 ; caminho[i] ; i++)
   {
     for ( j = 0; j < y->tamanho ; j++)
     {
@@ -121,14 +121,17 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
 
         if ( caminho[i] == y[j].entrada[0] )
         {
-          l++;
           //printf("T3, caminho (%s) [i] (%c) = entrada (%c)\n", caminho, caminho[i], y[j].entrada[0]);
           //printf("y[%d].saida = [%s], palavra_saida = [%s]\n", j ,y[j].saida, palavra_saida);
 
-          strcat( palavra_saida , y[j].saida );
+          if (y[j].saida[0]!='@') {
+            strcat( palavra_saida , y[j].saida );
+          }
 
           strcpy ( x->estado_atual , y[j].estado_out );
+
           printf("[%s]%s saida:[%s]\n", x->estado_atual, caminho+i+1, y[j].saida);
+          break;
         }
         else
         {
@@ -148,6 +151,8 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
   if ( fl != 0 )
   {
     printf("REJEITADA\n");
+    printf("Palavra de saida: [%s]\n", palavra_saida);
+    return 0;
   }
   else
   {
@@ -161,6 +166,8 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
       }
     }
     printf("REJEITADA\n");
+    printf("Palavra de saida: [%s]\n", palavra_saida);
+    return 0;
   }
 
 }

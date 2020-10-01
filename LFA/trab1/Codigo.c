@@ -19,7 +19,7 @@ typedef struct
 }
 TRANSICOES;
 
-/* Decidimos usar 2 estruturas struct diferentes pois percebemos
+/* Preferimos usar 2 estruturas struct diferentes pois percebemos
 que precisariam de muitos dados para as transições. */
 
 void Leitura ( DADOS *x , TRANSICOES y[] )

@@ -23,6 +23,7 @@ TRANSICOES;
 que precisariam de muitos dados para as transições. */
 
 void Leitura ( DADOS *x , TRANSICOES y[] )
+//Lê os dados.
 {
 
   FILE *arq;
@@ -93,9 +94,9 @@ void Leitura ( DADOS *x , TRANSICOES y[] )
   fclose(arq);
 
 }
-//Lê os dados.
 
 int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
+//Processa os dados e envia o relatório.
 {
   int i, j, fl;
   // fl = flag; Que marca quando a cadeia for rejeitada.
@@ -163,7 +164,6 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
     return 0;
   }
 }
-//Processa os dados e envia o relatório.
 
 int main ()
 {

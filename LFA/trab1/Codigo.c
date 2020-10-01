@@ -121,7 +121,7 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
         //Se a letra da cadeia for igual à letra da saída daquela transição.
         {
           if (y[j].saida[0]!='@')
-          //Não coloca o @(vazio) na palavra de saída.
+          //Não coloca o @ (vazio) na palavra de saída.
           {
             strcat( palavra_saida , y[j].saida );
           }

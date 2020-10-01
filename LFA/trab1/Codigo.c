@@ -19,13 +19,16 @@ typedef struct
 }
 TRANSICOES;
 
+/* Decidimos usar 2 estruturas struct diferentes pois percebemos
+que precisariam de muitos dados para as transições. */
+
 void Leitura ( DADOS *x , TRANSICOES y[] )
 {
 
   FILE *arq;
   char r;
   int i, j, p, k;
-  char fn[50]; // fn = file name
+  char fn[50]; // fn = file name.
 
   printf("Insira o nome do arquivo de dados abaixo. (Ex:Dados.txt)\n");
 
@@ -36,42 +39,36 @@ void Leitura ( DADOS *x , TRANSICOES y[] )
   arq = fopen (fn,"r");
 
   fscanf ( arq, "%*s\n%*s\n%*s\n");
-
   fscanf ( arq, "%8*c%[^\n]s", x->estado_inicial);
   //printf("Estado inicial = [%s]\n", x->estado_inicial);
+  //Função para mostrar qual é o estado inicial.
 
   fscanf ( arq, "%9*c%[^\n]s\n", x->estados_finais);
-  //printf("Estados finais = [%s]\n", x->estados_finais);
-
   for ( i = j = k = 0; x->estados_finais[j] ; j++)
+  //Função para organizar os estados finais.
   {
-    //printf("%s\n", x->estados_finais);
+
     if ( (x->estados_finais[j] == ',') || (x->estados_finais[j] == '}') )
     {
 
-      //printf("t1\n");
       x->EF[i][j-k] = '\0';
-      //printf("t2\n");
       for ( p = 0 ; p < j-k ; p++)
       {
         x->EF[i][p] = x->estados_finais[k+p];
       }
-
       //printf("Estado final [%d] = [%s]\n", i , x->EF[i]);
-
       k = j+1;
-      //printf("T, x->EF[%d] = [%s]\n", i, x->EF[i]);
       i++;
 
     }
+
   }
 
   fscanf ( arq, "%c" );
   printf("\nLendo transicoes...\n\n");
-
   x->nf = i;
-
   for ( i=0 ; fscanf ( arq, "%c" ) != EOF ; i++ )
+  //Função para escanear cada dado de cada transição separada. Para ver qual é cada dado, remover os "//" dentro da função.
   {
     y[i-1].saida[0] = r;
     //printf("Transicao [%d]:\n", i);
@@ -94,60 +91,55 @@ void Leitura ( DADOS *x , TRANSICOES y[] )
   }
   y->tamanho = i;
   fclose(arq);
+
 }
+//Lê os dados.
 
 int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
 {
-  int i, j, k, fl;
-  char caminho[21], palavra_saida[50]= "\0";
+  int i, j, fl;
+  // fl = flag; Que marca quando a cadeia for rejeitada.
+  char cadeia[21], palavra_saida[50] = "\0";
 
   strcpy ( x->estado_atual , x->estado_inicial );
 
-  printf("\nColoque o caminho desejado, para o automato seguir.\n");
-
+  printf("\nColoque a cadeia desejada, para o automato seguir.\n");
   printf("[%s]", x->estado_atual);
-  scanf("%s", &caminho);
-  for ( i = fl = 0 ; caminho[i] ; i++)
+  scanf("%s", &cadeia);
+
+  for ( i = fl = 0 ; cadeia[i] ; i++)
+  //Lê cada letra da cadeia.
   {
     for ( j = 0; j < y->tamanho ; j++)
+    //Lê cada transição do autômato.
     {
-      //printf("T2, y[j]->estado_in = [%s] x->estado_atual = [%s] \n", y[j].estado_in, x->estado_atual);
-
       if ( strcmp( y[j].estado_in , x->estado_atual ) == 0 )
+      //Se o estado atual for igual estado de entrada daquela transição.
       {
-
-        //printf("T1, os dois sao iguais\n");
         fl=0;
-
-        if ( caminho[i] == y[j].entrada[0] )
+        if ( cadeia[i] == y[j].entrada[0] )
+        //Se a letra da cadeia for igual à letra da saída daquela transição.
         {
-          //printf("T3, caminho (%s) [i] (%c) = entrada (%c)\n", caminho, caminho[i], y[j].entrada[0]);
-          //printf("y[%d].saida = [%s], palavra_saida = [%s]\n", j ,y[j].saida, palavra_saida);
-
-          if (y[j].saida[0]!='@') {
+          if (y[j].saida[0]!='@')
+          //Não coloca o @(vazio) na palavra de saída.
+          {
             strcat( palavra_saida , y[j].saida );
           }
-
           strcpy ( x->estado_atual , y[j].estado_out );
-
-          printf("[%s]%s saida:[%s]\n", x->estado_atual, caminho+i+1, y[j].saida);
+          printf("[%s]%s saida:[%s]\n", x->estado_atual, cadeia+i+1, y[j].saida);
           break;
         }
         else
         {
           fl++;
         }
-
       }
       else
       {
         fl++;
       }
-
     }
-
   }
-
   if ( fl != 0 )
   {
     printf("REJEITADA\n");
@@ -157,6 +149,7 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
   else
   {
     for ( i = 0; i < x->nf; i++ )
+    //Confirma se o último estado atual é um estado final.
     {
       if ( strcmp( x->estado_atual , x->EF[i] ) == 0 )
       {
@@ -169,8 +162,8 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
     printf("Palavra de saida: [%s]\n", palavra_saida);
     return 0;
   }
-
 }
+//Processa os dados e envia o relatório.
 
 int main ()
 {
@@ -184,3 +177,4 @@ int main ()
 
   return 0;
 }
+//comanda as funções Leitura e Processo_Relatorio

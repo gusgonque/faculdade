@@ -166,6 +166,7 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
 }
 
 int main ()
+//comanda as funções Leitura e Processo_Relatorio
 {
   DADOS x;
 
@@ -177,4 +178,3 @@ int main ()
 
   return 0;
 }
-//comanda as funções Leitura e Processo_Relatorio

@@ -1,11 +1,9 @@
-[q1]abaaabab saıda:@ııııııııııiíì
-[q1]baaabab saida:a
-[q2]aaabab saıda:c
-[q1]aabab saıda:@
-[q1]abab saıda:a
-[q1]bab saida:a
-[q2]ab saida:c
-[q1]b saıda:@
-[q2] sa´ıda:c
+[q0]aabbcb
+[q1]abbcb saida:11
+[q1]bbcb saida:11
+[q2]bcb saida:2
+[q2]cb saida:2
+[q3]b saida:ccc
+[q2] saida:2
 ACEITA
-palavra de sa´ıda: acaacc
+palavra de saida: 111122ccc2

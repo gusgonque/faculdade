@@ -1,0 +1,12 @@
+[q0]aabaaabab
+[q1]abaaabab saida:@
+[q1]baaabab saida:a
+[q2]aaabab saida:c
+[q1]aabab saida:@
+[q1]abab saida:a
+[q1]bab saida:a
+[q2]ab saida:c
+[q1]b saida:@
+[q2] saida:c
+ACEITA
+palavra de saida: acaacc

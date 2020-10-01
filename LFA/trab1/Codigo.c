@@ -96,7 +96,7 @@ void Leitura ( DADOS *x , TRANSICOES y[] )
   fclose(arq);
 }
 
-void Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
+int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
 {
   int i, j, k, l, fl;
   char caminho[21], palavra_saida[50]= "\0";
@@ -157,6 +157,7 @@ void Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
       {
         printf("ACEITA\n");
         printf("Palavra de saida: [%s]\n", palavra_saida);
+        return 0;
       }
     }
     printf("REJEITADA\n");
@@ -168,7 +169,7 @@ int main ()
 {
   DADOS x;
 
-  TRANSICOES y[50];
+  TRANSICOES y[21];
 
   Leitura ( &x , y );
 

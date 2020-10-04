@@ -172,9 +172,20 @@ int main ()
 
   TRANSICOES y[21];
 
+  char Continuar[5] = "sim";
+
   Leitura ( &x , y );
 
-  Processo_Relatorio ( &x , y );
+  while ( strcmp( Continuar , "sim" ) == 0 )
+  //Para múltiplas cadeias de entrada.
+  {
+
+    Processo_Relatorio ( &x , y );
+
+    printf("\nPara iserir outra cadeia, digite 'sim'. Qualquer outra palavra finaliza o programa.\n");
+    scanf("%s", &Continuar );
+
+  }
 
   return 0;
 }

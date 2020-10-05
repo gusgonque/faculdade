@@ -20,10 +20,10 @@ typedef struct
 TRANSICOES;
 
 /* Preferimos usar 2 estruturas struct diferentes pois percebemos
-que precisariam de muitos dados para as transições. */
+que precisariam de muitos dados para as transicoes. */
 
 void Leitura ( DADOS *x , TRANSICOES y[] )
-//Lê os dados.
+//Le os dados.
 {
 
   FILE *arq;
@@ -42,11 +42,11 @@ void Leitura ( DADOS *x , TRANSICOES y[] )
   fscanf ( arq, "%*s\n%*s\n%*s\n");
   fscanf ( arq, "%8*c%[^\n]s", x->estado_inicial);
   //printf("Estado inicial = [%s]\n", x->estado_inicial);
-  //Função para mostrar qual é o estado inicial.
+  //Funcao para mostrar qual eh o estado inicial.
 
   fscanf ( arq, "%9*c%[^\n]s\n", x->estados_finais);
   for ( i = j = k = 0; x->estados_finais[j] ; j++)
-  //Função para organizar os estados finais.
+  //Funcao para organizar os estados finais.
   {
 
     if ( (x->estados_finais[j] == ',') || (x->estados_finais[j] == '}') )
@@ -69,7 +69,7 @@ void Leitura ( DADOS *x , TRANSICOES y[] )
   printf("\nLendo transicoes...\n\n");
   x->nf = i;
   for ( i=0 ; fscanf ( arq, "%c" ) != EOF ; i++ )
-  //Função para escanear cada dado de cada transição separada. Para ver qual é cada dado, remover os "//" dentro da função.
+  //Funcao para escanear cada dado de cada transicao separada. Para ver qual eh cada dado, remover os "//" dentro da funcao.
   {
     y[i-1].saida[0] = r;
     //printf("Transicao [%d]:\n", i);
@@ -96,7 +96,7 @@ void Leitura ( DADOS *x , TRANSICOES y[] )
 }
 
 int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
-//Processa os dados e envia o relatório.
+//Processa os dados e envia o relatorio.
 {
   int i, j, fl;
   // fl = flag; Que marca quando a cadeia for rejeitada.
@@ -109,20 +109,20 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
   scanf("%s", &cadeia);
 
   for ( i = fl = 0 ; cadeia[i] ; i++)
-  //Lê cada letra da cadeia.
+  //Le cada letra da cadeia.
   {
     for ( j = 0; j < y->tamanho ; j++)
-    //Lê cada transição do autômato.
+    //Le cada transição do automato.
     {
       if ( strcmp( y[j].estado_in , x->estado_atual ) == 0 )
-      //Se o estado atual for igual estado de entrada daquela transição.
+      //Se o estado atual for igual estado de entrada daquela transicao.
       {
         fl=0;
         if ( cadeia[i] == y[j].entrada[0] )
-        //Se a letra da cadeia for igual à letra da saída daquela transição.
+        //Se a letra da cadeia for igual a letra da saida daquela transicao.
         {
           if (y[j].saida[0]!='@')
-          //Não coloca o @ (vazio) na palavra de saída.
+          //Nao coloca o @ (vazio) na palavra de saída.
           {
             strcat( palavra_saida , y[j].saida );
           }
@@ -150,7 +150,7 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
   else
   {
     for ( i = 0; i < x->nf; i++ )
-    //Confirma se o último estado atual é um estado final.
+    //Confirma se o ultimo estado atual eh um estado final.
     {
       if ( strcmp( x->estado_atual , x->EF[i] ) == 0 )
       {
@@ -166,7 +166,7 @@ int Processo_Relatorio ( DADOS *x , TRANSICOES y[] )
 }
 
 int main ()
-//comanda as funções Leitura e Processo_Relatorio
+//comanda as funcoes Leitura e Processo_Relatorio
 {
   DADOS x;
 
@@ -177,12 +177,12 @@ int main ()
   Leitura ( &x , y );
 
   while ( strcmp( Continuar , "sim" ) == 0 )
-  //Para múltiplas cadeias de entrada.
+  //Para multiplas cadeias de entrada.
   {
 
     Processo_Relatorio ( &x , y );
 
-    printf("\nPara iserir outra cadeia, digite 'sim'. Qualquer outra palavra finaliza o programa.\n");
+    printf("\nPara inserir outra cadeia, digite 'sim'. Qualquer outra palavra finaliza o programa.\n");
     scanf("%s", &Continuar );
 
   }

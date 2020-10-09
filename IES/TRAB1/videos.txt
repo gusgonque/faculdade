@@ -1,0 +1,9 @@
+id:
+tipo:
+nome:
+diretor:
+duracao: : ;
+temporadas:
+ano lanc:
+ng:
+generos: , ,...

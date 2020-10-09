@@ -1,0 +1,13 @@
+alfabeto_entrada={a,b,c,d}
+alfabeto_saida={1}
+estados={q0,q1}
+inicial=q0
+finais={q0,q1}
+(q0,a) = (q1,@)
+(q0,b) = (q0,@)
+(q0,c) = (q0,@)
+(q0,d) = (q0,@)
+(q1,a) = (q1,@)
+(q1,b) = (q1,@)
+(q1,c) = (q0,1)
+(q1,d) = (q0,@)

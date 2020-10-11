@@ -1,9 +1,10 @@
-id:
-tipo:
-nome:
-diretor:
-duracao: : ;
-temporadas:
-ano lanc:
-ng:
-generos: , ,...
+id:1
+tipo:f
+nome:a
+diretor:a.a
+duracao:0:0;
+temporadas:0
+ano.lanc:0
+ng:0
+generos:.
+;

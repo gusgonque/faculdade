@@ -180,6 +180,7 @@ void ler_nv ( FILE *arq, int *nv )
 
 void Editar_NU (FILE *arq, int id)
 {
+  int i;
   char novo[MAX], c;
   FILE *arq2;
   printf("Digite o novo nome de usuario.\n - ");
@@ -189,7 +190,23 @@ void Editar_NU (FILE *arq, int id)
   arq2 = fopen ("usuarios2.txt","w");
   arq = fopen ("usuarios.txt","r");
 
+  for ( i = 1 ; i < id ;  )
+  {
+    fscanf(arq,"%c", &c);
+    if ( c == ';' )
+    {
+      i++;
+    }
+  }
 
+  for ( i = 0 ; i < id ;  )
+  {
+    fscanf(arq,"%c", &c);
+    if ( c == ';' )
+    {
+      i++;
+    }
+  }
 
   while ( fscanf ( arq, "%c", &c ) != EOF )
   {

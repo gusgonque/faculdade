@@ -1,10 +1,10 @@
 id:1
 tipo:f
 nome:a
-diretor:a.a
-duracao:0:0;
+diretor:a a
+duracao:12:12;
 temporadas:0
-ano.lanc:0
-ng:0
-generos:.
+ano.lanc:2005
+ng:1
+generos:a.
 ;

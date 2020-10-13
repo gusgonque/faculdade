@@ -1,42 +1,24 @@
 ID:1
-Login:aaa bbb
-Data Nascimento:11/11/2001
+Login:AAB
+Data Nascimento:21/8/2001
 NH:3
 Historico:1,2,3.
 ;
 ID:2
-Login:b
-Data Nascimento:11/22/1234
+Login:BB CC
+Data Nascimento:11/11/2222
 NH:0
 Historico:.
 ;
 ID:3
 Login:c
-Data Nascimento:22/22/2222
+Data Nascimento:55/55/5555
 NH:0
 Historico:.
 ;
 ID:4
 Login:d
-Data Nascimento:44/44/4444
-NH:0
-Historico:.
-;
-ID:5
-Login:2
-Data Nascimento:12/12/1212
-NH:0
-Historico:.
-;
-ID:6
-Login:c ccc ddd
-Data Nascimento:24/5/5555
-NH:0
-Historico:.
-;
-ID:7
-Login:abcd
-Data Nascimento:55/55/5555
+Data Nascimento:22/22/2222
 NH:0
 Historico:.
 ;

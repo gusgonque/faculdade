@@ -4,6 +4,9 @@
 #define LER_ESPACO setbuf(stdin, NULL)
 
 void Ler_NU (FILE *arq, int *nu)
+/*
+Ler o número de usuários registrados no arquivo "usuarios.txt".
+*/
 {
 
   char c = 0;
@@ -20,6 +23,9 @@ void Ler_NU (FILE *arq, int *nu)
 }
 
 int Verificar_Data (int d,int m,int a)
+/*
+Verifica se a data inserida é possível.
+*/
 {
   if (a<2020&&a>0)
   {
@@ -55,6 +61,9 @@ int Verificar_Data (int d,int m,int a)
 }
 
 int Verificar_Nome (char nome[])
+/*
+Verifica o nome, se ele tem o número mínimo de caracteres (2), se ele não é vazio.
+*/
 {
   int i, j, p;
   for ( i = j = p = 0 ; nome[i] ; i++, j++ )
@@ -66,6 +75,9 @@ int Verificar_Nome (char nome[])
 }
 
 int Registro (FILE *arq, int *id)
+/*
+  Registra um usuário no arquivo "usuarios.txt".
+*/
 {
 
   char nome[MAX];
@@ -99,6 +111,9 @@ int Registro (FILE *arq, int *id)
 }
 
 int Procurar_Usuario (FILE *arq, int nu)
+/*
+  Procura um usuário registrado no arquivo "usuarios.txt".
+*/
 {
 
   int i, j, id, jp, fl;
@@ -164,6 +179,9 @@ int Procurar_Usuario (FILE *arq, int nu)
 }
 
 void Listar_Usuarios (FILE *arq, int nu)
+/*
+  Lista usuários registrados no arquivo "usuarios.txt".
+*/
 {
 
   int i, id;
@@ -193,6 +211,9 @@ void Listar_Usuarios (FILE *arq, int nu)
 }
 
 void Remover_Usuario (FILE *arq, int *nu)
+/*
+  Remove um usuário registrado no arquivo "usuarios.txt".
+*/
 {
 
   int id, i, jp, k;
@@ -305,6 +326,9 @@ MENU INICIAL
 }
 
 void Ler_NV ( FILE *arq, int *nv )
+/*
+  Lê o número de vídeos registrados no arquivo "videos.txt".
+*/
 {
 
   char i;
@@ -323,6 +347,9 @@ void Ler_NV ( FILE *arq, int *nv )
 }
 
 void Editar_Dados (FILE *arq, int id)
+/*
+  Edita os dados de um usuário registrado no arquivo "usuarios.txt".
+*/
 {
 
   int i, d,m,a;
@@ -387,6 +414,9 @@ void Editar_Dados (FILE *arq, int id)
 }
 
 void Limpar_H (FILE *arq, int id)
+/*
+  Limpa os dados de histórico de filmes de um usuário registrado no arquivo "usuarios.txt".
+*/
 {
 
   int i;
@@ -441,6 +471,9 @@ void Limpar_H (FILE *arq, int id)
 }
 
 int Ver_Informacoes ( FILE *arq, int id )
+/*
+  Vê as informações um usuário registrado no arquivo "usuarios.txt" e printa no prompt de comando.
+*/
 {
 
   int i, l, d,m,a, nh;
@@ -508,6 +541,9 @@ int Ver_Informacoes ( FILE *arq, int id )
 }
 
 void Deletar_Video ( FILE *arq, int id, int *nv )
+/*
+  Deleta todas as informações um vídeo registrado no arquivo "videos.txt".
+*/
 {
 
   int jp,i,k;
@@ -570,6 +606,9 @@ void Deletar_Video ( FILE *arq, int id, int *nv )
 }
 
 int Verificar_Tempo (int h, int m)
+/*
+Verifica se o tempo inserido é possível, no intervalo Hora: [0,24],Minuto: [0,59].
+*/
 {
 
   if (h<0||h>24)
@@ -583,6 +622,9 @@ int Verificar_Tempo (int h, int m)
 }
 
 int Verificar_Video ( int t, int h, int m, int ano, int nt, char nome[], char diretor[], char generos[])
+/*
+Verifica se is informações inseridas são possiveis, em relação do vídeo registrado.
+*/
 {
 
   if ( (Verificar_Nome (nome)&&Verificar_Nome(diretor)&&Verificar_Nome(generos)) == 0 )
@@ -608,6 +650,9 @@ int Verificar_Video ( int t, int h, int m, int ano, int nt, char nome[], char di
 }
 
 int Listar_Videos (FILE *arq, int nv)
+/*
+  Lista vídeos registrados no arquivo "videos.txt".
+*/
 {
 
   int i, j, id;
@@ -639,6 +684,11 @@ int Listar_Videos (FILE *arq, int nv)
 }
 
 void Fazer_Log (FILE *arq, int *idv, int e)
+/*
+De acordo com a verificação do arquivo,
+essa função escreve no aruivo "log.txt" o motivo
+que tal vídeo não pode ser regitrado, e também seu ID.
+*/
 {
 
   FILE *arq2;
@@ -655,6 +705,9 @@ void Fazer_Log (FILE *arq, int *idv, int e)
 }
 
 int Editar_Video (FILE *arq, int *idv, int nv)
+/*
+  Edita os dados de um vídeo registrado no arquivo "usuarios.txt".
+*/
 {
 
   int i,t,h,m,ano,nt,ng;
@@ -827,6 +880,9 @@ int Editar_Video (FILE *arq, int *idv, int nv)
 }
 
 void Adicionar_Historico (FILE *arq, int idu, int idv)
+/*
+  Adiciona o vídeo que o usuário acessar nos dados dele.
+*/
 {
 
   int i, nh;
@@ -889,6 +945,9 @@ void Adicionar_Historico (FILE *arq, int idu, int idv)
 }
 
 void Mostrar_Video (FILE *arq, int idv, int nv)
+/*
+  Vê as informações um vídeo registrado no arquivo "usuarios.txt" e printa no prompt de comando.
+*/
 {
 
   int t, h, m, nt, ng, ano;
@@ -963,6 +1022,13 @@ void Mostrar_Video (FILE *arq, int idv, int nv)
 }
 
 int Procurar_Video (FILE *arq,int *nv,int *idv, int idu)
+/*
+  Lista os video registrados no arquivo "videos.txt",
+  pergunta ao usuário qual vídeo ele deseja acessar,
+  adiciona esse vídeo no histórico do usuário, e
+  após acessar as informações desse vídeo,
+  pergunta ao usuário se ele deseja editar ou excluir aquele video.
+*/
 {
 
   int i, fl;
@@ -998,6 +1064,9 @@ int Procurar_Video (FILE *arq,int *nv,int *idv, int idu)
 }
 
 int Add_Video (FILE *arq, int *nv, int *idv, int idu)
+/*
+  Registra um vídeo no arquivo "videos.txt".
+*/
 {
 
   int i, t, h, m, ng, ano, nt;
@@ -1161,6 +1230,9 @@ MENU PRINCIPAL
 }
 
 int main ()
+/*
+  Função Main do código. Comanda o Menu Inicial e o Menu Principal.
+*/
 {
 
   int nu, nv, idu, idv, jp;

@@ -3,15 +3,19 @@
 #define MAX 100
 #define LER_ESPACO setbuf(stdin, NULL)
 
-void ler_nu (FILE *arq, int *nu)
+void Ler_NU (FILE *arq, int *nu)
 {
+
   char c = 0;
+
   *nu = 0;
   arq = fopen("usuarios.txt","r");
+
   if ( arq != NULL )
     while ( fscanf ( arq, "%c", &c ) != EOF )
-      if ( c == ';' )
-        *nu += 1 ;
+      if (c == ';')
+        fscanf(arq, "%*4c%d",nu);
+
   fclose(arq);
 }
 
@@ -61,7 +65,7 @@ int Verificar_Nome (char nome[])
   return 1;
 }
 
-int registro (FILE *arq, int *id)
+int Registro (FILE *arq, int *id)
 {
 
   char nome[MAX];
@@ -94,7 +98,7 @@ int registro (FILE *arq, int *id)
   return *id;
 }
 
-int procurar_usuario (FILE *arq, int nu)
+int Procurar_Usuario (FILE *arq, int nu)
 {
 
   int i, j, id, jp, fl;
@@ -144,7 +148,7 @@ int procurar_usuario (FILE *arq, int nu)
     {
 
       case 1:
-        id = procurar_usuario(arq, nu);
+        id = Procurar_Usuario(arq, nu);
         return id;
       break;
       case 2:
@@ -159,7 +163,7 @@ int procurar_usuario (FILE *arq, int nu)
 
 }
 
-void listar_usuarios (FILE *arq, int nu)
+void Listar_Usuarios (FILE *arq, int nu)
 {
 
   int i, id;
@@ -188,7 +192,7 @@ void listar_usuarios (FILE *arq, int nu)
 
 }
 
-void remover_usuario (FILE *arq, int *nu)
+void Remover_Usuario (FILE *arq, int *nu)
 {
 
   int id, i, jp, k;
@@ -249,11 +253,9 @@ void remover_usuario (FILE *arq, int *nu)
   rename("usuarios2.txt","usuarios.txt");
   printf("Usuario removido com sucesso.\n");
 
-  *nu = *nu + 1;
-
 }
 
-int login ( int *nu )
+int Menu_Inicial ( int *nu )
 /*
 MENU INICIAL
 1 - Registrar novo usuario
@@ -269,39 +271,31 @@ MENU INICIAL
 
   printf("\nDigite:\n1 - Log in de usuario existente.\n2 - Registrar um novo usuario.\n3 - Listar usuarios registrados.\n4 - Remover um usuario.\n5 - Finalizar o programa.\n - ");
   scanf("%d", &i);
-  ler_nu (arq, nu);
+  Ler_NU (arq, nu);
 
   switch (i)
   {
     case 1:
 
-      id = procurar_usuario(arq, *nu);
+      id = Procurar_Usuario(arq, *nu);
       if ( id == 1000000)
-        return login (nu);
+        return Menu_Inicial (nu);
 
     break;
     case 2:
-
-    id = registro(arq, nu);
-
+      id = Registro(arq, nu);
     break;
     case 3:
-
-      listar_usuarios(arq, *nu);
-      return login(nu);
-
+      Listar_Usuarios(arq, *nu);
+      return Menu_Inicial(nu);
     break;
     case 4:
-
-      listar_usuarios(arq,*nu);
-      remover_usuario(arq,nu);
-      return login(nu);
-
+      Listar_Usuarios(arq,*nu);
+      Remover_Usuario(arq,nu);
+      return Menu_Inicial(nu);
     break;
     case 5:
-
       return 0;
-
     break;
 
   }
@@ -310,18 +304,19 @@ MENU INICIAL
 
 }
 
-void ler_nv ( FILE *arq, int *nv )
+void Ler_NV ( FILE *arq, int *nv )
 {
 
   char i;
+  char c;
   arq = fopen("videos.txt","r");
 
   *nv = 0;
 
-  if (arq!=NULL)
-    for ( i = 0 ;  fscanf ( arq, "%c", &i ) != EOF ; i++)
-      if ( i == ';' )
-        *nv += 1 ;
+  if ( arq != NULL )
+    while ( fscanf ( arq, "%c", &c ) != EOF )
+      if (c == ';')
+        fscanf(arq, "%*4c%d",nv);
 
   fclose(arq);
 
@@ -445,7 +440,7 @@ void Limpar_H (FILE *arq, int id)
 
 }
 
-int ver_informacoes ( FILE *arq, int id )
+int Ver_Informacoes ( FILE *arq, int id )
 {
 
   int i, l, d,m,a, nh;
@@ -612,33 +607,34 @@ int Verificar_Video ( int t, int h, int m, int ano, int nt, char nome[], char di
 
 }
 
-void Listar_Videos (FILE *arq, int nv)
+int Listar_Videos (FILE *arq, int nv)
 {
 
-  int i, id;
+  int i, j, id;
   char c, nome[MAX];
 
   arq = fopen ("videos.txt","r");
 
-  while ( fscanf ( arq, "%c", &c ) != EOF )
+  for ( i = 0 ; i < nv ; i++ )
   {
 
-    fscanf (arq, "%2*c%d", &id);
+    fscanf (arq, "%3*c%d", &id);
     LER_ESPACO;
     fscanf (arq, "%6*c%[^\n]s", &nome);
     printf("ID = [%d] Nome do video = '%s'\n", id, nome);
-    for ( i = 0 ; i < 9; )
-    {
+    if (id != nv)
+      for ( j = 0 ; j < 9; )
+      {
 
-      fscanf (arq,"%c",&c);
-      if ( c == '\n' )
-        i++;
+        fscanf (arq,"%c",&c);
+        if ( c == '\n' )
+          j++;
 
-    }
-
+      }
   }
 
   fclose(arq);
+  return 0;
 
 }
 
@@ -966,7 +962,7 @@ void Mostrar_Video (FILE *arq, int idv, int nv)
 
 }
 
-int procurar_video (FILE *arq,int *nv,int *idv, int idu)
+int Procurar_Video (FILE *arq,int *nv,int *idv, int idu)
 {
 
   int i, fl;
@@ -1001,7 +997,7 @@ int procurar_video (FILE *arq,int *nv,int *idv, int idu)
 
 }
 
-int add_video (FILE *arq, int *nv, int *idv, int idu)
+int Add_Video (FILE *arq, int *nv, int *idv, int idu)
 {
 
   int i, t, h, m, ng, ano, nt;
@@ -1111,8 +1107,9 @@ int add_video (FILE *arq, int *nv, int *idv, int idu)
 
 }
 
-int menu_principal( int *nu, int *nv, int idu, int *idv)
+int Menu_Principal( int *nu, int *nv, int idu, int *idv)
 /*
+MENU PRINCIPAL
 1 - Ver informacoes (editar)
 2 - procurar video (editar/excluir)
 3 - adicionar video
@@ -1125,7 +1122,7 @@ int menu_principal( int *nu, int *nv, int idu, int *idv)
   int i, fl;
   FILE *arq;
 
-  ler_nv (arq, nv);
+  Ler_NV (arq, nv);
   printf("\nBem vindo ao menu principal. Digite:\n1 - Ver informacoes de usuario.\n2 - Procurar video.\n3 - Adicionar video.\n4 - Listar videos.\n5 - Fazer Log Out.\n6 - Sair do programa.\n - ");
   scanf("%d", &i);
 
@@ -1133,23 +1130,24 @@ int menu_principal( int *nu, int *nv, int idu, int *idv)
   {
 
     case 1:
-      fl = ver_informacoes(arq, idu);
+      fl = Ver_Informacoes(arq, idu);
       if (fl == 0)
-        menu_principal(nu,nv,idu,idv);
+        Menu_Principal(nu,nv,idu,idv);
     break;
     case 2:
-      fl = procurar_video(arq, nv, idv, idu);
+      fl = Procurar_Video(arq, nv, idv, idu);
       if (fl == 0)
-        menu_principal(nu,nv,idu,idv);
+        Menu_Principal(nu,nv,idu,idv);
     break;
     case 3:
-      fl = add_video(arq,nv, idv, idu);
+      fl = Add_Video(arq,nv, idv, idu);
       if (fl == 0)
-        menu_principal(nu,nv,idu,idv);
+        Menu_Principal(nu,nv,idu,idv);
     break;
     case 4:
-      Listar_Videos(arq,*nv);
-      menu_principal(nu,nv,idu,idv);
+      fl = Listar_Videos(arq,*nv);
+      if (fl == 0)
+        Menu_Principal(nu,nv,idu,idv);
     break;
     case 5:
       return 2;
@@ -1169,11 +1167,11 @@ int main ()
 
   printf("\nSeja bem vindo ao WikiFilmes.\n");
 
-  idu = login(&nu);
+  idu = Menu_Inicial(&nu);
   if (idu == 0)
     return 0;
 
-  jp = menu_principal(&nu,&nv,idu,&idv);
+  jp = Menu_Principal(&nu,&nv,idu,&idv);
   if ( jp == 2)
     main();
 

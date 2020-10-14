@@ -14,6 +14,8 @@ Ler o número de usuários registrados no arquivo "usuarios.txt".
   *nu = 0;
   arq = fopen("usuarios.txt","r");
 
+  fscanf(arq, "%*3c%d",nu);
+
   if ( arq != NULL )
     while ( fscanf ( arq, "%c", &c ) != EOF )
       if (c == ';')
@@ -118,6 +120,13 @@ int Procurar_Usuario (FILE *arq, int nu)
 
   int i, j, id, jp, fl;
   char c,k, nome[MAX];
+
+  if (nu == 0)
+  {
+    printf("Nenhum usuario registrado, retornando ao Menu Inicial.\n");
+    return 0;
+  }
+
   arq = fopen("usuarios.txt","r");
 
   printf("\nPor favor, insira seu ID.\n - ");
@@ -178,7 +187,7 @@ int Procurar_Usuario (FILE *arq, int nu)
 
 }
 
-void Listar_Usuarios (FILE *arq, int nu)
+int Listar_Usuarios (FILE *arq, int nu)
 /*
   Lista usuários registrados no arquivo "usuarios.txt".
 */
@@ -186,6 +195,13 @@ void Listar_Usuarios (FILE *arq, int nu)
 
   int i, id;
   char c, nome[MAX];
+
+  if (nu == 0)
+  {
+    printf("Nenhum usuario registrado, retornando ao Menu Inicial.\n");
+    return 0;
+  }
+
   arq = fopen ("usuarios.txt","r");
 
   while ( fscanf ( arq, "%c", &c ) != EOF )
@@ -301,6 +317,10 @@ MENU INICIAL
       id = Procurar_Usuario(arq, *nu);
       if ( id == 1000000)
         return Menu_Inicial (nu);
+      if (id == 0)
+      {
+        return Menu_Inicial (nu);
+      }
 
     break;
     case 2:
@@ -336,6 +356,8 @@ void Ler_NV ( FILE *arq, int *nv )
   arq = fopen("videos.txt","r");
 
   *nv = 0;
+
+  fscanf(arq, "%*3c%d",nv);
 
   if ( arq != NULL )
     while ( fscanf ( arq, "%c", &c ) != EOF )
@@ -658,6 +680,12 @@ int Listar_Videos (FILE *arq, int nv)
   int i, j, id;
   char c, nome[MAX];
 
+  if (nv == 0)
+  {
+    printf("Nenhum video registrado, retornando ao Menu Principal.\n");
+    return 0;
+  }
+
   arq = fopen ("videos.txt","r");
 
   for ( i = 0 ; i < nv ; i++ )
@@ -955,6 +983,7 @@ void Mostrar_Video (FILE *arq, int idv, int nv)
   int i, fl, jp;
   char c = '0', k;
 
+
   arq = fopen ("videos.txt","r");
 
   for ( i = 1 ; i < idv ;  )
@@ -1032,6 +1061,12 @@ int Procurar_Video (FILE *arq,int *nv,int *idv, int idu)
 {
 
   int i, fl;
+
+  if (*nv == 0)
+  {
+    printf("Nenhum video registrado, retornando ao Menu Principal.\n");
+    return 0;
+  }
 
   Listar_Videos (arq,*nv);
   printf("Digite o ID do video para consulta.\n - ");
@@ -1184,16 +1219,17 @@ MENU PRINCIPAL
 3 - adicionar video
 4 - listar videos
 5 - logout
-6 - sair do programa
+6 - Finalizar do programa
 */
 {
 
   int i, fl;
   FILE *arq;
 
-  Ler_NV (arq, nv);
-  printf("\nBem vindo ao menu principal. Digite:\n1 - Ver informacoes de usuario.\n2 - Procurar video.\n3 - Adicionar video.\n4 - Listar videos.\n5 - Fazer Log Out.\n6 - Sair do programa.\n - ");
+  printf("\nBem vindo ao menu principal. Digite:\n1 - Ver informacoes de usuario.\n2 - Procurar video.\n3 - Adicionar video.\n4 - Listar videos.\n5 - Fazer Log Out.\n6 - Finalizar do programa.\n - ");
   scanf("%d", &i);
+
+  Ler_NV (arq, nv);
 
   switch (i)
   {

@@ -4,27 +4,3 @@ Data Nascimento:8/8/2008
 NH:2
 Historico:2,5.
 ;
-ID:2
-Login:BB CC
-Data Nascimento:11/11/2222
-NH:3
-Historico:2,3,2.
-;
-ID:3
-Login:d56
-Data Nascimento:22/22/2222
-NH:4
-Historico:1,2,3,4.
-;
-ID:4
-Login:321
-Data Nascimento:4/5/2001
-NH:1
-Historico:2.
-;
-ID:5
-Login:JP
-Data Nascimento:17/1/2002
-NH:1
-Historico:2.
-;

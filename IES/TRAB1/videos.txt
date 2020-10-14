@@ -1,50 +1,10 @@
-id:1
-nome:a
-tipo:1
-diretor:a a
-duracao:12,12.
-temporadas:0
-ano.lanc:2005
-ng:1
-generos:a.
-;
-ID:2
-Nome:The Boys 3
+ID:1
+Nome:The Boyd
 Tipo:2
-Diretor:JotaPinto
+Diretor:alguem
 Duracao:0,0
 Temporadas:2
 ano.lanc:2018
 ng:2
-Generos:acao,herois.
-;
-ID:3
-Nome:b
-Tipo:1
-Diretor:aa
-Duracao:14,20
-Temporadas:0
-ano.lanc:2000
-ng:2
-Generos:a,c.
-;
-ID:4
-Nome:d
-Tipo:1
-Diretor:abc
-Duracao:2,14
-Temporadas:0
-ano.lanc:2000
-ng:3
-Generos:a,b,c.
-;
-ID:5
-Nome:jp
-Tipo:1
-Diretor:jp
-Duracao:0,5
-Temporadas:0
-ano.lanc:2005
-ng:1
-Generos:acao.
+Generos:acao, herois.
 ;

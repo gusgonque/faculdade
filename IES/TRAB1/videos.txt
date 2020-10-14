@@ -9,13 +9,13 @@ ng:1
 generos:a.
 ;
 ID:2
-Nome:The Boys
+Nome:The Boys 3
 Tipo:2
-Diretor:JP
+Diretor:JotaPinto
 Duracao:0,0
 Temporadas:2
-ano.lanc:2007
-ng:1
+ano.lanc:2018
+ng:2
 Generos:acao,herois.
 ;
 ID:3
@@ -47,14 +47,4 @@ Temporadas:0
 ano.lanc:2005
 ng:1
 Generos:acao.
-;
-ID:6
-Nome:123
-Tipo:
-Diretor:321
-Duracao:1,2
-Temporadas:0
-ano.lanc:2005
-ng:2
-Generos:123,321.
 ;

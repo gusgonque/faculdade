@@ -1,6 +1,0 @@
-ID:1
-Login:AA
-Data Nascimento:8/8/2008
-NH:2
-Historico:2,5.
-;

@@ -1,0 +1,18 @@
+Mudar:
+F - Questão de listar usuários/vídeos.
+
+f - Tipos/Gêneros/Diretor/NFA, para fazer relatório.
+F - - Adicionar dados.txt
+F - - Programar tipos
+f - - Programar generos
+f - - - generos dados
+- - - generos video
+- - Programar diretor
+
+- - Programar NFA (Numero de Filmes Assistidos)
+
+- EDITAR VIDEO
+
+Adicionar:
+- Relatórios
+F - - Adicionar dados.txt

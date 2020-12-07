@@ -10,7 +10,6 @@ Ler o número de usuários registrados no arquivo "usuarios.txt".
 {
 
   char c = 0;
-
   *nu = 0;
   arq = fopen("usuarios.txt","r");
 
@@ -76,7 +75,7 @@ Verifica o nome, se ele tem o número mínimo de caracteres (2), se ele não é 
   return 1;
 }
 
-int Registro (FILE *arq, int *id)
+int Reg_Usuario (FILE *arq, int *id)
 /*
   Registra um usuário no arquivo "usuarios.txt".
 */
@@ -86,7 +85,7 @@ int Registro (FILE *arq, int *id)
   int i, d,m,a;
   *id = *id +1;
 
-  printf("Para registrar um novo usuario, digite o nome completo dele (minino de 2 caracteres).\n - ");
+  printf("Para registrar um novo usuario, digite o nome completo dele.\n(minino de 2 caracteres, nao pode ser vazio)\n - ");
   LER_ESPACO;
   scanf("%[^\n]s", &nome);
   i = Verificar_Nome (nome);
@@ -99,7 +98,7 @@ int Registro (FILE *arq, int *id)
   }
 
   printf("Usuario '%s' , ID = [%d], favor colocar sua data de nascimento, no seguinte formato 'dd mm aaaa'\n - ", nome, *id);
-  scanf("%2d %2d %4d", &d,&m,&a);
+  scanf("%d %d %d", &d,&m,&a);
   while ( Verificar_Data (d,m,a) )
     scanf("%d %d %d", &d,&m,&a);
 
@@ -127,10 +126,11 @@ int Procurar_Usuario (FILE *arq, int nu)
     return 0;
   }
 
-  arq = fopen("usuarios.txt","r");
-
   printf("\nPor favor, insira seu ID.\n - ");
   scanf("%d", &id);
+
+  arq = fopen("usuarios.txt","r");
+
   for ( i = 1 , fl = 0 ; i <= nu ; i++)
   {
 
@@ -187,14 +187,18 @@ int Procurar_Usuario (FILE *arq, int nu)
 
 }
 
-int Listar_Usuarios (FILE *arq, int nu)
+int Listar_Usuarios (FILE *arq)
 /*
   Lista usuários registrados no arquivo "usuarios.txt".
 */
 {
 
-  int i, id;
+  int i, id, nu;
+
+  Ler_NU (arq,&nu);
+
   char c, nome[MAX];
+  printf("\n");
 
   if (nu == 0)
   {
@@ -226,21 +230,25 @@ int Listar_Usuarios (FILE *arq, int nu)
 
 }
 
-void Remover_Usuario (FILE *arq, int *nu)
+int Remover_Usuario (FILE *arq, int id)
 /*
   Remove um usuário registrado no arquivo "usuarios.txt".
 */
 {
 
-  int id, i, jp, k;
+  int i, jp, k,nu;
   char c;
+  Ler_NU(arq,&nu);
   FILE *arq2;
+
+  if (nu == 0)
+  {
+    printf("Nenhum usuario registrado, retornando ao Menu Inicial.\n");
+    return 0;
+  }
 
   arq2 = fopen ("usuarios2.txt","w");
   arq = fopen ("usuarios.txt","r");
-
-  printf("Digite o ID do usuario que deseja remover\n - ");
-  scanf("%d", &id);
   fscanf(arq,"%3*c%d\n", &jp);
 
   for ( k = 1 ; jp != id ; fscanf(arq,"%3*c%d\n", &jp), k++ )
@@ -269,26 +277,227 @@ void Remover_Usuario (FILE *arq, int *nu)
 
   }
 
-  for ( ; k <= *nu-1 ; k++ )
-  {
-
-    for ( i = 0 ; i < 6 ;  )
-    {
-
-      fscanf(arq,"%c",&c);
-      fprintf(arq2, "%c", c);
-      if ( c == '\n' )
-        i++;
-
-    }
-
-  }
-
   fclose(arq);
   fclose(arq2);
   remove("usuarios.txt");
   rename("usuarios2.txt","usuarios.txt");
   printf("Usuario removido com sucesso.\n");
+
+}
+
+void Editar_Dados (FILE *arq, int id)
+/*
+Edita os dados de um usuário registrado no arquivo "usuarios.txt".
+*/
+{
+
+  int i, d,m,a;
+  char novo[MAX], c;
+  FILE *arq2;
+
+  printf("\nDigite o novo nome de usuario\n(minino de 2 caracteres, nao pode ser vazio).\n - ");
+  LER_ESPACO;
+  scanf("%[^\n]s", &novo);
+
+  i = Verificar_Nome (novo);
+
+  while (i == 0)
+  {
+
+    printf("Nome invalido, por favor digite novamente.\n - ");
+    LER_ESPACO;
+    scanf("%[^\n]s", &novo);
+    i = Verificar_Nome (novo);
+
+  }
+
+  printf("\nDigite a nova data de nascimento, no formato 'dd mm aaaa'.\n - ");
+  scanf("%d %d %d", &d, &m, &a);
+
+  while ( Verificar_Data (d,m,a) )
+  scanf("%d %d %d", &d,&m,&a);
+
+  arq2 = fopen ("usuarios2.txt","w");
+  arq = fopen ("usuarios.txt","r");
+
+  for ( i = 1 ; i < id ;  )
+  {
+
+    fscanf(arq,"%c", &c);
+    if ( c == ';' )
+    i++;
+
+  }
+
+  fprintf(arq2, "ID:%d\nLogin:%s\nData Nascimento:%d/%d/%d\n", id, novo, d,m,a);
+
+  for ( i = 0 ; i < 3; )
+  {
+
+    fscanf (arq,"%c",&c);
+    if ( c == '\n' )
+    i++;
+
+  }
+  while ( fscanf ( arq, "%c", &c ) != EOF )
+  fprintf(arq2, "%c", c);
+
+  fclose(arq);
+  fclose(arq2);
+
+  remove("usuarios.txt");
+  rename("usuarios2.txt","usuarios.txt");
+
+  printf("Usuario editado com sucesso.\n\n");
+
+}
+
+void Limpar_H (FILE *arq, int id)
+/*
+Limpa os dados de histórico de filmes de um usuário registrado no arquivo "usuarios.txt".
+*/
+{
+
+  int i, jp;
+  char novo[MAX], c;
+  FILE *arq2;
+
+  arq2 = fopen ("usuarios2.txt","w");
+  arq = fopen ("usuarios.txt","r");
+
+  fscanf(arq,"%3*c%d", &jp);
+  fprintf(arq2, "ID:%d", jp);
+  for ( i = 1 ; i < id ;  )
+  {
+
+    fscanf(arq, "%c", &c);
+    fprintf(arq2,"%c", c);
+    if ( c == ';' )
+    i++;
+
+  }
+
+  if (id==jp)
+  for ( i = 0 ; i < 3; )
+  {
+
+    fscanf (arq,"%c", &c);
+    fprintf(arq2,"%c", c);
+    if ( c == '\n' )
+    i++;
+
+  }
+  else
+  for ( i = 0 ; i < 4; )
+  {
+
+    fscanf (arq,"%c", &c);
+    fprintf(arq2,"%c", c);
+    if ( c == '\n' )
+    i++;
+
+  }
+
+  fprintf(arq2, "NH:0\nHistorico:.\n;\n");
+
+  for ( i = 0 ; i < 3; )
+  {
+
+    fscanf (arq,"%c", &c);
+    if ( c == '\n' )
+    i++;
+
+  }
+
+  while ( fscanf ( arq, "%c", &c ) != EOF )
+  fprintf(arq2, "%c", c);
+
+  fclose(arq);
+  fclose(arq2);
+
+  remove("usuarios.txt");
+  rename("usuarios2.txt","usuarios.txt");
+
+  printf("Historico limpado com sucesso.\n");
+
+}
+
+int Ver_Usuario ( FILE *arq, int id )
+/*
+Vê as informações um usuário registrado no arquivo "usuarios.txt" e printa no prompt de comando.
+*/
+{
+
+  int i, l, d,m,a, nh, nu, id2;
+  char login[MAX], c, h[MAX];
+
+  Ler_NU (arq,&nu);
+  arq = fopen("usuarios.txt","r");
+
+  for ( i = 1 ; i < nu ;  )
+  {
+
+    fscanf(arq,"%*3c%d", &id2);
+    if (id2==id)
+      break;
+    while (c!=';')
+      fscanf(arq,"%c", &c);
+    fscanf(arq,"%c", &c);
+    i++;
+
+  }
+
+  fscanf (arq,"\n");
+
+  while (c != '\n')
+  fscanf(arq,"%c", &c);
+
+  LER_ESPACO;
+  fscanf (arq,"%6*c%[^\n]s",&login);
+
+  fscanf (arq,"%17*c%d/%d/%d%4*c%d%11*c",&d,&m,&a,&nh);
+
+  for ( i = 0 ; i < nh ; i++ )
+  fscanf(arq,"%d%*c",&h[i]);
+
+  fclose(arq);
+
+  printf("\nUsuario '%s', ID: %d\nData de nascimento: %d / %d / %d\nHistorico de filmes visitados:", login, id, d,m,a);
+
+  for ( i = 0 ; i < nh ; i++ )
+  {
+
+    printf(" %d", h[i]);
+    if ( i < nh-1 )
+    printf(",");
+
+  }
+
+  printf(".\n\nDeseja editar algum de seus dados?\n1 - Editar informacoes.\n2 - Limpar historio de filmes.\n3 - Remover usuario. (volta para o menu inicial)\n4 - Voltar para o menu.\n - ");
+  scanf("%d", &i);
+
+  switch (i)
+  {
+
+    case 1:
+    Editar_Dados (arq, id);
+    return 0;
+    break;
+    case 2:
+    Limpar_H (arq, id);
+    return 0;
+    break;
+    case 3:
+    Remover_Usuario (arq, id);
+    return 0;
+    break;
+    case 4:
+    return 0;
+    break;
+
+  }
+
+  return 1;
 
 }
 
@@ -306,7 +515,7 @@ MENU INICIAL
   int i, id;
   FILE *arq;
 
-  printf("\nDigite:\n1 - Log in de usuario existente.\n2 - Registrar um novo usuario.\n3 - Listar usuarios registrados.\n4 - Remover um usuario.\n5 - Finalizar o programa.\n - ");
+  printf("\nDigite:\n1 - Log in de usuario existente.\n2 - Registrar um novo usuario.\n3 - Listar usuarios registrados. (ou editar usuario registrado)\n4 - Finalizar o programa.\n - ");
   scanf("%d", &i);
   Ler_NU (arq, nu);
 
@@ -314,6 +523,7 @@ MENU INICIAL
   {
     case 1:
 
+      Listar_Usuarios(arq);
       id = Procurar_Usuario(arq, *nu);
       if ( id == 1000000)
         return Menu_Inicial (nu);
@@ -324,18 +534,17 @@ MENU INICIAL
 
     break;
     case 2:
-      id = Registro(arq, nu);
+      id = Reg_Usuario(arq, nu);
     break;
     case 3:
-      Listar_Usuarios(arq, *nu);
+      Listar_Usuarios(arq);
+      printf("Deseja editar os dados de algum usuario?\nDigite 0 para nao editar, voltando ao menu inicial, ou o id que deseja alterar.\n - ");
+      scanf("%d", &id);
+      if (id != 0)
+        Ver_Usuario(arq, id);
       return Menu_Inicial(nu);
     break;
     case 4:
-      Listar_Usuarios(arq,*nu);
-      Remover_Usuario(arq,nu);
-      return Menu_Inicial(nu);
-    break;
-    case 5:
       return 0;
     break;
 
@@ -368,200 +577,6 @@ void Ler_NV ( FILE *arq, int *nv )
 
 }
 
-void Editar_Dados (FILE *arq, int id)
-/*
-  Edita os dados de um usuário registrado no arquivo "usuarios.txt".
-*/
-{
-
-  int i, d,m,a;
-  char novo[MAX], c;
-  FILE *arq2;
-
-  printf("\nDigite o novo nome de usuario (minimo de 2 caracteres).\n - ");
-  LER_ESPACO;
-  scanf("%[^\n]s", &novo);
-
-  i = Verificar_Nome (novo);
-
-  while (i == 0)
-  {
-
-    printf("Nome invalido, por favor digite novamente.\n - ");
-    LER_ESPACO;
-    scanf("%[^\n]s", &novo);
-    i = Verificar_Nome (novo);
-
-  }
-
-  printf("\nDigite a nova data de nascimento, no formato 'dd mm aaaa'.\n - ");
-  scanf("%d %d %d", &d, &m, &a);
-
-  while ( Verificar_Data (d,m,a) )
-    scanf("%d %d %d", &d,&m,&a);
-
-  arq2 = fopen ("usuarios2.txt","w");
-  arq = fopen ("usuarios.txt","r");
-
-  for ( i = 1 ; i < id ;  )
-  {
-
-    fscanf(arq,"%c", &c);
-    if ( c == ';' )
-      i++;
-
-  }
-
-  fprintf(arq2, "ID:%d\nLogin:%s\nData Nascimento:%d/%d/%d\n", id, novo, d,m,a);
-
-  for ( i = 0 ; i < 3; )
-  {
-
-    fscanf (arq,"%c",&c);
-    if ( c == '\n' )
-      i++;
-
-  }
-  while ( fscanf ( arq, "%c", &c ) != EOF )
-    fprintf(arq2, "%c", c);
-
-  fclose(arq);
-  fclose(arq2);
-
-  remove("usuarios.txt");
-  rename("usuarios2.txt","usuarios.txt");
-
-  printf("Usuario editado com sucesso.\n\n");
-
-}
-
-void Limpar_H (FILE *arq, int id)
-/*
-  Limpa os dados de histórico de filmes de um usuário registrado no arquivo "usuarios.txt".
-*/
-{
-
-  int i;
-  char novo[MAX], c;
-  FILE *arq2;
-
-  arq2 = fopen ("usuarios2.txt","w");
-  arq = fopen ("usuarios.txt","r");
-
-  for ( i = 1 ; i < id ;  )
-  {
-
-    fscanf(arq, "%c", &c);
-    fprintf(arq2,"%c", c);
-    if ( c == ';' )
-      i++;
-
-  }
-
-  for ( i = 0 ; i < 4; )
-  {
-
-    fscanf (arq,"%c", &c);
-    fprintf(arq2,"%c", c);
-    if ( c == '\n' )
-      i++;
-
-  }
-
-  fprintf(arq2, "NH:0\nHistorico:.\n;\n");
-
-  for ( i = 0 ; i < 3; )
-  {
-
-    fscanf (arq,"%c", &c);
-    if ( c == '\n' )
-      i++;
-
-  }
-
-  while ( fscanf ( arq, "%c", &c ) != EOF )
-    fprintf(arq2, "%c", c);
-
-  fclose(arq);
-  fclose(arq2);
-
-  remove("usuarios.txt");
-  rename("usuarios2.txt","usuarios.txt");
-
-  printf("Historico limpado com sucesso.\n\n");
-
-}
-
-int Ver_Informacoes ( FILE *arq, int id )
-/*
-  Vê as informações um usuário registrado no arquivo "usuarios.txt" e printa no prompt de comando.
-*/
-{
-
-  int i, l, d,m,a, nh;
-  char login[MAX], c, h[MAX];
-
-  arq = fopen("usuarios.txt","r");
-
-  for ( i = 1 ; i < id ;  )
-  {
-
-    fscanf(arq,"%c", &c);
-    if ( c == ';' )
-      i++;
-
-  }
-
-  fscanf (arq,"\n");
-
-  while (c != '\n')
-    fscanf(arq,"%c", &c);
-
-  LER_ESPACO;
-  fscanf (arq,"%6*c%[^\n]s",&login);
-
-  fscanf (arq,"%17*c%d/%d/%d%4*c%d%11*c",&d,&m,&a,&nh);
-
-  for ( i = 0 ; i < nh ; i++ )
-    fscanf(arq,"%d%*c",&h[i]);
-
-  fclose(arq);
-
-  printf("\nUsuario '%s', ID: %d\nData de nascimento: %d / %d / %d\nHistorico de filmes visitados:", login, id, d,m,a);
-
-  for ( i = 0 ; i < nh ; i++ )
-  {
-
-    printf(" %d", h[i]);
-    if ( i < nh-1 )
-      printf(",");
-
-  }
-
-  printf(".\n\nDeseja editar algum de seus dados?\n1 - Editar informacoes.\n2 - Limpar historio de filmes.\n3 - Voltar para o menu inicial.\n - ");
-  scanf("%d", &i);
-
-  switch (i)
-  {
-
-    case 1:
-      Editar_Dados (arq, id);
-      return 0;
-    break;
-    case 2:
-      Limpar_H (arq, id);
-      return 0;
-    break;
-    case 3:
-      return 0;
-    break;
-
-  }
-
-  return 1;
-
-}
-
 void Deletar_Video ( FILE *arq, int id, int *nv )
 /*
   Deleta todas as informações um vídeo registrado no arquivo "videos.txt".
@@ -574,7 +589,6 @@ void Deletar_Video ( FILE *arq, int id, int *nv )
 
   arq = fopen ("videos.txt","r");
   arq2 = fopen ("videos2.txt","w");
-
   fscanf(arq,"%3*c%d\n", &jp);
 
   for ( k = 1 ; jp != id ; fscanf(arq,"%3*c%d\n", &jp), k++ )
@@ -604,7 +618,7 @@ void Deletar_Video ( FILE *arq, int id, int *nv )
 
   }
 
-  for ( ; k <= *nv ; k++ )
+  for ( ; k <= *nv - 1 ; k++ )
   {
 
     for ( i = 0 ; i < 10 ;  )
@@ -635,7 +649,7 @@ Verifica se o tempo inserido é possível, no intervalo Hora: [0,24],Minuto: [0,
 
   if (h<0||h>24)
     return 0;
-  if (m<0||m>60)
+  if (m<0||m>59)
     return 0;
   if (m == h && m == 0)
     return 0;
@@ -643,13 +657,13 @@ Verifica se o tempo inserido é possível, no intervalo Hora: [0,24],Minuto: [0,
 
 }
 
-int Verificar_Video ( int t, int h, int m, int ano, int nt, char nome[], char diretor[], char generos[])
+int Verificar_Video ( int t, int h, int m, int ano, int nt, char nome[], char diretor[])
 /*
 Verifica se is informações inseridas são possiveis, em relação do vídeo registrado.
 */
 {
 
-  if ( (Verificar_Nome (nome)&&Verificar_Nome(diretor)&&Verificar_Nome(generos)) == 0 )
+  if ( (Verificar_Nome (nome)&&Verificar_Nome(diretor)) == 0 )
     return 1;
   if (ano<0)
     return 2;
@@ -671,13 +685,16 @@ Verifica se is informações inseridas são possiveis, em relação do vídeo re
 
 }
 
-int Listar_Videos (FILE *arq, int nv)
+int Listar_Videos (FILE *arq)
 /*
   Lista vídeos registrados no arquivo "videos.txt".
 */
 {
 
-  int i, j, id;
+  int i, j, id, nv;
+
+  Ler_NV(arq,&nv);
+
   char c, nome[MAX];
 
   if (nv == 0)
@@ -739,7 +756,7 @@ int Editar_Video (FILE *arq, int *idv, int nv)
 {
 
   int i,t,h,m,ano,nt,ng;
-  char nome[MAX], diretor[MAX], generos[MAX], c;
+  char nome[MAX], diretor[MAX]/*, generos[MAX]*/, c;
   FILE *arq2;
 
   //Escaneando
@@ -775,12 +792,12 @@ int Editar_Video (FILE *arq, int *idv, int nv)
   printf("Digite o ano de lancamento.\n - ");
   scanf("%d", &ano);
 
-  printf("Digite os generos do video, separando cada um por virgula, por exemplo 'acao,aventura'.\n - ");
-  LER_ESPACO;
-  scanf("%[^\n]s", &generos);
+  //printf("Digite os generos do video, separando cada um por virgula, por exemplo 'acao,aventura'.\n - ");
+  //LER_ESPACO;
+  //scanf("%[^\n]s", &generos);
 
   //printando no arquivo
-  i = Verificar_Video ( t, h, m, ano, nt, nome, diretor, generos );
+  i = Verificar_Video ( t, h, m, ano, nt, nome, diretor );
 
   if ( i == 0 )
   {
@@ -847,6 +864,7 @@ int Editar_Video (FILE *arq, int *idv, int nv)
         i++;
 
     }
+    /*
     for ( i = 0, ng = 1 ; generos[i] ; i++ )
 
       if ( generos[i] == ',')
@@ -866,7 +884,7 @@ int Editar_Video (FILE *arq, int *idv, int nv)
       fprintf(arq2, "ng:%d\nGeneros:%s.\n", ng, generos);
 
     }
-
+    */
     for ( i = 0 ; i < 3 ;  )
     {
 
@@ -913,12 +931,15 @@ void Adicionar_Historico (FILE *arq, int idu, int idv)
 */
 {
 
-  int i, nh;
+  int i, nh, jp;
   char c,h[MAX];
   FILE *arq2;
 
-  arq2 = fopen ("usuarios2.txt","w");
   arq = fopen ("usuarios.txt","r");
+  arq2 = fopen ("usuarios2.txt","w");
+
+  fscanf(arq,"%3*c%d", &jp);
+  fprintf(arq2, "ID:%d", jp);
 
   for ( i = 1 ; i < idu ;  )
   {
@@ -931,16 +952,26 @@ void Adicionar_Historico (FILE *arq, int idu, int idv)
 
   }
 
-  for ( i = 0 ; i < 4; )
-  {
+  if (idu==jp)
+    for ( i = 0 ; i < 3; )
+    {
 
-    fscanf (arq,"%c", &c);
-    fprintf(arq2,"%c", c);
+      fscanf (arq,"%c", &c);
+      fprintf(arq2,"%c", c);
+      if ( c == '\n' )
+        i++;
 
-    if ( c == '\n' )
-      i++;
+    }
+  else
+    for ( i = 0 ; i < 4; )
+    {
 
-  }
+      fscanf (arq,"%c", &c);
+      fprintf(arq2,"%c", c);
+      if ( c == '\n' )
+        i++;
+
+    }
 
   fscanf(arq, "%3*c%d", &nh);
   fscanf (arq,"%11*c%[^.]s", &h);
@@ -958,6 +989,7 @@ void Adicionar_Historico (FILE *arq, int idu, int idv)
   }
   else
     fprintf(arq2, "NH:%d\nHistorico:%s.",nh,h);
+
 
   fscanf(arq, "%*c");
 
@@ -1014,16 +1046,22 @@ void Mostrar_Video (FILE *arq, int idv, int nv)
   if ( t == 1 )
   {
 
-    fscanf(arq,"%8*c%2d%*c%2d", &h, &m);
-    fscanf(arq,"%c", &k);
-    while (k != '\n')
-      fscanf(arq,"%c", &k);
+    fscanf(arq,"%9*c%d",&h);
+    fscanf(arq,"%*c%d", &m);
+    for ( i = 0 ; i < 2 ;  )
+    {
+
+      fscanf(arq,"%c",&c);
+      if ( c == '\n' )
+        i++;
+
+    }
 
   }
   if ( t == 2 )
     fscanf(arq,"%24*c%d", &nt);
 
-  fscanf(arq,"%10*c%d", &ano);
+  fscanf(arq,"%9*c%d", &ano);
   fscanf(arq,"%3*c%d", &ng);
   fscanf(arq,"%11*c");
 
@@ -1068,7 +1106,7 @@ int Procurar_Video (FILE *arq,int *nv,int *idv, int idu)
     return 0;
   }
 
-  Listar_Videos (arq,*nv);
+  Listar_Videos (arq);
   printf("Digite o ID do video para consulta.\n - ");
   scanf("%d", idv);
 
@@ -1098,14 +1136,196 @@ int Procurar_Video (FILE *arq,int *nv,int *idv, int idu)
 
 }
 
-int Add_Video (FILE *arq, int *nv, int *idv, int idu)
+void Add_Tipo_Dados(int t)
+{
+  int i, d;
+  char c;
+  FILE *arq, *arq2;
+
+  arq = fopen ("dados.txt","r");
+  arq2 = fopen ("dados2.txt","w");
+
+  for ( i = 0 ; i < 5 ; i++ )
+  {
+
+    fscanf(arq,"%c",&c);
+    fprintf(arq2, "%c", c);
+
+  }
+
+  for ( i=0 ; i<t-1 ;  )
+  {
+    fscanf(arq,"%c",&c);
+    if (c=='\n')
+    {
+      i++;
+    }
+  }
+
+  for ( i = 0 ; i < 3 ; i++ )
+  {
+    fscanf(arq,"%c",&c);
+    fprintf(arq2, "%c", c);
+  }
+  fscanf(arq,"%d",&d);
+  fprintf(arq2, "%d", d+1);
+
+  for ( i=0 ; i<4 ;  )
+  {
+    fscanf(arq,"%c",&c);
+    fprintf(arq2, "%c", c);
+    if (c==(';'))
+    {
+      i++;
+    }
+  }
+  fclose(arq);
+  fclose(arq2);
+  remove("dados.txt");
+  rename("dados2.txt","dados.txt");
+
+}
+
+void Add_Novo_Genero (FILE *arq)
+{
+
+  char c,s[MAX];
+  int i,ng;
+  FILE *arq2;
+
+  arq = fopen ("dados.txt","r");
+  arq2 = fopen ("dados2.txt","w");
+
+  printf("Digite o novo genero.\n - ");
+  gets(s);
+  if (Verificar_Nome(s)==0)
+  {
+    printf("Genero invalido, favor digitar um novo.\n");
+    gets(s);
+  }
+
+  c='0';
+  while ( c!=';' )
+  {
+    fscanf(arq,"%c", &c);
+    fprintf(arq2, "%c", c);
+  }
+  while ( c!=':' )
+  {
+    fscanf(arq,"%c", &c);
+    fprintf(arq2, "%c", c);
+  }
+  fscanf(arq,"%d", &ng);
+  fprintf(arq2, "%d\n", ng);
+  for ( i = 0 ; i < ng ; i++ )
+  {
+    while ( c!='\n' )
+    {
+      fscanf(arq,"%c", &c);
+      fprintf(arq2, "%c", c);
+    }
+  }
+  fprintf(arq2, "%s-1\n", s);
+  for ( i = 0 ; i < 3 ; i++ )
+  {
+    while ( c!=';' )
+    {
+      fscanf(arq,"%c", &c);
+      fprintf(arq2, "%c", c);
+    }
+  }
+  fclose(arq);
+  fclose(arq2);
+  remove("dados.txt");
+  rename("dados2.txt","dados.txt");
+}
+
+void Add_Genero_Dados (int gv[], int *ngv)
+{
+  int fl, fl2 ,i,j, d, ng, gd[MAX];
+  char c, s[MAX];
+  FILE *arq;
+
+  for (fl = 1, i = *ngv = 0 ; fl != 0 ;  )
+  {
+    arq = fopen ("dados.txt","r");
+
+    for ( j=0 ; j<1 ;  )
+    {
+      fscanf(arq,"%c",&c);
+      if (c==(';'))
+      {
+        j++;
+      }
+    }
+
+    fscanf(arq,"%*9c%d",&ng);
+
+    printf("Digite:\n-1 - Se ja tiver adicionado todos os generos desejados, para sair desse menu.\n0 - Adicionar um genero nao listado abaixo.\nOu para adicionar um dos seguintes generos:\n");
+
+    for ( j = 0 ; j<ng ; j++ )
+    {
+
+      fscanf(arq,"%*c%[^-]s",&s);
+      fscanf(arq,"%*c%d",&d);
+      printf("%d - %s\n", j+1, s);
+
+    }
+
+    printf(" - ");
+    scanf("%d", &d);
+
+    if (d>0)
+    {
+
+      for ( j = fl2 = 0 ; j < ng ; j++ )
+      {
+        if (gv[j]==d-1)
+        {
+          fl2++;
+        }
+      }
+      if (fl2==0)
+      {
+        gd[d-1]++;
+        gv[i] = d-1;
+        i++;
+        *ngv++;
+        printf("Genero [%d] adiconado.\n", d);
+      }
+      else
+        printf("Genero ja adicionado a este video. Por favor, escolha outra opcao.\n" );
+
+      fl = 1;
+
+    }
+    if (d==0)
+    {
+
+      fclose(arq);
+      Add_Novo_Genero (arq);
+      *ngv++;
+      arq = fopen ("dados.txt","r");
+
+    }
+    if (d==-1)
+    {
+      fl=0;
+    }
+
+    fclose(arq);
+  }
+
+}
+
+int Reg_Video (FILE *arq, int *nv, int *idv, int idu)
 /*
   Registra um vídeo no arquivo "videos.txt".
 */
 {
 
-  int i, t, h, m, ng, ano, nt;
-  char nome[MAX], diretor[MAX], generos[MAX];
+  int i, t, h, m, ng, ano, nt, generos[MAX];
+  char nome[MAX], diretor[MAX];
 
   h = m = 0;
   *nv = *nv + 1;
@@ -1143,18 +1363,16 @@ int Add_Video (FILE *arq, int *nv, int *idv, int idu)
   printf("Digite o ano de lancamento.\n - ");
   scanf("%d", &ano);
 
-  printf("Digite os generos do video, separando cada um por virgula, por exemplo 'acao,aventura'.\n - ");
-  LER_ESPACO;
-  scanf("%[^\n]s", &generos);
+  Add_Genero_Dados (generos,&ng);
 
-  i = Verificar_Video ( t, h, m, ano, nt, nome, diretor, generos );
+  i = Verificar_Video ( t, h, m, ano, nt, nome, diretor);
 
   if ( i == 0 )
   {
 
     printf("Video registrado. Seguem as informacoes do video\nID: [%d]\nNome: '%s'\nDiretor: '%s'\n", *idv, nome, diretor);
     fprintf(arq, "ID:%d\nNome:%s\nTipo:%d\nDiretor:%s\n", *idv, nome, t, diretor);
-
+    Add_Tipo_Dados(t);
     if (t == 1)
     {
 
@@ -1174,24 +1392,16 @@ int Add_Video (FILE *arq, int *nv, int *idv, int idu)
     printf("Ano de lancamento: %d\n", ano);
     fprintf(arq, "ano.lanc:%d\n", ano);
 
-    for ( i = 0, ng = 1 ; generos[i] ; i++ )
-      if ( generos[i] == ',')
-         ng++;
-
-    if ( generos [i-1] == '.')
+    fprintf(arq, "ng:%d\nGeneros:", ng);
+    while (ng>0)
     {
-
-      printf("Generos: %s\n", generos);
-      fprintf(arq, "ng:%d\nGeneros:%s\n;\n", ng, generos);
+      fprintf(arq,"%d", generos[ng]);
+      ng--;
+      if (ng>0)
+        fprintf(arq,",");
 
     }
-    else
-    {
-
-      printf("Generos:%s.\n", generos);
-      fprintf(arq, "ng:%d\nGeneros:%s.\n;\n", ng, generos);
-
-    }
+    fprintf(arq,".\n;\n");
 
     fclose(arq);
 
@@ -1235,7 +1445,7 @@ MENU PRINCIPAL
   {
 
     case 1:
-      fl = Ver_Informacoes(arq, idu);
+      fl = Ver_Usuario(arq, idu);
       if (fl == 0)
         Menu_Principal(nu,nv,idu,idv);
     break;
@@ -1245,12 +1455,12 @@ MENU PRINCIPAL
         Menu_Principal(nu,nv,idu,idv);
     break;
     case 3:
-      fl = Add_Video(arq,nv, idv, idu);
+      fl = Reg_Video(arq,nv, idv, idu);
       if (fl == 0)
         Menu_Principal(nu,nv,idu,idv);
     break;
     case 4:
-      fl = Listar_Videos(arq,*nv);
+      fl = Listar_Videos(arq);
       if (fl == 0)
         Menu_Principal(nu,nv,idu,idv);
     break;

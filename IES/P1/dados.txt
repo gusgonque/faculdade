@@ -1,0 +1,17 @@
+TIPO:
+F-2
+S-0
+;
+GENEROS:3
+acao-2
+aventura-2
+corrida-1
+;
+NFA:
+1-0
+2-0
+3-0
+;
+DIRETOR:1
+JP-2
+;

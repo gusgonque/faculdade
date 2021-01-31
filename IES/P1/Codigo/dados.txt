@@ -1,0 +1,10 @@
+TIPO:
+F-1
+S-0
+;
+GENEROS:1
+Acao-1
+;
+DIRETOR:1
+Diretor_Teste-1
+;

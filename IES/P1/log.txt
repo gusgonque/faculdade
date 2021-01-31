@@ -1,1 +1,0 @@
-ERRO 3: Video com ID = [2], numero da duracao solicitado foi colocado de forma incorreta, fora do intervalo formalizado (Hora: [0,24],Minuto: [0,59]).

@@ -7,12 +7,18 @@ Historico:.
 ID:2
 Login:Teste
 Data Nascimento:12/12/2012
-NH:0
-Historico:.
+NH:8
+Historico:0,1,2,3,2,1,2,1.
 ;
 ID:4
 Login:Teste2
 Data Nascimento:1/10/2012
 NH:0
 Historico:.
+;
+ID:5
+Login:Yuri
+Data Nascimento:17/11/2001
+NH:2
+Historico:0,1.
 ;

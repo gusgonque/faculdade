@@ -1,0 +1,9 @@
+Quantidade de videos dos tipos:
+Filme:0
+Serie:0
+Quantidade de videos para cada genero:
+Quantidade de vídeos assistidos por cada cliente:
+ID 1:0 video(s).
+ID 2:8 video(s).
+ID 4:0 video(s).
+ID 5:2 video(s).

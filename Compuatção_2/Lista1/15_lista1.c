@@ -10,26 +10,28 @@
 
 int main()
 {
-  int x[3],f,i;
+  int x,y,z;
 
   printf("Digite tres numeros para determina-los em ordem crescente.\n");
-  scanf("%d %d %d", &x[0], &x[1], &x[2]);
+  scanf("%d %d %d", &x, &y, &z);
 
-  for ( i = f = 0 ; f != 0 ; i++ )
-  {
-    if (x[i]>x[i+1])
-    {
-      f++;
+  if(x>y && x>z && y>z)
+      printf("%d %d %d", z, y, x);
 
-      x[i] = x[i+1] + x[i];
-      x[i+1] = x[i] - x[i+1];
-      x[i] = x[i] - x[i+1];
-    }
-    if (i=1)
-      i = 0;
-  }
+  if(x>y && x>z && z>y)
+      printf("%d %d %d", y, z, x);
 
-  printf("%d %d %d", x[0], x[1], x[2]);
+  if(y>x && y>z && x>z)
+      printf("%d %d %d", z, x, y);
+
+  if(y>x && y>z && z>x)
+      printf("%d %d %d", x, z, y);
+
+  if(z>x && z>y && x>y)
+      printf("%d %d %d", y, x, z);
+
+  if(z>x && z>y && y>x)
+      printf("%d %d %d", x, y, z);
 
   return 0;
 }

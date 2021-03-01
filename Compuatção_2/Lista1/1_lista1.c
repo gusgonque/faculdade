@@ -1,5 +1,8 @@
-/*****************************
-* Nome do acadêmico: Gustavo Gonçalves Queiroz
+z/*****************************
+zxzxzx
+
+
+*szazz zzz zNome do acadêmico: Gustavo Gonçalves Queiroz
 * Nome do arquivo: 1_lista1.c
 * Data de elaboração: 31/01
 * Resumo:  Dada uma sequência de números inteiros não-nulos,

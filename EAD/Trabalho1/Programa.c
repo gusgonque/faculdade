@@ -92,20 +92,37 @@ int gruLib = 0;
 vacina vac[MAX];
 int nVac = 0;
 
-int Zerar () // Finalizado
+int Zerar ()
+/*
+
+Pré-condições:
+  Nenhuma.
+
+Pós-condições:
+  Número de pacientes não vacinados zerados;
+  Número de pecientes registrados zerados.
+
+*/
 {
   int i;
   for ( i = 0; i < 5; i++ )
   {
     pri[i].numPacNaoVac = 0;
     pri[i].numPacReg = 0;
-    //printf("pri[%d].numPacNaoVac = %d\n", i, pri[i].numPacNaoVac);
-    //printf("pri[%d].numPacReg = %d\n", i, pri[i].numPacReg);
   }
 
 }
 
-int Verificar_Resposta (char str[]) // Finalizado
+int Verificar_Resposta (char str[])
+/*
+
+Pré-condições:
+  String str de entrada.
+
+Pós-condições:
+  Se a string for vazia, ou preenchida apenas por espaços, retorna o número 1. Do contrário, retorna 0.
+
+*/
 {
   int fl, i;
 
@@ -123,7 +140,16 @@ int Verificar_Resposta (char str[]) // Finalizado
 
 }
 
-int Verificar_Numero(char str[]) // Finalizado
+int Verificar_Numero(char str[])
+/*
+
+Pré-condições:
+  String str de entrada.
+
+Pós-condições:
+  Se a string for formada por algum caracter que não seja número, ou apenas números 0, retorna o número 1. Do contrário, retorna 0.
+
+*/
 {
   int fl, i;
 
@@ -146,7 +172,16 @@ int Verificar_Numero(char str[]) // Finalizado
     return 0;
 }
 
-int CadHab()  // Finalizado
+int CadHab()
+/*
+
+Pré-condições:
+  Nenhuma.
+
+Pós-condições:
+  É cadastrado um novo elemento na struct Paciente.
+
+*/
 {
   int i;
   if (nPac >= MAX)
@@ -204,7 +239,6 @@ int CadHab()  // Finalizado
     gets(pac[nPac].cpf);
     for ( i = 0 ; i < nPac ; i++ )
     {
-      //printf("strcmp( %s, pac[%d].cpf = '%s' ) = %d\n", pac[nPac].cpf, i,pac[i].cpf, strcmp( pac[nPac].cpf, pac[i].cpf ));
       if (strcmp( pac[nPac].cpf, pac[i].cpf ) == 0)
       {
         printf(" CPF ja registrado. Voltando ao menu inicial\n\n");
@@ -246,28 +280,42 @@ int CadHab()  // Finalizado
     pri[pac[nPac].pri-1].numPacNaoVac++;
     pri[pac[nPac].pri-1].numPacReg++;
 
-    //printf("%s\n", pac[nPac].vacDat[0]);
-    //printf("%s\n", pac[nPac].vacDat[1]);
     strcpy(pac[nPac].vacDat[0] , "00000000");
     strcpy(pac[nPac].vacDat[1] , "00000000");
     pac[nPac].vac = -1;
 
-
-    //printf("%s;%s;%s;%s;%s;%s;%s;%s;%d\n\n", pac[nPac].nom, pac[nPac].ida, pac[nPac].sex, pac[nPac].rg, pac[nPac].cpf, pac[nPac].tel, pac[nPac].end, pac[nPac].pro, pac[nPac].pri);
     nPac ++;
-    printf("nPac = %d\n", nPac);
+
   }
   return 1;
 }
 
-void Listar_Vacinas() // Finalizado
+void Listar_Vacinas()
+/*
+
+Pré-condições:
+  Nenhuma.
+
+Pós-condições:
+  É printado no cmd, a lista de todas as vacinas registradas.
+
+*/
 {
   int i;
   for ( i = 0 ; i < nVac ; i++ )
     printf(" %d - %s\n", i, vac[i].nomTip);
 }
 
-int RegVac() // Finalizado
+int RegVac()
+/*
+
+Pré-condições:
+  Pelo menos um paciente registrado.
+
+Pós-condições:
+  É cadastrado a vacinação de um paciente registrado.
+
+*/
 {
   char n[MAX];
   int i, d;
@@ -376,10 +424,20 @@ int RegVac() // Finalizado
   return 1;
 }
 
-int RetPac() // Finalizado
+int RetPac()
+/*
+
+Pré-condições:
+  Pelo menos um paciente registrado.
+
+Pós-condições:
+  É retirado um elemento da struct Paciente.
+
+*/
 {
   char n[MAX];
   int i;
+
   if (nPac <= 0)
   {
     printf(" Nao e possivel realizar a acao, sistema vazio.\n Retornando ao menu inicial.\n\n");
@@ -390,13 +448,10 @@ int RetPac() // Finalizado
     printf(" Digite o CPF do individuo a ser retirado do sistema.\n - ");
     setbuf(stdin, NULL);
     gets(n);
+
     for ( i = 0 ; i < nPac ; i++ )
-    {
-      //printf("strcmp( %s, pac[%d].cpf = '%s' ) = %d\n", n, i,pac[i].cpf, strcmp( n, pac[i].cpf ));
       if (strcmp( n, pac[i].cpf ) == 0)
         break;
-    }
-
     if (i == nPac)
     {
       printf(" Individuo nao encontrado. Retornando ao menu anterior.\n\n");
@@ -418,18 +473,27 @@ int RetPac() // Finalizado
       strcpy( pac[i].vacDat[1] , pac[i+1].vacDat[1] );
       pac[i].pri = pac[i+1].pri;
       pac[i].vac = pac[i+1].vac;
-      printf("%s;%s;%s;%s;%s;%s;%s;%s;%d\n\n", pac[i].nom, pac[i].ida, pac[i].sex, pac[i].rg, pac[i].cpf, pac[i].tel, pac[i].end, pac[i].pro, pac[i].pri);
 
     }
 
     nPac--;
 
   }
+
   return 1;
 
 }
 
-int LibPri() // Finalizado
+int LibPri()
+/*
+
+Pré-condições:
+  O grupo de prioridade 5 não estar liberado.
+
+Pós-condições:
+  Libera o próximo grupo de prioridade.
+
+*/
 {
   char n;
 
@@ -462,7 +526,16 @@ int LibPri() // Finalizado
 
 }
 
-int AumDos() // Finalizado
+int AumDos()
+/*
+
+Pré-condições:
+  Alguma vacina registrada no sistema.
+
+Pós-condições:
+  É aumentado o número de doses da vacina que o usuário escolher.
+
+*/
 {
   int i, n, d;
 
@@ -497,9 +570,19 @@ int AumDos() // Finalizado
 
 }
 
-int RegNovVac() // Finalizado
+int RegNovVac()
+/*
+
+Pré-condições:
+  Nenhuma.
+
+Pós-condições:
+  É cadastrado um novo elemento na struct Vacina.
+
+*/
 {
   int i;
+
   printf(" Digite o nome do tipo da vacina.\n - ");
   setbuf(stdin, NULL);
   gets(vac[nVac].nomTip);
@@ -518,7 +601,6 @@ int RegNovVac() // Finalizado
     printf(" Valor invalido. Digite novamente.\n - ");
     scanf("%d", &vac[nVac].numDos);
   }
-  //printf("%s;%d\n\n", vac[nVac].nomTip, vac[nVac].numDos);
 
   for ( i = 0 ; i < 5 ; i++ )
   {
@@ -526,22 +608,34 @@ int RegNovVac() // Finalizado
     pri[i].numPacVac[nVac][1] = 0;
   }
 
-
   nVac++;
 
   return 1;
 
 }
 
-int ConVac() // Finalizado
+int ConVac()
+/*
+
+Pré-condições:
+  Nenhuma.
+
+Pós-condições:
+  Abre um menu com opções para o controle de vacinas. Opções:
+  1 - Aumento no numero de doses de uma vacina ja criada.
+  2 - Registro de uma nova vacina no sistema.
+  3 - Voltar ao menu inicial.
+
+*/
 {
   int n;
   printf(" Menu de controle de vacinas. Digite:\n 1 - Aumento no numero de doses de uma vacina ja criada.\n 2 - Registro de uma nova vacina no sistema.\n 3 - Voltar ao menu inicial.\n\n - ");
   scanf("%d", &n);
   printf("\n");
+
   while ((n<1)||(n>3))
   {
-    printf(" Comando nao existente, por favor, digite outro comando\n\n - ");
+    printf(" Comando nao existente, por favor, digite outro comando.\n - ");
     scanf("%d", &n);
     printf("\n");
   }
@@ -550,32 +644,36 @@ int ConVac() // Finalizado
   {
     case (1):
     {
-      if (AumDos())
-      {
-        ConVac();
-        return 1;
-      }
+      AumDos();
+      ConVac();
+      return 1;
     }
     case (2):
     {
-      if (RegNovVac())
-      {
-        ConVac();
-        return 1;
-      }
+      RegNovVac();
+      ConVac();
+      return 1;
     }
     case (3):
     {
       return 1;
     }
-
   }
 
   return 1;
 
 }
 
-void Gerar_Relatorio_1() // Finalizado
+void Gerar_Relatorio_1()
+/*
+
+Pré-condições:
+  Nenhuma.
+
+Pós-condições:
+  Printa no cmd um relatório com as vacinas registradas e seus respectivos múmero de doses.
+
+*/
 {
   int i;
   if (nVac == 0)
@@ -585,14 +683,23 @@ void Gerar_Relatorio_1() // Finalizado
   printf("\n");
 }
 
-void Gerar_Relatorio_2() // Finalizado
+void Gerar_Relatorio_2()
+/*
+
+Pré-condições:
+  Algum paciente estar registrado apenas com a primeira dose de alguma vacina.
+
+Pós-condições:
+  Printa no cmd um relatório com o nome e CPF dos pacientes registrados apenas com a primeira dose de alguma vacina.
+
+*/
 {
   int i, f;
   if (nPac == 0)
     printf(" Nenhuma pessoa registrada no sistema. Retornando ao menu anterior.\n");
   for ( i = f = 0 ; i < nPac ; i++ )
     if (strcmp("00000000", pac[i].vacDat[0] ) != 0)
-      if (strcmp("00000000", pac[i].vacDat[1] ) != 0)
+      if (strcmp("00000000", pac[i].vacDat[1] ) == 0)
       {
         printf(" Nome:%s - CPF:%s\n",pac[i].nom, pac[i].cpf );
         f++;
@@ -602,51 +709,94 @@ void Gerar_Relatorio_2() // Finalizado
   printf("\n");
 }
 
-void Gerar_Relatorio_3() // Finalizado
+void Gerar_Relatorio_3()
+/*
+
+Pré-condições:
+  Algum paciente estar registrado com a segunda dose de alguma vacina.
+
+Pós-condições:
+  Printa no cmd um relatório com o número de pacientes registrados com a segunda dose de alguma vacina.
+
+*/
 {
   int i, j, r;
   for ( i = r = 0 ; i < 5 ; i++ )
     for ( j = 0 ; j < nVac ; j++ )
       r += pri[i].numPacVac [j][1];
-  printf(" %d pessoas foram vacinadas com a segunda dose de alguma vacina.\n", r);
+  printf(" %d pessoas foram vacinadas com a segunda dose de alguma vacina.\n\n", r);
 }
 
-void Gerar_Relatorio_4() // Finalizado
+void Gerar_Relatorio_4()
+/*
+
+Pré-condições:
+  Algum paciente estar registrado no sistema.
+
+Pós-condições:
+  Printa no cmd um relatório com a lista de habitantes (nome, CPF) nao vacinados agrupados pelo grupo prioritario.
+
+*/
 {
   int i, j;
+
   if (nPac == 0)
-  printf(" Nenhuma pessoa registrada no sistema. Retornando ao menu anterior.\n");
+    printf(" Nenhuma pessoa registrada no sistema. Retornando ao menu anterior.\n");
+
   for (size_t j = 0; j < 5; j++)
   {
     printf(" Grupo %d\n", j+1);
     for ( i = 0 ; i < pri[j].numPacReg ; i++ )
-    {
-      //printf("j = %d i = %d, %s\n", j, i, pac[i].vacDat[0]);
       if (strcmp("00000000", pac[i].vacDat[0] ) == 0)
         printf(" Nome:%s - CPF:%s\n",pac[i].nom, pac[i].cpf );
-    }
   }
   printf("\n");
 }
 
-void Gerar_Relatorio_5() // Finalizado
+void Gerar_Relatorio_5()
+/*
+
+Pré-condições:
+  Algum paciente estar registrado no sistema.
+
+Pós-condições:
+  Printa no cmd um relatório com o numero de habitantes por grupo prioritario.
+
+*/
 {
   int i;
   if (nPac == 0)
   printf(" Nenhuma pessoa registrada no sistema. Retornando ao menu anterior.\n");
+
   for (size_t i = 0; i < 5; i++)
-  {
     printf(" Grupo %d: %d\n", i+1, pri[i].numPacReg);
-  }
+
   printf("\n");
 }
 
-int GerRel() // Finalizado
+int GerRel()
+/*
+
+Pré-condições:
+  Nenhuma
+
+Pós-condições:
+  Abre um menu com opções para a geração de relatórios. Opções:
+  1 - Numero de doses no estoque por tipo de vacina.
+  2 - Lista de habitantes (nome, CPF) vacinados somente com a 1a dose.
+  3 - Numero de habitantes vacinados, ja com a 2a dose.
+  4 - Lista de habitantes (nome, CPF) nao vacinados agrupados pelo grupo prioritario.
+  5 - Numero de habitantes por grupo prioritario.
+  6 - Retornar ao menu anterior.
+
+*/
 {
   int n;
+
   printf(" Digite para gerar o relatorio:\n 1 - Numero de doses no estoque por tipo de vacina.\n 2 - Lista de habitantes (nome, CPF) vacinados somente com a 1a dose.\n 3 - Numero de habitantes vacinados, ja com a 2a dose.\n 4 - Lista de habitantes (nome, CPF) nao vacinados agrupados pelo grupo prioritario.\n 5 - Numero de habitantes por grupo prioritario.\n 6 - Retornar ao menu anterior.\n\n - ");
   scanf("%d", &n);
   printf("\n");
+
   while ((n<1)||(n>6))
   {
     printf(" Comando nao existente, por favor, digite outro comando\n\n - ");
@@ -686,16 +836,27 @@ int GerRel() // Finalizado
       return 1;
     }
   }
+
   return 1;
 }
 
-int Realizar_Backup() // Finalizado
+int Realizar_Backup()
+/*
+
+Pré-condições:
+  Nenhuma
+
+Pós-condições:
+  (Quase) Todos os dados são salvos em um arquivo.
+  Deliberadamente escolhemos não salvar o grupo prioritario liberado para melhor interação do professor com o código.
+
+*/
 {
   int i, j;
   char n[MAX];
   FILE *arq;
 
-  printf(" Digite o nome e o caminho do seu backup.\n - ");
+  printf(" Digite o nome e o caminho do seu backup. (Nao esqueca do .txt)\n - ");
   setbuf(stdin, NULL);
   gets(n);
 
@@ -713,7 +874,7 @@ int Realizar_Backup() // Finalizado
   fprintf(arq, "\n");
   for ( i = 0 ; i < 5 ; i++ )
   {
-    printf("%d\n", i+1);
+
     fprintf(arq,"%d;%d\n", pri[i].numPacNaoVac, pri[i].numPacReg);
     for ( j = 0 ; j < nVac ; j++)
     {
@@ -727,9 +888,18 @@ int Realizar_Backup() // Finalizado
 
 }
 
-int Chamar_Backup( char s[] ) // Finalizado
+int Chamar_Backup( char s[] )
+/*
+
+Pré-condições:
+  Existir um arquivo de backup com o nome/caminho registrado na string s.
+
+Pós-condições:
+  Todos os dados salvos são resgatados de volta no sistema.
+
+*/
 {
-  int i, j;\
+  int i, j;
   char c;
   FILE *arq;
 
@@ -740,65 +910,55 @@ int Chamar_Backup( char s[] ) // Finalizado
     return 0;
   }
   fscanf(arq, "%d\n", &nPac);
-  //printf("npac = %d\n", nPac);
   for ( i = 0 ; i < nPac ; i++ )
   {
     fscanf(arq,"%c", &c);
-    //printf("%c\n", c);
     for (j = 0; c != ';'; j++)
     {
       pac[i].nom[j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf(arq,"%c", &c);
     for (j = 0; c != ';'; j++)
     {
       pac[i].ida[j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf(arq,"%c", &c);
     for (j = 0; c != ';'; j++)
     {
       pac[i].sex[j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf(arq,"%c", &c);
     for (j = 0; c != ';'; j++)
     {
       pac[i].rg[j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf(arq,"%c", &c);
     for (j = 0; c != ';'; j++)
     {
       pac[i].cpf[j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf(arq,"%c", &c);
     for (j = 0; c != ';'; j++)
     {
       pac[i].tel[j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf(arq,"%c", &c);
     for (j = 0; c != ';'; j++)
     {
       pac[i].end[j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf(arq,"%c", &c);
     for (j = 0; c != ';'; j++)
     {
       pac[i].pro[j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf (arq, "%d;", &pac[i].pri);
     fscanf(arq,"%c", &c);
@@ -806,43 +966,35 @@ int Chamar_Backup( char s[] ) // Finalizado
     {
       pac[i].vacDat[0][j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf(arq,"%c", &c);
     for (j = 0; c != ';'; j++)
     {
       pac[i].vacDat[1][j] = c;
       fscanf(arq,"%c", &c);
-      //printf("%c\n", c);
     }
     fscanf (arq, "%d\n", &pac[i].vac);
-    //printf( "%s;%s;%s;%s;%s;%s;%s;%s;%d;%s;%s;%d\n", pac[i].nom, pac[i].ida, pac[i].sex, pac[i].rg, pac[i].cpf, pac[i].tel, pac[i].end, pac[i].pro, pac[i].pri, pac[i].vacDat[0], pac[i].vacDat[1], pac[i].vac);
   }
   fscanf(arq, "%d\n", &nVac);
-  //printf("nVac = %d\n", nVac);
   for ( i = 0 ; i < nVac ; i++ )
   {
     fscanf(arq, "%c", &c);
-    //printf("%c", c);
     for ( j = 0;  c != ';' ; j++ )
     {
       vac[i].nomTip[j] = c;
       fscanf(arq, "%c", &c);
-      //printf("%c", c);
     }
     fscanf(arq, "%d\n", &vac[i].numDos);
   }
   fscanf (arq, "\n");
   for ( i = 0 ; i < 5 ; i++ )
   {
-    fscanf(arq,"%c\n",&c);
+
     fscanf(arq,"%d;%d\n", &pri[i].numPacNaoVac, &pri[i].numPacReg);
-    //printf("numPacNaoVac[%d] = %d ; numPacReg[%d] = %d\n", i, pri[i].numPacNaoVac, i , pri[i].numPacReg );
     for ( j = 0 ; j < nVac ; j++)
     {
       fscanf(arq,"%d;%d\n", &pri[i].numPacVac[j][0], &pri[i].numPacVac[j][1]);
     }
-
   }
 
   fclose(arq);
@@ -853,7 +1005,19 @@ int Chamar_Backup( char s[] ) // Finalizado
 
 }
 
-int Backup() // Finalizado
+int Backup()
+/*
+
+Pré-condições:
+  Nenhuma
+
+Pós-condições:
+  Abre um menu com opções para a geração ou chamada de um backup dos dados. Opções:
+  1 - Realizar Backup no computador.
+  2 - Chamar Backup do computador.
+  3 - Voltar ao menu anterior.
+
+*/
 {
   int n;
   char s[MAX];
@@ -888,9 +1052,27 @@ int Backup() // Finalizado
   return 1;
 }
 
-int Interface () // Finalizado
+int Interface ()
+/*
+
+Pré-condições:
+  Nenhuma
+
+Pós-condições:
+  Abre o menu inicial, com opções para a chamada de outras funções. Opções:
+  1 - Cadastrar habitante.
+  2 - Registrar vacinacao.
+  3 - Retirar habitante.
+  4 - Liberar grupo prioritario para vacinacao.
+  5 - Efetuar controle das vacinas.
+  6 - Gerar relatorio.
+  7 - Backup dos dados.
+  8 - Sair do programa.
+
+*/
 {
   int n;
+
   printf(" Digite:\n 1 - Cadastrar habitante.\n 2 - Registrar vacinacao.\n 3 - Retirar habitante.\n 4 - Liberar grupo prioritario para vacinacao.\n 5 - Efetuar controle das vacinas.\n 6 - Gerar relatorio.\n 7 - Backup dos dados.\n 8 - Sair do programa.\n\n - ");
   scanf("%d", &n);
   printf("\n");
@@ -901,70 +1083,57 @@ int Interface () // Finalizado
     scanf("%d", &n);
     printf("\n");
   }
+
   switch (n)
   {
     case (1):
     {
       printf(" Acessando interface de cadastro de habitante.\n\n");
-      if (CadHab())
-      {
-        Interface ();
-        return 1;
-      }
+      CadHab();
+      Interface ();
+      return 1;
     }
     case (2):
     {
       printf(" Acessando interface de registro de vacinacao.\n\n");
-      if (RegVac())
-      {
-        Interface ();
-        return 1;
-      }
+      RegVac();
+      Interface ();
+      return 1;
     }
     case (3):
     {
       printf(" Acessando interface de retirada de habitante.\n\n");
-      if (RetPac())
-      {
-        Interface ();
-        return 1;
-      }
+      RetPac();
+      Interface ();
+      return 1;
     }
     case (4):
     {
       printf(" Acessando interface de liberacao de grupo prioritario.\n\n");
-      if (LibPri())
-      {
-        Interface ();
-        return 1;
-      }
+      LibPri();
+      Interface ();
+      return 1;
     }
     case (5):
     {
       printf(" Acessando interface de controle de vacinas.\n\n");
-      if (ConVac())
-      {
-        Interface ();
-        return 1;
-      }
+      ConVac();
+      Interface ();
+      return 1;
     }
     case (6):
     {
       printf(" Acessando interface de geracao de relatorios.\n\n");
-      if (GerRel())
-      {
-        Interface ();
-        return 1;
-      }
+      GerRel();
+      Interface ();
+      return 1;
     }
     case (7):
     {
       printf(" Acessando interface de Backup dos dados.\n\n");
-      if (Backup())
-      {
-        Interface ();
-        return 1;
-      }
+      Backup();
+      Interface ();
+      return 1;
     }
     case (8):
       return 1;
@@ -973,15 +1142,26 @@ int Interface () // Finalizado
 }
 
 int main()
+/*
+
+Pré-condições:
+  Nenhuma
+
+Pós-condições:
+  Chama a função Zerar, tenta chamar um backup pelo nome "backup.txt", então chama a função Interface.
+
+*/
 {
   Zerar();
+
   if ( Chamar_Backup("Backup.txt") == 0 )
     printf(" Configurando primeira vez no programa...\n\n");
   else
     printf(" Backup recuperado. Listas de dados atualizados.\n\n");
 
   printf(" Sistema de gerenciamento de vacinacao contra a COVID-19\n");
-  if (Interface())
-    return 0;
+  Interface();
+
+  return 0;
 
 }

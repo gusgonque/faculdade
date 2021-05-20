@@ -1,24 +1,42 @@
 #include <stdio.h>
-int main( int argc, char **argv)
+#include <ctype.h>
+
+void Criptografia (char *c)
 {
-    double a,b,c,d,x,y;
-    printf("Entre com 4 numeros: ");
-    scanf("%lf %lf %lf %lf",&a,&b,&c,&d);
-    for (int i = 0; i < 4; i++)
+  if (isspace (*c))
+  {
+    *c = 92;
+  }
+  else
+    if (isdigit (*c))
     {
-      x = a;
-      y = b;
-      a = (x>y?x:y);
-      b = (x<y?x:y);
-      x = b;
-      y = c;
-      b = (x>y?x:y);
-      c = (x<y?x:y);
-      x = c;
-      y = d;
-      c = (x>y?x:y);
-      d = (x<y?x:y);
+      *c = -15 + *c;
     }
-    printf("%.1lf\n", b);
-    return(0);
+    else
+      if (islower (*c))
+      {
+        *c = 'z' - (*c - 'a');
+      }
+      else
+        if (isupper (*c))
+        {
+          *c = 'Z' - (*c - 'A');
+        }
+}
+
+int main()
+{
+  char c;
+
+  scanf("%c", &c);
+
+  while (c != '#')
+  {
+    Criptografia(&c);
+    printf("%c", c);
+    scanf("%c", &c);
+  }
+
+  printf("\n");
+  return 0;
 }

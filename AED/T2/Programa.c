@@ -54,14 +54,14 @@ int vazia (arvPro r)
   return (r == NULL);
 }
 
-arvPro busca_arvore_binaria (arvPro r, int x)
+arvPro busca_arvore_binaria (arvPro r, int cod)
 {
   if(vazia(r))
     return NULL;
-  if(r->cod > x)
-    return busca_arvore_binaria(r->esq, x);
-  if(r->cod < x)
-    return busca_arvore_binaria(r->dir, x);
+  if(r->cod > cod)
+    return busca_arvore_binaria(r->esq, cod);
+  if(r->cod < cod)
+    return busca_arvore_binaria(r->dir, cod);
   return r;
 }
 
@@ -126,22 +126,89 @@ arvPro insere_arvore_binaria(arvPro r, int x)
   return r;
 }
 
-int Inserir_Produto(arvPro prod)
+/*
+int encontrar_elemento (int element)
+{
+    // Procura o elemento na árvore
+    // O(log n)
+
+
+    Node* temp = root;
+    int parar=0;
+
+    if(root==NULL){
+      return false;
+    }else if(temp->left== NULL && temp->right==NULL){
+      if(temp->value == element){
+        return true;
+      }else{
+        return false;
+      }
+    }else if(temp->value==element){
+      return true;
+    }else{
+    while(parar==0){
+      if(temp->value < element){
+        if(temp->left == NULL){
+          parar++;
+          if (temp->value==element){
+            break;
+            return true;
+          }else{
+          return false;
+          }
+        }else{
+          temp=temp->right;
+          if (temp->value== element){
+            return true;
+            break;
+          }
+        }
+
+      }else if(temp->value > element){
+        if(temp->right== NULL){
+          parar++;
+          if (temp->value==element){
+            return true;
+            break;
+          }else{
+          return false;
+          }
+        }else{
+          temp=temp->left;
+          if (temp->value== element){
+            return true;
+            break;
+          }
+        }
+      }
+    }
+  }
+}
+*/
+
+int Inserir_Produto (arvPro prod)
 {
   int x;
+  arvPro Teste;
+  criar_arvore(&Teste);
 
   printf(" Para inserir um novo produto, digite o numero do codigo dele.\n - ");
   scanf("%d", &x);
 
-  printf("vazia = %d\n",vazia(busca_arvore_binaria (prod,x)) );
+  Teste = busca_arvore_binaria (prod,x);
 
-  while (vazia(busca_arvore_binaria (prod,x)) == 0)
-  {
-    printf(" Codigo ja utilizado por outro produto ou invalido, digite -1 para retornar ao Menu, ou digite outro codigo.\n - ");
-    scanf("%d", &x);
-    if (x == -1)
-      return 1;
-  }
+  printf("!vazia = %d\n", !vazia(Teste));
+
+  if (!vazia(Teste))
+    while ( Teste->cod == prod->cod )
+    {
+      printf(" Codigo ja utilizado por outro produto ou invalido, digite -1 para retornar ao Menu, ou digite outro codigo.\n - ");
+      scanf("%d", &x);
+      if (x == -1)
+        return 1;
+      Teste = busca_arvore_binaria (prod,x);
+    }
 
   prod = insere_arvore_binaria(prod, x);
   printf(" prod->cod = %d\n", prod->cod);
@@ -156,24 +223,12 @@ int Inserir_Produto(arvPro prod)
   return 1;
 }
 
-void Remover_Produto(){
-
-}
-void Alterar_Produto(){
-
-}
-void Carregar_Arquivo(){
-
-}
-void Info_Produto(){
-
-}
-void Listar_Produtos(){
-
-}
-void Imprimir(){
-
-}
+void Remover_Produto();
+void Alterar_Produto();
+void Carregar_Arquivo();
+void Info_Produto();
+void Listar_Produtos();
+void Imprimir();
 
 int Menu (arvPro prod)
 {
@@ -244,6 +299,7 @@ int Menu (arvPro prod)
 int main()
 {
   arvPro produtos;
+  char ;
   criar_arvore (&produtos);
 
   while (Menu(produtos));

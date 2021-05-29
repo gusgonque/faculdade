@@ -1,42 +1,34 @@
 #include <stdio.h>
-#include <ctype.h>
 
-void Criptografia (char *c)
-{
-  if (isspace (*c))
-  {
-    *c = 92;
-  }
-  else
-    if (isdigit (*c))
-    {
-      *c = -15 + *c;
-    }
-    else
-      if (islower (*c))
-      {
-        *c = 'z' - (*c - 'a');
-      }
-      else
-        if (isupper (*c))
-        {
-          *c = 'Z' - (*c - 'A');
-        }
+void lerVet(float v[], int n){
+    int i;
+    for(i = 0; i < n; i++)
+        scanf("%f", &v[i]);
 }
 
-int main()
-{
-  char c;
+void comparaVetor(float v1[], float v2[], int n, int j){
+    int i, identico = 0;
+    if(n == j){
+        for(i = 0; i < n; i++)
+            if(v1[i] == v2[i]) identico++;
+        if(identico == i) printf("IDENTICOS\n");
+    }
+    else printf("NAO IDENTICOS\n");
+}
 
-  scanf("%c", &c);
+int main(){
+    float v1[100], v2[100];
+    int n, j;
 
-  while (c != '#')
-  {
-    Criptografia(&c);
-    printf("%c", c);
-    scanf("%c", &c);
-  }
+    scanf("%d", &n);
+    printf("Vetor 1:\n");
+    lerVet(v1, n);
 
-  printf("\n");
-  return 0;
+    scanf("%d", &j);
+    printf("Vetor 2:\n");
+    lerVet(v2, j);
+
+    comparaVetor(v1, v2, n, j);
+
+    return 0;
 }

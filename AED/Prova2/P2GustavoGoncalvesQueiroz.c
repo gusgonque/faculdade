@@ -71,21 +71,10 @@ int maximo(arvore r)
 int diferenca_ref(arvore r, int k)
 {
   int i, men, mai;
-
-  i = minimo(r);
-  men = 0;
-  for (  ; i<k ; i++)
-  {
+  for ( i = minimo(r), men = 0 ; i<k ; i++)
     men += (busca_arvb_elemento (r,i) == -1 ? 0 : busca_arvb_elemento (r,i));
-  }
-
-  i = k+1;
-  mai = 0;
-  for (  ; i <= maximo(r) ; i++)
-  {
+  for ( i = k+1, mai = 0 ; i <= maximo(r) ; i++)
     mai += (busca_arvb_elemento (r,i) == -1 ? 0 : busca_arvb_elemento (r,i));
-  }
-
   printf("Diferenca = %d\n", mai - men);
 }
 
@@ -93,7 +82,6 @@ int calc_AVL (arvore r)
 {
   if (r == NULL)
     return 0;
-
   int s;
   s = 0;
   if (r->esq != NULL)
@@ -107,7 +95,6 @@ int eh_AVL(arvore r)
 {
   int s;
   s = calc_AVL(r);
-  printf("eh_AVL = %d\n", s);
   return (s<=1 && s>=-1);
 }
 

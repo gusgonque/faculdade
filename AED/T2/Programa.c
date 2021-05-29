@@ -34,8 +34,7 @@ I;20;parafuso 3mm;500;2.00;prateleira 5A
 
 struct no
 {
-  int cod;
-  int qua;
+  int cod, qua;
   float pre;
   char nom[50], loc[100];
 
@@ -43,11 +42,6 @@ struct no
   struct no * dir;
 };
 typedef struct no* arvPro;
-
-void criar_arvore (arvPro *r)
-{
-    *r = NULL;
-}
 
 int vazia (arvPro r)
 {
@@ -108,110 +102,89 @@ arvPro remove_arvore_binaria (arvPro r, int x)
     return r;
 }
 
-arvPro insere_arvore_binaria(arvPro r, int x)
+arvPro insere_novo_produto (arvPro r, int cod, int qua, float pre, char nom[], char loc[])
 {
 
   if(vazia(r))
   {
     r = (struct no*) malloc(sizeof(struct no));
-    r->cod = x;
+    r->cod = cod;
+    r->qua = qua;
+    r->pre = pre;
+    strcpy(r->nom, nom);
+    strcpy(r->loc, loc);
     r->esq = NULL;
     r->dir = NULL;
   }
   else
-  if(x < r->cod)
-    r->esq = insere_arvore_binaria(r->esq, x);
-  else // x >= r->cod
-    r->dir = insere_arvore_binaria(r->dir, x);
+    if(cod < r->cod)
+      r->esq = insere_novo_produto(r->esq, cod, qua, pre, nom, loc);
+  else // x >= r->info
+    r->dir = insere_novo_produto(r->dir, cod, qua, pre, nom, loc);
   return r;
 }
 
-/*
-int encontrar_elemento (int element)
+int busca_cod (arvPro r, int cod)
 {
-    // Procura o elemento na árvore
-    // O(log n)
-
-
-    Node* temp = root;
-    int parar=0;
-
-    if(root==NULL){
-      return false;
-    }else if(temp->left== NULL && temp->right==NULL){
-      if(temp->value == element){
-        return true;
-      }else{
-        return false;
-      }
-    }else if(temp->value==element){
-      return true;
-    }else{
-    while(parar==0){
-      if(temp->value < element){
-        if(temp->left == NULL){
-          parar++;
-          if (temp->value==element){
-            break;
-            return true;
-          }else{
-          return false;
-          }
-        }else{
-          temp=temp->right;
-          if (temp->value== element){
-            return true;
-            break;
-          }
-        }
-
-      }else if(temp->value > element){
-        if(temp->right== NULL){
-          parar++;
-          if (temp->value==element){
-            return true;
-            break;
-          }else{
-          return false;
-          }
-        }else{
-          temp=temp->left;
-          if (temp->value== element){
-            return true;
-            break;
-          }
-        }
-      }
-    }
-  }
+  if(vazia(r))
+    return -1;
+  if(r->cod > cod)
+    return busca_cod (r->esq,cod);
+  if(r->cod < cod)
+    return busca_cod (r->dir, cod);
+  return cod;
 }
-*/
+
+void imprimir_arvb (arvPro r)
+{
+  int i;
+  for ( i = minimo(r); i <= maximo(r) ; i++ )
+  {
+    printf(".\n");
+    if (busca_cod (r,i) != -1)
+      printf("%d ", busca_cod (r,i));
+  }
+  printf("\n");
+}
 
 int Inserir_Produto (arvPro prod)
 {
-  int x;
-  arvPro Teste;
-  criar_arvore(&Teste);
+  int cod;
 
   printf(" Para inserir um novo produto, digite o numero do codigo dele.\n - ");
-  scanf("%d", &x);
+  scanf("%d", &cod);
 
-  Teste = busca_arvore_binaria (prod,x);
+  printf("busca = %d\n", busca_cod(prod,cod));
 
-  printf("!vazia = %d\n", !vazia(Teste));
+  while ( busca_cod(prod,cod) == cod )
+  {
+    printf(" Codigo ja utilizado por outro produto ou invalido, digite -1 para retornar ao Menu, ou digite outro codigo.\n - ");
+    scanf("%d", &cod);
+    if (cod == -1)
+      return 1;
+  }
 
-  if (!vazia(Teste))
-    while ( Teste->cod == prod->cod )
-    {
-      printf(" Codigo ja utilizado por outro produto ou invalido, digite -1 para retornar ao Menu, ou digite outro codigo.\n - ");
-      scanf("%d", &x);
-      if (x == -1)
-        return 1;
-      Teste = busca_arvore_binaria (prod,x);
-    }
+  int qua;
+  float pre;
+  char nom[50], loc[100];
 
-  prod = insere_arvore_binaria(prod, x);
-  printf(" prod->cod = %d\n", prod->cod);
+  printf(" Digite o nome do produto.\n - ");
+  setbuf(stdin, NULL);
+  scanf("%[^\n]", &nom);
+
+  printf(" Digite a quantidade em estoque no momento do produto '%s'.\n - ", nom);
+  scanf("%d", &qua);
+
+  printf(" Digite o preco unitario do produto '%s'.\n - ", nom);
+  scanf("%f", &pre);
+
+  printf(" Digite a descricao do local em que o produto '%s' se encontra armazenado.\n - ", nom);
+  setbuf(stdin, NULL);
+  scanf("%[^\n]", &loc);
+
+  prod = insere_novo_produto (prod, cod, qua, pre, nom, loc);
+
+  imprimir_arvb (prod);
 
   /*
   prod->qua;
@@ -223,12 +196,12 @@ int Inserir_Produto (arvPro prod)
   return 1;
 }
 
-void Remover_Produto();
-void Alterar_Produto();
-void Carregar_Arquivo();
-void Info_Produto();
-void Listar_Produtos();
-void Imprimir();
+//void Remover_Produto();
+//void Alterar_Produto();
+//void Carregar_Arquivo();
+//void Info_Produto();
+//void Listar_Produtos();
+//void Imprimir();
 
 int Menu (arvPro prod)
 {
@@ -260,32 +233,32 @@ int Menu (arvPro prod)
     }
     case 2:
     {
-      Remover_Produto();
+      //Remover_Produto();
       return 1;
     }
     case 3:
     {
-      Alterar_Produto();
+      //Alterar_Produto();
       return 1;
     }
     case 4:
     {
-      Carregar_Arquivo();
+      //Carregar_Arquivo();
       return 1;
     }
     case 5:
     {
-      Info_Produto();
+      //Info_Produto();
       return 1;
     }
     case 6:
     {
-      Listar_Produtos();
+      //Listar_Produtos();
       return 1;
     }
     case 7:
     {
-      Imprimir();
+      //Imprimir();
       return 1;
     }
     case 8:
@@ -298,11 +271,10 @@ int Menu (arvPro prod)
 
 int main()
 {
-  arvPro produtos;
-  char ;
-  criar_arvore (&produtos);
+  arvPro prod;
+  prod = NULL;
 
-  while (Menu(produtos));
+  while (Menu(prod));
 
   return 0;
 }

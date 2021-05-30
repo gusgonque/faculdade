@@ -91,15 +91,22 @@ int busca_cod (int cod)
 
 void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
 {
+<<<<<<< HEAD
   FILE *arq, *arq2;
   int x;
   char s[200];
   arq = fopen("dados", "rb");
   arq2 = fopen("dados", "wb");
+=======
+  FILE *arq;
+  int x;
+  arq = fopen("dados", "ab+");
+>>>>>>> f3b3c6c6399273548a962cf048ad270ba414ff9b
 
   while ( x !=cod )
   {
     fscanf( arq , "%d" , &x );
+<<<<<<< HEAD
     fprintf( arq2 , "%d" , x );
     if (x!=cod)
     {
@@ -111,6 +118,15 @@ void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
   printf("%s;%d;%f;%s\n", nom,qua,pre,loc);
   fclose(arq);
   fclose(arq2);
+=======
+    printf(".\n");
+    if (x!=cod)
+      fscanf( arq , "%*[^\n]\n");
+  }
+  fprintf(arq, "%s;%d;%.2f;%s\n", nom,qua,pre,loc);
+  printf("%s;%d;%f;%s\n", nom,qua,pre,loc);
+  fclose(arq);
+>>>>>>> f3b3c6c6399273548a962cf048ad270ba414ff9b
 }
 
 int Inserir_Produto ()

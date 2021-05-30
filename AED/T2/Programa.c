@@ -29,134 +29,72 @@ I;20;parafuso 3mm;500;2.00;prateleira 5A
 */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-struct no
+int numero_prod()
 {
-  int cod, qua;
-  float pre;
-  char nom[50], loc[100];
+  FILE *arq;
+  int i;
+  arq = fopen("dados", "rb");
 
-  struct no * esq;
-  struct no * dir;
-};
-typedef struct no* arvPro;
+  for ( i = 0 ;  feof (arq) == 0 ; i++ )
+    fscanf(arq,"%*[^\n]\n");
 
-int vazia (arvPro r)
-{
-  return (r == NULL);
+  //printf("%d linhas nos dados\n", i);
+
+  fclose(arq);
+  return i;
 }
 
-arvPro busca_arvore_binaria (arvPro r, int cod)
+int busca_cod (int cod)
 {
-  if(vazia(r))
-    return NULL;
-  if(r->cod > cod)
-    return busca_arvore_binaria(r->esq, cod);
-  if(r->cod < cod)
-    return busca_arvore_binaria(r->dir, cod);
-  return r;
-}
+  FILE *arq;
+  int i, n, x;
+  char s[200];
+  n = numero_prod();
 
-// Pr´e-condi¸c~ao: ´arvore n~ao vazia
-int maximo(arvPro r)
-{
-  while(r->dir != NULL)
-    r = r->dir;
-  return r->cod;
-}
-
-// Pr´e-condi¸c~ao: ´arvore n~ao vazia
-int minimo(arvPro r)
-{
-  while(r->esq != NULL)
-    r = r->esq;
-  return r->cod;
-}
-
-arvPro remove_arvore_binaria (arvPro r, int x)
-{
-  if(vazia(r))
-    return NULL;
-    if(x < r->cod)
-      r->esq = remove_arvore_binaria(r->esq, x);
-    else if(x > r->cod)
-      r->dir = remove_arvore_binaria(r->dir, x);
-    else // x == r->cod
-    if(r->esq == NULL && r->dir == NULL)
-    { // ´e n´o folha
-      free(r);
-      r = NULL;
-    }
-    else if(r->esq == NULL)
-    { // s´o tem filho da direita
-      r->cod = minimo(r->dir);
-      r->dir = remove_arvore_binaria(r->dir,r->cod);
-    }
-    else
-    { // tem 2 filhos ou s´o o da esquerda
-      r->cod = maximo(r->esq);
-      r->esq = remove_arvore_binaria(r->esq,r->cod);
-    }
-    return r;
-}
-
-arvPro insere_novo_produto (arvPro r, int cod, int qua, float pre, char nom[], char loc[])
-{
-
-  if(vazia(r))
+  arq = fopen("dados", "rb");
+  if (arq == NULL)
   {
-    r = (struct no*) malloc(sizeof(struct no));
-    r->cod = cod;
-    r->qua = qua;
-    r->pre = pre;
-    strcpy(r->nom, nom);
-    strcpy(r->loc, loc);
-    r->esq = NULL;
-    r->dir = NULL;
-  }
-  else
-    if(cod < r->cod)
-      r->esq = insere_novo_produto(r->esq, cod, qua, pre, nom, loc);
-  else // x >= r->info
-    r->dir = insere_novo_produto(r->dir, cod, qua, pre, nom, loc);
-  return r;
-}
-
-int busca_cod (arvPro r, int cod)
-{
-  if(vazia(r))
+    fclose(arq);
     return -1;
-  if(r->cod > cod)
-    return busca_cod (r->esq,cod);
-  if(r->cod < cod)
-    return busca_cod (r->dir, cod);
+  }
+
+  for ( i = 0 ; i < n ; i++ )
+  {
+    fscanf( arq , "%d%[\n]\n" , &x, &s );
+    if (x == i)
+    {
+      if (s[0] == '\0')
+      {
+        fclose(arq);
+        printf("cod existe, mas n preenchido\n");
+        return 0;
+      }
+      else
+      {
+        fclose(arq);
+        printf("cod existe, e preenchido\n");
+        return 1;
+      }
+    }
+  }
+
+  fclose (arq);
   return cod;
 }
 
-void imprimir_arvb (arvPro r)
-{
-  int i;
-  for ( i = minimo(r); i <= maximo(r) ; i++ )
-  {
-    printf(".\n");
-    if (busca_cod (r,i) != -1)
-      printf("%d ", busca_cod (r,i));
-  }
-  printf("\n");
-}
+//int Insere_Novo_Produto (int cod,int qua,float pre,char nom[],char loc[]);
 
-int Inserir_Produto (arvPro prod)
+int Inserir_Produto ()
 {
   int cod;
 
   printf(" Para inserir um novo produto, digite o numero do codigo dele.\n - ");
   scanf("%d", &cod);
 
-  printf("busca = %d\n", busca_cod(prod,cod));
+  printf("busca = %d\n", busca_cod(cod));
 
-  while ( busca_cod(prod,cod) == cod )
+  while ( busca_cod(cod) == 1 )
   {
     printf(" Codigo ja utilizado por outro produto ou invalido, digite -1 para retornar ao Menu, ou digite outro codigo.\n - ");
     scanf("%d", &cod);
@@ -182,9 +120,7 @@ int Inserir_Produto (arvPro prod)
   setbuf(stdin, NULL);
   scanf("%[^\n]", &loc);
 
-  prod = insere_novo_produto (prod, cod, qua, pre, nom, loc);
-
-  imprimir_arvb (prod);
+//  Insere_Novo_Produto (cod, qua, pre, nom, loc);
 
   /*
   prod->qua;
@@ -203,7 +139,7 @@ int Inserir_Produto (arvPro prod)
 //void Listar_Produtos();
 //void Imprimir();
 
-int Menu (arvPro prod)
+int Menu ()
 {
   int x;
 
@@ -229,7 +165,7 @@ int Menu (arvPro prod)
   {
     case 1:
     {
-      return Inserir_Produto(prod);
+      return Inserir_Produto();
     }
     case 2:
     {
@@ -263,7 +199,6 @@ int Menu (arvPro prod)
     }
     case 8:
     {
-      free(prod);
       return 0;
     }
   }
@@ -271,10 +206,8 @@ int Menu (arvPro prod)
 
 int main()
 {
-  arvPro prod;
-  prod = NULL;
 
-  while (Menu(prod));
+  while (Menu());
 
   return 0;
 }

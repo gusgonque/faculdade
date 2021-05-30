@@ -25,6 +25,8 @@ I;20;parafuso 3mm;500;2.00;prateleira 5A
 %c%*c
 %d%*c%[^;]%*c%d%*c%f%*c%[^\n]
 
+parafuso 3mm;500;2.00;prateleira 5A
+%s;%d;%f;%s\n
 
 */
 
@@ -61,19 +63,20 @@ int busca_cod (int cod)
 
   for ( i = 0 ; i < n ; i++ )
   {
-    fscanf( arq , "%d%[\n]\n" , &x, &s );
-    if (x == i)
+    fscanf( arq , "%d%[^\n]\n" , &x, &s );
+    //printf(" s0 = [%c]\n", s[0]);
+    if (x == cod)
     {
-      if (s[0] == '\0')
+      if (s[0] != ';')
       {
         fclose(arq);
-        printf("cod existe, mas n preenchido\n");
+        //printf("cod existe, mas n preenchido\n");
         return 0;
       }
       else
       {
         fclose(arq);
-        printf("cod existe, e preenchido\n");
+        //printf("cod existe, e preenchido\n");
         return 1;
       }
     }
@@ -85,21 +88,48 @@ int busca_cod (int cod)
 
 //int Insere_Novo_Produto (int cod,int qua,float pre,char nom[],char loc[]);
 
+
+void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
+{
+  FILE *arq, *arq2;
+  int x;
+  char s[200];
+  arq = fopen("dados", "rb");
+  arq2 = fopen("dados", "wb");
+
+  while ( x !=cod )
+  {
+    fscanf( arq , "%d" , &x );
+    fprintf( arq2 , "%d" , x );
+    if (x!=cod)
+    {
+      fscanf( arq , "%[^\n]\n", &s);
+      fprintf(arq2,"%s\n", s);
+    }
+  }
+  fprintf(arq2, "%s;%d;%.2f;%s\n", nom,qua,pre,loc);
+  printf("%s;%d;%f;%s\n", nom,qua,pre,loc);
+  fclose(arq);
+  fclose(arq2);
+}
+
 int Inserir_Produto ()
 {
-  int cod;
+  int x,cod;
 
   printf(" Para inserir um novo produto, digite o numero do codigo dele.\n - ");
   scanf("%d", &cod);
+  x = busca_cod(cod);
 
-  printf("busca = %d\n", busca_cod(cod));
+  printf("busca = %d\n", x);
 
-  while ( busca_cod(cod) == 1 )
+  while ( x == 1 )
   {
     printf(" Codigo ja utilizado por outro produto ou invalido, digite -1 para retornar ao Menu, ou digite outro codigo.\n - ");
     scanf("%d", &cod);
     if (cod == -1)
       return 1;
+    x = busca_cod(cod);
   }
 
   int qua;
@@ -120,6 +150,8 @@ int Inserir_Produto ()
   setbuf(stdin, NULL);
   scanf("%[^\n]", &loc);
 
+  if (x==0)
+    Insere_Produto_Livre (cod, qua, pre, nom, loc);
 //  Insere_Novo_Produto (cod, qua, pre, nom, loc);
 
   /*

@@ -48,6 +48,12 @@ int numero_prod()
 }
 
 int busca_cod (int cod)
+/*
+-1 = arq n existe
+0 = cod livre
+1 = cod preenchido
+cod = cod disponivel
+*/
 {
   FILE *arq;
   int i, n, x;
@@ -86,27 +92,32 @@ int busca_cod (int cod)
   return cod;
 }
 
-//int Insere_Novo_Produto (int cod,int qua,float pre,char nom[],char loc[]);
+void Insere_Novo_Produto (int cod,int qua,float pre,char nom[],char loc[])
+{
+  FILE *arq;
+  int x, i;
+  char s[200];
 
+  arq = fopen("dados", "rb+");
+  while ( feof (arq) == 0 )
+    fscanf( arq , "%*[^\n]\n");
+  fprintf(arq, "%d;%s;%d;%.2f;%s\n",cod, nom,qua,pre,loc);
+
+  fclose(arq);
+  printf("\n Produto adicionado com sucesso. Retornando ao menu principal.\n");
+}
 
 void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
 {
-<<<<<<< HEAD
-  FILE *arq, *arq2;
-  int x;
+  int x, i;
   char s[200];
+  FILE *arq, *arq2;
   arq = fopen("dados", "rb");
-  arq2 = fopen("dados", "wb");
-=======
-  FILE *arq;
-  int x;
-  arq = fopen("dados", "ab+");
->>>>>>> f3b3c6c6399273548a962cf048ad270ba414ff9b
+  arq2 = fopen("dados2", "wb");
 
   while ( x !=cod )
   {
     fscanf( arq , "%d" , &x );
-<<<<<<< HEAD
     fprintf( arq2 , "%d" , x );
     if (x!=cod)
     {
@@ -114,19 +125,20 @@ void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
       fprintf(arq2,"%s\n", s);
     }
   }
-  fprintf(arq2, "%s;%d;%.2f;%s\n", nom,qua,pre,loc);
-  printf("%s;%d;%f;%s\n", nom,qua,pre,loc);
+
+  fprintf(arq2, ";%s;%d;%.2f;%s", nom,qua,pre,loc);
+
+  while ( feof (arq) == 0 )
+  {
+    fscanf(arq, "%[^\n]\n", &s);
+    fprintf(arq2,"%s\n", s);
+  }
+
   fclose(arq);
   fclose(arq2);
-=======
-    printf(".\n");
-    if (x!=cod)
-      fscanf( arq , "%*[^\n]\n");
-  }
-  fprintf(arq, "%s;%d;%.2f;%s\n", nom,qua,pre,loc);
-  printf("%s;%d;%f;%s\n", nom,qua,pre,loc);
-  fclose(arq);
->>>>>>> f3b3c6c6399273548a962cf048ad270ba414ff9b
+  remove("dados");
+  rename("dados2","dados");
+  printf("\n Produto adicionado com sucesso. Retornando ao menu principal.\n");
 }
 
 int Inserir_Produto ()
@@ -168,23 +180,135 @@ int Inserir_Produto ()
 
   if (x==0)
     Insere_Produto_Livre (cod, qua, pre, nom, loc);
-//  Insere_Novo_Produto (cod, qua, pre, nom, loc);
-
-  /*
-  prod->qua;
-  prod->pre;
-  prod->nom;
-  prod->loc;
-  */
+  else
+    Insere_Novo_Produto (cod, qua, pre, nom, loc);
 
   return 1;
 }
 
-//void Remover_Produto();
+int menor_cod()
+{
+  int x, men, i;
+  FILE *arq;
+
+  arq = fopen("dados", "rb");
+  fscanf (arq,"%d", &men);
+  fscanf (arq,"%*[^\n]\n");
+  for ( i = 0; i < numero_prod()-1; i++)
+  {
+    fscanf (arq,"%d", &x);
+    fscanf (arq,"%*[^\n]\n");
+    if (x<men)
+      men = x;
+  }
+  //printf("men = %d\n", men);
+  return men;
+}
+
+int maior_cod()
+{
+  int x, mai, i;
+  FILE *arq;
+
+  arq = fopen("dados", "rb");
+  fscanf (arq,"%d", &mai);
+  fscanf (arq,"%*[^\n]\n");
+  for ( i = 0; i < numero_prod()-1; i++)
+  {
+    fscanf (arq,"%d", &x);
+    fscanf (arq,"%*[^\n]\n");
+    if (x>mai)
+      mai = x;
+  }
+  //printf("mai = %d\n", mai);
+  return mai;
+}
+
+void Listar_Produtos()
+{
+  int n, i, cod, qua, x, j;
+  float pre;
+  char c, nom[50], loc[100];
+  FILE *arq;
+
+  printf(" Lista de todos os produtos registrados:\n");
+
+  n = numero_prod();
+  arq = fopen("dados", "rb");
+  for ( i = 0, j = cod = menor_cod() ; i < n ; i++ )
+  {
+    for ( cod = j ; j < maior_cod() ; cod++ )
+      if ( busca_cod(cod) == 1 )
+      {
+        j = cod;
+        rewind(arq);
+
+        while ( x != cod)
+        {
+          fscanf( arq , "%d" , &x );
+          if ( x != cod )
+            fscanf( arq , "%*[^\n]\n");
+        }
+        printf(" - Codigo %d:\n", cod);
+
+        fscanf( arq , ";%[^;]", &nom);
+        printf(" Nome: %s\n", nom);
+
+        fscanf( arq , ";%d", &qua);
+        printf(" Quantidade: %d\n", qua);
+
+        fscanf( arq , ";%f", &pre);
+        printf(" Preco: %.2f\n", pre);
+
+        fscanf( arq , ";%[^\n]", &loc);
+        printf(" Localizacao: %s\n\n", loc);
+      }
+  }
+  fclose(arq);
+}
+
+void Remover_Produto()
+{
+  int cod, x;
+  char s[200];
+  FILE *arq, *arq2;
+
+  Listar_Produtos();
+  printf(" Digite o codigo do produto a ser removido.\n - ");
+  scanf("%d", &cod);
+
+  arq = fopen("dados", "rb");
+  arq2 = fopen("dados2", "wb");
+
+  while ( x != cod)
+  {
+
+    fscanf( arq , "%d" , &x );
+    fprintf( arq2, "%d" , x );
+    if ( x != cod )
+    {
+      fscanf( arq , "%[^\n]\n" , &s );
+      fprintf( arq2 , "%s\n" , s );
+    }
+  }
+  fscanf(arq, "%*[^\n]\n");
+  fprintf(arq2, "\n");
+  while ( feof (arq) == 0 )
+  {
+    fscanf(arq, "%[^\n]\n", &s);
+    fprintf(arq2,"%s\n", s);
+  }
+
+  fclose(arq);
+  fclose(arq2);
+  remove("dados");
+  rename("dados2","dados");
+  printf("\n Produto removido com sucesso. Retornando ao menu principal.\n");
+}
+
 //void Alterar_Produto();
 //void Carregar_Arquivo();
 //void Info_Produto();
-//void Listar_Produtos();
 //void Imprimir();
 
 int Menu ()
@@ -217,7 +341,7 @@ int Menu ()
     }
     case 2:
     {
-      //Remover_Produto();
+      Remover_Produto();
       return 1;
     }
     case 3:
@@ -237,7 +361,7 @@ int Menu ()
     }
     case 6:
     {
-      //Listar_Produtos();
+      Listar_Produtos();
       return 1;
     }
     case 7:
@@ -254,8 +378,6 @@ int Menu ()
 
 int main()
 {
-
   while (Menu());
-
   return 0;
 }

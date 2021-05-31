@@ -43,11 +43,23 @@ struct no
 typedef struct no* arvore;
 
 int vazia (arvore r)
+/*
+Pré condições:
+  Arvore r existir ou não.
+Pós condições:
+  Se r existir, retorna 1, se não, 0.
+*/
 {
   return (r == NULL);
 }
 
 arvore insere_arvore_binaria(arvore r, int x)
+/*
+Pré condições:
+  Arvore r existir e um número inteiro x.
+Pós condições:
+  Adiciona o número x em um galho da arvore r.
+*/
 {
   if(vazia(r))
   {
@@ -65,6 +77,12 @@ arvore insere_arvore_binaria(arvore r, int x)
 }
 
 void pre_ordem(arvore r)
+/*
+Pré condições:
+  Arvore r existir.
+Pós condições:
+  Imprime os elementos da arvore r na ordem pré ordem.
+*/
 {
   if(!vazia(r)) {
     printf("%d ", r->info);
@@ -74,13 +92,20 @@ void pre_ordem(arvore r)
 }
 
 int numero_prod()
+/*
+Pré condições:
+  O arquivo "dados" existir.
+Pós condições:
+  Se o arquivo existir, retorna o número de códigos registrados nele.
+  Se o arquivo não existir, retorna 0.
+*/
 {
   FILE *arq;
   int i;
   arq = fopen("dados", "rb");
 
   for ( i = 0; feof (arq) == 0 ; i++)
-  fscanf(arq,"%*[^\n]\n");
+    fscanf(arq,"%*[^\n]\n");
 
   fclose(arq);
   return i;
@@ -88,10 +113,14 @@ int numero_prod()
 
 int busca_cod (int cod)
 /*
--1 = arq n existe
-0 = cod livre
-1 = cod preenchido
-cod = cod disponivel
+Pré condições:
+  O arquivo "dados" existir, e o inteiro cod;
+Pós condições:
+  retorna:
+    -1 = arq não existe;
+    0 = código registrado, mas sem produto
+    1 = código preenchido com produto
+    cod = cod disponivel
 */
 {
   FILE *arq;
@@ -133,6 +162,12 @@ cod = cod disponivel
 }
 
 void Insere_Novo_Produto (int cod,int qua,float pre,char nom[],char loc[])
+/*
+Pré condições:
+  código do produto a ser registrado, quantidade, preço, nome e local.
+Pós condições:
+  as informações do produto com um novo código são registradas no arquivo "dados"
+*/
 {
   FILE *arq;
   int x, i;
@@ -147,6 +182,12 @@ void Insere_Novo_Produto (int cod,int qua,float pre,char nom[],char loc[])
 }
 
 void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
+/*
+Pré condições:
+  código do produto a ser registrado, quantidade, preço, nome e local.
+Pós condições:
+  as informações do produto com um código já registrado são registradas no arquivo "dados"
+*/
 {
   int x, i;
   char s[200];
@@ -180,6 +221,12 @@ void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
 }
 
 int Inserir_Produto ()
+/*
+Pré condições:
+  Nenhuma;
+Pós condições:
+  Insere um novo produto, de acordo como o imput do usuário.
+*/
 {
   int x,cod;
 
@@ -226,6 +273,12 @@ int Inserir_Produto ()
 }
 
 int menor_cod()
+/*
+Pré condições:
+  O arquivo "dados" existir;
+Pós condições:
+  Retorna o código com menor número registrado nos dados.
+*/
 {
   int x, men, i;
   FILE *arq;
@@ -246,6 +299,12 @@ int menor_cod()
 }
 
 int maior_cod()
+/*
+Pré condições:
+  O arquivo "dados" existir;
+Pós condições:
+  Retorna o código com maior número registrado nos dados.
+*/
 {
   int x, mai, i;
   FILE *arq;
@@ -266,11 +325,24 @@ int maior_cod()
 }
 
 int Listar_Produtos()
+/*
+Pré condições:
+  Arquivo dados existir.
+Pós condições:
+  Printa os dados de todos os códigos com produtos.
+*/
 {
   int n, i, cod, qua, x, j;
   float pre;
   char nom[50], loc[100];
   FILE *arq;
+
+  arq = fopen("dados", "rb");
+  if (arq == NULL)
+  {
+    printf(" Nenhum produto registrado. Retornando ao menu principal.\n");
+    return 1;
+  }
 
   printf(" Lista de todos os produtos registrados:\n");
 
@@ -316,10 +388,17 @@ int Listar_Produtos()
       }
   }
   fclose(arq);
+
   return 0;
 }
 
 void Remover_Produto(int cod)
+/*
+Pré condições:
+  O arquivo "dados" existir e o código do produto desejado.
+Pós condições:
+  Remove o produto do código nos dados.
+*/
 {
   int x;
   char c, s[200];
@@ -359,6 +438,12 @@ void Remover_Produto(int cod)
 }
 
 void Alterar_Estoque(int cod, int q)
+/*
+Pré condições:
+  O arquivo "dados" existir, o código do produto desejado e a quantidade desejada.
+Pós condições:
+  Altera a quantidade de produtos registradas no código cod nos dados.
+*/
 {
   int x;
   char c, s[200];
@@ -401,6 +486,12 @@ void Alterar_Estoque(int cod, int q)
 }
 
 void Alterar_Preco(int cod, float p)
+/*
+Pré condições:
+  O arquivo "dados" existir, o código do produto desejado e o preço desejada.
+Pós condições:
+  Altera o preço dos produtos registradas no código cod nos dados.
+*/
 {
   int x;
   char c, s[200];
@@ -446,6 +537,12 @@ void Alterar_Preco(int cod, float p)
 }
 
 void Alterar_Loc(int cod, char loc[])
+/*
+Pré condições:
+  O arquivo "dados" existir, o código do produto desejado e a localização desejada.
+Pós condições:
+  Altera a localização de produtos registradas no código cod nos dados.
+*/
 {
   int x;
   char c, s[200];
@@ -494,6 +591,12 @@ void Alterar_Loc(int cod, char loc[])
 }
 
 void Alterar_Produto()
+/*
+Pré condições:
+  Nenhum
+Pós condições:
+  Aciona as outras funções Alterar, de acordo com o input do usuário.
+*/
 {
   int cod, q,x;
   float p;
@@ -548,6 +651,12 @@ void Alterar_Produto()
 }
 
 int Carregar_Arquivo()
+/*
+Pré condições:
+  O arquivo a ser carregado existir.
+Pós condições:
+  Faz as operações de acordo com o arquivo a ser carregado.
+*/
 {
   int cod, qua;
   char c,s[100], ope, nom[50],loc[100];
@@ -653,6 +762,12 @@ int Carregar_Arquivo()
 }
 
 void Info_Produto(int cod)
+/*
+Pré condições:
+  Arquivo dados existir, e o código do produto desejado.
+Pós condições:
+  Printa os dados do código com produtos.
+*/
 {
   int x, qua;
   char c, nom[50],loc[100];
@@ -686,6 +801,12 @@ void Info_Produto(int cod)
 }
 
 int Imprimir_Lista_Livre()
+/*
+Pré condições:
+  Arquivo dados existir.
+Pós condições:
+  Printa as posições livres, de acordo com a função busca_cod.
+*/
 {
   int i,j,n,x;
   FILE *arq;
@@ -721,6 +842,12 @@ int Imprimir_Lista_Livre()
 }
 
 int Imprimir_Arvore()
+/*
+Pré condições:
+  Arquivo dados existir.
+Pós condições:
+  Imprime os códigos, na arvore r, pela ordem pre ordem.
+*/
 {
 
   int i,j,n,x;
@@ -761,6 +888,12 @@ int Imprimir_Arvore()
 }
 
 void Imprimir()
+/*
+Pré condições:
+  Nenhuma
+Pós condições:
+  Aciona as outras funções Imprimir, de acordo com o input do usuário.
+*/
 {
   int x;
   printf(" Menu de impressao\n\n Digite a opcao desejada:\n");
@@ -795,6 +928,12 @@ void Imprimir()
 }
 
 int Menu ()
+/*
+Pré condições:
+  Nenhuma
+Pós condições:
+  Aciona as outras funções, de acordo com o input do usuário.
+*/
 {
   int x, cod;
 
@@ -883,6 +1022,12 @@ int Menu ()
 }
 
 int main()
+/*
+Pré condições:
+  Nenhuma
+Pós condições:
+  Aciona a funçõe Menu.
+*/
 {
   while (Menu());
   return 0;

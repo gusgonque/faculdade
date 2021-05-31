@@ -1,6 +1,2 @@
-1
-5
-item
-20
-2
-algum lugar
+4
+carrega

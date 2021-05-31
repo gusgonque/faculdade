@@ -31,6 +31,47 @@ parafuso 3mm;500;2.00;prateleira 5A
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+
+struct no
+{
+  int info;
+  struct no * esq;
+  struct no * dir;
+};
+
+typedef struct no* arvore;
+
+int vazia (arvore r)
+{
+  return (r == NULL);
+}
+
+arvore insere_arvore_binaria(arvore r, int x)
+{
+  if(vazia(r))
+  {
+    r = (struct no*) malloc(sizeof(struct no));
+    r->info = x;
+    r->esq = NULL;
+    r->dir = NULL;
+  }
+  else
+    if(x < r->info)
+      r->esq = insere_arvore_binaria(r->esq, x);
+  else // x >= r->info
+    r->dir = insere_arvore_binaria(r->dir, x);
+  return r;
+}
+
+void pre_ordem(arvore r)
+{
+  if(!vazia(r)) {
+    printf("%d ", r->info);
+    pre_ordem(r->esq);
+    pre_ordem(r->dir);
+  }
+}
 
 int numero_prod()
 {
@@ -38,10 +79,8 @@ int numero_prod()
   int i;
   arq = fopen("dados", "rb");
 
-  for ( i = 0 ;  feof (arq) == 0 ; i++ )
-    fscanf(arq,"%*[^\n]\n");
-
-  //printf("%d linhas nos dados\n", i);
+  for ( i = 0; feof (arq) == 0 ; i++)
+  fscanf(arq,"%*[^\n]\n");
 
   fclose(arq);
   return i;
@@ -57,7 +96,7 @@ cod = cod disponivel
 {
   FILE *arq;
   int i, n, x;
-  char s[200];
+  char c;
   n = numero_prod();
 
   arq = fopen("dados", "rb");
@@ -69,23 +108,24 @@ cod = cod disponivel
 
   for ( i = 0 ; i < n ; i++ )
   {
-    fscanf( arq , "%d%[^\n]\n" , &x, &s );
-    //printf(" s0 = [%c]\n", s[0]);
+
+    fscanf( arq , "%d%c" , &x, &c );
     if (x == cod)
     {
-      if (s[0] != ';')
+      if (c != ';')
       {
         fclose(arq);
-        //printf("cod existe, mas n preenchido\n");
         return 0;
       }
       else
       {
         fclose(arq);
-        //printf("cod existe, e preenchido\n");
         return 1;
       }
     }
+    else
+      while (c!='\n')
+        fscanf(arq,"%c",&c);
   }
 
   fclose (arq);
@@ -104,7 +144,6 @@ void Insere_Novo_Produto (int cod,int qua,float pre,char nom[],char loc[])
   fprintf(arq, "%d;%s;%d;%.2f;%s\n",cod, nom,qua,pre,loc);
 
   fclose(arq);
-  printf("\n Produto adicionado com sucesso. Retornando ao menu principal.\n");
 }
 
 void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
@@ -138,7 +177,6 @@ void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
   fclose(arq2);
   remove("dados");
   rename("dados2","dados");
-  printf("\n Produto adicionado com sucesso. Retornando ao menu principal.\n");
 }
 
 int Inserir_Produto ()
@@ -182,6 +220,7 @@ int Inserir_Produto ()
     Insere_Produto_Livre (cod, qua, pre, nom, loc);
   else
     Insere_Novo_Produto (cod, qua, pre, nom, loc);
+  printf("\n Produto adicionado com sucesso. Retornando ao menu principal.\n");
 
   return 1;
 }
@@ -202,6 +241,7 @@ int menor_cod()
       men = x;
   }
   //printf("men = %d\n", men);
+  fclose(arq);
   return men;
 }
 
@@ -221,25 +261,36 @@ int maior_cod()
       mai = x;
   }
   //printf("mai = %d\n", mai);
+  fclose(arq);
   return mai;
 }
 
-void Listar_Produtos()
+int Listar_Produtos()
 {
   int n, i, cod, qua, x, j;
   float pre;
-  char c, nom[50], loc[100];
+  char nom[50], loc[100];
   FILE *arq;
 
   printf(" Lista de todos os produtos registrados:\n");
 
   n = numero_prod();
+  for ( i = 0 , j = menor_cod() ; j < maior_cod() ; j++ )
+    if (busca_cod(j) == 1)
+      i++;
+  if (i == 0)
+  {
+    printf(" Nenhum produto registrado. Retornando ao menu principal.\n");
+    return 1;
+  }
+
   arq = fopen("dados", "rb");
   for ( i = 0, j = cod = menor_cod() ; i < n ; i++ )
   {
     for ( cod = j ; j < maior_cod() ; cod++ )
       if ( busca_cod(cod) == 1 )
       {
+
         j = cod;
         rewind(arq);
 
@@ -265,30 +316,32 @@ void Listar_Produtos()
       }
   }
   fclose(arq);
+  return 0;
 }
 
-void Remover_Produto()
+void Remover_Produto(int cod)
 {
-  int cod, x;
-  char s[200];
+  int x;
+  char c, s[200];
   FILE *arq, *arq2;
-
-  Listar_Produtos();
-  printf(" Digite o codigo do produto a ser removido.\n - ");
-  scanf("%d", &cod);
 
   arq = fopen("dados", "rb");
   arq2 = fopen("dados2", "wb");
 
   while ( x != cod)
   {
-
     fscanf( arq , "%d" , &x );
     fprintf( arq2, "%d" , x );
     if ( x != cod )
     {
-      fscanf( arq , "%[^\n]\n" , &s );
-      fprintf( arq2 , "%s\n" , s );
+      fscanf(arq,"%c", &c);
+      if (c == ';')
+      {
+        fscanf( arq , "%[^\n]\n" , &s );
+        fprintf( arq2 , ";%s\n" , s );
+      }
+      else
+        fprintf( arq2 , "\n");
     }
   }
   fscanf(arq, "%*[^\n]\n");
@@ -303,17 +356,447 @@ void Remover_Produto()
   fclose(arq2);
   remove("dados");
   rename("dados2","dados");
-  printf("\n Produto removido com sucesso. Retornando ao menu principal.\n");
 }
 
-//void Alterar_Produto();
-//void Carregar_Arquivo();
-//void Info_Produto();
-//void Imprimir();
+void Alterar_Estoque(int cod, int q)
+{
+  int x;
+  char c, s[200];
+  FILE *arq, *arq2;
+  arq = fopen("dados", "rb");
+  arq2 = fopen("dados2", "wb");
+
+  while ( x != cod )
+  {
+    fscanf( arq , "%d" , &x );
+    fprintf( arq2, "%d" , x );
+    if ( x != cod )
+    {
+      fscanf(arq,"%c", &c);
+      if (c == ';')
+      {
+        fscanf( arq , "%[^\n]\n" , &s );
+        fprintf( arq2 , ";%s\n" , s );
+      }
+      else
+        fprintf( arq2 , "\n");
+    }
+  }
+
+  fscanf(arq, ";%[^;];",&s);
+  fprintf(arq2,";%s;",s);
+
+  fscanf(arq, "%*d;");
+  fprintf(arq2,"%d;", q);
+  while ( feof (arq) == 0 )
+  {
+    fscanf(arq, "%[^\n]\n", &s);
+    fprintf(arq2,"%s\n", s);
+  }
+
+  fclose(arq);
+  fclose(arq2);
+  remove("dados");
+  rename("dados2","dados");
+}
+
+void Alterar_Preco(int cod, float p)
+{
+  int x;
+  char c, s[200];
+  FILE *arq, *arq2;
+  arq = fopen("dados", "rb");
+  arq2 = fopen("dados2", "wb");
+
+  while ( x != cod)
+  {
+    fscanf( arq , "%d" , &x );
+    fprintf( arq2, "%d" , x );
+    if ( x != cod )
+    {
+      fscanf(arq,"%c", &c);
+      if (c == ';')
+      {
+        fscanf( arq , "%[^\n]\n" , &s );
+        fprintf( arq2 , ";%s\n" , s );
+      }
+      else
+        fprintf( arq2 , "\n");
+    }
+  }
+
+  fscanf(arq, ";%[^;];",&s);
+  fprintf(arq2,";%s",s);
+  fscanf(arq, "%[^;];",&s);
+  fprintf(arq2,";%s;",s);
+
+
+  fscanf(arq, "%*f;");
+  fprintf(arq2,"%.2f;", p);
+  while ( feof (arq) == 0 )
+  {
+    fscanf(arq, "%[^\n]\n", &s);
+    fprintf(arq2,"%s\n", s);
+  }
+
+  fclose(arq);
+  fclose(arq2);
+  remove("dados");
+  rename("dados2","dados");
+}
+
+void Alterar_Loc(int cod, char loc[])
+{
+  int x;
+  char c, s[200];
+  FILE *arq, *arq2;
+  arq = fopen("dados", "rb");
+  arq2 = fopen("dados2", "wb");
+
+  while ( x != cod)
+  {
+    fscanf( arq , "%d" , &x );
+    fprintf( arq2, "%d" , x );
+    if ( x != cod )
+    {
+      fscanf(arq,"%c", &c);
+      if (c == ';')
+      {
+        fscanf( arq , "%[^\n]\n" , &s );
+        fprintf( arq2 , ";%s\n" , s );
+      }
+      else
+        fprintf( arq2 , "\n");
+    }
+  }
+
+  fscanf(arq, ";%[^;];",&s);
+  fprintf(arq2,";%s",s);
+  fscanf(arq, "%[^;];",&s);
+  fprintf(arq2,";%s",s);
+  fscanf(arq, "%[^;];",&s);
+  fprintf(arq2,";%s;",s);
+
+
+  fscanf(arq, "%*[^\n]\n");
+  fprintf(arq2,"%s\n", loc);
+
+  while ( feof (arq) == 0 )
+  {
+    fscanf(arq, "%[^\n]\n", &s);
+    fprintf(arq2,"%s\n", s);
+  }
+
+  fclose(arq);
+  fclose(arq2);
+  remove("dados");
+  rename("dados2","dados");
+}
+
+void Alterar_Produto()
+{
+  int cod, q,x;
+  float p;
+  char loc[100];
+
+  Listar_Produtos();
+  printf(" Digite o codigo do produto a ser alterado.\n - ");
+  scanf("%d", &cod);
+  while ( busca_cod(cod) != 1) {
+    printf(" Codigo invalido. Digite novamente.\n - ");
+    scanf("%d", &cod);
+  }
+
+  printf(" Digite a opcao desejada:\n");
+  printf(" 1 - Alterar estoque.\n");
+  printf(" 2 - Alterar preco.\n");
+  printf(" 3 - Alterar localizacao.\n - ");
+  scanf("%d",&x);
+
+  while (x>3 || x<1)
+  {
+    printf("Comando invalido. Digite novamente.\n -");
+    scanf("%d",&x);
+  }
+
+  switch (x)
+  {
+    case 1:
+    {
+      printf(" Digite a nova quantidade do produto no estoque.\n - ");
+      scanf("%d", &q);
+      Alterar_Estoque(cod,q);
+      break;
+    }
+    case 2:
+    {
+      printf(" Digite o novo preco do produto selecionado.\n - ");
+      scanf("%f", &p);
+      Alterar_Preco(cod, p);
+      break;
+    }
+    case 3:
+    {
+      printf("Digite a nova localizacao do produto selecionado.\n - ");
+      setbuf(stdin, NULL);
+      scanf("%[^\n]", loc);
+      Alterar_Loc(cod, loc);
+      break;
+    }
+  }
+  printf(" Produto alterado com sucesso. Retornando ao menu principal\n");
+}
+
+int Carregar_Arquivo()
+{
+  int cod, qua;
+  char c,s[100], ope, nom[50],loc[100];
+  float pre;
+  FILE *arq3;
+
+  printf(" Digite o caminho do arquivo a ser carregado a partir do arquivo do codigo fonte.\n - ");
+  setbuf(stdin, NULL);
+  scanf("%[^\n]", &s);
+
+  arq3 = fopen(s, "rb");
+
+  if (arq3 == NULL)
+  {
+    printf(" Arquivo nao encontrado. Retornando ao menu principal\n");
+    return 0;
+  }
+
+  while ( feof (arq3) == 0 )
+  {
+    fscanf(arq3,"%c;",&ope);
+    //printf("ope = %c\n", ope);
+    if (ope == 'I')
+    {
+      fscanf(arq3,"%d;", &cod);
+      //printf("cod = %d,buscacod = %d\n", cod, busca_cod(cod));
+      switch (busca_cod(cod)) {
+        case -1:
+        {
+          FILE *arq2;
+          arq2 = fopen("dados","wb");
+          fclose(arq2);
+
+          fscanf(arq3,"%[^;];%d;%f;%[^\n]\n",&nom,&qua,&pre,&loc);
+          Insere_Novo_Produto(cod,qua,pre,nom,loc);
+          break;
+        }
+        case 0:
+        {
+          fscanf(arq3,"%[^;];%d;%f;%[^\n]\n",&nom,&qua,&pre,&loc);
+          Insere_Produto_Livre(cod,qua,pre,nom,loc);
+          break;
+        }
+        case 1:
+        {
+          fscanf(arq3,"%*[^\n]\n");
+          break;
+        }
+        default:
+        {
+          fscanf(arq3,"%[^;];%d;%f;%[^\n]\n",&nom,&qua,&pre,&loc);
+          //printf("%s;%d;%f;%s\n", nom,qua,pre,loc);
+          Insere_Novo_Produto(cod,qua,pre,nom,loc);
+          break;
+        }
+      }
+    }
+    else
+      if (ope == 'R')
+      {
+        fscanf(arq3,"%d\n", &cod);
+        //printf("cod = %d\n", cod);
+        if (busca_cod(cod) == 1)
+          Remover_Produto(cod);
+      }
+      else
+        if (ope == 'A')
+        {
+          fscanf(arq3,"%d;",&cod);
+          if (busca_cod(cod) == 1)
+          {
+            fscanf(arq3,"%c",&c);
+            if (c != ';')
+            {
+              fseek( arq3 , -1 , SEEK_CUR );
+              fscanf( arq3,"%d;", &qua);
+              //printf("qua = %d\n", qua);
+              Alterar_Estoque(cod,qua);
+            }
+            fscanf(arq3,"%c", &c);
+            if (c != ';')
+            {
+              fseek( arq3 , -1 , SEEK_CUR );
+              fscanf(arq3,"%f;", &pre);
+              //printf("pre = %f\n", pre);
+              Alterar_Preco(cod,pre);
+            }
+            fscanf(arq3,"%c", &c);
+            if (c != '\n')
+            {
+              fseek( arq3 , -1 , SEEK_CUR );
+              fscanf(arq3,"%[^\n]\n", &loc);
+              //printf("loc = %s\n", loc);
+              Alterar_Loc(cod,loc);
+            }
+            fscanf(arq3,"%*[^\n]\n");
+          }
+        }
+        else
+          fscanf(arq3,"%*[^\n]\n");
+    }
+  fclose(arq3);
+}
+
+void Info_Produto(int cod)
+{
+  int x, qua;
+  char c, nom[50],loc[100];
+  float pre;
+  FILE *arq;
+
+  arq = fopen ("dados","rb");
+  while ( x != cod)
+  {
+    fscanf( arq , "%d" , &x );
+    if ( x != cod )
+    {
+      fscanf(arq,"%c", &c);
+      if (c == ';')
+        fscanf( arq , "%*[^\n]\n" );
+      else
+        fscanf( arq , "\n");
+    }
+  }
+  printf(" - Codigo %d:\n", cod);
+  fscanf( arq , ";%[^;]", &nom);
+  printf(" Nome: %s\n", nom);
+  fscanf( arq , ";%d", &qua);
+  printf(" Quantidade: %d\n", qua);
+  fscanf( arq , ";%f", &pre);
+  printf(" Preco: %.2f\n", pre);
+  fscanf( arq , ";%[^\n]", &loc);
+  printf(" Localizacao: %s\n\n", loc);
+
+  fclose(arq);
+}
+
+int Imprimir_Lista_Livre()
+{
+  int i,j,n,x;
+  FILE *arq;
+  char c;
+  for ( i = 0 , j = menor_cod() ; j < maior_cod() ; j++ )
+    if (busca_cod(j) == 0)
+      i++;
+
+  if (i == 0)
+  {
+    printf(" Nenhuma posicao livre. Retornando ao menu principal.\n");
+    return 1;
+  }
+  n = numero_prod();
+  arq = fopen("dados","rb");
+
+  for (i=0; i<n ;  )
+  {
+    fscanf(arq,"%d",&x);
+    if (busca_cod(x) != 0)
+    {
+      fscanf(arq,"%c", &c);
+      if (c == ';')
+        fscanf( arq , "%*[^\n]\n" );
+      else
+        fscanf( arq , "\n" );
+      i++;
+    }
+    else
+      printf(" %d esta livre.\n", x);
+  }
+  fclose(arq);
+}
+
+int Imprimir_Arvore()
+{
+
+  int i,j,n,x;
+  FILE *arq;
+  char c;
+  arvore arv;
+  arv = NULL;
+
+  for ( i = 0 , j = menor_cod() ; j < maior_cod() ; j++ )
+    if (busca_cod(j) != -1 && busca_cod(j) != j)
+      i++;
+
+  if (i == 0)
+  {
+    printf(" Nenhum codigo registrado. Retornando ao menu principal.\n");
+    return 1;
+  }
+
+  n = numero_prod();
+  arq = fopen("dados","rb");
+
+  for (i=0; i<n ;  )
+  {
+    fscanf(arq,"%d",&x);
+    arv = insere_arvore_binaria(arv, x);
+    if (busca_cod(j) != -1 && busca_cod(j) != j)
+    {
+      fscanf(arq,"%c", &c);
+      if (c == ';')
+        fscanf( arq , "%*[^\n]\n" );
+      else
+        fscanf( arq , "\n" );
+      i++;
+    }
+  }
+  fclose(arq);
+  pre_ordem(arv);
+}
+
+void Imprimir()
+{
+  int x;
+  printf(" Menu de impressao\n\n Digite a opcao desejada:\n");
+  printf(" 1 - Imprimir arvore.\n");
+  printf(" 2 - Imprimir lista de posicoes livres.\n");
+  printf(" 3 - Retornar ao menu anterior.\n - ");
+  scanf("%d",&x);
+
+  while (x>3 || x<1)
+  {
+    printf(" Comando invalido. Digite novamente.\n -");
+    scanf("%d",&x);
+  }
+
+  switch (x)
+  {
+    case 1:
+    {
+      Imprimir_Arvore();
+      break;
+    }
+    case 2:
+    {
+      Imprimir_Lista_Livre();
+      break;
+    }
+    case 3:
+    {
+      break;
+    }
+  }
+}
 
 int Menu ()
 {
-  int x;
+  int x, cod;
 
   printf("\n Menu Principal\n\n Digite a opcao desejada:\n");
   printf(" 1 - Inserir um produto.\n");
@@ -329,7 +812,7 @@ int Menu ()
 
   while (x>8 || x<1)
   {
-    printf("Comando invalido. Digite novamente.\n -");
+    printf(" Comando invalido. Digite novamente.\n -");
     scanf("%d",&x);
   }
 
@@ -341,22 +824,45 @@ int Menu ()
     }
     case 2:
     {
-      Remover_Produto();
-      return 1;
+      if (Listar_Produtos())
+        return 1;
+      else
+      {
+        printf(" Digite o codigo do produto a ser removido.\n - ");
+        scanf("%d", &cod);
+        while ( busca_cod(cod) != 1) {
+          printf(" Codigo invalido. Digite novamente.\n - ");
+          scanf("%d", &cod);
+        }
+        Remover_Produto(cod);
+
+        printf("\n Produto removido com sucesso. Retornando ao menu principal.\n");
+        return 1;
+      }
     }
     case 3:
     {
-      //Alterar_Produto();
+      Alterar_Produto();
       return 1;
     }
     case 4:
     {
-      //Carregar_Arquivo();
+      Carregar_Arquivo();
       return 1;
     }
     case 5:
     {
-      //Info_Produto();
+      if (Listar_Produtos())
+        return 1;
+      printf(" Digite o codigo do produto a ser apresentado.\n - ");
+      scanf("%d", &cod);
+
+      while (busca_cod (cod) != 1)
+      {
+        printf(" Codigo nao registrado, digite novamente.\n - ");
+        scanf("%d", &cod);
+      }
+      Info_Produto(cod);
       return 1;
     }
     case 6:
@@ -366,7 +872,7 @@ int Menu ()
     }
     case 7:
     {
-      //Imprimir();
+      Imprimir();
       return 1;
     }
     case 8:

@@ -19,7 +19,7 @@ void Processo (float elem[], int n, float *soma)
     *soma += elem[i];
 }
 
-void Relatorio (float elem [], int n, float soma)
+void Relatorio (char *fn,float elem [], int n, float soma)
 {
   int i;
   for ( i=0 ; i<n ; i++ )

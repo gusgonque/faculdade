@@ -126,7 +126,6 @@ Pós condições:
   FILE *arq;
   int i, n, x;
   char c;
-  n = numero_prod();
 
   arq = fopen("dados", "rb");
   if (arq == NULL)
@@ -134,7 +133,9 @@ Pós condições:
     fclose(arq);
     return -1;
   }
-
+  fclose(arq);
+  n = numero_prod();
+  arq = fopen("dados", "rb");
   for ( i = 0 ; i < n ; i++ )
   {
 
@@ -169,13 +170,11 @@ Pós condições:
   as informações do produto com um novo código são registradas no arquivo "dados"
 */
 {
-  FILE *arq;
   int x, i;
   char s[200];
+  FILE *arq;
 
-  arq = fopen("dados", "rb+");
-  while ( feof (arq) == 0 )
-    fscanf( arq , "%*[^\n]\n");
+  arq = fopen("dados", "ab");
   fprintf(arq, "%d;%s;%d;%.2f;%s\n",cod, nom,qua,pre,loc);
 
   fclose(arq);
@@ -280,20 +279,21 @@ Pós condições:
   Retorna o código com menor número registrado nos dados.
 */
 {
-  int x, men, i;
+  int x, men, i, j;
   FILE *arq;
 
+  j = numero_prod()-1;
   arq = fopen("dados", "rb");
   fscanf (arq,"%d", &men);
   fscanf (arq,"%*[^\n]\n");
-  for ( i = 0; i < numero_prod()-1; i++)
+  for ( i = 0; i < j; i++)
   {
     fscanf (arq,"%d", &x);
     fscanf (arq,"%*[^\n]\n");
     if (x<men)
       men = x;
   }
-  //printf("men = %d\n", men);
+
   fclose(arq);
   return men;
 }
@@ -306,20 +306,21 @@ Pós condições:
   Retorna o código com maior número registrado nos dados.
 */
 {
-  int x, mai, i;
+  int x, mai, i, j;
   FILE *arq;
 
+  j = numero_prod()-1;
   arq = fopen("dados", "rb");
   fscanf (arq,"%d", &mai);
   fscanf (arq,"%*[^\n]\n");
-  for ( i = 0; i < numero_prod()-1; i++)
+  for ( i = 0; i < j ; i++)
   {
     fscanf (arq,"%d", &x);
     fscanf (arq,"%*[^\n]\n");
     if (x>mai)
       mai = x;
   }
-  //printf("mai = %d\n", mai);
+
   fclose(arq);
   return mai;
 }
@@ -332,10 +333,13 @@ Pós condições:
   Printa os dados de todos os códigos com produtos.
 */
 {
-  int n, i, cod, qua, x, j;
+  int n, i, cod, qua, x, j, k;
   float pre;
   char nom[50], loc[100];
   FILE *arq;
+
+  j = menor_cod();
+  k = maior_cod();
 
   arq = fopen("dados", "rb");
   if (arq == NULL)
@@ -343,11 +347,12 @@ Pós condições:
     printf(" Nenhum produto registrado. Retornando ao menu principal.\n");
     return 1;
   }
+  fclose(arq);
 
   printf(" Lista de todos os produtos registrados:\n");
 
   n = numero_prod();
-  for ( i = 0 , j = menor_cod() ; j < maior_cod() ; j++ )
+  for ( i = 0  ; j <= k ; j++ )
     if (busca_cod(j) == 1)
       i++;
   if (i == 0)
@@ -356,22 +361,22 @@ Pós condições:
     return 1;
   }
 
-  arq = fopen("dados", "rb");
-  for ( i = 0, j = cod = menor_cod() ; i < n ; i++ )
+  for ( j = menor_cod(),i=0, cod = j ; i < n ; i++ )
   {
-    for ( cod = j ; j < maior_cod() ; cod++ )
+    for ( cod = j ; j < k ; cod++ )
+    {
       if ( busca_cod(cod) == 1 )
       {
-
         j = cod;
-        rewind(arq);
+        arq = fopen("dados", "rb");
 
-        while ( x != cod)
+        while ( x != cod )
         {
           fscanf( arq , "%d" , &x );
-          if ( x != cod )
+          if (x!=cod)
             fscanf( arq , "%*[^\n]\n");
         }
+
         printf(" - Codigo %d:\n", cod);
 
         fscanf( arq , ";%[^;]", &nom);
@@ -385,9 +390,11 @@ Pós condições:
 
         fscanf( arq , ";%[^\n]", &loc);
         printf(" Localizacao: %s\n\n", loc);
+
+        fclose(arq);
       }
+    }
   }
-  fclose(arq);
 
   return 0;
 }
@@ -668,7 +675,6 @@ Pós condições:
   scanf("%[^\n]", &s);
 
   arq3 = fopen(s, "rb");
-
   if (arq3 == NULL)
   {
     printf(" Arquivo nao encontrado. Retornando ao menu principal\n");
@@ -678,11 +684,10 @@ Pós condições:
   while ( feof (arq3) == 0 )
   {
     fscanf(arq3,"%c;",&ope);
-    //printf("ope = %c\n", ope);
     if (ope == 'I')
     {
       fscanf(arq3,"%d;", &cod);
-      //printf("cod = %d,buscacod = %d\n", cod, busca_cod(cod));
+      //printf("cod = %d, buscacod = %d\n", cod, busca_cod(cod));
       switch (busca_cod(cod)) {
         case -1:
         {

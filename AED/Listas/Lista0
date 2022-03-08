@@ -1,0 +1,8 @@
+1
+a - &x é o endereço de x.
+b - &&x é o endereço de &x. (?)
+c - *&x é um ponteiro para o endereço de &x, ou seja, x.
+
+2
+a - Endereço não alocado.
+b - Endereço alocado.

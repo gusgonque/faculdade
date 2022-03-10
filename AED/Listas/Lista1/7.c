@@ -2,7 +2,11 @@
 #include <stdio.h>
 #include <string.h>
 
+<<<<<<< HEAD
 int palindromo (char *i, char *f){ // i=inicio  f=final (em relação à string)
+=======
+int palindromo (char *i, char *f){
+>>>>>>> c9d2d9f1cfab14f0dfd1864acc2e75710e8ec6db
     if (i==f)
         return 1;
     if (*i == *f){

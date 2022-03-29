@@ -1,37 +1,116 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
-#define maxchar 100
-#define maxvet 1000
+#define LER_ESPACO setbuf(stdin, NULL)
+#define PULA_LINHA printf("\n")
+
+#define MAXCHAR 100
+#define MAXVET 1000
 
 typedef struct {
   int id; // ID único.
-  char nomCom[maxchar]; // Nome completo.
-  int numVia; // Número de viagens.
-  int hisCom[maxvet];// Histórico completo de pedidos de alimentos. IDs pedidos pelo cliente.
-  int hisAtu[maxvet];// Histórico atual de pedidos de alimentos.ID dos alimentos pedidos que ainda estão cadastrados no sistema, que não foram removidos do cadastro de alimentos.
+  char nomCom[MAXCHAR]; // Nome completo.
+  int numVia; // Número de viagens
+  int numHis; // Número de pedidos no histórico completo.
+  int hisCom[MAXVET];// Histórico completo de pedidos de alimentos. IDs pedidos pelo cliente.
+  int hisAtu[MAXVET];// Histórico atual de pedidos de alimentos.ID dos alimentos pedidos que ainda estão cadastrados no sistema, que não foram removidos do cadastro de alimentos.
 } cliente;
 
 typedef struct {
   int id; // ID único.
-  char nom[maxchar]; // Nome do alimento.
-  int preco; // Preço do alimento.
-  char marca[maxchar]; // Marca do alimento.
+  char nom[MAXCHAR]; // Nome do alimento.
+  float preco; // Preço do alimento.
+  char marca[MAXCHAR]; // Marca do alimento. Opcional.
 } alimento;
 
 
 // criarLogErro;
 // testeRegrasDeAplicacao;
 
-// Nada
-void showListaCliente(){
-  printf(" Carregando lista de clientes registrados...\n");
-  FILE * pFile;
-  pFile = fopen ("dados","rb");
-  if (pFile==NULL) printf(" Arquivo de dados nao encontrado.\n Retornando ao menu anterior.");
+//  finalizado?
+// Descrição: Lê todos os dados em "dados.txt".
+void lerDados(int *numCli, int *numAli, cliente cli[], alimento ali[]){
+  int i, j;
+  FILE* arq;
+
+  arq = fopen ("dados.txt","r");
+
+  if (arq==NULL)
+    printf(" Arquivo de dados nao encontrado.\n Retornando ao menu anterior.");
   else
   {
 
+    fscanf(arq, "%d%*c%d%*c", numCli, numAli);
+
+    for ( i = 0 ; i < *numCli ; i++ ) {
+      fscanf(arq, "%d%*c", &cli[i].id);
+      fscanf(arq, "%[^\n]s%*c", &cli[i].nomCom);
+      fscanf(arq, "%d%*c", &cli[i].numVia);
+      fscanf(arq, "%d%*c", &cli[i].numHis);
+      for ( j = 0 ; j < cli[i].numHis ; j++ )
+        fscanf(arq, "%d%*c", &cli[i].hisCom[j]);
+    }
+    for ( i = 0 ; i < *numAli ; i++ ) {
+      fscanf(arq, "%d%*c", &ali[i].id);
+      fscanf(arq, "%[^\n]s%*c", &ali[i].nom);
+      fscanf(arq, "%f%*c", &ali[i].preco);
+      fscanf(arq, "%[^\n]s%*c", &ali[i].marca);
+    }
+
+    fclose(arq);
   }
+}
+
+//
+// Descrição:
+void showHistoricoAtual (int numCli, int numAli, cliente cli, alimento ali[]){
+  int i, j;
+  printf(" Historico atual:");
+  for ( i = 0 ; i < cli.numHis ; i++ )
+    for ( j = 0 ; j < numAli ; j++ )
+      if ( ali[j].id == cli.hisCom[i] )
+        printf(" [%d] ", cli.hisCom[i] );
+  PULA_LINHA;
+}
+
+// Finalizado.
+// Descrição.
+void showListaCliente(){
+  printf("\n Carregando lista de clientes registrados...\n\n");
+  FILE* arq;
+  arq = fopen ("dados.txt","r");
+
+  int i, j, numCli, numAli;
+
+  if (arq==NULL)
+    printf(" Arquivo de dados nao encontrado.\n Retornando ao menu anterior.");
+  else
+  {
+    fscanf(arq, "%d%*c%d%*c", &numCli, &numAli);
+    fclose(arq);
+
+    cliente cli[numCli];
+    alimento ali[numAli];
+
+    lerDados(&numCli, &numAli, cli, ali);
+
+    for ( i = 0 ; i < numCli ; i++ ) {
+      printf(" Id: %d\n", cli[i].id);
+      printf(" Nome: %s\n", cli[i].nomCom);
+      printf(" Numero de viagens: %d\n", cli[i].numVia);
+      printf(" Historico completo:");
+      for ( j = 0 ; j < cli[i].numHis ; j++ )
+        printf(" [%d] ", cli[i].hisCom[j]);
+      PULA_LINHA;
+      showHistoricoAtual (numCli, numAli, cli[i], ali);
+
+    }
+
+  }
+  fclose(arq);
+  PULA_LINHA;
 }
 
 // Nada
@@ -40,7 +119,7 @@ void inserirCliente(){
 
   cliente novCli; // novo cliente a ser inserido.
 
-  printf(" Digite as seguintes informacoes.\n", );
+  printf(" Digite as seguintes informacoes.\n");
 
 }
 
@@ -76,11 +155,49 @@ void interfaceCliente(){
   }
 }
 
-// Nada
-void showListaAlimento(){}
+// Finalizado.
+//
+void showListaAlimento(){
+  printf("\n Carregando lista de alimentos registrados...\n\n");
+  FILE* arq;
+  arq = fopen ("dados.txt","r");
+
+  int i, j, numCli, numAli;
+
+  cliente cli[numCli];
+  alimento ali[numAli];
+
+  if (arq==NULL)
+    printf(" Arquivo de dados nao encontrado.\n Retornando ao menu anterior.");
+  else
+  {
+    fscanf(arq, "%d%*c%d%*c", &numCli, &numAli);
+    fclose(arq);
+
+    lerDados(&numCli, &numAli, cli, ali);
+
+    for ( i = 0 ; i < numAli ; i++ ) {
+      printf(" Id: %d\n", ali[i].id);
+      printf(" Nome: %s\n", ali[i].nom);
+      printf(" Preco: %.2f\n", ali[i].preco);
+      printf(" Marca: %s\n", ali[i].marca);
+      PULA_LINHA;
+
+    }
+
+  }
+  fclose(arq);
+  PULA_LINHA;
+}
 
 // Nada
-void inserirAlimento(){}
+void inserirAlimento(){
+  showListaAlimento();
+
+  cliente novAli; // novo cliente a ser inserido.
+
+  printf(" Digite as seguintes informacoes.\n");
+}
 
 // Nada
 void removerAlimento(){}
@@ -115,7 +232,56 @@ void interfaceAlimento(){
 }
 
 // Nada
-void gerarRelatorio(){}
+void gerarRelatorio(){
+
+    srand(time(NULL));
+    int i, j, k , numCli, numAli, ran;
+    char nomRel[MAXCHAR];
+    FILE *arqRel, *arqTem;
+
+    cliente cli[numCli];
+    alimento ali[numAli];
+
+    lerDados(&numCli, &numAli, cli, ali);
+
+    ran = rand();
+    arqTem = fopen("arqTem.txt","w");
+    fprintf(arqTem,"relatorio%4d.txt", ran);
+    fclose (arqTem);
+    arqTem = fopen("arqTem.txt","r");
+    fscanf(arqTem,"%s", &nomRel);
+    fclose (arqTem);
+    remove("arqTem.txt");
+
+    arqRel = fopen (nomRel,"w");
+
+    fprintf(arqRel, "Informacoes a respeitos dos clientes:\n");
+    for ( i = 0 ; i < numCli ; i++ ) {
+      fprintf(arqRel, " Id: %d\n", cli[i].id);
+      fprintf(arqRel, " Nome: %s\n", cli[i].nomCom);
+      fprintf(arqRel, " Numero de viagens: %d\n", cli[i].numVia);
+      fprintf(arqRel, " Historico completo:");
+      for ( j = 0 ; j < cli[i].numHis ; j++ )
+        fprintf(arqRel, " [%d] ", cli[i].hisCom[j]);
+      printf(" Historico atual:");
+      for ( j = 0 ; j < cli[i].numHis ; j++ )
+        for ( k = 0 ; k < numAli ; k++ )
+          if ( ali[k].id == cli[i].hisCom[j] )
+            printf(" [%d] ", cli[i].hisCom[j]);
+    }
+    fprintf(arqRel, "\n\nInformacoes a respeitos dos videos:\n");
+    for ( i = 0 ; i < numAli ; i++ ) {
+      fprintf(arqRel, " Id: %d\n", ali[i].id);
+      fprintf(arqRel, " Nome: %s\n", ali[i].nom);
+      fprintf(arqRel, " Preco: %.2f\n", ali[i].preco);
+      fprintf(arqRel, " Marca: %s\n", ali[i].marca);
+    }
+
+    printf("Arquivo criado com o nome '%s'\n", nomRel);
+
+    fclose(arqRel);
+
+}
 
 // Interface principal
 // Documentacao
@@ -143,6 +309,6 @@ int interfacePrincipal(){
 // finalizado
 int main() {
   while (interfacePrincipal());
-  printf("Programa finalizado.\n");
+  printf(" Programa finalizado.\n");
   return 0;
 }

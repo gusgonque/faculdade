@@ -1,5 +1,0 @@
-ERRO 1: Alimento com ID = [1], nome incorreto.
-ERRO 2: Alimento com ID = [1], preco foi colocado de forma incorreta, por exemplo numeros negativos.
-ERRO 1: Cliente com ID = [2], nome incorreto.
-ERRO 2: Cliente com ID = [2], numero de viagens foi colocado de forma incorreta, por exemplo numeros negativos.
-ERRO 3: Cliente com ID = [2], Algum numero no historico foi colocado de  forma incorreta, por exemplo numeros negativos.

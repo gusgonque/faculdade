@@ -21,6 +21,7 @@ typedef struct {
 typedef struct {
   int id; // ID único.
   char nome[MAXCHAR]; // Nome do alimento.
+  int valCal; // Valor calórico estimado para o alimento (energia em calorias).
   float preco; // Preço do alimento.
   char marca[MAXCHAR]; // Marca do alimento. Opcional.
 } alimento;
@@ -46,8 +47,8 @@ int verificarNome (char nome[])
   Descrição: cria o arquivo LogErro, de acordo com o erro e id do alimento/cliente.
   e = (-) alimento / (+) cliente
   1 - nome
-  2 - preco / numero de viagens
-  3 - (cliente) historico
+  2 - valor calorico / numero de viagens
+  3 - preco / (cliente) historico
   4 - ID incorreto
 */
 void criarLogErro(int e, int id){
@@ -58,7 +59,9 @@ void criarLogErro(int e, int id){
   if ( e == -1 )
     fprintf(arqLog, "ERRO 1: Alimento com ID = [%d], nome incorreto.\n", id);
   if ( e == -2 )
-    fprintf(arqLog, "ERRO 2: Alimento com ID = [%d], preco foi colocado de forma incorreta, por exemplo numeros negativos.\n", id);
+    fprintf(arqLog, "ERRO 2: Alimento com ID = [%d], valor calorico foi colocado de forma incorreta, por exemplo numeros negativos.\n", id);
+  if ( e == -3 )
+    fprintf(arqLog, "ERRO 3: Alimento com ID = [%d], preco foi colocado de forma incorreta, por exemplo numeros negativos.\n", id);
   if ( e == -4 )
     fprintf(arqLog, "ERRO 4: Alimento com ID = [%d], ID colocado ja existente.\n", id);
 
@@ -73,7 +76,6 @@ void criarLogErro(int e, int id){
 
   fclose(arqLog);
 }
-
 
 /*
   Descrição: Testa o cliente para criar os logs de erro, e retorna um inteiro de acordo com o teste.
@@ -111,8 +113,12 @@ int testeRegrasDeValidacaoAlimento(alimento ali){
     criarLogErro(-1, ali.id);
     i++;
   }
-  if (ali.preco<0.0){
+  if (ali.valCal<0.0){
     criarLogErro(-2, ali.id);
+    i++;
+  }
+  if (ali.preco<0.0){
+    criarLogErro(-3, ali.id);
     i++;
   }
   return i!=0;
@@ -144,6 +150,7 @@ void lerDados(int *numCli, int *numAli, cliente cli[], alimento ali[]){
     for ( i = 0 ; i < *numAli ; i++ ) {
       fscanf(arq, "%d%*c", &ali[i].id);
       fscanf(arq, "%[^\n]s%*c", &ali[i].nome);
+      fscanf(arq, "%d%*c", &ali[i].valCal);
       fscanf(arq, "%f%*c", &ali[i].preco);
       fscanf(arq, "%[^\n]s%*c", &ali[i].marca);
     }
@@ -178,6 +185,7 @@ void salvaDados(int numCli, int numAli, cliente cli[], alimento ali[]) {
     for ( i = 0 ; i < numAli ; i++ ) {
       fprintf(arq, "%d\n", ali[i].id);
       fprintf(arq, "%s\n", ali[i].nome);
+      fprintf(arq, "%d\n", ali[i].valCal);
       fprintf(arq, "%.2f\n", ali[i].preco);
       fprintf(arq, "%s\n", ali[i].marca);
     }
@@ -619,6 +627,9 @@ void inserirAlimento(){
   LER_ESPACO;
   scanf("%[^\n]s", &ali[numAli-1].nome);
 
+  printf(" Digite o valor calorico do alimento.\n - ");
+  scanf("%d", &ali[numAli-1].valCal);
+
   printf(" Digite o preco do alimento.\n - ");
   scanf("%f", &ali[numAli-1].preco);
 
@@ -688,6 +699,7 @@ void removerAlimento(){
       for (  ; i<numAli-1 ; i++ ) {
         ali[i].id = ali[i+1].id;
         strcpy(ali[i].nome, ali[i+1].nome);
+        ali[i].valCal = ali[i+1].valCal;
         ali[i].preco = ali[i+1].preco;
         strcpy(ali[i].marca, ali[i+1].marca);
       }
@@ -744,6 +756,9 @@ void alterarAlimento(){
       printf(" Digite o nome do alimento. (Tamanho minimo de 2 caracteres)\n - ");
       LER_ESPACO;
       scanf("%[^\n]s", &ali[i].nome);
+
+      printf(" Digite o preco do alimento.\n - ");
+      scanf("%d", &ali[i].valCal);
 
       printf(" Digite o preco do alimento.\n - ");
       scanf("%f", &ali[i].preco);
@@ -818,6 +833,7 @@ void consultarAlimento(){
 
       printf(" Id: %d\n", ali[i].id);
       printf(" Nome: %s\n", ali[i].nome);
+      printf(" Valor calorico: %d\n", ali[i].valCal);
       printf(" Preco: %.2f\n", ali[i].preco);
       printf(" Marca: %s\n", ali[i].marca);
     }
@@ -886,7 +902,7 @@ int gerarRelatorio(){
 
     fprintf(arqRel, "Informacoes a respeitos dos clientes:");
     for ( i = 0 ; i < numCli ; i++ ) {
-      fprintf(arqRel, "\n Id: %d\n", cli[i].id);
+      fprintf(arqRel, "\n ID: %d\n", cli[i].id);
       fprintf(arqRel, " Nome: %s\n", cli[i].nomCom);
       fprintf(arqRel, " Numero de viagens: %d\n", cli[i].numVia);
       fprintf(arqRel, " Historico completo:");
@@ -900,8 +916,9 @@ int gerarRelatorio(){
     }
     fprintf(arqRel, "\n\nInformacoes a respeitos dos alimentos:\n");
     for ( i = 0 ; i < numAli ; i++ ) {
-      fprintf(arqRel, " Id: %d\n", ali[i].id);
+      fprintf(arqRel, " ID: %d\n", ali[i].id);
       fprintf(arqRel, " Nome: %s\n", ali[i].nome);
+      fprintf(arqRel, " Valor calorico: %d\n", ali[i].valCal);
       fprintf(arqRel, " Preco: %.2f\n", ali[i].preco);
       fprintf(arqRel, " Marca: %s\n", ali[i].marca);
     }

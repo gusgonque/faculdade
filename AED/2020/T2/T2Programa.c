@@ -71,8 +71,8 @@ Pós condições:
   else
     if(x < r->info)
       r->esq = insere_arvore_binaria(r->esq, x);
-  else // x >= r->info
-    r->dir = insere_arvore_binaria(r->dir, x);
+    else // x >= r->info
+      r->dir = insere_arvore_binaria(r->dir, x);
   return r;
 }
 
@@ -170,8 +170,6 @@ Pós condições:
   as informações do produto com um novo código são registradas no arquivo "dados"
 */
 {
-  int x, i;
-  char s[200];
   FILE *arq;
 
   arq = fopen("dados", "ab");
@@ -188,7 +186,7 @@ Pós condições:
   as informações do produto com um código já registrado são registradas no arquivo "dados"
 */
 {
-  int x, i;
+  int x = 0;
   char s[200];
   FILE *arq, *arq2;
   arq = fopen("dados", "rb");

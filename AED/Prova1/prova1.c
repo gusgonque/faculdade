@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
 typedef struct no //estrutura de n´o para lista encadeada
 {
   int info;

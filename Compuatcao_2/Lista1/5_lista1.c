@@ -2,7 +2,7 @@
 * Nome do acadêmico: Gustavo Gonçalves Queiroz
 * Nome do arquivo: 5_lista1.c
 * Data de elaboração: 31/01
-* Resumo:  Dados o número n de alunos de uma turma de Computação II (C2)
+* Resumo:  Dados o número n de alunos de uma turma de Computacao II (C2)
 e suas notas da primeira prova, determinar a maior e a menor nota obtidas
 por essa turma (Nota máxima = 100 e nota mínima = 0).
 // o resumo é uma breve descrição do objetivo do exercício

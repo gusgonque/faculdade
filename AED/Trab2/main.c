@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include "trab2.h"
 
 int main() {
-    printf("Hello World!");
+    interfacePrincipal();
     return 0;
 }

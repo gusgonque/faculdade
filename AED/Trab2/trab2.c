@@ -72,17 +72,20 @@ int interfaceRegistro(){
 }
 
 int verificarNumero(long long int x){
-
+    //TODO: Fazer essa função
+    return 1;
 }
 
 int verificarSting(char s[]){
-
+    //TODO: Fazer essa função
+    return 1;
 }
 
 void inserirProfissionalManual(){
     profissional novPro;
     printf("Digite o codigo do profissional a ser inserido.\n>");
     scanf("%d",&novPro.cod);
+    //TODO: Fazer a função verificaCodigo
     if(!verificarNumero(novPro.cod)){
         printf("Nao e possivel usar esse codigo. Tente novamente.\n>");
         scanf("%d", &novPro.cod);
@@ -114,5 +117,17 @@ void inserirProfissionalManual(){
         printf("Nao e possivel usar esse CPF. Tente novamente.\n>");
         scanf("%s", &novPro.end);
     }
+
+    printf("Digite o telefone do profissional a ser inserido.\n>");
+    scanf("%d", &novPro.tel);
+    if(!verificarNumero(novPro.tel)){
+        printf("Nao e possivel usar esse telefone. Tente novamente.\n>");
+        scanf("%d", &novPro.tel);
+    }
+
+    inserirProfissionalArquivo(novPro);
+}
+
+void inserirProfissional(){
 
 }

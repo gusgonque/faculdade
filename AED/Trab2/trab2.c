@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 void interfacePrincipal(){
-    int x, i;
-    printf("Bem vindo a interface principal!\nDigite um numero para continuar.\n");
+    int x;
+    printf("Bem vindo a Interface Principal!\nDigite um numero para continuar.\n");
     printf("1 - Interface de registro de usuario. (Inserir/Alterar/Remover)\n");
     printf("2 - Carregar arquivo texto.\n");
     printf("3 - Consultar profissional.\n");
@@ -31,7 +31,9 @@ void interfacePrincipal(){
 
         case 5:
 
-        case 0: ;
+        case 0:
+
+        default:;
 
     }
 }
@@ -67,67 +69,52 @@ int interfaceRegistro(){
 
         case 0:
             return 0;
+
+        default:
+            return 1;
+
     }
-    return 1;
-}
-
-int verificarNumero(long long int x){
-    //TODO: Fazer essa função
-    return 1;
-}
-
-int verificarSting(char s[]){
-    //TODO: Fazer essa função
-    return 1;
 }
 
 void inserirProfissionalManual(){
     profissional novPro;
     printf("Digite o codigo do profissional a ser inserido.\n>");
     scanf("%d",&novPro.cod);
-    //TODO: Fazer a função verificaCodigo
-    if(!verificarNumero(novPro.cod)){
-        printf("Nao e possivel usar esse codigo. Tente novamente.\n>");
-        scanf("%d", &novPro.cod);
-    }
 
     printf("Digite o nome do profissional a ser inserido.\n>");
     scanf("%s", &novPro.nom);
 
     printf("Digite o CPF do profissional a ser inserido.\n>");
     scanf("%d", &novPro.cpf);
-    if(!verificarNumero(novPro.cpf)){
-        printf("Nao e possivel usar esse CPF. Tente novamente.\n>");
-        scanf("%d", &novPro.cpf);
-    }
 
     printf("Digite o numero do registro profissional a ser inserido.\n>");
     scanf("%s", &novPro.numReg);
-    if(!verificarSting(novPro.numReg)){
-        printf("Nao e possivel usar esse numero. Tente novamente.\n>");
-        scanf("%d", &novPro.numReg);
-    }
-
-    printf("Digite o nome do profissional a ser inserido.\n>");
-    scanf("%s", &novPro.nom);
 
     printf("Digite o endereco do profissional a ser inserido.\n>");
     scanf("%s", &novPro.end);
-    if(!verificarSting(novPro.end)){
-        printf("Nao e possivel usar esse CPF. Tente novamente.\n>");
-        scanf("%s", &novPro.end);
-    }
 
     printf("Digite o telefone do profissional a ser inserido.\n>");
     scanf("%d", &novPro.tel);
-    if(!verificarNumero(novPro.tel)){
-        printf("Nao e possivel usar esse telefone. Tente novamente.\n>");
-        scanf("%d", &novPro.tel);
-    }
 
-    inserirProfissionalArquivo(novPro);
+    inserirProfissional(novPro);
 }
 
-void inserirProfissional(){
+void inserirProfissional(profissional pro){
+    FILE * arqInd = fopen("arqIndices.bin","rb+");
+    if (arqInd == NULL){
+        arqInd = fopen("arqIndices.bin","wb");
+        fputs("0;1;-1\n",arqInd);
+        fprintf(arqInd,"%d\n",pro.cod);
+        fputs("0\n",arqInd);
+        fclose(arqInd);
 
+        FILE * arqDad = fopen("arqDados.bin","wb");
+        fputs("1;-1\n",arqDad);
+        fprintf(arqDad,"%d;%s;%lld;%s;%s;%lld\n", pro.cod, pro.nom, pro.cpf, pro.numReg, pro.end, pro.tel);
+        fclose(arqDad);
+    }
+    else{
+
+    }
+    printf("Usuario inserido com sucesso!\nRetornando a Interface Principal!~\n");
 }

@@ -10,14 +10,6 @@ typedef struct{
     long long int tel;
 } profissional;
 
-#define TAM 4
-
-typedef struct{
-    int cha[TAM];
-    int ptDad[TAM];
-    int fil[TAM+1];
-} registro;
-
 void interfacePrincipal();
 int interfaceRegistro();
 

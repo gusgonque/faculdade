@@ -89,5 +89,5 @@ add_executable(faculdade
         teste2.c
 
         )
-add_executable(main AED/Trab2/main.c AED/Trab2/trab2.c AED/Trab2/trab2.h)
+add_executable(main AED/Trab2/main.c AED/Trab2/trab2.c AED/Trab2/trab2.h AED/Trab2/arvoreB.h)
 set_target_properties(main PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/AED/Trab2/")

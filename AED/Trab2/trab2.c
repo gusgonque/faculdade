@@ -118,12 +118,14 @@ void inserirProfissional(profissional pro){
         fwrite(&raiz,sizeof(int),1,arqInd);
         fwrite(&topo,sizeof(int),1,arqInd);
         fwrite(&livre,sizeof(int),1,arqInd);
-        //TODO: Implementar o numero de filhos e chaves.
+        //numero de chaves
+        fwrite(&topo,sizeof(int),1,arqInd);
         //chaves
         fwrite(&pro.cod,sizeof(pro.cod),1,arqInd);
         //ptDados
         fwrite(&raiz,sizeof(int),1,arqInd);
         //filhos
+        fwrite(&livre,sizeof(int),1,arqInd);
         fclose(arqInd);
 
         FILE* arqDad = fopen("arqDados.bin","wb");
@@ -138,23 +140,7 @@ void inserirProfissional(profissional pro){
         fwrite(&pro.end,sizeof(pro.end),1,arqDad);
         fwrite(&pro.tel,sizeof(pro.tel),1,arqDad);
         fclose(arqDad);
-
-//        //Leitura, teste
-//        arqInd = fopen("arqIndices.bin","rb");
-//        int x;
-//        fread(&x,sizeof(int),1,arqInd);
-//        printf(" raiz = %d\n", x);
-//        fread(&x,sizeof(int),1,arqInd);
-//        printf(" topo = %d\n", x);
-//        fread(&x,sizeof(int),1,arqInd);
-//        printf(" livre = %d\n", x);
-//        fread(&pro.cod,sizeof(pro.cod),1,arqInd);
-//        printf(" cod = %d\n", pro.cod);
-//        fread(&x,sizeof(int),1,arqInd);
-//        printf(" ptDados = %d\n", x);
-//        fclose(arqInd);
-    }
-    else{
+    }else{
 
     }
     printf("Usuario inserido com sucesso!\nRetornando a Interface Principal!~\n");

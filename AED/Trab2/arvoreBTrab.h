@@ -7,7 +7,6 @@ typedef struct{
     int numCha;
     int cha[TAM];
     int ptDad[TAM];
-    int numFil;
     int fil[TAM+1];
 } registro;
 

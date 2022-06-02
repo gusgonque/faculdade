@@ -1,5 +1,6 @@
-#include "trab2.h"
 #include <stdio.h>
+#include "trab2.h"
+#include "arvoreBTrab.h"
 
 void interfacePrincipal(){
     int x;
@@ -80,6 +81,11 @@ void inserirProfissionalManual(){
     profissional novPro;
     printf("Digite o codigo do profissional a ser inserido.\n>");
     scanf("%d",&novPro.cod);
+    //TODO: descomentar
+//    while (buscaCodigo(novPro.cod) == -1){
+//        printf("Codigo ja inserido por outro profissional, tente novamente.\n>");
+//        scanf("%d",&novPro.cod);
+//    }
 
     printf("Digite o nome do profissional a ser inserido.\n>");
     scanf("%s", &novPro.nom);
@@ -99,19 +105,54 @@ void inserirProfissionalManual(){
     inserirProfissional(novPro);
 }
 
+void inserirProfissionalArquivo(){
+    //TODO: fazer a funcao inserirProfissionalArquivo.
+}
+
 void inserirProfissional(profissional pro){
-    FILE * arqInd = fopen("arqIndices.bin","rb+");
+    FILE* arqInd = fopen("arqIndices.bin","rb+");
     if (arqInd == NULL){
+        int raiz = 0, topo = 1, livre = -1;
         arqInd = fopen("arqIndices.bin","wb");
-        fputs("0;1;-1\n",arqInd);
-        fprintf(arqInd,"%d\n",pro.cod);
-        fputs("0\n",arqInd);
+        //Cabecalho
+        fwrite(&raiz,sizeof(int),1,arqInd);
+        fwrite(&topo,sizeof(int),1,arqInd);
+        fwrite(&livre,sizeof(int),1,arqInd);
+        //TODO: Implementar o numero de filhos e chaves.
+        //chaves
+        fwrite(&pro.cod,sizeof(pro.cod),1,arqInd);
+        //ptDados
+        fwrite(&raiz,sizeof(int),1,arqInd);
+        //filhos
         fclose(arqInd);
 
-        FILE * arqDad = fopen("arqDados.bin","wb");
-        fputs("1;-1\n",arqDad);
-        fprintf(arqDad,"%d;%s;%lld;%s;%s;%lld\n", pro.cod, pro.nom, pro.cpf, pro.numReg, pro.end, pro.tel);
+        FILE* arqDad = fopen("arqDados.bin","wb");
+        //Cabecalho
+        fwrite(&raiz,sizeof(int),1,arqDad);
+        fwrite(&livre,sizeof(int),1,arqDad);
+        //dados
+        fwrite(&pro.cod,sizeof(pro.cod),1,arqDad);
+        fwrite(&pro.nom,sizeof(pro.nom),1,arqDad);
+        fwrite(&pro.cpf,sizeof(pro.cpf),1,arqDad);
+        fwrite(&pro.numReg,sizeof(pro.numReg),1,arqDad);
+        fwrite(&pro.end,sizeof(pro.end),1,arqDad);
+        fwrite(&pro.tel,sizeof(pro.tel),1,arqDad);
         fclose(arqDad);
+
+//        //Leitura, teste
+//        arqInd = fopen("arqIndices.bin","rb");
+//        int x;
+//        fread(&x,sizeof(int),1,arqInd);
+//        printf(" raiz = %d\n", x);
+//        fread(&x,sizeof(int),1,arqInd);
+//        printf(" topo = %d\n", x);
+//        fread(&x,sizeof(int),1,arqInd);
+//        printf(" livre = %d\n", x);
+//        fread(&pro.cod,sizeof(pro.cod),1,arqInd);
+//        printf(" cod = %d\n", pro.cod);
+//        fread(&x,sizeof(int),1,arqInd);
+//        printf(" ptDados = %d\n", x);
+//        fclose(arqInd);
     }
     else{
 

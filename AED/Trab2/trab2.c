@@ -81,11 +81,10 @@ void inserirProfissionalManual(){
     profissional novPro;
     printf("Digite o codigo do profissional a ser inserido.\n>");
     scanf("%d",&novPro.cod);
-    //TODO: descomentar
-//    while (buscaCodigo(novPro.cod) == -1){
-//        printf("Codigo ja inserido por outro profissional, tente novamente.\n>");
-//        scanf("%d",&novPro.cod);
-//    }
+    while (buscaCodigo(novPro.cod) != -1){
+        printf("Codigo ja inserido por outro profissional, tente novamente.\n>");
+        scanf("%d",&novPro.cod);
+    }
 
     printf("Digite o nome do profissional a ser inserido.\n>");
     scanf("%s", &novPro.nom);
@@ -118,14 +117,14 @@ void inserirProfissional(profissional pro){
         fwrite(&raiz,sizeof(int),1,arqInd);
         fwrite(&topo,sizeof(int),1,arqInd);
         fwrite(&livre,sizeof(int),1,arqInd);
-        //numero de chaves
-        fwrite(&topo,sizeof(int),1,arqInd);
-        //chaves
-        fwrite(&pro.cod,sizeof(pro.cod),1,arqInd);
-        //ptDados
-        fwrite(&raiz,sizeof(int),1,arqInd);
-        //filhos
-        fwrite(&livre,sizeof(int),1,arqInd);
+        //Primeiro registro
+        registro regNov;
+        regNov.numCha = 1;
+        regNov.cha[0] = pro.cod;
+        regNov.ptDad[0]= 0;
+        regNov.fil[0] = -1;
+
+        fwrite(&regNov,sizeof(regNov),1,arqInd);
         fclose(arqInd);
 
         FILE* arqDad = fopen("arqDados.bin","wb");
@@ -133,12 +132,7 @@ void inserirProfissional(profissional pro){
         fwrite(&raiz,sizeof(int),1,arqDad);
         fwrite(&livre,sizeof(int),1,arqDad);
         //dados
-        fwrite(&pro.cod,sizeof(pro.cod),1,arqDad);
-        fwrite(&pro.nom,sizeof(pro.nom),1,arqDad);
-        fwrite(&pro.cpf,sizeof(pro.cpf),1,arqDad);
-        fwrite(&pro.numReg,sizeof(pro.numReg),1,arqDad);
-        fwrite(&pro.end,sizeof(pro.end),1,arqDad);
-        fwrite(&pro.tel,sizeof(pro.tel),1,arqDad);
+        fwrite(&pro,sizeof(pro),1,arqDad);
         fclose(arqDad);
     }else{
 

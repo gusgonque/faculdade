@@ -108,7 +108,7 @@ void inserirProfissionalArquivo(){
     //TODO: fazer a funcao inserirProfissionalArquivo.
 }
 
-void inserirProfissional(profissional pro){
+void inserirProfissional(profissional proNov){
     FILE* arqInd = fopen("arqIndices.bin","rb+");
     if (arqInd == NULL){
         int raiz = 0, topo = 1, livre = -1;
@@ -120,7 +120,7 @@ void inserirProfissional(profissional pro){
         //Primeiro registro
         registro regNov;
         regNov.numCha = 1;
-        regNov.cha[0] = pro.cod;
+        regNov.cha[0] = proNov.cod;
         regNov.ptDad[0]= 0;
         regNov.fil[0] = -1;
 
@@ -132,9 +132,10 @@ void inserirProfissional(profissional pro){
         fwrite(&raiz,sizeof(int),1,arqDad);
         fwrite(&livre,sizeof(int),1,arqDad);
         //dados
-        fwrite(&pro,sizeof(pro),1,arqDad);
+        fwrite(&proNov, sizeof(proNov), 1, arqDad);
         fclose(arqDad);
     }else{
+
 
     }
     printf("Usuario inserido com sucesso!\nRetornando a Interface Principal!~\n");

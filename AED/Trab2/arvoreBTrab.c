@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include "arvoreBTrab.h"
 
-int buscaCodigo_aux(registro regPai, int x){
-    
-}
-
 // procura o código no arquivo de indices
 // retorna -1 se não está presente, qualquer outro retorno é a posição no arquivo de dados.
 int buscaCodigo(int cod){
@@ -16,35 +12,19 @@ int buscaCodigo(int cod){
 
     fread(&raiz,sizeof(int),1,arqInd);
     fseek(arqInd,2*sizeof(int),SEEK_CUR);
-    
+
     for (i = 0; i < raiz; ++i)
         fseek(arqInd,sizeof(registro),SEEK_CUR);
 
     fread(&regAux, sizeof(registro), 1, arqInd);
-    i = 0;
-    while (regAux.cha[i] != cod) {
-        for (i = 1; i < regAux.numCha; ++i) {
-            if(regAux.cha[i] == cod) {
-                return regAux.ptDad[i];
-            }
-        }
-    }
-    
     fclose(arqInd);
-    return -1;
-}
+    if (buscaPos(regAux, cod, &aux)){
+        return regAux.ptDad[aux];
+    } else {
 
-// retorna o nó que contem info e sua posição no nó ou
-// NULL se info não está na árvore.
-registro busca(registro reg, int info, int * pos){
-    if(vazia(reg))
-        return NULL;
-    int i = 0;
-    while(i < reg.numCha && reg.cha[i] < info) i++;
-    if((i+1) > reg.numCha || reg.cha[i] > info)
-        return busca(reg.fil[i], info, pos);
-    *pos = i;
-    return reg;
+    }
+
+    return -1;
 }
 
 int buscaPos(registro reg, int info, int * pos) {
@@ -56,55 +36,76 @@ int buscaPos(registro reg, int info, int * pos) {
     return 0; // chave não está neste nó
 }
 
-////Quebra o n´o x (com overflow) e retorna o n´o criado e chave m que
-//// deve ser promovida
-//arvoreB* split(arvoreB* x, int * m) {
-//    arvoreB* y = (arvoreB*) malloc(sizeof(arvoreB));
-//    int q = x->numChaves/2;
-//    y->numChaves = x->numChaves - q - 1;
-//    x->numChaves = q;
-//    *m = x->chave[q]; // chave mediana
-//    int i = 0;
-//    y->filho[0] = x->filho[q+1];
-//    for(i = 0; i < y->numChaves; i++){
-//        y->chave[i] = x->chave[q+i+1];
-//        y->filho[i+1] = x->filho[q+i+2];
-//    }
-//    return y;
-//}
-//
-//int eh_folha(arvoreB* r) {
-//    return (r->filho[0] == NULL);
-//}
-//
-//void adicionaDireita(arvoreB* r, int pos, int k, arvoreB* p){
-//    int i;
-//    for(i=r->numChaves; i>pos; i--){
-//        r->chave[i] = r->chave[i-1];
-//        r->filho[i+1] = r->filho[i];
-//    }
-//    r->chave[pos] = k;
-//    r->filho[pos+1] = p;
-//    r->numChaves++;
-//}
-//
-void insere_aux(arvoreB* r, int info){
+int vazia(registro reg) {
+    return (reg.numCha == 0);
+}
+
+int eh_folha(registro reg) {
+    return (reg.fil[0] == -1);
+}
+
+// Quebra o registro reg (com overflow) e retorna o registro criado e a chave chaPro que
+// deve ser promovida
+registro split(registro reg, int* chaPro) {
+    registro regNov;
+    int q = reg.numCha / 2;
+    regNov.numCha = reg.numCha - q - 1;
+    reg.numCha = q;
+    *chaPro = reg.cha[q]; // chave mediana
+    int i = 0;
+    regNov.fil[0] = reg.fil[q + 1];
+    for(i = 0; i < regNov.numCha; i++){
+        regNov.cha[i] = reg.cha[q + i + 1];
+        regNov.fil[i + 1] = reg.fil[q + i + 2];
+    }
+    return regNov;
+}
+
+// Adiciona a chave cha com o filho fil no registro reg.
+void adicionaDireita(registro reg, int pos, int cha, int fil){
+    int i;
+    for(i=reg.numCha; i > pos; i--){
+        reg.cha[i] = reg.cha[i - 1];
+        reg.fil[i + 1] = reg.fil[i];
+    }
+    reg.cha[pos] = cha;
+    reg.fil[pos + 1] = fil;
+    reg.numCha++;
+}
+
+int overflow(registro reg) {
+    return (reg.numCha==TAM);
+}
+
+registro procuraIndice(int ind){
+    registro regAux;
+    FILE* arqInd = fopen("arqIndices.bin","rb");
+    fseek(arqInd,3,SEEK_CUR);
+    fread(&regAux,sizeof (registro),ind,arqInd);
+    fclose(arqInd);
+    return regAux;
+}
+
+void insere_aux(registro reg, int info){
     int pos;
-    if(!buscaPos(r,info, &pos)){ // chave n~ao est´a no n´o r
-        if(eh_folha(r)) {
-            adicionaDireita(r,pos,info,NULL);
+    if(!buscaPos(reg, info, &pos)){ // chave não está no registrador
+        registro regFil = procuraIndice(reg.fil[pos]);
+        if(eh_folha(reg)) {
+            adicionaDireita(reg, pos, info, -1);
         }
         else {
-            insere_aux(r->filho[pos],info);
-            if(overflow(r->filho[pos])){
+            insere_aux(regFil, info);
+            if(overflow(regFil))
+            {
                 int m; // valor da chave mediana
-                arvoreB* aux = split(r->filho[pos],&m);
-                adicionaDireita(r,pos,m,aux);
+                registro regAux = split(regFil, &m);// TODO: fazer pra arquivo
+                adicionaDireita(reg, pos, m, reg.fil[pos]);// TODO: fazer pra arquivo
             }
         }
     }
 }
-//
+
+
 // Insere uma chave na ´arvore B e retorna raiz modificada
 arvoreB* insere(arvoreB* r, int info){
     if(vazia(r)) {

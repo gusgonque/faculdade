@@ -231,7 +231,7 @@ Pós condições:
   scanf("%d", &cod);
   x = busca_cod(cod);
 
-  printf("busca = %d\n", x);
+  printf("buscaFilho = %d\n", x);
 
   while ( x == 1 )
   {

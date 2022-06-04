@@ -13,9 +13,9 @@ typedef struct {
   int id; // ID único.
   char nomCom[MAXCHAR]; // Nome completo.
   int numVia; // Número de viagens
-  int numHis; // Número de pedidos no histórico completo.
+  int numHis; // Número de pedidos noArvoreB histórico completo.
   int hisCom[MAXVET];// Histórico completo de pedidos de alimentos. IDs pedidos pelo cliente.
-  //int hisAtu[MAXVET];// Histórico atual de pedidos de alimentos.ID dos alimentos pedidos que ainda estão cadastrados no sistema, que não foram removidos do cadastro de alimentos.
+  //int hisAtu[MAXVET];// Histórico atual de pedidos de alimentos.ID dos alimentos pedidos que ainda estão cadastrados noArvoreB sistema, que não foram removidos do cadastro de alimentos.
 } cliente;
 
 typedef struct {
@@ -70,7 +70,7 @@ void criarLogErro(int e, int id){
   if ( e == 2 )
     fprintf(arqLog, "ERRO 2: Cliente com ID = [%d], numero de viagens foi colocado de forma incorreta, por exemplo numeros negativos.\n", id);
   if ( e == 3 )
-    fprintf(arqLog, "ERRO 3: Cliente com ID = [%d], Algum numero no historico foi colocado de  forma incorreta, por exemplo numeros negativos.\n", id);
+    fprintf(arqLog, "ERRO 3: Cliente com ID = [%d], Algum numero noArvoreB historico foi colocado de  forma incorreta, por exemplo numeros negativos.\n", id);
   if ( e == 4 )
     fprintf(arqLog, "ERRO 4: Cliente com ID = [%d], ID colocado ja existente.\n", id);
 

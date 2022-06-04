@@ -1,16 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main() {
-  int *x = malloc(sizeof(int));
-
-  printf("*x = %d\n", *x);
-  printf("x = %d\n", x);
-  printf("&x = %d\n", &x);
-  printf("*&x = %d\n", *&x);
-
-  free(x);
-  x = NULL;
-
-  return 0;
+    int s[] = {1,2,3,4,5};
+    FILE* arq = fopen("dados.bin","rb+");
+    fseek(arq,0,SEEK_SET);
+    fwrite(s,sizeof (s),1,arq);
+    fclose(arq);
+    return 0;
 }

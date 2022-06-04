@@ -1,5 +1,4 @@
-#include "trab2.h"
-#include "arvoreBTrab.h"
+#include "trab2AED.h"
 
 int main() {
     interfacePrincipal();

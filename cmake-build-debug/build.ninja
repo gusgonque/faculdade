@@ -55,8 +55,6 @@ build CMakeFiles/faculdade.dir/AED/Listas/Lista1/1.c.obj: C_COMPILER__faculdade_
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Listas\Lista1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Listas/Lista1/2.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Listas/Lista1/2.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Listas\Lista1\2.c.obj.d
@@ -64,8 +62,6 @@ build CMakeFiles/faculdade.dir/AED/Listas/Lista1/2.c.obj: C_COMPILER__faculdade_
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Listas\Lista1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Listas/Lista1/3.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Listas/Lista1/3.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Listas\Lista1\3.c.obj.d
@@ -73,8 +69,6 @@ build CMakeFiles/faculdade.dir/AED/Listas/Lista1/3.c.obj: C_COMPILER__faculdade_
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Listas\Lista1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Listas/Lista1/4.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Listas/Lista1/4.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Listas\Lista1\4.c.obj.d
@@ -82,8 +76,6 @@ build CMakeFiles/faculdade.dir/AED/Listas/Lista1/4.c.obj: C_COMPILER__faculdade_
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Listas\Lista1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Listas/Lista1/5.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Listas/Lista1/5.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Listas\Lista1\5.c.obj.d
@@ -91,8 +83,6 @@ build CMakeFiles/faculdade.dir/AED/Listas/Lista1/5.c.obj: C_COMPILER__faculdade_
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Listas\Lista1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Listas/Lista1/6.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Listas/Lista1/6.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Listas\Lista1\6.c.obj.d
@@ -100,8 +90,6 @@ build CMakeFiles/faculdade.dir/AED/Listas/Lista1/6.c.obj: C_COMPILER__faculdade_
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Listas\Lista1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Listas/Lista1/7.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Listas/Lista1/7.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Listas\Lista1\7.c.obj.d
@@ -109,8 +97,6 @@ build CMakeFiles/faculdade.dir/AED/Listas/Lista1/7.c.obj: C_COMPILER__faculdade_
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Listas\Lista1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Listas/Lista1/8.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Listas/Lista1/8.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Listas\Lista1\8.c.obj.d
@@ -118,8 +104,6 @@ build CMakeFiles/faculdade.dir/AED/Listas/Lista1/8.c.obj: C_COMPILER__faculdade_
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Listas\Lista1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Listas/Lista5AED_Hashing/1/main.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Listas/Lista5AED_Hashing/1/main.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Listas\Lista5AED_Hashing\1\main.c.obj.d
@@ -127,8 +111,6 @@ build CMakeFiles/faculdade.dir/AED/Listas/Lista5AED_Hashing/1/main.c.obj: C_COMP
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Listas\Lista5AED_Hashing\1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Prova1/prova1.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Prova1/prova1.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Prova1\prova1.c.obj.d
@@ -136,8 +118,6 @@ build CMakeFiles/faculdade.dir/AED/Prova1/prova1.c.obj: C_COMPILER__faculdade_De
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Prova1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/Prova2/P2GustavoGoncalvesQueiroz.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Prova2/P2GustavoGoncalvesQueiroz.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\Prova2\P2GustavoGoncalvesQueiroz.c.obj.d
@@ -145,8 +125,6 @@ build CMakeFiles/faculdade.dir/AED/Prova2/P2GustavoGoncalvesQueiroz.c.obj: C_COM
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\Prova2
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/2020/T2/T2Programa.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/2020/T2/T2Programa.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\2020\T2\T2Programa.c.obj.d
@@ -154,8 +132,6 @@ build CMakeFiles/faculdade.dir/AED/2020/T2/T2Programa.c.obj: C_COMPILER__faculda
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\2020\T2
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/AED/2020/Trabalho1/Trab1AED.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/2020/Trabalho1/Trab1AED.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\AED\2020\Trabalho1\Trab1AED.c.obj.d
@@ -163,8 +139,6 @@ build CMakeFiles/faculdade.dir/AED/2020/Trabalho1/Trab1AED.c.obj: C_COMPILER__fa
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\AED\2020\Trabalho1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/IES/2019emergencial/EF/3.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/IES/2019emergencial/EF/3.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\IES\2019emergencial\EF\3.c.obj.d
@@ -172,8 +146,6 @@ build CMakeFiles/faculdade.dir/IES/2019emergencial/EF/3.c.obj: C_COMPILER__facul
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\IES\2019emergencial\EF
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/IES/2019emergencial/P1/Codigo/WikiFilmesCodigo.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/IES/2019emergencial/P1/Codigo/WikiFilmesCodigo.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\IES\2019emergencial\P1\Codigo\WikiFilmesCodigo.c.obj.d
@@ -181,8 +153,6 @@ build CMakeFiles/faculdade.dir/IES/2019emergencial/P1/Codigo/WikiFilmesCodigo.c.
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\IES\2019emergencial\P1\Codigo
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/IES/2021/Projeto2/CodigoP2IES.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/IES/2021/Projeto2/CodigoP2IES.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\IES\2021\Projeto2\CodigoP2IES.c.obj.d
@@ -190,8 +160,6 @@ build CMakeFiles/faculdade.dir/IES/2021/Projeto2/CodigoP2IES.c.obj: C_COMPILER__
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\IES\2021\Projeto2
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/LFA/trab1/Codigo.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/LFA/trab1/Codigo.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\LFA\trab1\Codigo.c.obj.d
@@ -199,8 +167,6 @@ build CMakeFiles/faculdade.dir/LFA/trab1/Codigo.c.obj: C_COMPILER__faculdade_Deb
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\LFA\trab1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/LFA/trab1/teste.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/LFA/trab1/teste.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\LFA\trab1\teste.c.obj.d
@@ -208,8 +174,6 @@ build CMakeFiles/faculdade.dir/LFA/trab1/teste.c.obj: C_COMPILER__faculdade_Debu
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\LFA\trab1
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/NEPS/2.cpp.obj: CXX_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/NEPS/2.cpp || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\NEPS\2.cpp.obj.d
@@ -217,8 +181,6 @@ build CMakeFiles/faculdade.dir/NEPS/2.cpp.obj: CXX_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\NEPS
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/NEPS/266.cpp.obj: CXX_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/NEPS/266.cpp || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\NEPS\266.cpp.obj.d
@@ -226,8 +188,6 @@ build CMakeFiles/faculdade.dir/NEPS/266.cpp.obj: CXX_COMPILER__faculdade_Debug C
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\NEPS
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/NEPS/3.cpp.obj: CXX_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/NEPS/3.cpp || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\NEPS\3.cpp.obj.d
@@ -235,8 +195,6 @@ build CMakeFiles/faculdade.dir/NEPS/3.cpp.obj: CXX_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\NEPS
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/Outros/1.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/Outros/1.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\Outros\1.c.obj.d
@@ -244,8 +202,6 @@ build CMakeFiles/faculdade.dir/Outros/1.c.obj: C_COMPILER__faculdade_Debug C$:/U
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\Outros
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/Outros/2.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/Outros/2.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\Outros\2.c.obj.d
@@ -253,8 +209,6 @@ build CMakeFiles/faculdade.dir/Outros/2.c.obj: C_COMPILER__faculdade_Debug C$:/U
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\Outros
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/Outros/3.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/Outros/3.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\Outros\3.c.obj.d
@@ -262,8 +216,6 @@ build CMakeFiles/faculdade.dir/Outros/3.c.obj: C_COMPILER__faculdade_Debug C$:/U
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\Outros
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/Outros/4.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/Outros/4.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\Outros\4.c.obj.d
@@ -271,8 +223,6 @@ build CMakeFiles/faculdade.dir/Outros/4.c.obj: C_COMPILER__faculdade_Debug C$:/U
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\Outros
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/Outros/teste.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/Outros/teste.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\Outros\teste.c.obj.d
@@ -280,8 +230,6 @@ build CMakeFiles/faculdade.dir/Outros/teste.c.obj: C_COMPILER__faculdade_Debug C
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\Outros
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/SD/Converter.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/SD/Converter.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\SD\Converter.c.obj.d
@@ -289,8 +237,6 @@ build CMakeFiles/faculdade.dir/SD/Converter.c.obj: C_COMPILER__faculdade_Debug C
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\SD
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1001.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1001.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1001.c.obj.d
@@ -298,8 +244,6 @@ build CMakeFiles/faculdade.dir/URI/C/1001.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1024.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1024.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1024.c.obj.d
@@ -307,8 +251,6 @@ build CMakeFiles/faculdade.dir/URI/C/1024.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1047.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1047.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1047.c.obj.d
@@ -316,8 +258,6 @@ build CMakeFiles/faculdade.dir/URI/C/1047.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1049.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1049.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1049.c.obj.d
@@ -325,8 +265,6 @@ build CMakeFiles/faculdade.dir/URI/C/1049.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1059.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1059.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1059.c.obj.d
@@ -334,8 +272,6 @@ build CMakeFiles/faculdade.dir/URI/C/1059.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1060u.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1060u.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1060u.c.obj.d
@@ -343,8 +279,6 @@ build CMakeFiles/faculdade.dir/URI/C/1060u.c.obj: C_COMPILER__faculdade_Debug C$
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1075.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1075.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1075.c.obj.d
@@ -352,8 +286,6 @@ build CMakeFiles/faculdade.dir/URI/C/1075.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1094.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1094.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1094.c.obj.d
@@ -361,8 +293,6 @@ build CMakeFiles/faculdade.dir/URI/C/1094.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1115.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1115.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1115.c.obj.d
@@ -370,8 +300,6 @@ build CMakeFiles/faculdade.dir/URI/C/1115.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1131.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1131.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1131.c.obj.d
@@ -379,8 +307,6 @@ build CMakeFiles/faculdade.dir/URI/C/1131.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1134.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1134.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1134.c.obj.d
@@ -388,8 +314,6 @@ build CMakeFiles/faculdade.dir/URI/C/1134.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1143.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1143.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1143.c.obj.d
@@ -397,8 +321,6 @@ build CMakeFiles/faculdade.dir/URI/C/1143.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1150.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1150.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1150.c.obj.d
@@ -406,8 +328,6 @@ build CMakeFiles/faculdade.dir/URI/C/1150.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1153.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1153.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1153.c.obj.d
@@ -415,8 +335,6 @@ build CMakeFiles/faculdade.dir/URI/C/1153.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1160.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1160.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1160.c.obj.d
@@ -424,8 +342,6 @@ build CMakeFiles/faculdade.dir/URI/C/1160.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1164.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1164.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1164.c.obj.d
@@ -433,8 +349,6 @@ build CMakeFiles/faculdade.dir/URI/C/1164.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1181.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1181.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1181.c.obj.d
@@ -442,8 +356,6 @@ build CMakeFiles/faculdade.dir/URI/C/1181.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1182.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1182.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1182.c.obj.d
@@ -451,8 +363,6 @@ build CMakeFiles/faculdade.dir/URI/C/1182.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1183.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1183.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1183.c.obj.d
@@ -460,8 +370,6 @@ build CMakeFiles/faculdade.dir/URI/C/1183.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1184.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1184.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1184.c.obj.d
@@ -469,8 +377,6 @@ build CMakeFiles/faculdade.dir/URI/C/1184.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1185.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1185.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1185.c.obj.d
@@ -478,8 +384,6 @@ build CMakeFiles/faculdade.dir/URI/C/1185.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1186.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1186.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1186.c.obj.d
@@ -487,8 +391,6 @@ build CMakeFiles/faculdade.dir/URI/C/1186.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1187.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1187.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1187.c.obj.d
@@ -496,8 +398,6 @@ build CMakeFiles/faculdade.dir/URI/C/1187.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1188.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1188.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1188.c.obj.d
@@ -505,8 +405,6 @@ build CMakeFiles/faculdade.dir/URI/C/1188.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1189.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1189.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1189.c.obj.d
@@ -514,8 +412,6 @@ build CMakeFiles/faculdade.dir/URI/C/1189.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1190.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1190.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1190.c.obj.d
@@ -523,8 +419,6 @@ build CMakeFiles/faculdade.dir/URI/C/1190.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1192.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1192.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1192.c.obj.d
@@ -532,8 +426,6 @@ build CMakeFiles/faculdade.dir/URI/C/1192.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1234.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1234.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1234.c.obj.d
@@ -541,8 +433,6 @@ build CMakeFiles/faculdade.dir/URI/C/1234.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1235.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1235.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1235.c.obj.d
@@ -550,8 +440,6 @@ build CMakeFiles/faculdade.dir/URI/C/1235.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1238.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1238.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1238.c.obj.d
@@ -559,8 +447,6 @@ build CMakeFiles/faculdade.dir/URI/C/1238.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1253.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1253.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1253.c.obj.d
@@ -568,8 +454,6 @@ build CMakeFiles/faculdade.dir/URI/C/1253.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1255.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1255.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1255.c.obj.d
@@ -577,8 +461,6 @@ build CMakeFiles/faculdade.dir/URI/C/1255.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1262.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1262.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1262.c.obj.d
@@ -586,8 +468,6 @@ build CMakeFiles/faculdade.dir/URI/C/1262.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1272.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1272.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1272.c.obj.d
@@ -595,8 +475,6 @@ build CMakeFiles/faculdade.dir/URI/C/1272.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1435.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1435.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1435.c.obj.d
@@ -604,8 +482,6 @@ build CMakeFiles/faculdade.dir/URI/C/1435.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1478.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1478.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1478.c.obj.d
@@ -613,8 +489,6 @@ build CMakeFiles/faculdade.dir/URI/C/1478.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1534.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1534.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1534.c.obj.d
@@ -622,8 +496,6 @@ build CMakeFiles/faculdade.dir/URI/C/1534.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1541.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1541.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1541.c.obj.d
@@ -631,8 +503,6 @@ build CMakeFiles/faculdade.dir/URI/C/1541.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1562_Unfinished.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1562_Unfinished.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1562_Unfinished.c.obj.d
@@ -640,8 +510,6 @@ build CMakeFiles/faculdade.dir/URI/C/1562_Unfinished.c.obj: C_COMPILER__faculdad
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1589.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1589.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1589.c.obj.d
@@ -649,8 +517,6 @@ build CMakeFiles/faculdade.dir/URI/C/1589.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/1827.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/1827.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\1827.c.obj.d
@@ -658,8 +524,6 @@ build CMakeFiles/faculdade.dir/URI/C/1827.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/2060.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/2060.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\2060.c.obj.d
@@ -667,8 +531,6 @@ build CMakeFiles/faculdade.dir/URI/C/2060.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/2062.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/2062.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\2062.c.obj.d
@@ -676,8 +538,6 @@ build CMakeFiles/faculdade.dir/URI/C/2062.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/2165.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/2165.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\2165.c.obj.d
@@ -685,8 +545,6 @@ build CMakeFiles/faculdade.dir/URI/C/2165.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/2253.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/2253.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\2253.c.obj.d
@@ -694,8 +552,6 @@ build CMakeFiles/faculdade.dir/URI/C/2253.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/2313.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/2313.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\2313.c.obj.d
@@ -703,8 +559,6 @@ build CMakeFiles/faculdade.dir/URI/C/2313.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C/2483.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C/2483.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C\2483.c.obj.d
@@ -712,8 +566,6 @@ build CMakeFiles/faculdade.dir/URI/C/2483.c.obj: C_COMPILER__faculdade_Debug C$:
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C++/1061.cpp.obj: CXX_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C++/1061.cpp || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C++\1061.cpp.obj.d
@@ -721,8 +573,6 @@ build CMakeFiles/faculdade.dir/URI/C++/1061.cpp.obj: CXX_COMPILER__faculdade_Deb
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C++
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/URI/C++/1847.cpp.obj: CXX_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/URI/C++/1847.cpp || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\URI\C++\1847.cpp.obj.d
@@ -730,8 +580,6 @@ build CMakeFiles/faculdade.dir/URI/C++/1847.cpp.obj: CXX_COMPILER__faculdade_Deb
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir\URI\C++
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/teste.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/teste.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\teste.c.obj.d
@@ -739,8 +587,6 @@ build CMakeFiles/faculdade.dir/teste.c.obj: C_COMPILER__faculdade_Debug C$:/User
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 build CMakeFiles/faculdade.dir/teste2.c.obj: C_COMPILER__faculdade_Debug C$:/Users/Gustavo/CLionProjects/faculdade/teste2.c || cmake_object_order_depends_target_faculdade
   DEP_FILE = CMakeFiles\faculdade.dir\teste2.c.obj.d
@@ -748,8 +594,6 @@ build CMakeFiles/faculdade.dir/teste2.c.obj: C_COMPILER__faculdade_Debug C$:/Use
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\faculdade.dir
   OBJECT_FILE_DIR = CMakeFiles\faculdade.dir
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
-  TARGET_PDB = faculdade.pdb
 
 
 # =============================================================================
@@ -765,10 +609,9 @@ build faculdade.exe: CXX_EXECUTABLE_LINKER__faculdade_Debug CMakeFiles/faculdade
   OBJECT_DIR = CMakeFiles\faculdade.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\faculdade.dir\
   TARGET_FILE = faculdade.exe
   TARGET_IMPLIB = libfaculdade.dll.a
-  TARGET_PDB = faculdade.pdb
+  TARGET_PDB = faculdade.exe.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target main
@@ -785,26 +628,27 @@ build CMakeFiles/main.dir/AED/Trab2/main.c.obj: C_COMPILER__main_Debug C$:/Users
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\main.dir
   OBJECT_FILE_DIR = CMakeFiles\main.dir\AED\Trab2
-  TARGET_COMPILE_PDB = CMakeFiles\main.dir\
-  TARGET_PDB = ..\AED\Trab2\main.pdb
 
-build CMakeFiles/main.dir/AED/Trab2/trab2.c.obj: C_COMPILER__main_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab2/trab2.c || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\AED\Trab2\trab2.c.obj.d
+build CMakeFiles/main.dir/AED/Trab2/trab2AED.c.obj: C_COMPILER__main_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab2/trab2AED.c || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\AED\Trab2\trab2AED.c.obj.d
   FLAGS = -g
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\main.dir
   OBJECT_FILE_DIR = CMakeFiles\main.dir\AED\Trab2
-  TARGET_COMPILE_PDB = CMakeFiles\main.dir\
-  TARGET_PDB = ..\AED\Trab2\main.pdb
 
-build CMakeFiles/main.dir/AED/Trab2/arvoreBTrab.c.obj: C_COMPILER__main_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab2/arvoreBTrab.c || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\AED\Trab2\arvoreBTrab.c.obj.d
+build CMakeFiles/main.dir/AED/Trab2/arvoreBArq.c.obj: C_COMPILER__main_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab2/arvoreBArq.c || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\AED\Trab2\arvoreBArq.c.obj.d
   FLAGS = -g
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\main.dir
   OBJECT_FILE_DIR = CMakeFiles\main.dir\AED\Trab2
-  TARGET_COMPILE_PDB = CMakeFiles\main.dir\
-  TARGET_PDB = ..\AED\Trab2\main.pdb
+
+build CMakeFiles/main.dir/AED/Trab2/listaEncadeadaArquivo.c.obj: C_COMPILER__main_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab2/listaEncadeadaArquivo.c || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\AED\Trab2\listaEncadeadaArquivo.c.obj.d
+  FLAGS = -g
+  INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\AED\Trab2
 
 
 # =============================================================================
@@ -814,16 +658,49 @@ build CMakeFiles/main.dir/AED/Trab2/arvoreBTrab.c.obj: C_COMPILER__main_Debug C$
 #############################################
 # Link the executable ..\AED\Trab2\main.exe
 
-build ../AED/Trab2/main.exe: C_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/AED/Trab2/main.c.obj CMakeFiles/main.dir/AED/Trab2/trab2.c.obj CMakeFiles/main.dir/AED/Trab2/arvoreBTrab.c.obj
+build ../AED/Trab2/main.exe: C_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/AED/Trab2/main.c.obj CMakeFiles/main.dir/AED/Trab2/trab2AED.c.obj CMakeFiles/main.dir/AED/Trab2/arvoreBArq.c.obj CMakeFiles/main.dir/AED/Trab2/listaEncadeadaArquivo.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\main.dir\
   TARGET_FILE = ..\AED\Trab2\main.exe
   TARGET_IMPLIB = libmain.dll.a
-  TARGET_PDB = ..\AED\Trab2\main.pdb
+  TARGET_PDB = main.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target teste
+
+
+#############################################
+# Order-only phony target for teste
+
+build cmake_object_order_depends_target_teste: phony || CMakeFiles/teste.dir
+
+build CMakeFiles/teste.dir/teste.c.obj: C_COMPILER__teste_Debug C$:/Users/Gustavo/CLionProjects/faculdade/teste.c || cmake_object_order_depends_target_teste
+  DEP_FILE = CMakeFiles\teste.dir\teste.c.obj.d
+  FLAGS = -g
+  INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
+  OBJECT_DIR = CMakeFiles\teste.dir
+  OBJECT_FILE_DIR = CMakeFiles\teste.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target teste
+
+
+#############################################
+# Link the executable ..\teste.exe
+
+build ../teste.exe: C_EXECUTABLE_LINKER__teste_Debug CMakeFiles/teste.dir/teste.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\teste.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = ..\teste.exe
+  TARGET_IMPLIB = libteste.dll.a
+  TARGET_PDB = teste.exe.dbg
 
 
 #############################################
@@ -857,6 +734,10 @@ build main: phony ../AED/Trab2/main.exe
 
 build main.exe: phony ../AED/Trab2/main.exe
 
+build teste: phony ../teste.exe
+
+build teste.exe: phony ../teste.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -865,7 +746,7 @@ build main.exe: phony ../AED/Trab2/main.exe
 #############################################
 # Folder: C:/Users/Gustavo/CLionProjects/faculdade/cmake-build-debug
 
-build all: phony faculdade.exe ../AED/Trab2/main.exe
+build all: phony faculdade.exe ../AED/Trab2/main.exe ../teste.exe
 
 # =============================================================================
 # Built-in targets
@@ -874,14 +755,14 @@ build all: phony faculdade.exe ../AED/Trab2/main.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCCompilerABI.c C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCompilerIdDetection.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompilerId.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeGenericSystem.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCCompiler.cmake.in C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystem.cmake.in C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestRCCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-Determine-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-windres.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeRCCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeGenericSystem.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-windres.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeRCCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCCompilerABI.c C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCompilerIdDetection.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineCompilerId.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineRCCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeGenericSystem.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCCompiler.cmake.in C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystem.cmake.in C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeTestRCCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-Determine-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-windres.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeRCCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake: phony
+build ../CMakeLists.txt C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCXXInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeGenericSystem.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeRCInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-C.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Compiler/GNU.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-C.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-GNU.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows-windres.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/Windows.cmake C$:/Users/Gustavo/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5787.29/bin/cmake/win/share/cmake-3.22/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeRCCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake: phony
 
 
 #############################################

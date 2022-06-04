@@ -274,7 +274,7 @@ Pós-condições:
     scanf("%d", &pac[nPac].pri);
     while (pac[nPac].pri < 1 || pac[nPac].pri > 5)
     {
-      printf(" Prioridade invalida. Digite novamente, um valor no intervalo de 1 a 5\n - ");
+      printf(" Prioridade invalida. Digite novamente, um valor noArvoreB intervalo de 1 a 5\n - ");
       scanf("%d", pac[nPac].pri);
     }
     pri[pac[nPac].pri-1].numPacNaoVac++;
@@ -297,7 +297,7 @@ Pré-condições:
   Nenhuma.
 
 Pós-condições:
-  É printado no cmd, a lista de todas as vacinas registradas.
+  É printado noArvoreB cmd, a lista de todas as vacinas registradas.
 
 */
 {
@@ -351,7 +351,7 @@ Pós-condições:
 
     if (nVac == 0)
     {
-      printf(" Nenhuma vacina registrada no sistema. Voltando ao menu anterior\n\n");
+      printf(" Nenhuma vacina registrada noArvoreB sistema. Voltando ao menu anterior\n\n");
     }
 
     printf(" Digite o numero da vacina que quer registrar a vacinacao.\n");
@@ -530,7 +530,7 @@ int AumDos()
 /*
 
 Pré-condições:
-  Alguma vacina registrada no sistema.
+  Alguma vacina registrada noArvoreB sistema.
 
 Pós-condições:
   É aumentado o número de doses da vacina que o usuário escolher.
@@ -622,14 +622,14 @@ Pré-condições:
 
 Pós-condições:
   Abre um menu com opções para o controle de vacinas. Opções:
-  1 - Aumento no numero de doses de uma vacina ja criada.
-  2 - Registro de uma nova vacina no sistema.
+  1 - Aumento noArvoreB numero de doses de uma vacina ja criada.
+  2 - Registro de uma nova vacina noArvoreB sistema.
   3 - Voltar ao menu inicial.
 
 */
 {
   int n;
-  printf(" Menu de controle de vacinas. Digite:\n 1 - Aumento no numero de doses de uma vacina ja criada.\n 2 - Registro de uma nova vacina no sistema.\n 3 - Voltar ao menu inicial.\n\n - ");
+  printf(" Menu de controle de vacinas. Digite:\n 1 - Aumento noArvoreB numero de doses de uma vacina ja criada.\n 2 - Registro de uma nova vacina noArvoreB sistema.\n 3 - Voltar ao menu inicial.\n\n - ");
   scanf("%d", &n);
   printf("\n");
 
@@ -671,13 +671,13 @@ Pré-condições:
   Nenhuma.
 
 Pós-condições:
-  Printa no cmd um relatório com as vacinas registradas e seus respectivos múmero de doses.
+  Printa noArvoreB cmd um relatório com as vacinas registradas e seus respectivos múmero de doses.
 
 */
 {
   int i;
   if (nVac == 0)
-    printf(" Nenhuma vacina registrada no sistema. Retornando ao menu anterior.\n");
+    printf(" Nenhuma vacina registrada noArvoreB sistema. Retornando ao menu anterior.\n");
   for ( i = 0 ; i < nVac ; i++ )
     printf(" %s: %d doses disponiveis.\n", vac[i].nomTip, vac[i].numDos);
   printf("\n");
@@ -690,13 +690,13 @@ Pré-condições:
   Algum paciente estar registrado apenas com a primeira dose de alguma vacina.
 
 Pós-condições:
-  Printa no cmd um relatório com o nome e CPF dos pacientes registrados apenas com a primeira dose de alguma vacina.
+  Printa noArvoreB cmd um relatório com o nome e CPF dos pacientes registrados apenas com a primeira dose de alguma vacina.
 
 */
 {
   int i, f;
   if (nPac == 0)
-    printf(" Nenhuma pessoa registrada no sistema. Retornando ao menu anterior.\n");
+    printf(" Nenhuma pessoa registrada noArvoreB sistema. Retornando ao menu anterior.\n");
   for ( i = f = 0 ; i < nPac ; i++ )
     if (strcmp("00000000", pac[i].vacDat[0] ) != 0)
       if (strcmp("00000000", pac[i].vacDat[1] ) == 0)
@@ -716,7 +716,7 @@ Pré-condições:
   Algum paciente estar registrado com a segunda dose de alguma vacina.
 
 Pós-condições:
-  Printa no cmd um relatório com o número de pacientes registrados com a segunda dose de alguma vacina.
+  Printa noArvoreB cmd um relatório com o número de pacientes registrados com a segunda dose de alguma vacina.
 
 */
 {
@@ -731,17 +731,17 @@ void Gerar_Relatorio_4()
 /*
 
 Pré-condições:
-  Algum paciente estar registrado no sistema.
+  Algum paciente estar registrado noArvoreB sistema.
 
 Pós-condições:
-  Printa no cmd um relatório com a lista de habitantes (nome, CPF) nao vacinados agrupados pelo grupo prioritario.
+  Printa noArvoreB cmd um relatório com a lista de habitantes (nome, CPF) nao vacinados agrupados pelo grupo prioritario.
 
 */
 {
   int i, j;
 
   if (nPac == 0)
-    printf(" Nenhuma pessoa registrada no sistema. Retornando ao menu anterior.\n");
+    printf(" Nenhuma pessoa registrada noArvoreB sistema. Retornando ao menu anterior.\n");
 
   for (size_t j = 0; j < 5; j++)
   {
@@ -757,16 +757,16 @@ void Gerar_Relatorio_5()
 /*
 
 Pré-condições:
-  Algum paciente estar registrado no sistema.
+  Algum paciente estar registrado noArvoreB sistema.
 
 Pós-condições:
-  Printa no cmd um relatório com o numero de habitantes por grupo prioritario.
+  Printa noArvoreB cmd um relatório com o numero de habitantes por grupo prioritario.
 
 */
 {
   int i;
   if (nPac == 0)
-  printf(" Nenhuma pessoa registrada no sistema. Retornando ao menu anterior.\n");
+  printf(" Nenhuma pessoa registrada noArvoreB sistema. Retornando ao menu anterior.\n");
 
   for (size_t i = 0; i < 5; i++)
     printf(" Grupo %d: %d\n", i+1, pri[i].numPacReg);
@@ -782,7 +782,7 @@ Pré-condições:
 
 Pós-condições:
   Abre um menu com opções para a geração de relatórios. Opções:
-  1 - Numero de doses no estoque por tipo de vacina.
+  1 - Numero de doses noArvoreB estoque por tipo de vacina.
   2 - Lista de habitantes (nome, CPF) vacinados somente com a 1a dose.
   3 - Numero de habitantes vacinados, ja com a 2a dose.
   4 - Lista de habitantes (nome, CPF) nao vacinados agrupados pelo grupo prioritario.
@@ -793,7 +793,7 @@ Pós-condições:
 {
   int n;
 
-  printf(" Digite para gerar o relatorio:\n 1 - Numero de doses no estoque por tipo de vacina.\n 2 - Lista de habitantes (nome, CPF) vacinados somente com a 1a dose.\n 3 - Numero de habitantes vacinados, ja com a 2a dose.\n 4 - Lista de habitantes (nome, CPF) nao vacinados agrupados pelo grupo prioritario.\n 5 - Numero de habitantes por grupo prioritario.\n 6 - Retornar ao menu anterior.\n\n - ");
+  printf(" Digite para gerar o relatorio:\n 1 - Numero de doses noArvoreB estoque por tipo de vacina.\n 2 - Lista de habitantes (nome, CPF) vacinados somente com a 1a dose.\n 3 - Numero de habitantes vacinados, ja com a 2a dose.\n 4 - Lista de habitantes (nome, CPF) nao vacinados agrupados pelo grupo prioritario.\n 5 - Numero de habitantes por grupo prioritario.\n 6 - Retornar ao menu anterior.\n\n - ");
   scanf("%d", &n);
   printf("\n");
 
@@ -895,7 +895,7 @@ Pré-condições:
   Existir um arquivo de backup com o nome/caminho registrado na string s.
 
 Pós-condições:
-  Todos os dados salvos são resgatados de volta no sistema.
+  Todos os dados salvos são resgatados de volta noArvoreB sistema.
 
 */
 {
@@ -1013,7 +1013,7 @@ Pré-condições:
 
 Pós-condições:
   Abre um menu com opções para a geração ou chamada de um backup dos dados. Opções:
-  1 - Realizar Backup no computador.
+  1 - Realizar Backup noArvoreB computador.
   2 - Chamar Backup do computador.
   3 - Voltar ao menu anterior.
 
@@ -1021,7 +1021,7 @@ Pós-condições:
 {
   int n;
   char s[MAX];
-  printf(" Digite:\n 1 - Realizar Backup no computador.\n 2 - Chamar Backup do computador.\n 3 - Voltar ao menu anterior.\n - ");
+  printf(" Digite:\n 1 - Realizar Backup noArvoreB computador.\n 2 - Chamar Backup do computador.\n 3 - Voltar ao menu anterior.\n - ");
   scanf("%d", &n);
   while ((n<1)||(n>3))
   {
@@ -1095,7 +1095,7 @@ Pós-condições:
     }
     case (2):
     {
-      printf(" Acessando interface de registro de vacinacao.\n\n");
+      printf(" Acessando interface de noArvoreB de vacinacao.\n\n");
       RegVac();
       Interface ();
       return 1;
@@ -1155,7 +1155,7 @@ Pós-condições:
   Zerar();
 
   if ( Chamar_Backup("Backup.txt") == 0 )
-    printf(" Configurando primeira vez no programa...\n\n");
+    printf(" Configurando primeira vez noArvoreB programa...\n\n");
   else
     printf(" Backup recuperado. Listas de dados atualizados.\n\n");
 

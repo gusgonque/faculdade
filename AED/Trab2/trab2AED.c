@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include "trab2.h"
-#include "arvoreBTrab.h"
+#include "trab2AED.h"
+#include "arvoreBArq.h"
+#include "listaEncadeadaArquivo.h"
 
 void interfacePrincipal(){
     int x;
     printf("Bem vindo a Interface Principal!\nDigite um numero para continuar.\n");
-    printf("1 - Interface de registro de usuario. (Inserir/Alterar/Remover)\n");
+    printf("1 - Interface de noArvoreB de usuario. (Inserir/Alterar/Remover)\n");
     printf("2 - Carregar arquivo texto.\n");
     printf("3 - Consultar profissional.\n");
     printf("4 - Listar profissionais.\n");
@@ -41,7 +42,7 @@ void interfacePrincipal(){
 
 int interfaceRegistro(){
     int x;
-    printf("Bem vindo a interface de registro de profissionais!\nDigite um numero para continuar.\n");
+    printf("Bem vindo a interface de noArvoreB de profissionais!\nDigite um numero para continuar.\n");
     printf("1 - Inserir novo profissional.\n");
     printf("2 - Alterar endereco de um profissional.\n");
     printf("3 - Alterar telefone de um profissional.\n");
@@ -92,7 +93,7 @@ void inserirProfissionalManual(){
     printf("Digite o CPF do profissional a ser inserido.\n>");
     scanf("%d", &novPro.cpf);
 
-    printf("Digite o numero do registro profissional a ser inserido.\n>");
+    printf("Digite o numero do noArvoreB profissional a ser inserido.\n>");
     scanf("%s", &novPro.numReg);
 
     printf("Digite o endereco do profissional a ser inserido.\n>");
@@ -104,39 +105,24 @@ void inserirProfissionalManual(){
     inserirProfissional(novPro);
 }
 
-void inserirProfissionalArquivo(){
-    //TODO: fazer a funcao inserirProfissionalArquivo.
+void inserirProfissionalArquivo(){//TODO: fazer a funcao inserirProfissionalArquivo.
+
 }
 
 void inserirProfissional(profissional proNov){
     FILE* arqInd = fopen("arqIndices.bin","rb+");
+    FILE* arqDad = fopen("arqDados.bin","rb+");
+
     if (arqInd == NULL){
-        int raiz = 0, topo = 1, livre = -1;
-        arqInd = fopen("arqIndices.bin","wb");
-        //Cabecalho
-        fwrite(&raiz,sizeof(int),1,arqInd);
-        fwrite(&topo,sizeof(int),1,arqInd);
-        fwrite(&livre,sizeof(int),1,arqInd);
-        //Primeiro registro
-        registro regNov;
-        regNov.numCha = 1;
-        regNov.cha[0] = proNov.cod;
-        regNov.ptDad[0]= 0;
-        regNov.fil[0] = -1;
-
-        fwrite(&regNov,sizeof(regNov),1,arqInd);
-        fclose(arqInd);
-
-        FILE* arqDad = fopen("arqDados.bin","wb");
-        //Cabecalho
-        fwrite(&raiz,sizeof(int),1,arqDad);
-        fwrite(&livre,sizeof(int),1,arqDad);
-        //dados
-        fwrite(&proNov, sizeof(proNov), 1, arqDad);
-        fclose(arqDad);
-    }else{
-
-
+        arqInd = fopen("arqIndices.bin","wb+");
+        arqDad = fopen("arqDados.bin","wb+");
+        criaArvoreVazia(arqInd);
+        cria_lista_vazia(arqDad);
     }
+
+//TODO: FAZER ESSA FUNÇÃO!!!!!!!!!
+
+    fclose(arqInd);
+    fclose(arqDad);
     printf("Usuario inserido com sucesso!\nRetornando a Interface Principal!~\n");
 }

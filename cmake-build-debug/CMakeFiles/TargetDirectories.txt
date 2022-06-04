@@ -1,4 +1,5 @@
 C:/Users/Gustavo/CLionProjects/faculdade/cmake-build-debug/CMakeFiles/faculdade.dir
 C:/Users/Gustavo/CLionProjects/faculdade/cmake-build-debug/CMakeFiles/main.dir
+C:/Users/Gustavo/CLionProjects/faculdade/cmake-build-debug/CMakeFiles/teste.dir
 C:/Users/Gustavo/CLionProjects/faculdade/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/Gustavo/CLionProjects/faculdade/cmake-build-debug/CMakeFiles/rebuild_cache.dir

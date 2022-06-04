@@ -1,10 +1,10 @@
 struct no {
   int info; // informação armazenada
-  struct no * esq; // subárvore esquerda
-  struct no * dir; // subárvore direita
+  struct noArvoreB * esq; // subárvore esquerda
+  struct noArvoreB * dir; // subárvore direita
   int fb; // fator de balanceamento
 };
-typedef struct no* arvoreAVL; //árvore é um ponteiro para um nó
+typedef struct noArvoreB* arvoreAVL; //árvore é um ponteiro para um nó
 
 arvoreAVL rotacaoEsquerda(arvoreAVL p) {
   arvoreAVL u = p->dir;
@@ -28,7 +28,7 @@ arvoreAVL rotacaoDireitaEsquerda(arvoreAVL p) {
 
 int insercao(arvoreAVL* r, int x) {
   if(vazia(*r)) { // caso 1: ´arvore vazia
-    *r = (arvoreAVL) malloc(sizeof(struct no));
+    *r = (arvoreAVL) malloc(sizeof(struct noArvoreB));
     (*r)->info = x;
     (*r)->esq = (*r)->dir = NULL;
     (*r)->fb = 0;

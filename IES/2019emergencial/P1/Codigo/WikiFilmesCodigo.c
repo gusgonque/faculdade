@@ -7,7 +7,7 @@
 
 void Ler_NU (FILE *arq, int *nu)
 /*
-Ler o número de usuários registrados no arquivo "usuarios.txt".
+Ler o número de usuários registrados noArvoreB arquivo "usuarios.txt".
 */
 {
 
@@ -37,7 +37,7 @@ Verifica se a data inserida é possível.
         return 0;
       else
       {
-        printf("Data invalida, por favor insira outra data no formato 'dd mm aa'.\n - ");
+        printf("Data invalida, por favor insira outra data noArvoreB formato 'dd mm aa'.\n - ");
         return 1;
       }
     if (m==4||m==6||m==9||m==11)
@@ -45,20 +45,20 @@ Verifica se a data inserida é possível.
         return 0;
       else
       {
-        printf("Data invalida, por favor insira outra data no formato 'dd mm aa'.\n - ");
+        printf("Data invalida, por favor insira outra data noArvoreB formato 'dd mm aa'.\n - ");
         return 1;
       }
     if (m==02&&d>0&&d>=28)
       return 0;
     else
     {
-      printf("Data invalida, por favor insira outra data no formato 'dd mm aa'.\n - ");
+      printf("Data invalida, por favor insira outra data noArvoreB formato 'dd mm aa'.\n - ");
       return 1;
     }
   }
   else
   {
-    printf("Data invalida, por favor insira outra data no formato 'dd mm aa'.\n - ");
+    printf("Data invalida, por favor insira outra data noArvoreB formato 'dd mm aa'.\n - ");
     return 1;
   }
 }
@@ -79,7 +79,7 @@ Verifica o nome, se ele tem o número mínimo de caracteres (2), se ele não é 
 
 int Reg_Usuario (FILE *arq, int *id)
 /*
-  Registra um usuário no arquivo "usuarios.txt".
+  Registra um usuário noArvoreB arquivo "usuarios.txt".
 */
 {
 
@@ -99,7 +99,7 @@ int Reg_Usuario (FILE *arq, int *id)
     i = Verificar_Nome (nome);
   }
 
-  printf("Usuario '%s' , ID = [%d], favor colocar sua data de nascimento, no seguinte formato 'dd mm aaaa'\n - ", nome, *id);
+  printf("Usuario '%s' , ID = [%d], favor colocar sua data de nascimento, noArvoreB seguinte formato 'dd mm aaaa'\n - ", nome, *id);
   scanf("%d %d %d", &d,&m,&a);
   while ( Verificar_Data (d,m,a) )
     scanf("%d %d %d", &d,&m,&a);
@@ -115,7 +115,7 @@ int Reg_Usuario (FILE *arq, int *id)
 
 int Procurar_Usuario (FILE *arq, int nu)
 /*
-  Procura um usuário registrado no arquivo "usuarios.txt".
+  Procura um usuário registrado noArvoreB arquivo "usuarios.txt".
 */
 {
 
@@ -191,7 +191,7 @@ int Procurar_Usuario (FILE *arq, int nu)
 
 int Listar_Usuarios (FILE *arq)
 /*
-  Lista usuários registrados no arquivo "usuarios.txt".
+  Lista usuários registrados noArvoreB arquivo "usuarios.txt".
 */
 {
 
@@ -234,7 +234,7 @@ int Listar_Usuarios (FILE *arq)
 
 int Remover_Usuario (FILE *arq, int id)
 /*
-  Remove um usuário registrado no arquivo "usuarios.txt".
+  Remove um usuário registrado noArvoreB arquivo "usuarios.txt".
 */
 {
 
@@ -310,7 +310,7 @@ int Remover_Usuario (FILE *arq, int id)
 
 void Editar_Dados (FILE *arq, int id)
 /*
-Edita os dados de um usuário registrado no arquivo "usuarios.txt".
+Edita os dados de um usuário registrado noArvoreB arquivo "usuarios.txt".
 */
 {
 
@@ -334,7 +334,7 @@ Edita os dados de um usuário registrado no arquivo "usuarios.txt".
 
   }
 
-  printf("\nDigite a nova data de nascimento, no formato 'dd mm aaaa'.\n - ");
+  printf("\nDigite a nova data de nascimento, noArvoreB formato 'dd mm aaaa'.\n - ");
   scanf("%d %d %d", &d, &m, &a);
 
   while ( Verificar_Data (d,m,a) )
@@ -377,7 +377,7 @@ Edita os dados de um usuário registrado no arquivo "usuarios.txt".
 
 void Limpar_H (FILE *arq, int id)
 /*
-Limpa os dados de histórico de filmes de um usuário registrado no arquivo "usuarios.txt".
+Limpa os dados de histórico de filmes de um usuário registrado noArvoreB arquivo "usuarios.txt".
 */
 {
 
@@ -447,7 +447,7 @@ Limpa os dados de histórico de filmes de um usuário registrado no arquivo "usu
 
 int Ver_Usuario ( FILE *arq, int id )
 /*
-Vê as informações um usuário registrado no arquivo "usuarios.txt" e printa no prompt de comando.
+Vê as informações um usuário registrado noArvoreB arquivo "usuarios.txt" e printa noArvoreB prompt de comando.
 */
 {
 
@@ -579,7 +579,7 @@ MENU INICIAL
 
 void Ler_NV ( FILE *arq, int *nv )
 /*
-  Lê o número de vídeos registrados no arquivo "videos.txt".
+  Lê o número de vídeos registrados noArvoreB arquivo "videos.txt".
 */
 {
 
@@ -602,7 +602,7 @@ void Ler_NV ( FILE *arq, int *nv )
 
 void Deletar_Video ( FILE *arq, int id, int *nv )
 /*
-  Deleta todas as informações um vídeo registrado no arquivo "videos.txt".
+  Deleta todas as informações um vídeo registrado noArvoreB arquivo "videos.txt".
 */
 {
 
@@ -666,7 +666,7 @@ void Deletar_Video ( FILE *arq, int id, int *nv )
 
 int Verificar_Tempo (int h, int m)
 /*
-Verifica se o tempo inserido é possível, no intervalo Hora: [0,24],Minuto: [0,59].
+Verifica se o tempo inserido é possível, noArvoreB intervalo Hora: [0,24],Minuto: [0,59].
 */
 {
 
@@ -710,7 +710,7 @@ Verifica se is informações inseridas são possiveis, em relação do vídeo re
 
 int Listar_Videos (FILE *arq)
 /*
-  Lista vídeos registrados no arquivo "videos.txt".
+  Lista vídeos registrados noArvoreB arquivo "videos.txt".
 */
 {
 
@@ -754,7 +754,7 @@ int Listar_Videos (FILE *arq)
 void Fazer_Log ( int *idv, int e)
 /*
 De acordo com a verificação do arquivo,
-essa função escreve no aruivo "log.txt" o motivo
+essa função escreve noArvoreB aruivo "log.txt" o motivo
 que tal vídeo não pode ser regitrado, e também seu ID.
 */
 {
@@ -1046,7 +1046,7 @@ int Add_Genero_Dados (int *idVid)
         i++;
     }
     fscanf(arq,"%d", &numGenDad);
-    printf("Digite:\n-1 - Se ja tiver adicionado todos os generos desejados, para sair desse menu.\n0 - Adicionar um genero nao listado abaixo na lista. (Ainda tem que colocar no filme posteriormente)\n");
+    printf("Digite:\n-1 - Se ja tiver adicionado todos os generos desejados, para sair desse menu.\n0 - Adicionar um genero nao listado abaixo na lista. (Ainda tem que colocar noArvoreB filme posteriormente)\n");
 
     for ( j = 0 ; j<numGenDad ; j++ )
     {
@@ -1253,7 +1253,7 @@ int Add_Diretor_Dados (int *idVid)
         i++;
     }
     fscanf(arq,"%d", &numDirDad);
-    printf("Digite:\n-1 - Se ja tiver adicionado todos os diretores desejados, para sair desse menu.\n0 - Adicionar um diretor nao listado abaixo na lista. (Ainda tem que colocar no filme posteriormente)\n");
+    printf("Digite:\n-1 - Se ja tiver adicionado todos os diretores desejados, para sair desse menu.\n0 - Adicionar um diretor nao listado abaixo na lista. (Ainda tem que colocar noArvoreB filme posteriormente)\n");
 
     for ( j = 0 ; j<numDirDad ; j++ )
     {
@@ -1323,7 +1323,7 @@ int Add_Diretor_Dados (int *idVid)
 
 void Mostrar_Video (FILE *arq, int idv, int nv)
 /*
-  Vê as informações um vídeo registrado no arquivo "usuarios.txt" e printa no prompt de comando.
+  Vê as informações um vídeo registrado noArvoreB arquivo "usuarios.txt" e printa noArvoreB prompt de comando.
 */
 {
 
@@ -1465,7 +1465,7 @@ void Mostrar_Video (FILE *arq, int idv, int nv)
 
 int Editar_Video (FILE *arqVid, int *idv, int nv)
 /*
-  Edita os dados de um vídeo registrado no arquivo "usuarios.txt".
+  Edita os dados de um vídeo registrado noArvoreB arquivo "usuarios.txt".
 */
 {
 
@@ -1484,7 +1484,7 @@ int Editar_Video (FILE *arqVid, int *idv, int nv)
   if ( t == 1 )
   {
 
-    printf("Digite a duracao no formato 'hh mm', no intervalo :\nHora: [0,24]\nMinuto: [0,59]\n - ");
+    printf("Digite a duracao noArvoreB formato 'hh mm', noArvoreB intervalo :\nHora: [0,24]\nMinuto: [0,59]\n - ");
     LER_ESPACO;
     scanf("%d %d", &h, &m);
 
@@ -1654,9 +1654,9 @@ int Editar_Video (FILE *arqVid, int *idv, int nv)
 
 int Procurar_Video (FILE *arq,int *nv,int *idv, int idu)
 /*
-  Lista os video registrados no arquivo "videos.txt",
+  Lista os video registrados noArvoreB arquivo "videos.txt",
   pergunta ao usuário qual vídeo ele deseja acessar,
-  adiciona esse vídeo no histórico do usuário, e
+  adiciona esse vídeo noArvoreB histórico do usuário, e
   após acessar as informações desse vídeo,
   pergunta ao usuário se ele deseja editar ou excluir aquele video.
 */
@@ -1702,7 +1702,7 @@ int Procurar_Video (FILE *arq,int *nv,int *idv, int idu)
 
 int Reg_Video (FILE *arq, int *nv, int *idv, int idu)
 /*
-  Registra um vídeo no arquivo "videos.txt".
+  Registra um vídeo noArvoreB arquivo "videos.txt".
 */
 {
 
@@ -1725,7 +1725,7 @@ int Reg_Video (FILE *arq, int *nv, int *idv, int idu)
   if ( t == 1 )
   {
 
-    printf("Digite a duracao no formato 'hh mm', no intervalo :\nHora: [0,24]\nMinuto: [0,59]\n - ");
+    printf("Digite a duracao noArvoreB formato 'hh mm', noArvoreB intervalo :\nHora: [0,24]\nMinuto: [0,59]\n - ");
     LER_ESPACO;
     scanf("%d %d", &h, &m);
 
@@ -1979,7 +1979,7 @@ void Gerar_Relatorio_Metadados(int numUsu)
   arqDad = fopen ("dados.txt","r");
   arqRel = fopen (nomRel,"w");
 
-  fprintf(arqRel, "Tipo de vídeo mais comum no cadastro: ");
+  fprintf(arqRel, "Tipo de vídeo mais comum noArvoreB cadastro: ");
   for ( i = 0 ; i < 1 ;  )
   {
     fscanf(arqDad,"%c",&c);
@@ -2040,7 +2040,7 @@ void Gerar_Relatorio_Metadados(int numUsu)
   {}
 
   i = fl;
-  fprintf(arqRel,"Nome do diretor mais frequente no cadastro:\n");
+  fprintf(arqRel,"Nome do diretor mais frequente noArvoreB cadastro:\n");
   if ( i == 0 )
   {
     fclose(arqDad);

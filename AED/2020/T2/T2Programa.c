@@ -1,10 +1,10 @@
 /*
- - Inserir: insere as informações de um produto no cadastro:
+ - Inserir: insere_lista as informações de um produto noArvoreB cadastro:
     código do produto: representado por um número inteiro
-    nome: cadeia de caracteres (50 no máximo)
+    nome: cadeia de caracteres (50 noArvoreB máximo)
     quantidade em estoque: número inteiro
     preço unitário: número real com 2 casas decimais
-    localização: string contendo a descrição do local em que o produto se encontra armazenado (100 caracteres no máximo)
+    localização: string contendo a descrição do local em que o produto se encontra armazenado (100 caracteres noArvoreB máximo)
 
     Todas as informaçõs para o operação de inserção são obrigatórias.
 
@@ -36,11 +36,11 @@ parafuso 3mm;500;2.00;prateleira 5A
 struct no
 {
   int info;
-  struct no * esq;
-  struct no * dir;
+  struct noArvoreB * esq;
+  struct noArvoreB * dir;
 };
 
-typedef struct no* arvore;
+typedef struct noArvoreB* arvore;
 
 int vazia (arvore r)
 /*
@@ -63,7 +63,7 @@ Pós condições:
 {
   if(vazia(r))
   {
-    r = (struct no*) malloc(sizeof(struct no));
+    r = (struct noArvoreB*) malloc(sizeof(struct noArvoreB));
     r->info = x;
     r->esq = NULL;
     r->dir = NULL;
@@ -167,7 +167,7 @@ void Insere_Novo_Produto (int cod,int qua,float pre,char nom[],char loc[])
 Pré condições:
   código do produto a ser registrado, quantidade, preço, nome e local.
 Pós condições:
-  as informações do produto com um novo código são registradas no arquivo "dados"
+  as informações do produto com um novo código são registradas noArvoreB arquivo "dados"
 */
 {
   FILE *arq;
@@ -183,7 +183,7 @@ void Insere_Produto_Livre (int cod,int qua,float pre,char nom[],char loc[])
 Pré condições:
   código do produto a ser registrado, quantidade, preço, nome e local.
 Pós condições:
-  as informações do produto com um código já registrado são registradas no arquivo "dados"
+  as informações do produto com um código já registrado são registradas noArvoreB arquivo "dados"
 */
 {
   int x = 0;
@@ -250,7 +250,7 @@ Pós condições:
   setbuf(stdin, NULL);
   scanf("%[^\n]", &nom);
 
-  printf(" Digite a quantidade em estoque no momento do produto '%s'.\n - ", nom);
+  printf(" Digite a quantidade em estoque noArvoreB momento do produto '%s'.\n - ", nom);
   scanf("%d", &qua);
 
   printf(" Digite o preco unitario do produto '%s'.\n - ", nom);
@@ -447,7 +447,7 @@ void Alterar_Estoque(int cod, int q)
 Pré condições:
   O arquivo "dados" existir, o código do produto desejado e a quantidade desejada.
 Pós condições:
-  Altera a quantidade de produtos registradas no código cod nos dados.
+  Altera a quantidade de produtos registradas noArvoreB código cod nos dados.
 */
 {
   int x;
@@ -495,7 +495,7 @@ void Alterar_Preco(int cod, float p)
 Pré condições:
   O arquivo "dados" existir, o código do produto desejado e o preço desejada.
 Pós condições:
-  Altera o preço dos produtos registradas no código cod nos dados.
+  Altera o preço dos produtos registradas noArvoreB código cod nos dados.
 */
 {
   int x;
@@ -546,7 +546,7 @@ void Alterar_Loc(int cod, char loc[])
 Pré condições:
   O arquivo "dados" existir, o código do produto desejado e a localização desejada.
 Pós condições:
-  Altera a localização de produtos registradas no código cod nos dados.
+  Altera a localização de produtos registradas noArvoreB código cod nos dados.
 */
 {
   int x;
@@ -631,7 +631,7 @@ Pós condições:
   {
     case 1:
     {
-      printf(" Digite a nova quantidade do produto no estoque.\n - ");
+      printf(" Digite a nova quantidade do produto noArvoreB estoque.\n - ");
       scanf("%d", &q);
       Alterar_Estoque(cod,q);
       break;

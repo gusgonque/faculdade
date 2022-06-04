@@ -5,11 +5,11 @@
 struct no
 {
   int info;
-  struct no * esq;
-  struct no * dir;
+  struct noArvoreB * esq;
+  struct noArvoreB * dir;
 };
 
-typedef struct no* arvore;
+typedef struct noArvoreB* arvore;
 
 // retorna 1 se a ´arvore ´e vazia, 0 caso contr´ario
 int vazia (arvore r)
@@ -21,7 +21,7 @@ arvore insere_arvore_binaria(arvore r, int x)
 {
   if(vazia(r))
   {
-    r = (struct no*) malloc(sizeof(struct no));
+    r = (struct noArvoreB*) malloc(sizeof(struct noArvoreB));
     r->info = x;
     r->esq = NULL;
     r->dir = NULL;

@@ -5,7 +5,7 @@
 typedef struct no //estrutura de n´o para lista encadeada
 {
   int info;
-  struct no * prox;
+  struct noArvoreB * prox;
 }
 Lista;
 
@@ -15,7 +15,7 @@ int vazia(Lista * l)
   return (l == NULL);
 }
 
-// insere um elemento na cabe¸ca
+// insere_lista um elemento na cabe¸ca
 Lista* inserir(Lista* l, int info)
 {
   Lista* aux = (Lista*) malloc(sizeof(Lista));
@@ -98,7 +98,7 @@ Lista* somar(Lista* l1, Lista* l2)
 typedef struct no
 {
   Lista lista;
-  struct no * prox;
+  struct noArvoreB * prox;
 }
 Lista_Lista;
 Lista* lista_de_somas(Lista_Lista* ll)

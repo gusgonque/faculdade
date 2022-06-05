@@ -35,18 +35,20 @@ void alteraNoArquivo(FILE* arq, noArvoreB* no, int posArq){
 //Insere o novo nó no topo do arquivo
 //Pré-condição: arquivo deve estar aberto e ser um arquivo de arvore B
 //Pós-condilção: nó escrito no arquivo
-void inserirTopo(FILE* arq, noArvoreB* no){
-    cabecalhoArvoreB* cab = le_cabecalho(arq);
+void inserirTopoArvoreB(FILE* arq, noArvoreB* no){
+    cabecalhoArvoreB* cab = leCabecalhoArvoreB(arq);
     alteraNoArquivo(arq,no,cab->pos_topo);
     cab->pos_topo++;
-    escreve_cabecalho(arq,cab);
+    escreveCabecalhoArvore(arq,cab);
+    free(cab);
 }
 
 //lê um nó em uma determinada posição do arquivo
 //Pré-condição: arquivo deve estar aberto e ser um arquivo de Arvore B
 // posArq deve ser uma posição válida da Arvore B
 //Pós-condição: ponteiro para nó lido é retornado
-noArvoreB* le_no(FILE* arq, int posArq) {
+//Ter que liberar a memória após usar o x
+noArvoreB* leNoArvoreB(FILE* arq, int posArq) {
     noArvoreB* x = malloc(sizeof(noArvoreB));
     fseek(arq, sizeof(cabecalhoArvoreB) + posArq * sizeof(noArvoreB), SEEK_SET);
     fread(x,sizeof(noArvoreB),1,arq);
@@ -55,6 +57,7 @@ noArvoreB* le_no(FILE* arq, int posArq) {
 
 // Quebra o no (com overflow) e retorna o no criado e a chave cha que
 // deve ser promovida
+//Ter que liberar a memória após usar o nonov
 noArvoreB* split(noArvoreB* no, int* cha, int* ptDado) {
     noArvoreB *noNov = (noArvoreB*) malloc(sizeof(noArvoreB));
     int q = no->numChaves / 2;
@@ -96,63 +99,66 @@ int overflow(noArvoreB* no) {
 //Insere uma chave à Árvore B não vazia
 //Pré-condição: arquivo deve estar aberto e ser um arquivo de arvore B
 //Pós-condilção:
-void insere_aux(FILE* arq, noArvoreB* no, int posArq, int cha, int ptDado){
+void insere_aux(FILE* arq, noArvoreB* noPai, int posArq, int cha, int ptDado){
     int posCha;
-    if(!buscaChave(no, cha, &posCha)){ // chave não está nesse nó
-        if(eh_folha(no)) {
-            adicionaDireita(no, posCha, cha, ptDado, -1);
+    if(!buscaChave(noPai, cha, &posCha)){ // chave não está nesse nó
+        if(eh_folha(noPai)) {
+            adicionaDireita(noPai, posCha, cha, ptDado, -1);
         }
         else {
-            noArvoreB* noFil = le_no(arq, no->filho[posCha]);
-            insere_aux(arq, noFil, no->filho[posCha], cha, ptDado);
+            noArvoreB* noFil = leNoArvoreB(arq, noPai->filho[posCha]);
+            insere_aux(arq, noFil, noPai->filho[posCha], cha, ptDado);
             if(overflow(noFil))
             {
-                cabecalhoArvoreB* cab = le_cabecalho(arq);
+                cabecalhoArvoreB* cab = leCabecalhoArvoreB(arq);
                 int chaAux, ptDadoAux; // valor da chave mediana
                 noArvoreB* noAux = split(noFil, &chaAux, &ptDadoAux);
-                adicionaDireita(no, posCha, chaAux, ptDadoAux , cab->pos_topo);
-                inserirTopo(arq,noAux);
-                alteraNoArquivo(arq,noFil,no->filho[posCha]);
-                alteraNoArquivo(arq,no,posArq);
+                adicionaDireita(noPai, posCha, chaAux, ptDadoAux , cab->pos_topo);
+                inserirTopoArvoreB(arq, noAux);
+                alteraNoArquivo(arq, noFil, noPai->filho[posCha]);
+                alteraNoArquivo(arq, noPai, posArq);
+                free(cab);
             }
         }
     }
 }
 
-// Insere uma chave na árvore B e retorna raiz modificada
-noArvoreB* insereNo(FILE* arq, noArvoreB* no, int posArq, int cha, int ptDado){
-    if(vazia(no)) {
-        no = malloc(sizeof(noArvoreB));
-        no->chave[0] = cha;
-        no->ptDado[0] = ptDado;
-        for(int i = 0; i < ORDEM; i++)
-            no->filho[i] = -1;
-        no->numChaves = 1;
-        alteraNoArquivo(arq,no,posArq);
+// Insere uma chave raiz nó na raíz da árvore B
+void insereNo(FILE* arq, noArvoreB* raiz, int posArq, int cha, int ptDado){
+    cabecalhoArvoreB* cab = leCabecalhoArvoreB(arq);
+    if(vazia(raiz)) {
+        raiz = malloc(sizeof(noArvoreB));
+        raiz->numChaves = 1;
+        raiz->chave[0] = cha;
+        raiz->ptDado[0] = ptDado;
+        raiz->filho[0] = -1;
+        alteraNoArquivo(arq, raiz, posArq);
+        free(raiz);
+        cab->pos_topo++;
     }
     else {
-        insere_aux(arq, no, posArq, cha, ptDado);
-        if(overflow(no)){ // verifica se precisa split (CASO 3)
-            cabecalhoArvoreB* cab = le_cabecalho(arq);
+        insere_aux(arq, raiz, posArq, cha, ptDado);
+        if(overflow(raiz)){ // verifica se precisa split (CASO 3)
             int chaAux, ptDadoAux;
-            noArvoreB* novoFilho = split(no, &chaAux, &ptDadoAux);
+            noArvoreB* novoFilho = split(raiz, &chaAux, &ptDadoAux);
             noArvoreB* novaRaiz = malloc(sizeof(noArvoreB));
-            inserirTopo(arq,novoFilho);
+            inserirTopoArvoreB(arq, novoFilho);
             novaRaiz->chave[0] = chaAux;
             novaRaiz->ptDado[0] = ptDadoAux;
             novaRaiz->filho[0] = posArq;//posição do nó original
-            novaRaiz->filho[1] = cab->pos_topo;//posição no novo filho
-            cab = le_cabecalho(arq);
-            for(int i = (((int)ORDEM/2)+1); i < ORDEM; i++)
-                no->filho[i] = -1;
-            alteraNoArquivo(arq,no,posArq);
+            novaRaiz->filho[1] = cab->pos_topo;//posição do filho da raiz nova
+            free(cab);
+            cab = leCabecalhoArvoreB(arq);
+            raiz->filho[0] = -1;
+            alteraNoArquivo(arq, raiz, posArq);
             novaRaiz->numChaves = 1;
-            cab->pos_raiz = cab->pos_raiz;
-            inserirTopo(arq,novaRaiz);
-            return novaRaiz;
+            inserirTopoArvoreB(arq, novaRaiz);
+            cab->pos_raiz = cab->pos_topo;
+            cab->pos_topo++;
         }
     }
-    return no;
+    escreveCabecalhoArvore(arq,cab);
+    free(cab);
 }
 
 //Cria uma Arvore B nova em arquivo
@@ -163,14 +169,15 @@ void criaArvoreVazia(FILE* arq){
     cab->pos_raiz = 0;
     cab->pos_topo = 0;
     cab->pos_livre = -1;
-    escreve_cabecalho(arq,cab);
+    escreveCabecalhoArvore(arq,cab);
     free(cab);
 }
 
 //Lê o cabeçalho da Arvore B e retorna este
 //Pré-condição: arquivo aberto para leitura/escrita
 //Pós-condição: retorna o cabeçalho lido
-cabecalhoArvoreB* le_cabecalho(FILE * arq) {
+//Ter que liberar a memória após usar o cab
+cabecalhoArvoreB* leCabecalhoArvoreB(FILE * arq) {
     cabecalhoArvoreB * cab = (cabecalhoArvoreB*) malloc(sizeof(cabecalhoArvoreB));
     fseek(arq,0,SEEK_SET); // posiciona noArvoreB início do arquivo
     fread(cab, sizeof(cabecalhoArvoreB), 1, arq);
@@ -180,9 +187,25 @@ cabecalhoArvoreB* le_cabecalho(FILE * arq) {
 //Escreve noArvoreB arquivo o cabeçalho contendo as informações da Arvore B
 //Pré-condição: arquivo deve estar aberto e ser um arquivo de Arvore B
 //Pós-condilção: cabeçalho escrito noArvoreB arquivo
-void escreve_cabecalho(FILE* arq, cabecalhoArvoreB* cab){
+void escreveCabecalhoArvore(FILE* arq, cabecalhoArvoreB* cab){
     fseek(arq,0,SEEK_SET); //posiciona noArvoreB início do arquivo
     fwrite(cab, sizeof(cabecalhoArvoreB), 1, arq);
+}
+
+noArvoreB* busca(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* posArq){
+    if(vazia(raiz))
+        return NULL;
+    int i = 0;
+    while(i < raiz->numChaves && raiz->chave[i] < info) i++;
+    if((i+1) > raiz->numChaves || raiz->chave[i] > info){
+        noArvoreB* noAux = leNoArvoreB(arq,raiz->filho[i]);
+
+        //TODO: TERMINAR
+
+        return busca(raiz->filho[i], info, posCha);
+    }
+    *posCha = i;
+    return raiz;
 }
 
 //Retira um nó da lista

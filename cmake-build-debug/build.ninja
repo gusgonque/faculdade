@@ -643,8 +643,8 @@ build CMakeFiles/main.dir/AED/Trab2/arvoreBArq.c.obj: C_COMPILER__main_Debug C$:
   OBJECT_DIR = CMakeFiles\main.dir
   OBJECT_FILE_DIR = CMakeFiles\main.dir\AED\Trab2
 
-build CMakeFiles/main.dir/AED/Trab2/listaEncadeadaArquivo.c.obj: C_COMPILER__main_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab2/listaEncadeadaArquivo.c || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\AED\Trab2\listaEncadeadaArquivo.c.obj.d
+build CMakeFiles/main.dir/AED/Trab2/listaSimplesArquivo.c.obj: C_COMPILER__main_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab2/listaSimplesArquivo.c || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\AED\Trab2\listaSimplesArquivo.c.obj.d
   FLAGS = -g
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\main.dir
@@ -658,7 +658,7 @@ build CMakeFiles/main.dir/AED/Trab2/listaEncadeadaArquivo.c.obj: C_COMPILER__mai
 #############################################
 # Link the executable ..\AED\Trab2\main.exe
 
-build ../AED/Trab2/main.exe: C_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/AED/Trab2/main.c.obj CMakeFiles/main.dir/AED/Trab2/trab2AED.c.obj CMakeFiles/main.dir/AED/Trab2/arvoreBArq.c.obj CMakeFiles/main.dir/AED/Trab2/listaEncadeadaArquivo.c.obj
+build ../AED/Trab2/main.exe: C_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/AED/Trab2/main.c.obj CMakeFiles/main.dir/AED/Trab2/trab2AED.c.obj CMakeFiles/main.dir/AED/Trab2/arvoreBArq.c.obj CMakeFiles/main.dir/AED/Trab2/listaSimplesArquivo.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\main.dir

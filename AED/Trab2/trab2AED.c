@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "trab2AED.h"
 #include "arvoreBArq.h"
-#include "listaEncadeadaArquivo.h"
+#include "listaSimplesArquivo.h"
 
 void interfacePrincipal(){
     int x;
@@ -78,6 +79,14 @@ int interfaceRegistro(){
     }
 }
 
+int buscaCodigo(int cod) {
+    FILE* arqInd = fopen("arqIndices.bin","rb+");
+
+    if (arqInd == NULL)
+        return -1;
+    return 0;
+}
+
 void inserirProfissionalManual(){
     profissional novPro;
     printf("Digite o codigo do profissional a ser inserido.\n>");
@@ -91,7 +100,8 @@ void inserirProfissionalManual(){
     scanf("%s", &novPro.nom);
 
     printf("Digite o CPF do profissional a ser inserido.\n>");
-    scanf("%d", &novPro.cpf);
+    scanf("%lld", &novPro.cpf);
+    printf("CPF = %lld\n>",novPro.cpf);
 
     printf("Digite o numero do noArvoreB profissional a ser inserido.\n>");
     scanf("%s", &novPro.numReg);
@@ -100,7 +110,7 @@ void inserirProfissionalManual(){
     scanf("%s", &novPro.end);
 
     printf("Digite o telefone do profissional a ser inserido.\n>");
-    scanf("%d", &novPro.tel);
+    scanf("%lld", &novPro.tel);
 
     inserirProfissional(novPro);
 }
@@ -120,9 +130,15 @@ void inserirProfissional(profissional proNov){
         cria_lista_vazia(arqDad);
     }
 
-//TODO: FAZER ESSA FUNÇÃO!!!!!!!!!
+    int posArq;
+    posArq = insere_lista(arqDad,proNov);
+
+    noArvoreB *noNov = malloc(sizeof(noArvoreB));
+    noNov->numChaves = 0;
+    insereNo(arqInd,noNov,posArq,proNov.cod,posArq);
 
     fclose(arqInd);
     fclose(arqDad);
+    free(noNov);
     printf("Usuario inserido com sucesso!\nRetornando a Interface Principal!~\n");
 }

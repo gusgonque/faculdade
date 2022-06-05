@@ -9,10 +9,10 @@ typedef struct no //estrutura de n´o para lista encadeada
 }
 Lista;
 
-// retorna 1 se a lista ´e vazia, 0 caso contr´ario
-int vazia(Lista * l)
+// retorna 1 se a lista ´e noEhVazio, 0 caso contr´ario
+int noEhVazio(Lista * no)
 {
-  return (l == NULL);
+  return (no == NULL);
 }
 
 // insere_lista um elemento na cabe¸ca
@@ -30,7 +30,7 @@ Lista* inverter (Lista* l)
 {
   Lista* t = l; Lista* y = l;
   Lista* invertida = NULL;
-  while (!vazia(y))
+  while (!noEhVazio(y))
   {
       t = y->prox;
       y->prox = invertida;
@@ -45,7 +45,7 @@ Lista* remover_apos (Lista* l, int info_ref)
 {
   Lista* y = l;
   Lista* t = l->prox;
-  if ( (!vazia(y)) && (!vazia(t)) )
+  if ((!noEhVazio(y)) && (!noEhVazio(t)) )
     if (y->info == info_ref)
     {
       free(t);
@@ -60,7 +60,7 @@ Lista* remover_apos (Lista* l, int info_ref)
 Lista* filtrar(Lista* l, int n)
 {
   Lista* y = l;
-  if (!vazia(y))
+  if (!noEhVazio(y))
     if (!(y%n))
     {
       free(y);
@@ -77,12 +77,12 @@ Lista* somar(Lista* l1, Lista* l2)
   Lista* x1 = l1, y1 = l2, xr;
   int x,y,z,i;
 
-  for ( i = x = 0 ; !vazia(x1) ; i++ )
+  for ( i = x = 0 ; !noEhVazio(x1) ; i++ )
   {
     x = (x*10) + x1->info;
     x1 = x1->prox;
   }
-  for ( i = y = 0; !vazia(y1) ; i++ )
+  for ( i = y = 0; !noEhVazio(y1) ; i++ )
   {
     y = (y*10) + y1->info;
     y1 = y1->prox;
@@ -112,7 +112,7 @@ Lista* lista_de_somas(Lista_Lista* ll)
 
   while ( !(ll1 == NULL) )
   {
-    for ( r = 0, l1 = ll1->lista ; !vazia(l1) ;  )
+    for ( r = 0, l1 = ll1->lista ; !noEhVazio(l1) ;  )
     {
       r += l1->info;
       l1 = l1->prox;

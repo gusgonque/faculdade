@@ -27,14 +27,14 @@ arvoreAVL rotacaoDireitaEsquerda(arvoreAVL p) {
 }
 
 int insercao(arvoreAVL* r, int x) {
-  if(vazia(*r)) { // caso 1: ´arvore vazia
+  if(vazia(*r)) { // caso 1: ´arvore noEhVazio
     *r = (arvoreAVL) malloc(sizeof(struct noArvoreB));
     (*r)->info = x;
     (*r)->esq = (*r)->dir = NULL;
     (*r)->fb = 0;
     return 1;
   }
-  // ´arvore n~ao vazia
+  // ´arvore n~ao noEhVazio
   if(x < (*r)->info){ // caso 2: inserir na ´arvore esquerda
     if(insercao(&((*r)->esq), x)) {
       switch((*r)->fb){

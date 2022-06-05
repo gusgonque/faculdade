@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "trab2AED.h"
 #include "arvoreBArq.h"
 #include "listaSimplesArquivo.h"
@@ -27,7 +28,8 @@ void interfacePrincipal(){
             if (!interfaceRegistro())
                 interfacePrincipal();
         case 2:
-
+            carregarArquivo();
+            interfacePrincipal();
         case 3:
 
         case 4:
@@ -79,12 +81,22 @@ int interfaceRegistro(){
     }
 }
 
+//Busca o codigo na arvore B, se ele existe, retorna o endereco do nó no arquivo. Qualquer outro caso retorna -1.
 int buscaCodigo(int cod) {
     FILE* arqInd = fopen("arqIndices.bin","rb+");
-
     if (arqInd == NULL)
         return -1;
-    return 0;
+
+    cabecalhoArvoreB* cab = leCabecalhoArvoreB(arqInd);
+    noArvoreB* noRaiz = leNoArvoreB(arqInd, cab->pos_raiz);
+    int posCha, posArq;
+
+    noArvoreB* noBus = buscaArvoreB(arqInd, noRaiz, cod,&posCha,&posArq);
+
+    if(!noEhVazio(noBus))
+        return posArq;
+    else
+        return -1;
 }
 
 void inserirProfissionalManual(){
@@ -100,23 +112,18 @@ void inserirProfissionalManual(){
     scanf("%s", &novPro.nom);
 
     printf("Digite o CPF do profissional a ser inserido.\n>");
-    scanf("%lld", &novPro.cpf);
-    printf("CPF = %lld\n>",novPro.cpf);
+    scanf("%s", &novPro.cpf);
 
-    printf("Digite o numero do noArvoreB profissional a ser inserido.\n>");
+    printf("Digite o numero de registro do profissional a ser inserido.\n>");
     scanf("%s", &novPro.numReg);
 
     printf("Digite o endereco do profissional a ser inserido.\n>");
     scanf("%s", &novPro.end);
 
     printf("Digite o telefone do profissional a ser inserido.\n>");
-    scanf("%lld", &novPro.tel);
+    scanf("%s", &novPro.tel);
 
     inserirProfissional(novPro);
-}
-
-void inserirProfissionalArquivo(){//TODO: fazer a funcao inserirProfissionalArquivo.
-
 }
 
 void inserirProfissional(profissional proNov){
@@ -141,4 +148,76 @@ void inserirProfissional(profissional proNov){
     fclose(arqDad);
     free(noNov);
     printf("Usuario inserido com sucesso!\nRetornando a Interface Principal!~\n");
+}
+
+void alterarProfissional(profissional pro, int booEnd, int booTel) {
+    int posArqInd = buscaCodigo(pro.cod);
+
+    FILE* arqInd = fopen("arqIndices.bin","rb+");
+    FILE* arqDad = fopen("arqDados.bin","rb+");
+
+    noArvoreB* noArvoreB = leNoArvoreB(arqInd,posArqInd);
+    int posCha;
+    buscaArvoreB(arqInd, noArvoreB, pro.cod,&posCha,&posArqInd);
+
+    noLista* noLista = le_no_lista(arqDad,noArvoreB->ptDado[posCha]);
+    if (booEnd) strcpy(noLista->info.end,pro.end);
+    if (booTel) strcpy(noLista->info.tel,pro.tel);
+    escreve_no(arqDad,noLista,noArvoreB->ptDado[posCha]);
+
+    fclose(arqInd);
+    fclose(arqDad);
+    free(noArvoreB);
+    free(noLista);
+}
+
+void removerProfissional(profissional pro){
+
+}
+
+void carregarArquivo(){
+    char s[CHARMAX];
+    printf("Favor digitar o nome do arquivo a ser carregado. Ex: 'arq.txt'\n");
+    scanf("%s",&s);
+    printf("nome do arquivo = '%s'\n",s);
+
+    FILE* arq = fopen(s,"r");
+    if(arq == NULL)
+        printf("Nao foi possivel abrir o arquivo, favor verificar o nome e tentar novamente.\n");
+    else{
+        while(feof(arq)==0) {
+            char fun;
+            char buffer[1000];
+            profissional* pro = malloc(sizeof(profissional));
+            fscanf(arq, "%c%*c", &fun);
+            if(fun == 'I'){
+                fgets(buffer,1000,arq);
+                sscanf(buffer,"%d;[^]");
+                if(buscaCodigo(pro->cod)==-1) {
+                    printf("Inserindo profissional.\n");
+                    // TODO:RETIRABRANCOS
+                    inserirProfissional(*pro);
+                }
+            } else if(fun == 'A'){
+                fscanf(arq,"%d%*c%[^;]%*c%[^\n]",pro->cod,pro->end,pro->tel);
+                if(buscaCodigo(pro->cod)!=-1) {
+                    printf("Alterando profissional.\n");
+                    // TODO:RETIRABRANCOS
+                    int booEnd, booTel;
+                    booEnd = (pro->end[0]!='\0');
+                    booTel = (pro->tel[0]!='\0');
+                    alterarProfissional(*pro, booEnd, booTel);
+                }
+            } else if(fun == 'R'){
+                printf("Removendo profissional.\n");
+                fscanf(arq,"%d",pro->cod);
+                removerProfissional(*pro);
+            }
+
+        }
+
+
+
+    }
+
 }

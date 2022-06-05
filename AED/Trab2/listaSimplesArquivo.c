@@ -4,7 +4,7 @@
 
 //Cria uma lista nova em arquivo
 //Pré-condição: arquivo aberto para leitura/escrita
-//Pós-condição: arquivo é inicializado com uma lista vazia
+//Pós-condição: arquivo é inicializado com uma lista noEhVazio
 void cria_lista_vazia(FILE* arq){
     cabecalhoLista * cab = (cabecalhoLista*) malloc(sizeof(cabecalhoLista));
     cab->pos_topo = 0;

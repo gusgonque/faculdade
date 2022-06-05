@@ -120,7 +120,7 @@ Pré-condições:
   String str de entrada.
 
 Pós-condições:
-  Se a string for vazia, ou preenchida apenas por espaços, retorna o número 1. Do contrário, retorna 0.
+  Se a string for noEhVazio, ou preenchida apenas por espaços, retorna o número 1. Do contrário, retorna 0.
 
 */
 {

@@ -11,7 +11,7 @@ struct no
 
 typedef struct noArvoreB* arvore;
 
-// retorna 1 se a ´arvore ´e vazia, 0 caso contr´ario
+// retorna 1 se a ´arvore ´e noEhVazio, 0 caso contr´ario
 int vazia (arvore r)
 {
   return (r == NULL);

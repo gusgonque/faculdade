@@ -21,7 +21,7 @@ typedef struct no {
 
 int buscaChave(noArvoreB* no, int info, int * posCha);
 
-int vazia(noArvoreB* no);
+int noEhVazio(noArvoreB* no);
 
 int eh_folha(noArvoreB* reg);
 
@@ -35,7 +35,7 @@ noArvoreB* split(noArvoreB* no, int* cha, int* ptDado);
 
 void adicionaDireita(noArvoreB* no, int posCha, int cha, int ptDado, int fil);
 
-int overflow(noArvoreB* no);
+int ehOverflow(noArvoreB* no);
 
 void insereNo(FILE* arq, noArvoreB* raiz, int posArq, int cha, int ptDado);
 
@@ -44,6 +44,8 @@ void criaArvoreVazia(FILE* arq);
 cabecalhoArvoreB* leCabecalhoArvoreB(FILE * arq);
 
 void escreveCabecalhoArvore(FILE* arq, cabecalhoArvoreB* cab);
+
+noArvoreB* buscaArvoreB(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* posArq);
 
 //void retira(FILE* arq, TipoItem x);
 

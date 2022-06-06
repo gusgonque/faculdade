@@ -1,7 +1,7 @@
 novo usuario
 1
 1
-1
+68
 abc
 12345678900
 abc123
@@ -11,3 +11,10 @@ cba
 Carregar arquivo DADOS.txt
 2
 DADOS.txt
+
+Alterar a ANA
+1
+2
+11
+2
+ENDERECO2

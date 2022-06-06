@@ -1,6 +1,7 @@
 #ifndef FACULDADE_ARVOREBARQ_H
 #define FACULDADE_ARVOREBARQ_H
 
+#include <stdio.h>
 #include "trab2AED.h"
 
 // cabecalhoLista do arquivo
@@ -27,7 +28,7 @@ int eh_folha(noArvoreB* reg);
 
 void alteraNoArquivo(FILE* arq, noArvoreB* no, int posArq);
 
-void inserirTopoArvoreB(FILE* arq, noArvoreB* no);
+void escreveTopoArvoreB(FILE* arq, noArvoreB* no);
 
 noArvoreB* leNoArvoreB(FILE* arq, int posArq);
 
@@ -46,6 +47,12 @@ cabecalhoArvoreB* leCabecalhoArvoreB(FILE * arq);
 void escreveCabecalhoArvore(FILE* arq, cabecalhoArvoreB* cab);
 
 noArvoreB* buscaArvoreB(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* posArq);
+
+void consultarProfissionalAux(FILE *arqInd, FILE* arqDad, noArvoreB* no, int i);
+
+void imprimirNo(FILE* arqInd, FILE* arqDad, noArvoreB* noRaiz);
+
+void listarProfissionaisAux(FILE* arqInd, FILE* arqDad, noArvoreB* noPai, int indCha);
 
 //void retira(FILE* arq, TipoItem x);
 

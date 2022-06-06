@@ -55,6 +55,7 @@ noArvoreB* leNoArvoreB(FILE* arq, int posArq) {
         noVaz->numChaves = 0;
         return noVaz;
     }
+    free(noVaz);
     noArvoreB* noAux = malloc(sizeof(noArvoreB));
     fseek(arq, sizeof(cabecalhoArvoreB) + (posArq * sizeof(noArvoreB)), SEEK_SET);
     fread(noAux, sizeof(noArvoreB), 1, arq);
@@ -219,7 +220,7 @@ void escreveCabecalhoArvore(FILE* arq, cabecalhoArvoreB* cab){
 //Busca o nó no arquivo de Árvore B, retornando umna chave vazia se não encontrá-lo
 //Se encontrar, utilizar as posições para continuar
 //Lembrar de liberar memória do nó retornado após utilização.
-noArvoreB* buscaArvoreB(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* posArq){
+noArvoreB* buscaArvoreB(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* posArqDad){
     noArvoreB* noAux = malloc(sizeof (noArvoreB));
     if(noEhVazio(raiz)) {
         noAux->numChaves = 0;
@@ -230,10 +231,10 @@ noArvoreB* buscaArvoreB(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* 
     if((i+1) > raiz->numChaves || raiz->chave[i] > info){
         free(noAux);
         noAux = leNoArvoreB(arq,raiz->filho[i]);
-        return buscaArvoreB(arq, noAux, info, posCha, posArq);
+        *posArqDad = raiz->ptDado[i];
+        return buscaArvoreB(arq, noAux, info, posCha, posArqDad);
     }
     *posCha = i;
-    *posArq = raiz->ptDado[i];
     return raiz;
 }
 

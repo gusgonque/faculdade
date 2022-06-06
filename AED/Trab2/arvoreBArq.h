@@ -46,13 +46,17 @@ cabecalhoArvoreB* leCabecalhoArvoreB(FILE * arq);
 
 void escreveCabecalhoArvore(FILE* arq, cabecalhoArvoreB* cab);
 
-noArvoreB* buscaArvoreB(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* posArq);
+noArvoreB* buscaArvoreB(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* posArqDad);
 
-void consultarProfissionalAux(FILE *arqInd, FILE* arqDad, noArvoreB* no, int i);
+void consultarProfissionalAux(FILE *arqInd, FILE* arqDad, noArvoreB* no, int indCha);
 
-void imprimirNo(FILE* arqInd, FILE* arqDad, noArvoreB* noRaiz);
+void imprimirProfissionaisNo(FILE* arqInd, FILE* arqDad, noArvoreB* noRaiz);
 
 void listarProfissionaisAux(FILE* arqInd, FILE* arqDad, noArvoreB* noPai, int indCha);
+
+void imprimirCodigosNivelAux(noArvoreB *no);
+
+void imprimirCodigosNivel(FILE* arqInd,noArvoreB* no,int niv);
 
 //void retira(FILE* arq, TipoItem x);
 

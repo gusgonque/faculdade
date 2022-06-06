@@ -8,16 +8,18 @@
 void interfacePrincipal(){
     int x;
     printf("Bem vindo a Interface Principal!\nDigite um numero para continuar.\n");
-    printf("1 - Interface de noArvoreB de usuario. (Inserir/Alterar/Remover)\n");
+    printf("1 - Interface de registro de usuario. (Inserir/Alterar/Remover)\n");
     printf("2 - Carregar arquivo texto.\n");
     printf("3 - Consultar profissional.\n");
     printf("4 - Listar profissionais.\n");
-    printf("5 - Interface da arvore.\n");
+    printf("5 - Imprimir arvoreB.\n");
+    printf("6 - Imprimir posicoes livres do arquivo de indices.\n");
+    printf("7 - Imprimir posicoes livres do arquivo de dados.\n");
     printf("0 - Finalizar programa.\n");
 
     printf(">");
     scanf("%d",&x);
-    while (x<0 || x>5){
+    while (x<0 || x>7){
         printf("Comando invalido. Digite novamente.\n");
         printf(">");
         scanf("%d",&x);
@@ -43,24 +45,45 @@ void interfacePrincipal(){
             break;
 
         case 5:
+            imprimirArvoreB();
+            interfacePrincipal();
             break;
 
+        case 6: {
+            FILE *arqDad = fopen("arqDados.bin", "rb+");
+            if (arqDad != NULL)
+                imprimirPosicoesLivresDados(arqDad);
+            else
+                printf("Arquivo de Dados nao criado.\n");
+            fclose(arqDad);
+            interfacePrincipal();
+            break;
+        }
+        case 7:{
+            FILE *arqInd = fopen("arqIndices.bin", "rb+");
+            if (arqInd != NULL)
+                imprimirPosicoesLivresIndices(arqInd);
+            else
+                printf("Arquivo de Indices nao criado.\n");
+            fclose(arqInd);
+            interfacePrincipal();
+            break;
+        }
         case 0:
             break;
 
         default:
             break;
-
     }
 }
 
 int interfaceRegistro(){
     int x;
-    printf("Bem vindo a interface de noArvoreB de profissionais!\nDigite um numero para continuar.\n");
+    printf("Bem vindo a interface de Registro de profissionais!\nDigite um numero para continuar.\n");
     printf("1 - Inserir novo profissional.\n");
     printf("2 - Alterar endereco ou telefone de um profissional.\n");
     printf("3 - Remover um profissional.\n");
-    printf("0 - retornar ao menu anterior.\n");
+    printf("0 - Retornar ao menu anterior.\n");
 
     printf(">");
     scanf("%d",&x);
@@ -92,8 +115,10 @@ int interfaceRegistro(){
 //Busca o codigo na arvore B, se ele existe, retorna o endereco daquela chave naquele nó do arquivo. Qualquer outro caso retorna -1.
 int buscaCodigo(int cod) {
     FILE* arqInd = fopen("arqIndices.bin","rb+");
-    if (arqInd == NULL)
+    if (arqInd == NULL) {
+        printf("Arquivo de Indices nao criado.\n");
         return -1;
+    }
 
     cabecalhoArvoreB* cab = leCabecalhoArvoreB(arqInd);
     noArvoreB* noRaiz = leNoArvoreB(arqInd, cab->pos_raiz);
@@ -166,7 +191,7 @@ void inserirProfissional(profissional proNov){
     fclose(arqDad);
     free(noNov);
     free(cab);
-    printf("Usuario inserido com sucesso!\nRetornando a Interface Principal!~\n");
+    printf("Usuario inserido com sucesso!\n");
 }
 
 void alterarProfissionalManual(){
@@ -174,53 +199,63 @@ void alterarProfissionalManual(){
     int x;
     char buffer[CHARMAX];
 
-    printf("Digite o codigo do usuario que deseja alterar.\n>");
-    scanf("%d", &pro.cod);
+    FILE* arqInd = fopen("arqIndices.bin","rb+");
 
-    if(buscaCodigo(pro.cod) != -1){
+    if(arqInd!=NULL) {
+        printf("Digite o codigo do usuario que deseja alterar.\n>");
+        scanf("%d", &pro.cod);
+
+        if (buscaCodigo(pro.cod) == -1) {
+            printf("Codigo nao registrado, tente novamente.\n>");
+            scanf("%d", &pro.cod);
+        }
         printf("Digite qual a alteracao desejada.\n");
         printf("1 - Alterar telefone.\n");
         printf("2 - Alterar endereco.\n>");
         scanf("%d", &x);
         LER_ESPACO;
 
-        switch(x) {
+        switch (x) {
             case 1:
                 printf("Digite o novo telefone.\n>");
                 gets(buffer);
-                sscanf(buffer,"%[^\n]", &pro.tel);
+                sscanf(buffer, "%[^\n]", &pro.tel);
                 alterarProfissional(pro, 0, 1);
                 break;
             case 2:
                 printf("Digite o novo endereco.\n>");
                 gets(buffer);
-                sscanf(buffer,"%[^\n]",&pro.end);
+                sscanf(buffer, "%[^\n]", &pro.end);
                 alterarProfissional(pro, 1, 0);
                 break;
         }
-    }
+    } else
+        printf("Arquivo de Indices nao criado, retornando ao menu anterior");
 }
 
 void alterarProfissional(profissional pro, int booEnd, int booTel) {
     FILE* arqInd = fopen("arqIndices.bin","rb+");
     FILE* arqDad = fopen("arqDados.bin","rb+");
 
-    cabecalhoArvoreB* cab = leCabecalhoArvoreB(arqInd);
+    if(arqInd != NULL){
+        cabecalhoArvoreB *cab = leCabecalhoArvoreB(arqInd);
 
-    noArvoreB* noArvoreB = leNoArvoreB(arqInd,cab->pos_raiz);
-    int posCha, posArqInd;
-    noArvoreB = buscaArvoreB(arqInd, noArvoreB, pro.cod,&posCha,&posArqInd);
+        noArvoreB *noArvoreB = leNoArvoreB(arqInd, cab->pos_raiz);
+        int posCha, posArqInd;
+        noArvoreB = buscaArvoreB(arqInd, noArvoreB, pro.cod, &posCha, &posArqInd);
 
-    noLista* noLista = le_no_lista(arqDad,noArvoreB->ptDado[posCha]);
-    if (booEnd) strcpy(noLista->info.end,pro.end);
-    if (booTel) strcpy(noLista->info.tel,pro.tel);
-    escreve_no(arqDad,noLista,noArvoreB->ptDado[posCha]);
+        noLista *noLista = le_no_lista(arqDad, noArvoreB->ptDado[posCha]);
+        if (booEnd) strcpy(noLista->info.end, pro.end);
+        if (booTel) strcpy(noLista->info.tel, pro.tel);
+        escreve_no(arqDad, noLista, noArvoreB->ptDado[posCha]);
 
-    free(cab);
-    fclose(arqInd);
-    fclose(arqDad);
-    free(noArvoreB);
-    free(noLista);
+        free(cab);
+        fclose(arqInd);
+        fclose(arqDad);
+        free(noArvoreB);
+        free(noLista);
+        printf("Usuario alterado com sucesso!\n");
+    }
 }
 
 void removerProfissionalManual(){
@@ -250,7 +285,6 @@ void carregarArquivo(){
                 fgets(buffer,1000,arq);
                 sscanf(buffer,"%d;%[^;];%[^;];%[^;];%[^;];%[^\n]",&pro->cod,&pro->nom,&pro->cpf,&pro->numReg,&pro->end,&pro->tel);
                 if(buscaCodigo(pro->cod)==-1) {
-                    printf("Inserindo profissional.\n");
                     // TODO:RETIRABRANCOS
                     inserirProfissional(*pro);
                 }
@@ -258,7 +292,6 @@ void carregarArquivo(){
                 fgets(buffer,1000,arq);
                 sscanf(buffer,"%d%*c%[^;]%*c%[^\n]",&pro->cod,&pro->end,&pro->tel);
                 if(buscaCodigo(pro->cod)!=-1) {
-                    printf("Alterando profissional.\n");
                     // TODO:RETIRABRANCOS
                     int booEnd, booTel;
                     booEnd = (pro->end[0]!='\000');
@@ -268,7 +301,7 @@ void carregarArquivo(){
             } else if(fun == 'R'){
                 fgets(buffer,1000,arq);
                 sscanf(buffer,"%d",&pro->cod);
-                printf("Removendo profissional.\n");
+                // TODO:RETIRABRANCOS
                 removerProfissional(*pro);
             }
             free(pro);
@@ -280,78 +313,164 @@ void carregarArquivo(){
 
 }
 
-void consultarProfissionalAux(FILE* arqInd, FILE* arqDad, noArvoreB* no, int i) {
+void consultarProfissionalAux(FILE* arqInd, FILE* arqDad, noArvoreB* no, int indCha) {
     int posCha, posArqInd;
-    no = buscaArvoreB(arqInd, no, no->chave[i], &posCha, &posArqInd);
+    no = buscaArvoreB(arqInd, no, no->chave[indCha], &posCha, &posArqInd);
     noLista* noLista = le_no_lista(arqDad, no->ptDado[posCha]);
-    printf("Codigo: %d\nNome: %s\nCPF: %11s\nNumero do Registro Profissional: %s\nEndereco: %s\nTelefone: %11s\n", no->chave[i],noLista->info.nom, noLista->info.cpf, noLista->info.numReg, noLista->info.end, noLista->info.tel);
+    printf("Codigo: %d\nNome: %s\nCPF: %s\nNumero do Registro Profissional: %s\nEndereco: %s\nTelefone: %s\n--/--\n", no->chave[indCha], noLista->info.nom, noLista->info.cpf, noLista->info.numReg, noLista->info.end, noLista->info.tel);
     free(noLista);
 }
 
 void consultarProfissional(){
 
     profissional pro;
+    int posCha, posArqDad;
 
-    printf("Digite o codigo do profissional a ser consultado.\n>");
+    printf("Digite o codigo do profissional a ser consultado. Digite -1 para retornar ao menu anterior.\n>");
     scanf("%d",&pro.cod);
-    while (buscaCodigo(pro.cod) == -1){
+    while (pro.cod != -1 && buscaCodigo(pro.cod) == -1) {
         printf("Profissional nao encontrado, tente novamente.\n>");
-        scanf("%d",&pro.cod);
+        scanf("%d", &pro.cod);
     }
 
+    if(pro.cod!=-1) {
 
-    FILE* arqInd = fopen("arqIndices.bin","rb+");
-    FILE* arqDad = fopen("arqDados.bin","rb+");
 
-    cabecalhoArvoreB* cab = leCabecalhoArvoreB(arqInd);
+        FILE *arqInd = fopen("arqIndices.bin", "rb+");
+        FILE *arqDad = fopen("arqDados.bin", "rb+");
 
-    noArvoreB* noArvoreB = leNoArvoreB(arqInd,cab->pos_raiz);
-    consultarProfissionalAux(arqInd, arqDad, noArvoreB, pro.cod);
-    free(cab);
+        if (arqInd != NULL) {
+            cabecalhoArvoreB *cab = leCabecalhoArvoreB(arqInd);
+            noArvoreB *no = buscaArvoreB(arqInd, leNoArvoreB(arqInd, cab->pos_raiz), pro.cod, &posCha, &posArqDad);
+            consultarProfissionalAux(arqInd, arqDad, no, buscaCodigo(pro.cod));
+            free(cab);
+            free(no);
+        }
 
-    fclose(arqInd);
-    fclose(arqDad);
-    free(noArvoreB);
-
+        fclose(arqInd);
+        fclose(arqDad);
+    }
 }
 
-void imprimirNo(FILE* arqInd, FILE* arqDad, noArvoreB* noRaiz){
+void imprimirProfissionaisNo(FILE* arqInd, FILE* arqDad, noArvoreB* noRaiz){
     int i;
     for (i = 0; i < noRaiz->numChaves; ++i)
         consultarProfissionalAux(arqInd, arqDad, noRaiz, i);
 }
 
 void listarProfissionaisAux(FILE* arqInd, FILE* arqDad, noArvoreB* noPai, int indCha){
-    int posCha, posArqInd;
     if (eh_folha(noPai))
-        imprimirNo(arqInd, arqDad, noPai);
+        imprimirProfissionaisNo(arqInd, arqDad, noPai);
     else{
-        if(indCha < noPai->numChaves){
-            noArvoreB * noFilho = leNoArvoreB(arqInd,noPai->filho[indCha]);
+        noArvoreB * noFilho = leNoArvoreB(arqInd,noPai->filho[indCha]);
+        listarProfissionaisAux(arqInd,arqDad,noFilho,0);
+        consultarProfissionalAux(arqInd, arqDad, noPai, indCha);
+        if(indCha < noPai->numChaves-1)
+            listarProfissionaisAux(arqInd,arqDad,noPai,indCha+1);
+        if (indCha == noPai->numChaves-1){
+            noFilho = leNoArvoreB(arqInd,noPai->filho[indCha+1]);
             listarProfissionaisAux(arqInd,arqDad,noFilho,0);
         }
-        if(indCha != noPai->numChaves)
-            consultarProfissionalAux(arqInd, arqDad, noPai, indCha);
-        else {
-            noArvoreB * noFilho = buscaArvoreB(arqInd, noPai, noPai->filho[indCha+1], &posCha, &posArqInd);
-            listarProfissionaisAux(arqInd,arqDad,noFilho,0);
-        }
+        free(noFilho);
     }
 }
 
 void listarProfissionais(){
-    int i, posCha, posArqInd;
     FILE* arqInd = fopen("arqIndices.bin","rb+");
     FILE* arqDad = fopen("arqDados.bin","rb+");
 
-    cabecalhoArvoreB* cab = leCabecalhoArvoreB(arqInd);
-    noArvoreB* noRaiz = leNoArvoreB(arqInd, cab->pos_raiz);
-
-    for ( i = 0; i <= noRaiz->numChaves; ++i)
+    if(arqInd!=NULL){
+        cabecalhoArvoreB *cab = leCabecalhoArvoreB(arqInd);
+        noArvoreB *noRaiz = leNoArvoreB(arqInd, cab->pos_raiz);
         listarProfissionaisAux(arqInd, arqDad, noRaiz, 0);
 
-    free(cab);
+        free(noRaiz);
+        free(cab);
+    }
+    else
+        printf("Arquivo de Indices nao criado.\n");
+
     fclose(arqInd);
     fclose(arqDad);
-    free(noRaiz);
+}
+
+void imprimirCodigosNivelAux(noArvoreB *no) {
+    int i;
+    printf("[");
+    for ( i = 0; i < no->numChaves; ++i) {
+        printf("%d", no->chave[i]);
+        if(i!=no->numChaves-1)
+            printf(" , ");
+    }
+    printf("] ");
+}
+
+void imprimirCodigosNivel(FILE* arqInd,noArvoreB* no,int niv){
+    int i;
+    imprimirCodigosNivelAux(no);
+    if(!eh_folha(no)) {
+        printf("\n");
+        for (i = 0; i <= no->numChaves; ++i) {
+            noArvoreB *noFil = leNoArvoreB(arqInd, no->filho[i]);
+            imprimirCodigosNivel(arqInd, noFil, niv + 1);
+            free(noFil);
+        }
+    }
+}
+
+void imprimirArvoreB(){
+    FILE* arqInd = fopen("arqIndices.bin","rb+");
+
+    if(arqInd!=NULL){
+        cabecalhoArvoreB *cab = leCabecalhoArvoreB(arqInd);
+        noArvoreB *noRaiz = leNoArvoreB(arqInd, cab->pos_raiz);
+
+        imprimirCodigosNivel(arqInd,noRaiz,0);
+        printf("\n");
+
+        free(noRaiz);
+        free(cab);
+    }
+    else
+        printf("Arquivo de Indices nao criado.\n");
+
+    fclose(arqInd);
+}
+
+void imprimirPosicoesLivresDados(FILE* arqDad){
+    cabecalhoLista* cab = le_cabecalho_lista(arqDad);
+    if(cab->pos_livre != -1) {
+        printf("Posicoes livres no arquivo de Dados: ");
+        int posArq = cab->pos_livre;
+        noLista* no = le_no_lista(arqDad, posArq);
+        while (no->info.cod != -1) {
+            printf("%d ", posArq);
+            no = le_no_lista(arqDad, no->info.cod);
+            posArq = no->info.cod;
+        }
+        free(no);
+        printf("\n");
+    }
+    else
+        printf("Nao ha posicoes livres no arquivo de Dados.\n");
+    free(cab);
+}
+
+void imprimirPosicoesLivresIndices(FILE* arqInd){
+    cabecalhoArvoreB* cab = leCabecalhoArvoreB(arqInd);
+    if(cab->pos_livre != -1) {
+        printf("Posicoes livres no arquivo de Indices: ");
+        int posArq = cab->pos_livre;
+        noArvoreB* no = leNoArvoreB(arqInd, posArq);
+        while (no->numChaves != -1) {
+            printf("%d ", posArq);
+            no = leNoArvoreB(arqInd, no->numChaves);
+            posArq = no->numChaves;
+        }
+        free(no);
+        printf("\n");
+    }
+    else
+        printf("Nao ha posicoes livres no arquivo de Indices.\n");
+    free(cab);
 }

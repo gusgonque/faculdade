@@ -84,39 +84,3 @@ int insere_lista(FILE* arq, TipoItem info){
     escreve_cabecalho_lista(arq,cab); free(cab);
     return posArq;
 }
-
-//Retira um nó da lista
-//Pré-condição: arquivo deve estar aberto e ser um arquivo de lista
-//Pós-condição: nó retirado da lista caso pertença a ela
-//void retira(FILE* arq, TipoItem x){
-//    cabecalhoLista* cab = le_cabecalho(arq);
-//    int pos_aux = cab->pos_cabeca;
-//    int pos_ant = cab->pos_cabeca;
-//    noLista* aux = NULL;
-//    while(pos_aux != -1 && // procura o elemento a ser retirado
-//          ((aux = le_no(arq,pos_aux))!= NULL) &&
-//          aux->info != x){
-//        pos_ant = pos_aux;
-//        pos_aux = aux->prox;
-//        free(aux);
-//        aux = NULL;
-//    }
-//    if(pos_aux != -1) { //encontrou o elemento
-//        if(pos_ant == pos_aux){ // remoção na cabeça
-//            cab->pos_cabeca = aux->prox;
-//        }
-//        else { // remoção noArvoreB meio
-//            noLista * ant = le_no(arq, pos_ant);
-//            ant->prox = aux->prox;
-//            escreve_no(arq,ant,pos_ant);
-//            free(ant);
-//        }
-//        aux->prox = cab->pos_livre; // torna o nó removido um nó livre
-//        cab->pos_livre = pos_aux;
-//        escreve_no(arq,aux,pos_aux);
-//        escreve_cabecalho(arq,cab);
-//        free(aux);
-//    }
-//    free(cab);
-//}
-//

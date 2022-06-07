@@ -5,6 +5,8 @@
 
 //Busca a chave info nas chaves e retora 1 se ela está no nó, ou 0 se não está no nó
 //o ponteiro posCha contém a posição do nó no vetor de chaves.
+//Pré-condição: no criado
+//Pós-condilção: retora 1 se a info está no nó, ou 0 se não está no nó
 int buscaChave(noArvoreB* no, int info, int * posCha) {
     for((*posCha)=0; (*posCha) < no->numChaves; (*posCha)++)
         if(info == no->chave[(*posCha)])
@@ -15,11 +17,15 @@ int buscaChave(noArvoreB* no, int info, int * posCha) {
 }
 
 //Verifica se o nó é vazio.
+//Pré-condição: no criado
+//Pós-condilção: retora 1 se o nó é vazio, ou 0 se não
 int noEhVazio(noArvoreB* no) {
     return (no->numChaves == 0);
 }
 
 //Verifica se o nó é uma folha na árvore.
+//Pré-condição: no criado
+//Pós-condilção: retora 1 se o nó é uma folha, ou 0 se não
 int eh_folha(noArvoreB* no) {
     return (no->filho[0] == -1);
 }
@@ -62,9 +68,10 @@ noArvoreB* leNoArvoreB(FILE* arq, int posArq) {
     return noAux;
 }
 
-// Quebra o no (com ehOverflow) e retorna o no criado e a chave cha que
-// deve ser promovida
-//Ter que liberar a memória após usar o nonov
+// Quebra o no (com ehOverflow) e retorna o no criado e a chave cha que deve ser promovida
+// Ter que liberar a memória após usar o nonov
+// Pré-condição: no valido.
+// Pós-condição: retorna o no criado e a chave cha que deve ser promovida
 noArvoreB* split(noArvoreB* no, int* cha, int* ptDado) {
     noArvoreB *noNov = (noArvoreB*) malloc(sizeof(noArvoreB));
     int q = no->numChaves / 2;
@@ -83,7 +90,8 @@ noArvoreB* split(noArvoreB* no, int* cha, int* ptDado) {
 }
 
 // Adiciona a chave cha com o filho fil.
-//Pós-condilção:
+// Pré-condição: no valido.
+//Pós-condilção: adiciona a chave cha no nó
 // o nó deve ser alterado no arquivo após adicionar a chave
 void adicionaDireita(noArvoreB* no, int posCha, int cha, int ptDado, int fil){
     int i;
@@ -99,13 +107,15 @@ void adicionaDireita(noArvoreB* no, int posCha, int cha, int ptDado, int fil){
 }
 
 // Verifica se o nó tem o número máximo de chaves.
+//Pré-condição: no valido
+//Pós-condilção: retora 1 se o nó tem exesso de chaves, ou 0 se não
 int ehOverflow(noArvoreB* no) {
     return (no->numChaves == ORDEM);
 }
 
 //Insere uma chave à Árvore B não vazia
 //Pré-condição: arquivo deve estar aberto e ser um arquivo de arvore B
-//Pós-condilção:
+//Pós-condilção: insere o chave no nó
 void insere_aux(FILE* arq, noArvoreB* noPai, int posArq, int cha, int ptDado){
     int posCha;
     if(!buscaChave(noPai, cha, &posCha)){ // chave não está nesse nó
@@ -131,6 +141,8 @@ void insere_aux(FILE* arq, noArvoreB* noPai, int posArq, int cha, int ptDado){
 }
 
 // Insere uma chave raiz nó na raíz da árvore B
+//Pré-condição: arquivo deve estar aberto e ser um arquivo de arvore B
+//Pós-condilção: insere o chave no nó
 void insereNo(FILE* arq, noArvoreB* raiz, int posArq, int cha, int ptDado){
     cabecalhoArvoreB* cab = leCabecalhoArvoreB(arq);
     int i;
@@ -220,6 +232,8 @@ void escreveCabecalhoArvore(FILE* arq, cabecalhoArvoreB* cab){
 //Busca o nó no arquivo de Árvore B, retornando umna chave vazia se não encontrá-lo
 //Se encontrar, utilizar as posições para continuar
 //Lembrar de liberar memória do nó retornado após utilização.
+//Pré-condição: arquivo deve estar aberto e ser um arquivo de Arvore B
+//Pós-condilção: retorna o nó que estiver o info
 noArvoreB* buscaArvoreB(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* posArqDad){
     noArvoreB* noAux = malloc(sizeof (noArvoreB));
     if(noEhVazio(raiz)) {
@@ -237,38 +251,3 @@ noArvoreB* buscaArvoreB(FILE* arq, noArvoreB* raiz, int info, int* posCha, int* 
     *posCha = i;
     return raiz;
 }
-
-//Retira um nó da lista
-//Pré-condição: arquivo deve estar aberto e ser um arquivo de lista
-//Pós-condição: nó retirado da lista caso pertença a ela
-//void retira(FILE* arq, TipoItem x){
-//    cabecalhoArvoreB* cab = le_cabecalho(arq);
-//    int pos_aux = cab->pos_cabeca;
-//    int pos_ant = cab->pos_cabeca;
-//    noArvoreB* aux = NULL;
-//    while(pos_aux != -1 && // procura o elemento a ser retirado
-//          ((aux = le_no(arq,pos_aux))!= NULL) &&
-//          aux->info != x){ //TODO: Fazer a comparação!
-//        pos_ant = pos_aux;
-//        pos_aux = aux->prox;
-//        free(aux);
-//        aux = NULL;
-//    }
-//    if(pos_aux != -1) { //encontrou o elemento
-//        if(pos_ant == pos_aux){ // remoção na cabeça
-//            cab->pos_cabeca = aux->prox;
-//        }
-//        else { // remoção noArvoreB meio
-//            noArvoreB * ant = le_no(arq, pos_ant);
-//            ant->prox = aux->prox;
-//            escreve_no(arq,ant,pos_ant);
-//            free(ant);
-//        }
-//        aux->prox = cab->pos_livre; // torna o nó removido um nó livre
-//        cab->pos_livre = pos_aux;
-//        escreve_no(arq,aux,pos_aux);
-//        escreve_cabecalho(arq,cab);
-//        free(aux);
-//    }
-//    free(cab);
-//}

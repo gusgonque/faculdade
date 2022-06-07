@@ -5,10 +5,13 @@
 #include "arvoreBArq.h"
 #include "listaSimplesArquivo.h"
 
+// Apresenta a interface principal
+// Pré condição: nenhuma
+// Pós condição: faz alguma das opções
 void interfacePrincipal(){
     int x;
     printf("Bem vindo a Interface Principal!\nDigite um numero para continuar.\n");
-    printf("1 - Interface de registro de usuario. (Inserir/Alterar/Remover)\n");
+    printf("1 - Interface de registro de profissional. (Inserir/Alterar/Remover)\n");
     printf("2 - Carregar arquivo texto.\n");
     printf("3 - Consultar profissional.\n");
     printf("4 - Listar profissionais.\n");
@@ -77,6 +80,9 @@ void interfacePrincipal(){
     }
 }
 
+// Apresenta a interface de registro do usuário
+// Pré condição: x válido
+// Pós condição: faz alguma das opções
 int interfaceRegistro(){
     int x;
     printf("Bem vindo a interface de Registro de profissionais!\nDigite um numero para continuar.\n");
@@ -113,6 +119,8 @@ int interfaceRegistro(){
 }
 
 //Busca o codigo na arvore B, se ele existe, retorna o endereco daquela chave naquele nó do arquivo. Qualquer outro caso retorna -1.
+// Pré condição: arquivo criado.
+// Pós condição: retorna o endereco daquela chave naquele nó do arquivo. Qualquer outro caso retorna -1.
 int buscaCodigo(int cod) {
     FILE* arqInd = fopen("arqIndices.bin","rb+");
     if (arqInd == NULL) {
@@ -134,6 +142,9 @@ int buscaCodigo(int cod) {
         return -1;
 }
 
+// Faz a interface para o usuário inserir um novo profissional
+// Pré condição: nenhuma
+// Pós condição: aciona a função inserirProfissional
 void inserirProfissionalManual(){
     profissional novPro;
     char buffer[CHARMAX];
@@ -168,7 +179,9 @@ void inserirProfissionalManual(){
     inserirProfissional(novPro);
 }
 
-//Insere o profisisonal(chave), na raíz do arq de Indices.
+// Insere o profisisonal(chave), na raíz do arq de Indices.
+// Pré condição: nenhuma
+// Pós condição: Insere o profisisonal(chave), na raíz do arq de Indices.
 void inserirProfissional(profissional proNov){
     FILE* arqInd = fopen("arqIndices.bin","rb+");
     FILE* arqDad = fopen("arqDados.bin","rb+");
@@ -194,6 +207,9 @@ void inserirProfissional(profissional proNov){
     printf("Usuario inserido com sucesso!\n");
 }
 
+// Faz a interface para o usuário alterar um profissional
+// Pré condição: arquivo criado
+// Pós condição: aciona a função alterarProfissional
 void alterarProfissionalManual(){
     profissional pro;
     int x;
@@ -233,6 +249,9 @@ void alterarProfissionalManual(){
         printf("Arquivo de Indices nao criado, retornando ao menu anterior");
 }
 
+// Altera o profissional
+// Pré condição: arquivo criado
+// Pós condição: Altera o profissional
 void alterarProfissional(profissional pro, int booEnd, int booTel) {
     FILE* arqInd = fopen("arqIndices.bin","rb+");
     FILE* arqDad = fopen("arqDados.bin","rb+");
@@ -258,14 +277,23 @@ void alterarProfissional(profissional pro, int booEnd, int booTel) {
     }
 }
 
+// Faz a interface para o usuário remover um profissional
+// Pré condição: Arquivo criado
+// Pós condição: aciona a função removerProfissional
 void removerProfissionalManual(){
 
 }
 
+// Remove um profissional
+// Pré condição: Arquivo criado
+// Pós condição: Remove o profissional
 void removerProfissional(profissional pro){
 
 }
 
+// Carrega o arquivo de funções a serem tratadas pelo programa
+// Pré condição: Arquivo criado
+// Pós condição: arquivo carregado e funções tratadas
 void carregarArquivo(){
     char s[CHARMAX];
     printf("Favor digitar o nome do arquivo a ser carregado. Ex: 'arq.txt'\n");
@@ -274,7 +302,7 @@ void carregarArquivo(){
 
     FILE* arq = fopen(s,"r");
     if(arq == NULL)
-        printf("Nao foi possivel abrir o arquivo, favor verificar o nome e tentar novamente.\n");
+        printf("Nao foi possivel abrir o arquivo.\n");
     else{
         while(feof(arq)==0) {
             char fun;
@@ -301,7 +329,6 @@ void carregarArquivo(){
             } else if(fun == 'R'){
                 fgets(buffer,1000,arq);
                 sscanf(buffer,"%d",&pro->cod);
-                // TODO:RETIRABRANCOS
                 removerProfissional(*pro);
             }
             free(pro);
@@ -313,6 +340,9 @@ void carregarArquivo(){
 
 }
 
+//Busca um profissional no arquivo de dados pelo arquivo de indices
+// Pré condição: Arquivos criados
+// Pós condição: apresenta as indormações do usuário buscado.
 void consultarProfissionalAux(FILE* arqInd, FILE* arqDad, noArvoreB* no, int indCha) {
     int posCha, posArqInd;
     no = buscaArvoreB(arqInd, no, no->chave[indCha], &posCha, &posArqInd);
@@ -321,43 +351,52 @@ void consultarProfissionalAux(FILE* arqInd, FILE* arqDad, noArvoreB* no, int ind
     free(noLista);
 }
 
+// Apresenta a interface de busca do usuário
+// Pré condição: arquivos criados
+// Pós condição: chama o consultarProfissionalAux para apresenta as indormações do usuário buscado.
 void consultarProfissional(){
-
     profissional pro;
     int posCha, posArqDad;
 
-    printf("Digite o codigo do profissional a ser consultado. Digite -1 para retornar ao menu anterior.\n>");
-    scanf("%d",&pro.cod);
-    while (pro.cod != -1 && buscaCodigo(pro.cod) == -1) {
-        printf("Profissional nao encontrado, tente novamente.\n>");
+    FILE* arqInd = fopen("arqIndices.bin","rb+");
+
+    if(arqInd!=NULL) {
+
+        printf("Digite o codigo do profissional a ser consultado.\n>");
         scanf("%d", &pro.cod);
-    }
-
-    if(pro.cod!=-1) {
-
-
-        FILE *arqInd = fopen("arqIndices.bin", "rb+");
-        FILE *arqDad = fopen("arqDados.bin", "rb+");
-
-        if (arqInd != NULL) {
-            cabecalhoArvoreB *cab = leCabecalhoArvoreB(arqInd);
-            noArvoreB *no = buscaArvoreB(arqInd, leNoArvoreB(arqInd, cab->pos_raiz), pro.cod, &posCha, &posArqDad);
-            consultarProfissionalAux(arqInd, arqDad, no, buscaCodigo(pro.cod));
-            free(cab);
-            free(no);
+        while ( buscaCodigo(pro.cod) == -1) {
+            printf("Profissional nao encontrado, tente novamente.\n>");
+            scanf("%d", &pro.cod);
         }
 
-        fclose(arqInd);
-        fclose(arqDad);
+        if (pro.cod != -1) {
+            FILE *arqDad = fopen("arqDados.bin", "rb+");
+
+            if (arqInd != NULL) {
+                cabecalhoArvoreB *cab = leCabecalhoArvoreB(arqInd);
+                noArvoreB *no = buscaArvoreB(arqInd, leNoArvoreB(arqInd, cab->pos_raiz), pro.cod, &posCha, &posArqDad);
+                consultarProfissionalAux(arqInd, arqDad, no, buscaCodigo(pro.cod));
+                free(cab);
+                free(no);
+            }
+            fclose(arqDad);
+        }
     }
+    fclose(arqInd);
 }
 
+// Imprime todas as informações dos usuários na chave
+// Pré condição: arquivos criados
+// Pós condição: chama o consultarProfissionalAux para apresenta as indormações do usuário buscado.
 void imprimirProfissionaisNo(FILE* arqInd, FILE* arqDad, noArvoreB* noRaiz){
     int i;
     for (i = 0; i < noRaiz->numChaves; ++i)
         consultarProfissionalAux(arqInd, arqDad, noRaiz, i);
 }
 
+// Função recursiva que lista todos os profissionais no nó a partir do indice de chave indCha
+// Pré condição: arquivos criados
+// Pós condição: chama o consultarProfissionalAux para apresenta as indormações dos profissionais.
 void listarProfissionaisAux(FILE* arqInd, FILE* arqDad, noArvoreB* noPai, int indCha){
     if (eh_folha(noPai))
         imprimirProfissionaisNo(arqInd, arqDad, noPai);
@@ -375,6 +414,9 @@ void listarProfissionaisAux(FILE* arqInd, FILE* arqDad, noArvoreB* noPai, int in
     }
 }
 
+// Chama a função listarProfissionaisAux
+// Pré condição: arquivos criados
+// Pós condição: Chama a função listarProfissionaisAux para apresenta as indormações dos profissionais.
 void listarProfissionais(){
     FILE* arqInd = fopen("arqIndices.bin","rb+");
     FILE* arqDad = fopen("arqDados.bin","rb+");
@@ -394,6 +436,9 @@ void listarProfissionais(){
     fclose(arqDad);
 }
 
+// Imprime os nós da chave
+// Pré condição: nó valido
+// Pós condição: Imprime os nós da chave
 void imprimirCodigosNivelAux(noArvoreB *no) {
     int i;
     printf("[");
@@ -405,6 +450,9 @@ void imprimirCodigosNivelAux(noArvoreB *no) {
     printf("] ");
 }
 
+// chama o imprimirCodigosNivelAux pra imprimir os códigos por nível
+// Pré condição: nó valido
+// Pós condição:chama o imprimirCodigosNivelAux pra imprimir os códigos  por nível
 void imprimirCodigosNivel(FILE* arqInd,noArvoreB* no,int niv){
     int i;
     imprimirCodigosNivelAux(no);
@@ -418,6 +466,9 @@ void imprimirCodigosNivel(FILE* arqInd,noArvoreB* no,int niv){
     }
 }
 
+// Imprime os nós por nível
+// Pré condição: arquivos criados
+// Pós condição: Imprime os nós por nível
 void imprimirArvoreB(){
     FILE* arqInd = fopen("arqIndices.bin","rb+");
 
@@ -437,6 +488,9 @@ void imprimirArvoreB(){
     fclose(arqInd);
 }
 
+// Imprime os nós livres da lista de Dados
+// Pré condição: arquivos criados
+// Pós condição: Imprime os nós
 void imprimirPosicoesLivresDados(FILE* arqDad){
     cabecalhoLista* cab = le_cabecalho_lista(arqDad);
     if(cab->pos_livre != -1) {
@@ -456,6 +510,9 @@ void imprimirPosicoesLivresDados(FILE* arqDad){
     free(cab);
 }
 
+// Imprime os nós livres da árvore de Índices
+// Pré condição: arquivos criados
+// Pós condição: Imprime os nós
 void imprimirPosicoesLivresIndices(FILE* arqInd){
     cabecalhoArvoreB* cab = leCabecalhoArvoreB(arqInd);
     if(cab->pos_livre != -1) {

@@ -1,9 +1,7 @@
-//
-// Created by Gustavo on 07/06/2022.
-//
 #include "trab3AED.h"
 
 int main() {
-    interfacePrincipal();
+    TST_TRIE dicionario = carregarDicionario();
+    interfacePrincipal(dicionario);
     return 0;
 }

@@ -7,8 +7,7 @@
 
 
 // Interface Principal
-void interfacePrincipal(){
-    TST_TRIE dicionario = carregarDicionario();
+void interfacePrincipal(TST_TRIE dicionario){
     int x;
     printf("Bem vindo a Interface Principal!\nDigite um numero para continuar.\n");
     printf("1 - Consultar palavra.\n");
@@ -28,7 +27,7 @@ void interfacePrincipal(){
     switch (x) {
         case 1:
             consultarPalavra(dicionario);
-            interfacePrincipal();
+            interfacePrincipal(dicionario);
             break;
         case 2:
 
@@ -89,9 +88,16 @@ TST_TRIE consultarPalavraAux(TST_TRIE no, char* str) {
     return consultarPalavraAux(no->menor,str+1);
 }
 
-// Percorre o nó na ordem in-ordem e imprime todas as palavras que encontrar.
-void consultarPalavraAux2 (TST_TRIE no, char *str, int i){
-//todo...
+// Função auxiliar à consulta de palavra que percorre o nó na ordem in-ordem e imprime até MAX palavras que encontrar.
+void consultarPalavraAux2(TST_TRIE no, char *str, int i, int MAX) {
+    char strAux[MAXCHAR];
+    if(ehFolha(no) && no->valor != -1){
+        strcat(strAux, str);
+        strcat(strAux, &(no->ch));//todo testar
+        printf("%s",strAux);
+    } else if (!ehFolha(no)){
+
+    }
 }
 
 // Consulta as palavras que tiverem o prefisso

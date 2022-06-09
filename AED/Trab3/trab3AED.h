@@ -1,7 +1,3 @@
-//
-// Created by Gustavo on 07/06/2022.
-//
-
 #ifndef FACULDADE_TRAB3AED_H
 #define FACULDADE_TRAB3AED_H
 
@@ -9,7 +5,7 @@
 
 #define MAXCHAR 150
 
-void interfacePrincipal();
+void interfacePrincipal(TST_TRIE dicionario);
 
 int ehPalavraValida(char* str);
 

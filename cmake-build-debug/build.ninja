@@ -622,8 +622,8 @@ build faculdade.exe: CXX_EXECUTABLE_LINKER__faculdade_Debug CMakeFiles/faculdade
 
 build cmake_object_order_depends_target_main: phony || CMakeFiles/main.dir
 
-build CMakeFiles/main.dir/AED/Trab2/main.c.obj: C_COMPILER__main_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab2/main.c || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\AED\Trab2\main.c.obj.d
+build CMakeFiles/main.dir/AED/Trab2/mainTrab2AED.c.obj: C_COMPILER__main_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab2/mainTrab2AED.c || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\AED\Trab2\mainTrab2AED.c.obj.d
   FLAGS = -g
   INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
   OBJECT_DIR = CMakeFiles\main.dir
@@ -658,7 +658,7 @@ build CMakeFiles/main.dir/AED/Trab2/listaSimplesArquivo.c.obj: C_COMPILER__main_
 #############################################
 # Link the executable ..\AED\Trab2\main.exe
 
-build ../AED/Trab2/main.exe: C_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/AED/Trab2/main.c.obj CMakeFiles/main.dir/AED/Trab2/trab2AED.c.obj CMakeFiles/main.dir/AED/Trab2/arvoreBArq.c.obj CMakeFiles/main.dir/AED/Trab2/listaSimplesArquivo.c.obj
+build ../AED/Trab2/main.exe: C_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/AED/Trab2/mainTrab2AED.c.obj CMakeFiles/main.dir/AED/Trab2/trab2AED.c.obj CMakeFiles/main.dir/AED/Trab2/arvoreBArq.c.obj CMakeFiles/main.dir/AED/Trab2/listaSimplesArquivo.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\main.dir
@@ -702,6 +702,54 @@ build ../teste.exe: C_EXECUTABLE_LINKER__teste_Debug CMakeFiles/teste.dir/teste.
   TARGET_IMPLIB = libteste.dll.a
   TARGET_PDB = teste.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target mainTrab3AED
+
+
+#############################################
+# Order-only phony target for mainTrab3AED
+
+build cmake_object_order_depends_target_mainTrab3AED: phony || CMakeFiles/mainTrab3AED.dir
+
+build CMakeFiles/mainTrab3AED.dir/AED/Trab3/mainTrab3AED.c.obj: C_COMPILER__mainTrab3AED_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab3/mainTrab3AED.c || cmake_object_order_depends_target_mainTrab3AED
+  DEP_FILE = CMakeFiles\mainTrab3AED.dir\AED\Trab3\mainTrab3AED.c.obj.d
+  FLAGS = -g
+  INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
+  OBJECT_DIR = CMakeFiles\mainTrab3AED.dir
+  OBJECT_FILE_DIR = CMakeFiles\mainTrab3AED.dir\AED\Trab3
+
+build CMakeFiles/mainTrab3AED.dir/AED/Trab3/trab3AED.c.obj: C_COMPILER__mainTrab3AED_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab3/trab3AED.c || cmake_object_order_depends_target_mainTrab3AED
+  DEP_FILE = CMakeFiles\mainTrab3AED.dir\AED\Trab3\trab3AED.c.obj.d
+  FLAGS = -g
+  INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
+  OBJECT_DIR = CMakeFiles\mainTrab3AED.dir
+  OBJECT_FILE_DIR = CMakeFiles\mainTrab3AED.dir\AED\Trab3
+
+build CMakeFiles/mainTrab3AED.dir/AED/Trab3/arvoreTRIE_TST.c.obj: C_COMPILER__mainTrab3AED_Debug C$:/Users/Gustavo/CLionProjects/faculdade/AED/Trab3/arvoreTRIE_TST.c || cmake_object_order_depends_target_mainTrab3AED
+  DEP_FILE = CMakeFiles\mainTrab3AED.dir\AED\Trab3\arvoreTRIE_TST.c.obj.d
+  FLAGS = -g
+  INCLUDES = -IC:/Users/Gustavo/CLionProjects/faculdade/AED -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o -IC:/Users/Gustavo/CLionProjects/faculdade/Computa??o/Habib/Aulas
+  OBJECT_DIR = CMakeFiles\mainTrab3AED.dir
+  OBJECT_FILE_DIR = CMakeFiles\mainTrab3AED.dir\AED\Trab3
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target mainTrab3AED
+
+
+#############################################
+# Link the executable ..\AED\Trab3\mainTrab3AED.exe
+
+build ../AED/Trab3/mainTrab3AED.exe: C_EXECUTABLE_LINKER__mainTrab3AED_Debug CMakeFiles/mainTrab3AED.dir/AED/Trab3/mainTrab3AED.c.obj CMakeFiles/mainTrab3AED.dir/AED/Trab3/trab3AED.c.obj CMakeFiles/mainTrab3AED.dir/AED/Trab3/arvoreTRIE_TST.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\mainTrab3AED.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = ..\AED\Trab3\mainTrab3AED.exe
+  TARGET_IMPLIB = libmainTrab3AED.dll.a
+  TARGET_PDB = mainTrab3AED.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -734,6 +782,10 @@ build main: phony ../AED/Trab2/main.exe
 
 build main.exe: phony ../AED/Trab2/main.exe
 
+build mainTrab3AED: phony ../AED/Trab3/mainTrab3AED.exe
+
+build mainTrab3AED.exe: phony ../AED/Trab3/mainTrab3AED.exe
+
 build teste: phony ../teste.exe
 
 build teste.exe: phony ../teste.exe
@@ -746,7 +798,7 @@ build teste.exe: phony ../teste.exe
 #############################################
 # Folder: C:/Users/Gustavo/CLionProjects/faculdade/cmake-build-debug
 
-build all: phony faculdade.exe ../AED/Trab2/main.exe ../teste.exe
+build all: phony faculdade.exe ../AED/Trab2/main.exe ../teste.exe ../AED/Trab3/mainTrab3AED.exe
 
 # =============================================================================
 # Built-in targets

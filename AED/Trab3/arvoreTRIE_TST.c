@@ -32,7 +32,10 @@ TST_TRIE inseirTST(TST_TRIE no, char *str, int* valor){
             no = NULL;
         return no;
     } else if((*str) == no->ch){ // caracter maior lexicograficamente
-        no->igual = inseirTST(no->igual, str+1, valor);
+        if(acabouString(str))
+            no->valor = *valor;
+        else
+            no->igual = inseirTST(no->igual, str+1, valor);
         return no;
     } else if((*str) > no->ch){ // caracter maior lexicograficamente
         no->maior = inseirTST(no->maior, str, valor);

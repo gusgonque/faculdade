@@ -18,7 +18,7 @@ void interfacePrincipal(TST_TRIE dicionario){
 
     printf(">");
     scanf("%d",&x);
-    while (x<0 || x>7){
+    while (x<0 || x>4){
         printf("Comando invalido. Digite novamente.\n");
         printf(">");
         scanf("%d",&x);
@@ -30,10 +30,16 @@ void interfacePrincipal(TST_TRIE dicionario){
             interfacePrincipal(dicionario);
             break;
         case 2:
-
+            imprimirDicionario(dicionario);
+            interfacePrincipal(dicionario);
             break;
         case 3:
+            carregarStopWords(dicionario);
+            interfacePrincipal(dicionario);
+            break;
+        case 4:
 
+            interfacePrincipal(dicionario);
             break;
         case 0:
             break;
@@ -61,7 +67,7 @@ TST_TRIE carregarDicionario(){
         return NULL;
     } else {
         char buffer[MAXCHAR], str[MAXCHAR];
-        int valor = 0;
+        int valor = 1;
         TST_TRIE noRaiz;
         while (feof(arq)==0) {
             fgets(buffer, MAXCHAR, arq);
@@ -77,38 +83,83 @@ TST_TRIE carregarDicionario(){
 }
 
 // Função auxiliar à consulta de palavra que percorre o nó e retorna o nó em que o prefixo termina.
-// Pré-Condição: str tem que ser um prefixo em nó.
-TST_TRIE consultarPalavraAux(TST_TRIE no, char* str) {
-    if(*(str+1) == '\0')
+// Pré-Condição: pref tem que ser um prefixo em nó.
+TST_TRIE consultarPalavraAux(TST_TRIE no, char* pref) {
+    if(*(pref + 1) == '\0')
         return no;
-    if(*(str+1) == no->ch)
-        return consultarPalavraAux(no->igual,str+1);
-    if(*(str+1) > no->ch)
-        return consultarPalavraAux(no->maior,str+1);
-    return consultarPalavraAux(no->menor,str+1);
+    if(*pref == no->ch)
+        return consultarPalavraAux(no->igual, pref + 1);
+    if(*pref > no->ch)
+        return consultarPalavraAux(no->maior, pref + 1);
+    return consultarPalavraAux(no->menor, pref + 1);
 }
 
 // Função auxiliar à consulta de palavra que percorre o nó na ordem in-ordem e imprime até MAX palavras que encontrar.
-void consultarPalavraAux2(TST_TRIE no, char *str, int i, int MAX) {
+void consultarPalavraAux2(TST_TRIE no, char *pref, int* i, int MAX) {
     char strAux[MAXCHAR];
-    if(ehFolha(no) && no->valor != -1){
-        strcat(strAux, str);
-        strcat(strAux, &(no->ch));//todo testar
-        printf("%s",strAux);
-    } else if (!ehFolha(no)){
-
+    strcpy(strAux, pref);
+    int tam = strlen(strAux);
+    if(*i<MAX && !ehVazio(no)) {
+        if(no->valor != -1) {
+            (*i)++;
+            printf("%s ", pref);
+        }if(*i<MAX && !ehFolha(no)){
+            if(!ehVazio(no->menor)){
+                strAux[tam-1] = no->menor->ch;
+                consultarPalavraAux2(no->menor, strAux, i, MAX);
+            }if(*i<MAX && !ehVazio(no->igual)){
+                strAux[tam-1] = no->ch;
+                strAux[tam] = no->igual->ch;
+                strAux[tam+1] = '\0';
+                consultarPalavraAux2(no->igual, strAux, i, MAX);
+            }if(*i<MAX && !ehVazio(no->maior)){
+                strAux[tam-1] = no->maior->ch;
+                strAux[tam] = '\0';
+                consultarPalavraAux2(no->maior, strAux, i, MAX);
+            }
+        }
     }
+
 }
 
 // Consulta as palavras que tiverem o prefisso
 void consultarPalavra(TST_TRIE dicionario) {
-    char str;
+    char pref[MAXCHAR];
     printf("Digite a palavra que deseja consultar.\n");
-    scanf(" %s",&str);
-    if(buscaTST(dicionario,&str) == 0)
+    scanf(" %s",&pref);
+    if(buscaTST(dicionario,pref) == 0)
         printf("Prefixo nao tem palavras no dicionario");
-    else {
-        TST_TRIE noAux = consultarPalavraAux(dicionario, &str);
+    else{
+        TST_TRIE no = consultarPalavraAux(dicionario,pref);
+        int i=0;
+        printf("Palavras que comecam com o prefixo:\n");
+        consultarPalavraAux2(no, pref, &i, 10);
+    }
+}
 
+// Imprime todas as palavras no dicionario
+void imprimirDicionario(TST_TRIE dicionario){
+    int i = 0;
+    char strAux[2] = "0";
+    consultarPalavraAux2(dicionario, strAux, &i, 100000); // LIMITE DE 100000 PALAVRAS NO DICIONARIO....
+}
+
+// Carrega o arquivo de palavras a serem removidas do dicionario
+TST_TRIE carregarStopWords(TST_TRIE dicionario){
+    printf("Carregando arquivo 'stopwords.txt'\n");
+    FILE* arq = fopen("stopwords.txt","r");
+    if (arq == NULL) {
+        printf("Nao foi possivel carregar o arquivo, por favor revisar o arquivo.\n");
+        return NULL;
+    } else {
+        char buffer[MAXCHAR], str[MAXCHAR];
+        while (feof(arq)==0) {
+            fgets(buffer, MAXCHAR, arq);
+            sscanf(buffer," %s", &str);
+            if(ehPalavraValida(str))
+                removerTST(dicionario,str);
+        }
+        printf("Arquivo carregado com sucesso!\n");
+        return dicionario;
     }
 }

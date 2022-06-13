@@ -71,7 +71,7 @@ TST_TRIE carregarDicionario(){
         TST_TRIE noRaiz;
         while (feof(arq)==0) {
             fgets(buffer, MAXCHAR, arq);
-            sscanf(buffer," %s", &str);
+            sscanf(buffer," %s", str);
             if(ehPalavraValida(str)){
                 noRaiz = inseirTST(noRaiz, str, &valor);
                 valor++;
@@ -102,7 +102,7 @@ void consultarPalavraAux2(TST_TRIE no, char *pref, int* i, int MAX) {
     if(*i<MAX && !ehVazio(no)) {
         if(no->valor != -1) {
             (*i)++;
-            printf("%s ", pref);
+            printf("%s\n", pref);
         }if(*i<MAX && !ehFolha(no)){
             if(!ehVazio(no->menor)){
                 strAux[tam-1] = no->menor->ch;
@@ -125,16 +125,17 @@ void consultarPalavraAux2(TST_TRIE no, char *pref, int* i, int MAX) {
 // Consulta as palavras que tiverem o prefisso
 void consultarPalavra(TST_TRIE dicionario) {
     char pref[MAXCHAR];
-    printf("Digite a palavra que deseja consultar.\n");
-    scanf(" %s",&pref);
+    printf("Digite a palavra que deseja consultar.\n>");
+    scanf(" %s",pref);
     if(buscaTST(dicionario,pref) == 0)
         printf("Prefixo nao tem palavras no dicionario");
     else{
         TST_TRIE no = consultarPalavraAux(dicionario,pref);
         int i=0;
-        printf("Palavras que comecam com o prefixo:\n");
+        printf("Palavras que comecam com o prefixo %s:\n", pref);
         consultarPalavraAux2(no, pref, &i, 10);
     }
+    printf("\n");
 }
 
 // Imprime todas as palavras no dicionario
@@ -142,6 +143,7 @@ void imprimirDicionario(TST_TRIE dicionario){
     int i = 0;
     char strAux[2] = "0";
     consultarPalavraAux2(dicionario, strAux, &i, 100000); // LIMITE DE 100000 PALAVRAS NO DICIONARIO....
+    printf("\n");
 }
 
 // Carrega o arquivo de palavras a serem removidas do dicionario
@@ -155,7 +157,7 @@ TST_TRIE carregarStopWords(TST_TRIE dicionario){
         char buffer[MAXCHAR], str[MAXCHAR];
         while (feof(arq)==0) {
             fgets(buffer, MAXCHAR, arq);
-            sscanf(buffer," %s", &str);
+            sscanf(buffer," %s", str);
             if(ehPalavraValida(str))
                 removerTST(dicionario,str);
         }

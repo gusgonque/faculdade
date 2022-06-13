@@ -85,8 +85,7 @@ void removerTST(TST_TRIE no, char *str){
         } else if((*str) > no->ch){
             removerTST(no->maior, str);
             removerTSTaux(no->maior);
-        }
-        else{
+        } else{
             removerTST(no->menor, str);
             removerTSTaux(no->menor);
         }

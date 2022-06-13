@@ -17,14 +17,12 @@ typedef noTST_TRIE * TST_TRIE;
 
 int ehVazio(TST_TRIE no);
 
-TST_TRIE inseirTST(TST_TRIE no, char *str, int* valor);
+void inserirTST(TST_TRIE * no, char * str, int valor);
 
-int buscaTST(TST_TRIE no, char *str);
+int buscaTST(TST_TRIE *no, char *str);
 
 int ehFolha(TST_TRIE no);
 
-void removerTSTaux(TST_TRIE no);
-
-void removerTST(TST_TRIE no, char *str);
+void removerTST(TST_TRIE *no, char *str);
 
 #endif //FACULDADE_ARVORETRIE_TST_H

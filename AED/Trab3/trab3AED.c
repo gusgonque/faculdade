@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -68,12 +69,12 @@ TST_TRIE carregarDicionario(){
     } else {
         char buffer[MAXCHAR], str[MAXCHAR];
         int valor = 1;
-        TST_TRIE noRaiz;
+        TST_TRIE noRaiz = NULL;
         while (feof(arq)==0) {
             fgets(buffer, MAXCHAR, arq);
             sscanf(buffer," %s", str);
             if(ehPalavraValida(str)){
-                noRaiz = inseirTST(noRaiz, str, &valor);
+                inserirTST(&noRaiz, str, valor);
                 valor++;
             }
         }
@@ -127,7 +128,7 @@ void consultarPalavra(TST_TRIE dicionario) {
     char pref[MAXCHAR];
     printf("Digite a palavra que deseja consultar.\n>");
     scanf(" %s",pref);
-    if(buscaTST(dicionario,pref) == 0)
+    if(buscaTST(&dicionario,pref) == 0)
         printf("Prefixo nao tem palavras no dicionario");
     else{
         TST_TRIE no = consultarPalavraAux(dicionario,pref);
@@ -159,7 +160,7 @@ TST_TRIE carregarStopWords(TST_TRIE dicionario){
             fgets(buffer, MAXCHAR, arq);
             sscanf(buffer," %s", str);
             if(ehPalavraValida(str))
-                removerTST(dicionario,str);
+                removerTST(&dicionario,str);
         }
         printf("Arquivo carregado com sucesso!\n");
         return dicionario;

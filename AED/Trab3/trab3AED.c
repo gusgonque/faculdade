@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -8,7 +7,7 @@
 
 
 // Interface Principal
-void interfacePrincipal(TST_TRIE dicionario){
+void interfacePrincipal(TST_TRIE *dicionario){
     int x;
     printf("Bem vindo a Interface Principal!\nDigite um numero para continuar.\n");
     printf("1 - Consultar palavra.\n");
@@ -27,11 +26,11 @@ void interfacePrincipal(TST_TRIE dicionario){
 
     switch (x) {
         case 1:
-            consultarPalavra(dicionario);
+            consultarPalavra(*dicionario);
             interfacePrincipal(dicionario);
             break;
         case 2:
-            imprimirDicionario(dicionario);
+            imprimirDicionario(*dicionario);
             interfacePrincipal(dicionario);
             break;
         case 3:
@@ -60,26 +59,24 @@ int ehPalavraValida(char* str) {
 }
 
 // Carrega o arquivo do dicionário
-TST_TRIE carregarDicionario(){
+void carregarDicionario(TST_TRIE *dicionario) {
     printf("Carregando arquivo 'dicionario.txt'\n");
     FILE* arq = fopen("dicionario.txt","r");
     if (arq == NULL) {
         printf("Nao foi possivel carregar o arquivo, por favor revisar o arquivo.\n");
-        return NULL;
+        dicionario = NULL;
     } else {
         char buffer[MAXCHAR], str[MAXCHAR];
         int valor = 1;
-        TST_TRIE noRaiz = NULL;
         while (feof(arq)==0) {
             fgets(buffer, MAXCHAR, arq);
             sscanf(buffer," %s", str);
             if(ehPalavraValida(str)){
-                inserirTST(&noRaiz, str, valor);
+                inserirTST(dicionario, str, valor);
                 valor++;
             }
         }
         printf("Arquivo carregado com sucesso!\n");
-        return noRaiz;
     }
 }
 
@@ -148,21 +145,19 @@ void imprimirDicionario(TST_TRIE dicionario){
 }
 
 // Carrega o arquivo de palavras a serem removidas do dicionario
-TST_TRIE carregarStopWords(TST_TRIE dicionario){
+void carregarStopWords(TST_TRIE *dicionario){
     printf("Carregando arquivo 'stopwords.txt'\n");
     FILE* arq = fopen("stopwords.txt","r");
     if (arq == NULL) {
         printf("Nao foi possivel carregar o arquivo, por favor revisar o arquivo.\n");
-        return NULL;
     } else {
         char buffer[MAXCHAR], str[MAXCHAR];
         while (feof(arq)==0) {
             fgets(buffer, MAXCHAR, arq);
             sscanf(buffer," %s", str);
             if(ehPalavraValida(str))
-                removerTST(&dicionario,str);
+                removerTST(dicionario,str);
         }
         printf("Arquivo carregado com sucesso!\n");
-        return dicionario;
     }
 }

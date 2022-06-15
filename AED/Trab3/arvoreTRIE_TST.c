@@ -63,8 +63,8 @@ void removerTST(TST_TRIE *no, char *str) {
     if (buscaTST(no, str) > 0) { // só vai remover se a palavra estiver no nó
         if (acabouString(str)) {
             if (ehFolha(*no)) {
-                free(*no);
-                *no = NULL;
+                free(no);
+                no = NULL;
             } else
                 (*no)->valor = -1;
         } else if ((*str) == (*no)->ch) { // se a palavra for mais embaixo

@@ -5,11 +5,11 @@
 
 #define MAXCHAR 150
 
-void interfacePrincipal(TST_TRIE dicionario);
+void interfacePrincipal(TST_TRIE *dicionario);
 
 int ehPalavraValida(char* str);
 
-TST_TRIE carregarDicionario();
+void carregarDicionario(TST_TRIE *dicionario);
 
 TST_TRIE consultarPalavraAux(TST_TRIE no, char* pref);
 
@@ -19,6 +19,6 @@ void consultarPalavra(TST_TRIE dicionario);
 
 void imprimirDicionario(TST_TRIE dicionario);
 
-TST_TRIE carregarStopWords(TST_TRIE dicionario);
+void carregarStopWords(TST_TRIE *dicionario);
 
 #endif //FACULDADE_TRAB3AED_H

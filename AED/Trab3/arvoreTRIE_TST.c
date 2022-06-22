@@ -21,7 +21,7 @@ int acabouString(char *str){
 void inserirTST(TST_TRIE * no, char * str, int valor) {
     if(ehVazio(*no)){ // nó vazio
         if((*str) != '\0') { // fim da string
-            *no = malloc(sizeof (TST_TRIE));
+            *no = (noTST_TRIE*) malloc(sizeof (noTST_TRIE));
             (*no)->ch = (*str);
             (*no)->valor = (acabouString(str) ? (valor) : -1 ); // Se for a última letra adiciona o valor.
             (*no)->maior = NULL;
@@ -58,21 +58,28 @@ int ehFolha(TST_TRIE no){
     return (ehVazio(no->menor) && ehVazio(no->maior) && ehVazio(no->igual));
 }
 
+void removerTSTaux(TST_TRIE *no) {
+    if (ehFolha(*no)) {
+        free(*no);
+        *no = NULL;
+    } else // Mao eh folha
+        (*no)->valor = -1;
+}
+
 // Remove da árvore a string str, se tiver
-void removerTST(TST_TRIE *no, char *str) {
+void removerTST(TST_TRIE * no, char *str) {
     if (buscaTST(no, str) > 0) { // só vai remover se a palavra estiver no nó
         if (acabouString(str)) {
-            if (ehFolha(*no)) {
-                free(no);
-                no = NULL;
-            } else
-                (*no)->valor = -1;
+            removerTSTaux(no);
         } else if ((*str) == (*no)->ch) { // se a palavra for mais embaixo
             removerTST(&(*no)->igual, str + 1);
-        } else if ((*str) > (*no)->ch) {
+            removerTSTaux(&(*no)->igual);
+        } else if ((*str) > (*no)->ch) { // TODO: testar no debug
             removerTST(&(*no)->maior, str);
+            removerTSTaux(&(*no)->maior);
         } else {
             removerTST(&(*no)->menor, str);
+            removerTSTaux(&(*no)->menor);
         }
     }
 }

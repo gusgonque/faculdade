@@ -59,7 +59,7 @@ int ehPalavraValida(char* str) {
 }
 
 // Carrega o arquivo do dicionário
-void carregarDicionario(TST_TRIE *dicionario) {
+void carregarDicionario(TST_TRIE * dicionario) {
     printf("Carregando arquivo 'dicionario.txt'\n");
     FILE* arq = fopen("dicionario.txt","r");
     if (arq == NULL) {
@@ -140,7 +140,7 @@ void consultarPalavra(TST_TRIE dicionario) {
 void imprimirDicionario(TST_TRIE dicionario){
     int i = 0;
     char strAux[2] = "0";
-    consultarPalavraAux2(dicionario, strAux, &i, 100000); // LIMITE DE 100000 PALAVRAS NO DICIONARIO....
+    consultarPalavraAux2(dicionario, strAux, &i, 100000); // LIMITE DE 100000 PALAVRAS NO DICIONARIO.... TODO: tamanho do dicionario
     printf("\n");
 }
 

@@ -4,6 +4,7 @@
 
 int main() {
     TST_TRIE dicionario = NULL;
+    //inserirTST(&dicionario,"guto",1);
     carregarDicionario(&dicionario);
     interfacePrincipal(&dicionario);
     return 0;

@@ -58,28 +58,52 @@ int ehFolha(TST_TRIE no){
     return (ehVazio(no->menor) && ehVazio(no->maior) && ehVazio(no->igual));
 }
 
+// Função auxiliar do removerTST que remove o nó pai do nó removido se aquele for folha e não tiver valor definido.
+// Pré condição: Nó não nulo.
 void removerTSTaux(TST_TRIE *no) {
-    if (ehFolha(*no)) {
+    if (ehFolha(*no) && ((*no)->valor == -1)) {
         free(*no);
         *no = NULL;
-    } else // Mao eh folha
-        (*no)->valor = -1;
+    }
+}
+
+TST_TRIE removerTSTaux3(TST_TRIE const *no){
+    TST_TRIE noAux = *no;
+    if(!ehVazio(noAux->menor)){
+        noAux = noAux->menor;
+        while (!ehVazio(noAux->maior))
+            noAux = noAux->maior;
+    } else {
+        noAux = noAux->maior;
+        while (!ehVazio(noAux->menor))
+            noAux = noAux->menor;
+    }
+    return noAux;
+}
+
+void removerTSTaux2(TST_TRIE * no){
+    if(!ehFolha(*no) && ehVazio((*no)->igual)){
+        TST_TRIE noAux = removerTSTaux3(no);
+
+    }
 }
 
 // Remove da árvore a string str, se tiver
 void removerTST(TST_TRIE * no, char *str) {
     if (buscaTST(no, str) > 0) { // só vai remover se a palavra estiver no nó
         if (acabouString(str)) {
-            removerTSTaux(no);
+            if (ehFolha(*no)) {
+                free(*no);
+                *no = NULL;
+            } else // Mao eh folha
+                (*no)->valor = -1;
         } else if ((*str) == (*no)->ch) { // se a palavra for mais embaixo
             removerTST(&(*no)->igual, str + 1);
-            removerTSTaux(&(*no)->igual);
-        } else if ((*str) > (*no)->ch) { // TODO: testar no debug
+        } else if ((*str) > (*no)->ch) {
             removerTST(&(*no)->maior, str);
-            removerTSTaux(&(*no)->maior);
-        } else {
+        } else
             removerTST(&(*no)->menor, str);
-            removerTSTaux(&(*no)->menor);
-        }
+        removerTSTaux(no);
+        removerTSTaux2(no);
     }
 }

@@ -21,7 +21,7 @@ int acabouString(char *str){
 void inserirTST(TST_TRIE * no, char * str, int valor) {
     if(ehVazio(*no)){ // nó vazio
         if((*str) != '\0') { // fim da string
-            *no = (noTST_TRIE*) malloc(sizeof (noTST_TRIE));
+            (*no) = (noTST_TRIE*) malloc(sizeof (noTST_TRIE));
             (*no)->ch = (*str);
             (*no)->valor = (acabouString(str) ? (valor) : -1 ); // Se for a última letra adiciona o valor.
             (*no)->maior = NULL;
@@ -29,7 +29,7 @@ void inserirTST(TST_TRIE * no, char * str, int valor) {
             (*no)->igual = NULL;
             inserirTST(&(*no)->igual, str + 1, valor);
         } else
-            *no = NULL;
+            (*no) = NULL;
     } else if((*str) == (*no)->ch){ // caracter igual lexicograficamente
         if(acabouString(str))
             (*no)->valor = valor;
@@ -63,11 +63,14 @@ int ehFolha(TST_TRIE no){
 void removerTSTaux(TST_TRIE *no) {
     if (ehFolha(*no) && ((*no)->valor == -1)) {
         free(*no);
-        *no = NULL;
+        (*no) = NULL;
     }
 }
 
-TST_TRIE removerTSTaux3(TST_TRIE const *no){
+// Percorre o nó e retorna o nó sucessor do nó parâmetro.
+// Pré-Condição: Nó parâmetro não vazio.
+// Pós-Condição: Retorna o nó sucessor.
+TST_TRIE encontraSucessor(TST_TRIE const *no){
     TST_TRIE noAux = *no;
     if(!ehVazio(noAux->menor)){
         noAux = noAux->menor;
@@ -81,20 +84,45 @@ TST_TRIE removerTSTaux3(TST_TRIE const *no){
     return noAux;
 }
 
-void removerTSTaux2(TST_TRIE * no){
-    if(!ehFolha(*no) && ehVazio((*no)->igual)){
-        TST_TRIE noAux = removerTSTaux3(no);
+// Faz a rotação do nó, se necessário, duplicando o sucessor no nó parâmetro e removendo o nó duplicado.
+// Pré-Condição: Nó parâmetro não vazio.
+void rotacaoTST(TST_TRIE * no){//TODO: testar.
+    if(!ehFolha(*no) && ehVazio((*no)->igual)){ // Testa se é necessário realizar a rotação
+        TST_TRIE noAux = encontraSucessor(no);
+        TST_TRIE noAuxMaior = (*no)->maior;
+        TST_TRIE noAuxMenor = (*no)->menor;
+        (*no) = noAux;
+        (*no)->maior = noAuxMaior;
+        (*no)->menor = noAuxMenor;
 
+        noAux = *no;
+        if(!ehVazio((*no)->menor)){ // Encontra o pai do sucessor e remove o nó duplicado
+            (*no) = (*no)->menor;
+            if(!ehVazio((*no)->maior))
+                while (!ehVazio((*no)->maior->maior))
+                    (*no) = (*no)->maior;
+            free((*no)->maior);
+            (*no)->maior = NULL;
+        } else {
+            (*no) = (*no)->maior;
+            if(!ehVazio((*no)->menor))
+                while (!ehVazio((*no)->menor->menor))
+                    (*no) = (*no)->menor;
+            free((*no)->menor);
+            (*no)->menor = NULL;
+        }
+
+        (*no) = noAux;
     }
 }
 
-// Remove da árvore a string str, se tiver
+// Remove da árvore a string str, se tiver.
 void removerTST(TST_TRIE * no, char *str) {
     if (buscaTST(no, str) > 0) { // só vai remover se a palavra estiver no nó
         if (acabouString(str)) {
             if (ehFolha(*no)) {
                 free(*no);
-                *no = NULL;
+                (*no) = NULL;
             } else // Mao eh folha
                 (*no)->valor = -1;
         } else if ((*str) == (*no)->ch) { // se a palavra for mais embaixo
@@ -104,6 +132,6 @@ void removerTST(TST_TRIE * no, char *str) {
         } else
             removerTST(&(*no)->menor, str);
         removerTSTaux(no);
-        removerTSTaux2(no);
+        rotacaoTST(no);
     }
 }

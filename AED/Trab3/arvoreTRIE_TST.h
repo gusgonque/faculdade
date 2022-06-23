@@ -25,9 +25,9 @@ int ehFolha(TST_TRIE no);
 
 void removerTSTaux(TST_TRIE *no);
 
-TST_TRIE removerTSTaux3(TST_TRIE const *no);
+TST_TRIE encontraSucessor(TST_TRIE const *no);
 
-void removerTSTaux2(TST_TRIE * no);
+void rotacaoTST(TST_TRIE * no);
 
 void removerTST(TST_TRIE *no, char *str);
 

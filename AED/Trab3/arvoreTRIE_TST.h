@@ -23,7 +23,7 @@ int buscaTST(TST_TRIE *no, char *str);
 
 int ehFolha(TST_TRIE no);
 
-void removerTSTaux(TST_TRIE *no);
+void removerTSTaux2(TST_TRIE *no);
 
 TST_TRIE encontraSucessor(TST_TRIE const *no);
 

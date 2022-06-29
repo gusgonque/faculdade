@@ -111,7 +111,7 @@ void consultarPalavraAux2(TST_TRIE no, char *pref, int* i, int MAX) {
                 strAux[tam+1] = '\0';
                 consultarPalavraAux2(no->igual, strAux, i, MAX);
             }if(*i<MAX && !ehVazio(no->maior)){
-                strAux[tam-1] = no->maior->ch;
+                    strAux[tam-1] = no->maior->ch;
                 strAux[tam] = '\0';
                 consultarPalavraAux2(no->maior, strAux, i, MAX);
             }

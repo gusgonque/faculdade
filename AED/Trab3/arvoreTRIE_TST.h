@@ -17,6 +17,8 @@ typedef noTST_TRIE * TST_TRIE;
 
 int ehVazio(TST_TRIE no);
 
+int acabouString(char *str);
+
 void inserirTST(TST_TRIE * no, char * str, int valor);
 
 int buscaTST(TST_TRIE *no, char *str);
@@ -30,5 +32,11 @@ TST_TRIE encontraSucessor(TST_TRIE const *no);
 void rotacaoTST(TST_TRIE * no);
 
 void removerTST(TST_TRIE *no, char *str);
+
+int min (int a, int b, int c);
+
+int distanciaLevenshtein (char * str1, char * str2);
+
+void consultarSemelhanteTST(TST_TRIE no, char *str, char *strW, int n);
 
 #endif //FACULDADE_ARVORETRIE_TST_H

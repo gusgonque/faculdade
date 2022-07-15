@@ -4,8 +4,6 @@ project(faculdade)
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(AED)
-include_directories(Computa��o)
-include_directories(Computa��o/Habib/Aulas)
 
 add_executable(faculdade
         AED/Listas/Lista1/1.c

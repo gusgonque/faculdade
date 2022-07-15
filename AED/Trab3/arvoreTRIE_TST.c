@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "arvoreTRIE_TST.h"
 
 // Verifica se o nó é vazio.
@@ -59,9 +60,9 @@ int ehFolha(TST_TRIE no){
 }
 
 // Função auxiliar do removerTST que remove o nó pai do nó removido se aquele for folha e não tiver valor definido.
-// Pré condição: Nó não nulo.
-void removerTSTaux(TST_TRIE *no) {
-    if (ehFolha(*no) && ((*no)->valor == -1)) {
+// Pré condição:
+void removerTSTaux2(TST_TRIE *no) {
+    if (!ehVazio(*no) && ehFolha(*no) && ((*no)->valor == -1)) {
         free(*no);
         (*no) = NULL;
     }
@@ -85,34 +86,32 @@ TST_TRIE encontraSucessor(TST_TRIE const *no){
 }
 
 // Faz a rotação do nó, se necessário, duplicando o sucessor no nó parâmetro e removendo o nó duplicado.
-// Pré-Condição: Nó parâmetro não vazio.
+// Pré-Condição:
 void rotacaoTST(TST_TRIE * no){//TODO: testar.
-    if(!ehFolha(*no) && ehVazio((*no)->igual)){ // Testa se é necessário realizar a rotação
-        TST_TRIE noAux = encontraSucessor(no);
+    if(!ehVazio(*no) && !ehFolha(*no) && ehVazio((*no)->igual)){ // Testa se é necessário realizar a rotação
+        TST_TRIE noAux = (*no);
+        TST_TRIE noAuxSucessor = encontraSucessor(no);
         TST_TRIE noAuxMaior = (*no)->maior;
         TST_TRIE noAuxMenor = (*no)->menor;
-        (*no) = noAux;
+        (*no) = noAuxSucessor;
         (*no)->maior = noAuxMaior;
         (*no)->menor = noAuxMenor;
 
-        noAux = *no;
-        if(!ehVazio((*no)->menor)){ // Encontra o pai do sucessor e remove o nó duplicado
-            (*no) = (*no)->menor;
-            if(!ehVazio((*no)->maior))
-                while (!ehVazio((*no)->maior->maior))
-                    (*no) = (*no)->maior;
-            free((*no)->maior);
-            (*no)->maior = NULL;
+        if(!ehVazio(noAux->menor)){ // Encontra o pai do sucessor e remove o nó duplicado
+            noAux = noAux->menor;
+            if(!ehVazio(noAux->maior))
+                while (!ehVazio(noAux->maior->maior))
+                    noAux = noAux->maior;
+            free(noAux->maior);
+            noAux->maior = NULL;
         } else {
-            (*no) = (*no)->maior;
-            if(!ehVazio((*no)->menor))
-                while (!ehVazio((*no)->menor->menor))
-                    (*no) = (*no)->menor;
-            free((*no)->menor);
-            (*no)->menor = NULL;
+            noAux = noAux->maior;
+            if(!ehVazio(noAux->menor))
+                while (!ehVazio(noAux->menor->menor))
+                    noAux = noAux->menor;
+            free(noAux->menor);
+            noAux->menor = NULL;
         }
-
-        (*no) = noAux;
     }
 }
 
@@ -131,7 +130,52 @@ void removerTST(TST_TRIE * no, char *str) {
             removerTST(&(*no)->maior, str);
         } else
             removerTST(&(*no)->menor, str);
-        removerTSTaux(no);
-        rotacaoTST(no);
+        removerTSTaux2(no);
+        //rotacaoTST(no);
+    }
+}
+
+int min(int a, int b, int c){
+    if(a <= b && a <= c)
+        return a;
+    else if(b <= a && b <= c)
+        return b;
+    return c;
+}
+
+int distanciaLevenshtein (char * str1, char * str2){
+    unsigned int  x, y, str1len, str2len;
+    str1len = strlen(str1);
+    str2len = strlen(str2);
+    unsigned int matrix[str2len+1][str1len+1];
+    matrix[0][0] = 0;
+    for (x = 1; x <= str2len; x++)
+        matrix[x][0] = matrix[x-1][0] + 1;
+    for (y = 1; y <= str1len; y++)
+        matrix[0][y] = matrix[0][y-1] + 1;
+    for (x = 1; x <= str2len; x++)
+        for (y = 1; y <= str1len; y++)
+            matrix[x][y] = min(matrix[x-1][y] + 1, matrix[x][y-1] + 1, matrix[x-1][y-1] + (str1[y-1] == str2[x-1] ? 0 : 1));
+
+    return(matrix[str2len][str1len]);
+}
+
+void consultarSemelhanteTST(TST_TRIE no, char *str, char *strW, int n) {
+    if(!ehVazio(no)) {
+
+        consultarSemelhanteTST((no->menor),str,strW,n);
+
+        int aux = strlen(str);
+        str = (char *) realloc(str, sizeof(str)+1);
+        *(str + aux) = no->ch;
+        *(str + aux + 1) = '\0';
+
+        if((no->valor != -1) && (distanciaLevenshtein(str, strW) <= n))
+            printf("%s\n", str);
+        consultarSemelhanteTST((no->igual),str,strW,n);
+
+        *(str + aux) = '\0';
+        strW = (char *) realloc(strW, sizeof(strW));
+        consultarSemelhanteTST((no->maior),str,strW,n);
     }
 }

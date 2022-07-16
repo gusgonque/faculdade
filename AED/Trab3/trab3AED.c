@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 #include "trab3AED.h"
 #include "arvoreTRIE_TST.h"
@@ -38,7 +39,7 @@ void interfacePrincipal(TST_TRIE *dicionario){
             interfacePrincipal(dicionario);
             break;
         case 4:
-
+            consultaSemelhante(*dicionario);
             interfacePrincipal(dicionario);
             break;
         case 0:
@@ -160,4 +161,26 @@ void carregarStopWords(TST_TRIE *dicionario){
         }
         printf("Arquivo carregado com sucesso!\n");
     }
+}
+
+void consultaSemelhante(TST_TRIE dicionario){
+    char *strW = (char *) malloc(50 * sizeof(char)), *strAux = (char *) malloc( sizeof(char));
+    int n;
+
+    printf("Digite a palvra e a distancia (0-3) que deseja consultar.\n>");
+    scanf("%s", strW);
+    printf(">");
+    scanf("%d",&n);
+    while(n > 3 || n < 0){
+        printf("Valor invalido!! Insira a distancia novamente.\n>");
+        scanf("%d", &n);
+    }
+
+    strW = (char *) realloc(strW, sizeof(strW));
+    *strAux = '\0';
+
+    printf("Palavras semelhantes:\n");
+    consultarSemelhanteTST(dicionario,strAux,strW, n);
+    free(strW);
+    free(strAux);
 }

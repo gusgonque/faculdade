@@ -21,4 +21,6 @@ void imprimirDicionario(TST_TRIE dicionario);
 
 void carregarStopWords(TST_TRIE *dicionario);
 
+void consultaSemelhante(TST_TRIE dicionario);
+
 #endif //FACULDADE_TRAB3AED_H

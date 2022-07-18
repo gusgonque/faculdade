@@ -8,3 +8,4 @@ neurogenico
   neuroglia
    neurologia
             neurologista
+            neuro

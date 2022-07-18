@@ -7,7 +7,9 @@
 #include "arvoreTRIE_TST.h"
 
 
-// Interface Principal
+// Interface Principal.
+// Pré-Condição: dicionário tem que ser um nó TST válido.
+// Pós-Condição: 'Interface' do menu aberto para o usuário escolher uma ação.
 void interfacePrincipal(TST_TRIE *dicionario){
     int x;
     printf("Bem vindo a Interface Principal!\nDigite um numero para continuar.\n");
@@ -50,7 +52,9 @@ void interfacePrincipal(TST_TRIE *dicionario){
     }
 }
 
-// Verifica se a palavra é valida
+// Verifica se a palavra é valida.
+// Pré-Condição: String str deve existir.
+// Pós-Condição: Transforma todos os caracteres em letras minúsculas e retorna um teste de ter apenas letras minúsculas (1) ou não (0).
 int ehPalavraValida(char* str) {
     if((*str) != '\0') {
         *str = tolower(*str);
@@ -59,7 +63,9 @@ int ehPalavraValida(char* str) {
         return 1;
 }
 
-// Carrega o arquivo do dicionário
+// Carrega o arquivo do dicionário.
+// Pré-Condição: Nó dicionário tem que ser um nó TST válido.
+// Pós-Condição: Nó dicionário carregado com as palavras do arquivo.
 void carregarDicionario(TST_TRIE * dicionario) {
     printf("Carregando arquivo 'dicionario.txt'\n");
     FILE* arq = fopen("dicionario.txt","r");
@@ -81,19 +87,22 @@ void carregarDicionario(TST_TRIE * dicionario) {
     }
 }
 
-// Função auxiliar à consulta de palavra que percorre o nó e retorna o nó em que o prefixo termina.
-// Pré-Condição: pref tem que ser um prefixo em nó.
+// Função auxiliar à consulta de palavra que percorre o nó.
+// Pré-Condição: String pref tem que ser um prefixo em nó.
+// Pós-Condição: Retorna o nó em que o prefixo termina.
 TST_TRIE consultarPalavraAux(TST_TRIE no, char* pref) {
     if(*(pref + 1) == '\0')
         return no;
     if(*pref == no->ch)
         return consultarPalavraAux(no->igual, pref + 1);
     if(*pref > no->ch)
-        return consultarPalavraAux(no->maior, pref + 1);
-    return consultarPalavraAux(no->menor, pref + 1);
+        return consultarPalavraAux(no->maior, pref);
+    return consultarPalavraAux(no->menor, pref);
 }
 
-// Função auxiliar à consulta de palavra que percorre o nó na ordem in-ordem e imprime até MAX palavras que encontrar.
+// Função auxiliar à consulta de palavra que percorre o nó na ordem in-ordem.
+// Pré-Condição: String pref tem que ser um prefixo em nó.
+// Pós-Condição: Imprime até MAX palavras que encontrar, em ordem alfabética.
 void consultarPalavraAux2(TST_TRIE no, char *pref, int* i, int MAX) {
     char strAux[MAXCHAR];
     strcpy(strAux, pref);
@@ -121,7 +130,9 @@ void consultarPalavraAux2(TST_TRIE no, char *pref, int* i, int MAX) {
 
 }
 
-// Consulta as palavras que tiverem o prefisso
+// Consulta as palavras que tiverem o prefisso.
+// Pré-Condição: Nó dicionário tem que ser um nó TST válido.
+// Pós-Condição: Imprime as palavras que encontrar no dicionário, em ordem alfabética.
 void consultarPalavra(TST_TRIE dicionario) {
     char pref[MAXCHAR];
     printf("Digite a palavra que deseja consultar.\n>");
@@ -137,15 +148,19 @@ void consultarPalavra(TST_TRIE dicionario) {
     printf("\n");
 }
 
-// Imprime todas as palavras no dicionario
+// Imprime todas as palavras no dicionario.
+// Pré-Condição: Nó dicionário tem que ser um nó TST válido.
+// Pós-Condição: Imprime as palavras do dicionário, em ordem alfabética.
 void imprimirDicionario(TST_TRIE dicionario){
     int i = 0;
     char strAux[2] = "0";
-    consultarPalavraAux2(dicionario, strAux, &i, 100000); // LIMITE DE 100000 PALAVRAS NO DICIONARIO.... TODO: tamanho do dicionario
+    consultarPalavraAux2(dicionario, strAux, &i, 100000); // LIMITE DE 100000 PALAVRAS NO DICIONARIO...
     printf("\n");
 }
 
-// Carrega o arquivo de palavras a serem removidas do dicionario
+// Carrega o arquivo de palavras a serem removidas do dicionario.
+// Pré-Condição: Nó dicionário tem que ser um nó TST válido.
+// Pós-Condição: Remove palavras do dicionário, de acordo com o arquivo.
 void carregarStopWords(TST_TRIE *dicionario){
     printf("Carregando arquivo 'stopwords.txt'\n");
     FILE* arq = fopen("stopwords.txt","r");
@@ -163,6 +178,9 @@ void carregarStopWords(TST_TRIE *dicionario){
     }
 }
 
+// Consulta as palavras semelhantes à digitada pelo usuário, pelo algoritmo de Levenshtein.
+// Pré-Condição: Nó dicionário tem que ser um nó TST válido.
+// Pós-Condição: Imprime as palavras semelhantes à escolhida.
 void consultaSemelhante(TST_TRIE dicionario){
     char *strW = (char *) malloc(50 * sizeof(char)), *strAux = (char *) malloc( sizeof(char));
     int n;
@@ -178,9 +196,13 @@ void consultaSemelhante(TST_TRIE dicionario){
 
     strW = (char *) realloc(strW, sizeof(strW));
     *strAux = '\0';
-
-    printf("Palavras semelhantes:\n");
-    consultarSemelhanteTST(dicionario,strAux,strW, n);
+    if(!ehPalavraValida(strW))
+        printf("Palavra invalida.\n");
+    else {
+        printf("Palavras semelhantes:\n");
+        consultarSemelhanteTST(dicionario, strAux, strW, n);
+    }
+    printf("\n");
     free(strW);
     free(strAux);
 }

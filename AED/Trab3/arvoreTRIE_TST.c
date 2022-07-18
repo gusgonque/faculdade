@@ -1,24 +1,25 @@
-//
-// Created by Gustavo on 07/06/2022.
-//
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "arvoreTRIE_TST.h"
 
 // Verifica se o nó é vazio.
+// Pré-Condição: Nó TST válido.
+// Pós-Condição: Retorna o resultado do teste do nó ser vazio (1) ou não (0).
 int ehVazio(TST_TRIE no){
     return (no == NULL);
 }
 
 // Verifica se o próximo caracter da string é \0.
+// Pré-Condição: String válida.
+// Pós-Condição: Retorna o resultado do teste da string ter acabado (1) ou não (0).
 int acabouString(char *str){
     return *(str + 1) == '\0';
 }
 
-//Insere no nó a string.
-// Pré condição: valor tem que ser maior do que 0.
+// Insere no nó a string.
+// Pré-condição: valor tem que ser maior do que 0.
+// Pós-Condição: Insere a string str no nó, pelo algorítmo TST com o valor indicando fim de uma palavra.
 void inserirTST(TST_TRIE * no, char * str, int valor) {
     if(ehVazio(*no)){ // nó vazio
         if((*str) != '\0') { // fim da string
@@ -43,7 +44,9 @@ void inserirTST(TST_TRIE * no, char * str, int valor) {
     }
 }
 
-// Busca a string no nó e retorna 0 se não é possível continuar a busca, ou o valor do nó que termina a string.
+// Busca a string no nó.
+// Pré-Condição: Nó TST válido.
+// Pós-Condição: Retorna 0 se não é possível continuar a busca, ou o valor do nó que termina a string.
 int buscaTST(TST_TRIE *no, char *str){
     if(ehVazio(*no))
         return 0;
@@ -55,67 +58,25 @@ int buscaTST(TST_TRIE *no, char *str){
 }
 
 // Verifica se todas as ramificações do nó são vazias.
+// Pré-Condição: Nó TST válido.
+// Pós-Condição: Retorna o resultado do teste do nó ser folha (1) ou não (0).
 int ehFolha(TST_TRIE no){
     return (ehVazio(no->menor) && ehVazio(no->maior) && ehVazio(no->igual));
 }
 
 // Função auxiliar do removerTST que remove o nó pai do nó removido se aquele for folha e não tiver valor definido.
-// Pré condição:
-void removerTSTaux2(TST_TRIE *no) {
+// Pré-Condição: Nó TST válido.
+// Pós-Condição: Remove o nó pai do nó removido se aquele for folha e não tiver valor definido.
+void removerTSTaux(TST_TRIE *no) {
     if (!ehVazio(*no) && ehFolha(*no) && ((*no)->valor == -1)) {
         free(*no);
         (*no) = NULL;
     }
 }
 
-// Percorre o nó e retorna o nó sucessor do nó parâmetro.
-// Pré-Condição: Nó parâmetro não vazio.
-// Pós-Condição: Retorna o nó sucessor.
-TST_TRIE encontraSucessor(TST_TRIE const *no){
-    TST_TRIE noAux = *no;
-    if(!ehVazio(noAux->menor)){
-        noAux = noAux->menor;
-        while (!ehVazio(noAux->maior))
-            noAux = noAux->maior;
-    } else {
-        noAux = noAux->maior;
-        while (!ehVazio(noAux->menor))
-            noAux = noAux->menor;
-    }
-    return noAux;
-}
-
-// Faz a rotação do nó, se necessário, duplicando o sucessor no nó parâmetro e removendo o nó duplicado.
-// Pré-Condição:
-void rotacaoTST(TST_TRIE * no){//TODO: testar.
-    if(!ehVazio(*no) && !ehFolha(*no) && ehVazio((*no)->igual)){ // Testa se é necessário realizar a rotação
-        TST_TRIE noAux = (*no);
-        TST_TRIE noAuxSucessor = encontraSucessor(no);
-        TST_TRIE noAuxMaior = (*no)->maior;
-        TST_TRIE noAuxMenor = (*no)->menor;
-        (*no) = noAuxSucessor;
-        (*no)->maior = noAuxMaior;
-        (*no)->menor = noAuxMenor;
-
-        if(!ehVazio(noAux->menor)){ // Encontra o pai do sucessor e remove o nó duplicado
-            noAux = noAux->menor;
-            if(!ehVazio(noAux->maior))
-                while (!ehVazio(noAux->maior->maior))
-                    noAux = noAux->maior;
-            free(noAux->maior);
-            noAux->maior = NULL;
-        } else {
-            noAux = noAux->maior;
-            if(!ehVazio(noAux->menor))
-                while (!ehVazio(noAux->menor->menor))
-                    noAux = noAux->menor;
-            free(noAux->menor);
-            noAux->menor = NULL;
-        }
-    }
-}
-
 // Remove da árvore a string str, se tiver.
+// Pré-Condição: Nó TST válido.
+// Pós-Condição: Remove da árvore a string str, se tiver.
 void removerTST(TST_TRIE * no, char *str) {
     if (buscaTST(no, str) > 0) { // só vai remover se a palavra estiver no nó
         if (acabouString(str)) {
@@ -130,11 +91,13 @@ void removerTST(TST_TRIE * no, char *str) {
             removerTST(&(*no)->maior, str);
         } else
             removerTST(&(*no)->menor, str);
-        removerTSTaux2(no);
-        //rotacaoTST(no);
+        removerTSTaux(no);
     }
 }
 
+// Retorna o menor valor entre os parâmetros.
+// Pré-Condição: Parâmetros devem ser números válidos.
+// Pós-Condição: Retorna o menor valor entre os parâmetros.
 int min(int a, int b, int c){
     if(a <= b && a <= c)
         return a;
@@ -143,6 +106,9 @@ int min(int a, int b, int c){
     return c;
 }
 
+// Calcula a distância de semelhança entre duas strings pelo algorítmo de Levenshtein.
+// Pré-Condição: Parâmetros devem ser strings válidas.
+// Pós-Condição: Retorna a distância de semelhança das strings.
 int distanciaLevenshtein (char * str1, char * str2){
     unsigned int  x, y, str1len, str2len;
     str1len = strlen(str1);
@@ -160,9 +126,11 @@ int distanciaLevenshtein (char * str1, char * str2){
     return(matrix[str2len][str1len]);
 }
 
+// Percorre o nó e consulta as palavras semelhantes à string strW, com valor de distância de semelhança n.
+// Pré-Condição: Parâmetros devem ser válidas.
+// Pós-Condição: Imprime as palavras semelhantes.
 void consultarSemelhanteTST(TST_TRIE no, char *str, char *strW, int n) {
     if(!ehVazio(no)) {
-
         consultarSemelhanteTST((no->menor),str,strW,n);
 
         int aux = strlen(str);

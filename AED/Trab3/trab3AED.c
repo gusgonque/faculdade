@@ -12,7 +12,7 @@
 // Pós-Condição: 'Interface' do menu aberto para o usuário escolher uma ação.
 void interfacePrincipal(TST_TRIE *dicionario){
     int x;
-    printf("Bem vindo a Interface Principal!\nDigite um numero para continuar.\n");
+    printf("Menu Principal!\nDigite um numero para continuar.\n");
     printf("1 - Consultar palavra.\n");
     printf("2 - Imprimir dicionario.\n");
     printf("3 - Carregar arquivo de stopwords.\n");
@@ -67,7 +67,12 @@ int ehPalavraValida(char* str) {
 // Pré-Condição: Nó dicionário tem que ser um nó TST válido.
 // Pós-Condição: Nó dicionário carregado com as palavras do arquivo.
 void carregarDicionario(TST_TRIE * dicionario) {
-    printf("Carregando arquivo 'dicionario.txt'\n");
+    char *arqDicicionario = (char *) malloc(50 * sizeof(char));
+
+    printf("Entre com o nome do arquivo dicionario:\n> ");
+    scanf("%[^\n]%*c", arqDicicionario);
+    arqDicicionario = (char *) realloc(arqDicicionario, sizeof(arqDicicionario));
+
     FILE* arq = fopen("dicionario.txt","r");
     if (arq == NULL) {
         printf("Nao foi possivel carregar o arquivo, por favor revisar o arquivo.\n");
@@ -83,7 +88,9 @@ void carregarDicionario(TST_TRIE * dicionario) {
                 valor++;
             }
         }
-        printf("Arquivo carregado com sucesso!\n");
+        printf("Arquivo carregado com sucesso!\n\n");
+        free(arqDicicionario);
+
     }
 }
 
@@ -127,25 +134,31 @@ void consultarPalavraAux2(TST_TRIE no, char *pref, int* i, int MAX) {
             }
         }
     }
-
 }
 
 // Consulta as palavras que tiverem o prefisso.
 // Pré-Condição: Nó dicionário tem que ser um nó TST válido.
 // Pós-Condição: Imprime as palavras que encontrar no dicionário, em ordem alfabética.
 void consultarPalavra(TST_TRIE dicionario) {
-    char pref[MAXCHAR];
+    char *pref =  (char *) malloc(MAXCHAR * sizeof(char));
+
     printf("Digite a palavra que deseja consultar.\n>");
-    scanf(" %s",pref);
-    if(buscaTST(&dicionario,pref) == 0)
-        printf("Prefixo nao tem palavras no dicionario");
-    else{
-        TST_TRIE no = consultarPalavraAux(dicionario,pref);
-        int i=0;
-        printf("Palavras que comecam com o prefixo %s:\n", pref);
-        consultarPalavraAux2(no, pref, &i, 10);
+    scanf("%s",pref);
+    pref = (char *) realloc(pref, sizeof(pref));
+    if(!ehPalavraValida(pref))
+        printf("Palavra invalida.\n\n");
+    else {
+        if (buscaTST(&dicionario, pref) == 0)
+            printf("Prefixo nao tem palavras no dicionario\n");
+        else {
+            TST_TRIE no = consultarPalavraAux(dicionario, pref);
+            int i = 0;
+            printf("Palavras que comecam com o prefixo %s:\n", pref);
+            consultarPalavraAux2(no, pref, &i, 10);
+        }
+        printf("\n");
     }
-    printf("\n");
+    free(pref);
 }
 
 // Imprime todas as palavras no dicionario.
@@ -182,7 +195,7 @@ void carregarStopWords(TST_TRIE *dicionario){
 // Pré-Condição: Nó dicionário tem que ser um nó TST válido.
 // Pós-Condição: Imprime as palavras semelhantes à escolhida.
 void consultaSemelhante(TST_TRIE dicionario){
-    char *strW = (char *) malloc(50 * sizeof(char)), *strAux = (char *) malloc( sizeof(char));
+    char *strW = (char *) malloc(MAXCHAR * sizeof(char)), *strAux = (char *) malloc( sizeof(char));
     int n;
 
     printf("Digite a palvra e a distancia (0-3) que deseja consultar.\n>");

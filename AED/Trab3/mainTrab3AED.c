@@ -4,7 +4,7 @@
 
 int main() {
     TST_TRIE dicionario = NULL;
-    //inserirTST(&dicionario,"guto",1);
+    printf("Program feito por Gustavo Queiroz e Yuri Bueno\n\n");
     carregarDicionario(&dicionario);
     interfacePrincipal(&dicionario);
     return 0;

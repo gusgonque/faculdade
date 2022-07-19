@@ -73,7 +73,7 @@ void carregarDicionario(TST_TRIE * dicionario) {
     scanf("%[^\n]%*c", arqDicicionario);
     arqDicicionario = (char *) realloc(arqDicicionario, sizeof(arqDicicionario));
 
-    FILE* arq = fopen("dicionario.txt","r");
+    FILE* arq = fopen(arqDicicionario,"r");
     if (arq == NULL) {
         printf("Nao foi possivel carregar o arquivo, por favor revisar o arquivo.\n");
         dicionario = NULL;
@@ -98,11 +98,11 @@ void carregarDicionario(TST_TRIE * dicionario) {
 // Pré-Condição: String pref tem que ser um prefixo em nó.
 // Pós-Condição: Retorna o nó em que o prefixo termina.
 TST_TRIE consultarPalavraAux(TST_TRIE no, char* pref) {
-    if(*(pref + 1) == '\0')
-        return no;
-    if(*pref == no->ch)
+    if(*pref == no->ch) {
+        if (*(pref + 1) == '\0')
+            return no;
         return consultarPalavraAux(no->igual, pref + 1);
-    if(*pref > no->ch)
+    } if(*pref > no->ch)
         return consultarPalavraAux(no->maior, pref);
     return consultarPalavraAux(no->menor, pref);
 }

@@ -1,0 +1,16 @@
+Cadastrar novo serviço
+	data solicitacao
+	data entregue
+
+	telefone
+		Marca
+		Modelo
+		Serviço
+		Custo
+	Cliente
+		nome
+		telefone
+
+Criar relatório
+	Total em um mes
+	Total em um ano
